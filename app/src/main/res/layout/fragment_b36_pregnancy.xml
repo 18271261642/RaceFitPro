@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <include layout="@layout/appbar_toolbar"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:textSize="18sp"
+            android:text="@string/b36_expected_date"
+            android:padding="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/chang_white"/>
+
+
+
+        <RelativeLayout
+            android:id="@+id/b36PregnRel"
+            style="@style/B30DeviceRelStyle"
+            android:background="@drawable/square_white_btn_change">
+
+
+            <TextView
+                style="@style/B30DeviceStyle"
+                android:text="@string/b36_expected_baby" />
+
+
+
+            <TextView
+                android:id="@+id/expeDateTv"
+                android:layout_width="wrap_content"
+                android:text=""
+                android:layout_toLeftOf="@id/bimg2"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:textSize="18sp"
+                android:layout_height="wrap_content" />
+
+
+            <ImageView
+                android:id="@+id/bimg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/fgm_fitness_arrow_left" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/chang_white"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:gravity="left"
+            android:padding="5dp"
+            android:text="@string/b36_smart_baby_born"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/chang_white"/>
+
+
+        <RelativeLayout
+            style="@style/B30DeviceRelStyle"
+            android:background="@drawable/square_white_btn_change">
+
+
+            <TextView
+                style="@style/B30DeviceStyle"
+                android:text="@string/b36_smart_test" />
+
+
+
+            <ToggleButton
+                android:id="@+id/babyBornSmartTogg"
+                android:layout_width="@dimen/size_70"
+                android:layout_height="@dimen/size_40"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/size_3"
+                android:background="@drawable/toggle_select"
+                android:textOff="@null"
+                android:textOn="@null"
+                />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/chang_white"/>
+
+
+
+        <RelativeLayout
+            android:id="@+id/lastJingqiRel"
+            style="@style/B30DeviceRelStyle"
+            android:background="@drawable/square_white_btn_change">
+
+
+            <TextView
+                style="@style/B30DeviceStyle"
+                android:text="@string/b36_last_period" />
+
+
+            <TextView
+                android:id="@+id/lastJingqiStartTv"
+                android:layout_width="wrap_content"
+                android:text=""
+                android:layout_toLeftOf="@id/lastJingqiDateIm"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:textSize="18sp"
+                android:layout_height="wrap_content" />
+
+
+            <ImageView
+                android:id="@+id/lastJingqiDateIm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="3dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/fgm_fitness_arrow_left" />
+
+        </RelativeLayout>
+
+
+
+
+        <Button
+            android:id="@+id/b36PregnSaveBtn"
+            android:layout_width="match_parent"
+            android:textSize="18sp"
+            android:text="@string/save"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="@dimen/size_25"
+            android:background="@drawable/blue_btn_selector"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

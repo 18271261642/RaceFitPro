@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!--API27 BottomNavigationView通过反射控制setShiftingMode，
+    升级到API28后出现java.lang.NoSuchFieldException: No field mShiftingMode。
+    API28可以在布局文件增加app:labelVisibilityMode="labeled" 进行处理-->
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/navigation" />
+
+
+    <com.example.bozhilun.android.widget.NoScrollViewPager
+        android:id="@+id/b30View_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/navigation"
+        android:background="@color/b30_sport"
+        tools:ignore="UselessLeaf" />
+
+    <!--<com.example.bozhilun.android.widget.NoScrollViewPager-->
+    <!--android:id="@+id/b30View_pager"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_marginTop="0dp"-->
+    <!--android:layout_marginBottom="0dp"-->
+    <!--android:background="@color/b30_sport"-->
+    <!--app:layout_constraintBottom_toTopOf="@+id/navigation"-->
+    <!--app:layout_constraintTop_toTopOf="parent"-->
+    <!--tools:ignore="UselessLeaf" />-->
+
+
+    <!--<android.support.design.widget.BottomNavigationView-->
+    <!--android:id="@+id/navigation"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="0dp"-->
+    <!--android:layout_marginEnd="0dp"-->
+    <!--android:elevation="@dimen/size_5"-->
+    <!--android:translationZ="@dimen/size_5"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--app:layout_constraintRight_toRightOf="parent"-->
+    <!--app:menu="@menu/navigation"-->
+    <!--tools:targetApi="lollipop" />-->
+
+</RelativeLayout>

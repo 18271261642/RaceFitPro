@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--
+    showAsAction主要是针对菜单的显示起作用的，它有三个可选项
+    always：总是显示在界面上
+    never：不显示在界面上，只让出现在右边的三个点中
+    ifRoom：如果有位置才显示，不然就出现在右边的三个点中
+    -->
+    <!--<item-->
+    <!--android:id="@+id/action_add_new_frend"-->
+    <!--android:icon="@mipmap/image_w30s_about"-->
+    <!--android:orderInCategory="100"-->
+    <!--android:title="添加好友"-->
+    <!--app:actionViewClass="android.support.v7.widget.SearchView"-->
+    <!--app:showAsAction="never" />-->
+    <!--<item-->
+    <!--android:id="@+id/action_new_frend_apply"-->
+    <!--android:icon="@mipmap/image_w30s_about"-->
+    <!--android:orderInCategory="100"-->
+    <!--android:title="好友申请"-->
+    <!--app:showAsAction="never" />-->
+
+    <!--<item-->
+        <!--android:id="@+id/action_add_new_frend"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title="详细资料对TA公开"-->
+        <!--app:actionViewClass="android.support.v7.widget.SearchView"-->
+        <!--app:showAsAction="never" />-->
+
+    <!--<item-->
+        <!--android:id="@+id/action_new_frend_apply"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title="详细资料对TA隐藏"-->
+        <!--app:showAsAction="never" />-->
+    <item
+        android:id="@+id/action_new_frend_apply"
+        android:orderInCategory="100"
+        android:icon="@mipmap/ic_close_frend"
+        app:showAsAction="always"
+        tools:ignore="MenuTitle" />
+</menu>

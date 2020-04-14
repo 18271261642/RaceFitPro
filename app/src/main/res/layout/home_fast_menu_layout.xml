@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeFastLin"
+    android:layout_width="match_parent"
+    android:background="#55C1E9"
+    android:padding="5dp"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/homeImg1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/home_alert"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="25dp"
+       />
+
+
+    <TextView
+        android:id="@+id/homeFastStatusTv"
+        android:layout_width="wrap_content"
+        android:text=""
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/homeImg1"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content" />
+
+
+    <ImageView
+        android:layout_width="@dimen/size_25"
+        android:background="@mipmap/home_setting"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginRight="25dp"
+        android:layout_height="@dimen/size_25" />
+
+
+</android.support.constraint.ConstraintLayout>

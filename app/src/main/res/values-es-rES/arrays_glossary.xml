@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name= "glossary_breath_item_1">
+		<item>El términos médicos de número de respiraciones por minuto, una vez de fluctuación del pecho es una vez de respiración, es decir, una vez de inhalación y una vez de exhalación.</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_2">
+		<item>1. Respiración lenta: el ritmo respiratorio es regular pero la frecuencia es menos de 10 veces por minuto, común en el final de la vida o antes de la apnea. Los nervios, las enfermedades metabólicas o ciertos medicamentos que toman demasiado debido a la inhibición del centro respiratorio, también pueden producir la espiración lenta. \n\n2. Respiración rápida: respiración rápida, sensación de malestar respiratorio.</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_3">
+		<item>Para las dificultades respiratorias, las medidas de emergencia en la casa son las siguientes: 1. Mantener la calma, para evitar el estrés emocional de pacientes con dificultades respiratorias mayores. \n\n2. Tomar postura semi-recostada o sentada, reducir el consumo de fatiga y oxígeno. \n\n3. Mantener el aire interior fresco y ventilado. \n\n4. Dar una dieta ligera, animar a los pacientes a comer verdura y fruta para complementar agua del cuerpo. \n\n5. tomar adecuadamente las pastillas para reducir flema y medicamentos antiespasmódicos como Bisolvon, aminofilina, etc, con el fin de mantener la permeabilidad de las vías respiratorias. \n\n6. si estar gravemente enfermo, tener que llevarle urgentemente al hospital cercano en el tiempo.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_1">
+		<item>La apnea indica que el flujo de aire de la boca y la nariz se detiene por completo durante más de o igual a 10 segundos.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_2">
+		<item>1. Ronquidos irregulares y variaciones de alta y baja a menudo se aparecen alternativamente con ronquidos, paro respiratorio, jadeos,y ronquidos, el tiempo de interrupción de flujo de aire general es de 20-30 segundos, unos pocos hasta 2 minutos o más, ahora mismo el paciente puede ser cianosis significativa( Los labios o las uñas son morados). \n\n2. se levanta, se vuelve más frecuentemente en la noche , a menudo conduce a una baja calidad del sueño, causando por somnolencia diurna, mareos, fatiga.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_3">
+		<item>Para los pacientes con ronquido de la apnea del sueño, Además de atenerse a la advertencia médica de medicamentos y cirugía, se puede curar o aliviar la enfermedad a través de la siguiente manera: \n1 Controlar el peso de cuerpo. debido a la acumulación de grasa de los pacientes obesos, en el proceso de respiración el aumento de la presión intra-abdominal y la disminución de la función pulmonar llevó a la hipoxia. \n\n2. Dejar de toma alcohol y fumar,el tabaquismo, el consumo de alcohol puede causar anomalías en el metabolismo de los lípidos, el endurecimiento de las arterias, el agravamiento de la situación en la obstrucción de las vías respiratorias. \n\n3. ejercicio moderado. El ejercicio moderado puede mejorar el suministro de sangre cardiovascular y cerebrovascular, con el fin de mejorar la función de ventilación, fortalecer la resistencia del cuerpo, reducir la incidencia de la enfermedad nasofaríngea. \n\n 4. Sueño lateral. Pacientes toman la posición lateral apropiada para dormir, puede mantener la permeabilidad de las vías respiratorias.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_1">
+		<item>La carga de trabajo del corazón de índice de perfusión, para reflejar la situación de flujo sanguíneo pulsátil.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_2">
+		<item>1.El valor de pi es mayor. \n\n2. Frecuencia cardíaca y presión arterial son altas. \n\n3. Respiración rápida, a menudo sensación de fatiga.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_3">
+		<item>1.asegurar un descanso adecuado, no trabajar demasiado y permanecer hasta tarde. \n\n 2. Relajar la mentalidad, evitar el estrés mental. \n\n 3. Comer menos grasa.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_1">
+		<item>Cantidad insuficiente de oxígeno fisiológica o la duración continua del estado de hipoxia tisular.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_2">
+		<item>1. Mareo y Astenia. \n\n2. Congoja.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_3">
+		<item>1. El suministro externo de oxígeno, además de inhalación directo de oxígeno, pero también incluye una variedad de ejercicio aeróbico, como caminar, correr, respirar profundamente, mejorar el ambiente de oxígeno. \n\n2. Si es necesario, ir al médico o medicamentos para mejorar.</item>
+	</string-array>
+	<string-array name= "glossary_lowremain">
+		<item>Mecanismo para despertarse</item>
+	</string-array>
+	<string-array name= "glossary_lowremain_item_1">
+		<item>Si supervisa su valor de oxígeno en la sangre en la noche es demasiado bajo, es posible afectar su salud, el dispositivo hará una notificación de alarma.</item>
+	</string-array>
+	<string-array name= "glossary_osahs">
+		<item>Explicación de los términos</item>
+		<item>Enfermedades típicas</item>
+		<item>Método de tratamiento</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_1">
+		<item>Se refiere a un síndrome clínico de la hipoxemia crónica y la hipercapnia causado por la disminución de la oxigenación de la sangre,lo que resulta en la apnea que ocurre más de 30 veces durante 7 horas consecutivas de sueño o la frecuencia de ventilación de promedio es menos de 5 veces por hora.</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_2">
+		<item>Manifestaciones clínicas diurnas: \n1.Somnolencia.\n\n2.Mareos,Debilidad. \n\n3.Anomalías del estado mental, dolor de cabeza, irritabilidad,agitación, ansiedad y así sucesivamente. \n\n4.Disfunción sexual y así sucesivamente.</item>
+		<item>Manifestaciones clínicas de la noche: \n1.Ronquidos: ronquidos irregulares, se aparecen alternadamente ronquidos, paro respiratorio, jadeos,y ronquidos. \n\n2. Apnea: Se termina con jadeos, estado despierto irrespirable o ronquido ruidoso. \n\n3. Estado despierto irrespirable : a menudo acompañado de levantarse, movimientos involuntarios de las extremidades o incluso convulsiones o sentarse de repente, sensación de palpitación, opresión en el pecho o incomodidad precordial. \n\n4. Hiperactividad: voltear en la noche, girar con más frecuencia. \n\n5. sudoración, nicturia aumentada. \n\n6. Anomalías del comportamiento del sueño: una muestra de del miedo, gritos, delirio, noctambulismo, alucinaciones auditivas y así sucesivamente. \n\n Además, la obesidad corporal, la hipertrofia de la nariz, los ronquidos, etc. también pueden causar el síndrome de apnea.</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_3" formatted="false">
+		<item>Además de atenerse a la advertencia médica de medicamentos y cirugía, se puede curar o aliviar la enfermedad a través de la siguiente manera: \n1. Controlar el peso del cuerpo. \n\n2. Dejar de toma alcohol y fumar.\n\n3. Ejercicio moderado. \n\n 4. Sueño lateral.</item>
+		<item>Tratamiento de cirugía, medicamentos y ventilación: \n1.Reparación quirúrgica de áreas anormales del tracto respiratorio superior. \n\n2. Tratamiento de medicación. \n\n3. Inhalación nocturno de oxígeno de bajo flujo. \n\n4. Inhalación de 2% -3% de dióxido de carbono. \n\n5. Ventilación nasal continua con presión positiva. \n\n6. Estimulación diafragmática in vitro. \n\n7. Ventilación mecánica.</item>
+		<item>Modo de vida saludable y diagnóstico correcto temprano es la clave para prevenir y reducir la aparición de la apnea del sueño.  La medicina clínica certifica que, con la mejora del síndrome de apnea del sueño, las enfermedades cardiovasculares y otras han ido mejorando gradualmente. Cuanto más largo sea el tiempo de tratamiento, mejores serán los síntomas.</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_1">
+		<item>El porcentaje de oxígeno en la sangre se refiere a la capacidad de oxígeno en la sangre con oxígeno hemoglobina representa la capacidad total de la hemoglobina que puede combinar, es decir, la concentración de oxígeno en la sangre.</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_2">
+		<item>1. Enfermedades cardiovasculares y cerebrovasculares (enfermedad coronaria, hipertensión arterial, lípidos sanguíneos altos, etc.). \n\n2. Enfermedades respiratorias (asma, bronquitis, cardiopatía pulmonar, etc.).</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_3">
+		<item>1. Como la enfermedad se produce en pacientes con oxígeno en la sangre inferior, además de cooperar activamente con el tratamiento de la enfermedad primaria, a menudo puede mantener los equipos del oxígeno en sangre y de la inhalación de oxígeno, una vez que oxígeno en la sangre se detecta menos, suplementa oportunamente oxígeno. \n\n2. Además de inhalación directo de oxígeno, también puede llevar a cabo una variedad de ejercicios aeróbicos, como caminar, correr, respirar profundamente, mejorar el ambiente de oxígeno para aliviar la enfermedad.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_1">
+		<item>Cambios sucesivos en el ciclo cardíaco, es decir, cambios en la diferencia del intervalo RR. Puede reflejar el estado cardiovascular y mental reciente.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_2">
+		<item>1. La variabilidad de la frecuencia del pulso no está activa y se mantiene a un nivel bajo. \n\n 2. a menudo mareos, dolor de cabeza, palpitaciones y otros fenómenos.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_3">
+		<item>1. mantener buenos hábitos de vida, descansar lo suficiente. \n\n2. Mantener una buena mente, hacer más ejercicio aeróbico, menos sal y menos dieta alimentaria. \n\n 3. Si el valor a largo plazo es bajo, el alcance del cambio no es grande, es probable que sea un precursor de la enfermedad cardiovascular, Si se siente mal, se recomienda el tratamiento médico oportuno.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_1">
+		<item>Repuesta: Más de 30 veces de apnea del sueño (sin respiración durante 10 s o más) ocurren en 7 horas consecutivas de sueño, o la frecuencia de ventilación de promedio es menos de 5 veces por hora (reducción o interrupción completa de la respiración) considera que adolece del Síndrome de apnea.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_2">
+		<item>Repuesta: el síndrome de apnea del sueño es una enfermedad crónica, La aparición de la enfermedad es difícil de detectar, la enfermedad temprana es invisible, una vez que la respiración es pobre, en el caso ligero causa los ronquidos, en el caso grave resulta hipoxia de los pulmones, disminución de oxígeno en la sangre, y el cuerpo también falta del descanso y la recuperación, la mala condición física y el estado mental, la calidad de vida disminuyó significativamente. \n Lo más grave es la aparición de la apnea, la falta de estímulos externos, el paciente es difícil de despertarse, hasta que la hipoxia de órganos del cuerpo o incluso el daño, sólo de repente se despertó, y los pacientes a menudo no les importan, a largo plazo por lo que el daño acumulativo, por fin causa varias enfermedades cardiovasculares y cerebrovasculares y enfermedades mentales, e incluso muerte súbita.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_3">
+		<item>Repuesta: La mayoría se debe a la obstrucción de la vía aérea superior causada. Incluye la hipertrofia de los cornetes, la hipertrofia de las amígdalas, el cortocircuito mandibular, el cuello grueso y la obesidad sistémica y otras razones. Por lo tanto, la mayor parte del síndrome de apnea del sueño es obstructiva, y otra parte ha causada por el sistema nervioso central respiratorio herido, y la disfunción de regulación respiratoria, conocido como el central, o ambos tipo mixto.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_4">
+		<item>Repuesta: Según si hay síntomas clínicos típicos y los signos pueden tener un juicio simple, pero debido a sus características de enfermedad crónica, la falta de equipo de vigilancia, es difícil que los pacientes en el sueño perciben sus propios síntomas de la noche, con la descripción de la familia y la autopercepción sola, es fácil juzgar mal, falta de base científica. \n sólo cuando la enfermedad está grave, el paciente está consciente de ir al hospital para el diagnóstico. \ n método estándar es la polisomnografía (PSG), a través de la monitorización de oxígeno como el núcleo, con ECG, EEG, EMG, Ojo eléctrico y otros parámetros fisiológicos, puede comprender con precisión el tipo y la extensión de la enfermedad. En este momento la enfermedad ha entrado a menudo en una etapa más seria, la dificultad del tratamiento y el coste y la incomodidad del paciente se incrementan perceptiblemente, así que cuanto más pronto el mejor diagnóstico.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_5">
+		<item>Repuesta: En la actualidad, hay poca investigación sobre el síndrome central de apnea del sueño, y todavía no hay un tratamiento más eficaz además del tratamiento activo de la disfunción del trastorno respiratorio (enfermedad primaria), pero el síndrome central de la apnea del sueño No existirá solo, por lo que el uso del tratamiento del síndrome de apnea obstructiva del sueño también tiene un cierto efecto. El tratamiento del síndrome de apnea obstructiva del sueño, por lo general necesitan elegir el tratamiento de acuerdo a la gravedad de la enfermedad. Independientemente del método utilizado para tratar el síndrome de apnea, el enfoque no es más que dos, primero, a través del mecanismo de detección, en el caso de la apnea, por estímulos externos para interrumpir, por ejemplo, había hipoxia severa asociada con apnea , Se despierta o se despierta, reducir la duración de la apnea, reducir o evitar el daño a los órganos del cuerpo, en segundo lugar, no hay necesidad de detectar el mecanismo, ha sido mantener el estado de tratamiento, para evitar la aparición de apnea.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_6">
+		<item>Repuesta: Para los pacientes con síndrome de apnea del sueño, la monitorización del oxígeno en sangre tiene las siguientes ventajas: \n1. En la fase del desarrollo del ronquido a la apnea, dar la alerta temprana del riesgo de contraer enfermedad. \n\n2. Al comienzo de la enfermedad, como base para el diagnóstico, aceptar el tratamiento médico temprano, para reducir la dificultad de tratamiento y los costos de tratamiento, aumentar las posibilidades de curación. \n\n3. En la fase de tratamiento, hacer un seguimiento oportuno de la condición de la enfermedad de la noche, dar la respuesta del efecto del tratamiento. \n\n4. Puede utilizarse como una base importante para la detección de la apnea, coordinar con los medios para despertarse para monitorizar la enfermedad. </item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip">
+		<item>1. Pregunta: ¿Qué es el síndrome de apnea del sueño?</item>
+		<item>2. Pregunta: ¿constituye un grave riesgo el síndrome de apnea del sueño?</item>
+		<item>3. Pregunta: ¿Cómo se causa esta enfermedad?</item>
+		<item>4. Pregunta: ¿cómo sabes que si los pacientes adolecen de síndrome de apnea del sueño?</item>
+		<item>5. Pregunta: ¿Cómo tratar el síndrome de apnea del sueño?</item>
+		<item>6. Pregunta: ¿Cuál es el uso de la monitorización de oxígeno en sangre para el síndrome de apnea del sueño?</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_1">
+		<item>La amplitud de actividad del sueño se refiere al movimiento inconsciente del cuerpo durante el sueño.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_2">
+		<item>1. Vuelve por la noche, gira con más frecuencia, con hiperhidrosis.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_3">
+		<item>1.Prestar atención a la dieta, antes de ir a la cama puede tomar una bebida moderada, como la leche o el grano de mijo. \n\n2. hacer alguna preparación para acostarse, como lavado de pies con agua caliente, masaje de punto de Yongquany del centro de pies así sucesivamente. \n\n3. El sueño lateral puede reducir eficazmente la actividad física. \n\n4. el mejoramioento el ambiente de sueño (humedad y temperatura interior) también tiene alguna ayuda.</item>
+	</string-array>
+</resources>

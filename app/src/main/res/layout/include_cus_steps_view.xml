@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="15dp"
+    android:id="@+id/cusStepViewLin"
+    android:background="@drawable/b30_sport_chart_select"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+
+
+    <com.example.bozhilun.android.b30.b30view.CusStepDetailView
+        android:id="@+id/cusStepDView"
+        app:layout_constraintTop_toTopOf="@+id/b18ChartTopRel"
+        app:cus_steps_empty_color="@color/blue"
+        android:layout_marginTop="15dp"
+        app:cus_steps_pillar_color="@color/cpb_green"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_180"
+        android:background="#F2F2F2"/>
+
+
+    <RelativeLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/b18ChartTopRel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/size_5"
+        android:paddingRight="@dimen/size_5"
+        android:paddingTop="@dimen/size_5">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/ic_b30_sport_chart" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="@dimen/sp_15"
+                android:layout_marginLeft="@dimen/size_10"
+                android:gravity="center"
+                android:text="@string/move_ment"
+                android:textColor="#88d785" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/string_max_steps"
+                android:textColor="#88d785" />
+
+            <TextView
+                android:id="@+id/b30SportMaxNumTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#88d785" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/cusStepDView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="00:00"
+            android:textColor="#68d785"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="03:00"
+            android:textColor="#68d785"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="06:00"
+            android:textColor="#68d785"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="09:00"
+            android:textColor="#68d785"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="12:00"
+            android:textColor="#68d785"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="15:00"
+            android:textColor="#68d785"
+            android:textSize="@dimen/sp_10" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="18:00"
+            android:textColor="#68d785"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="21:00"
+            android:textColor="#68d785"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="23:59"
+            android:textColor="#68d785"
+            android:textSize="@dimen/sp_10" />
+    </LinearLayout>
+
+
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/itemNotiMsgTitleTv"
+            android:layout_width="wrap_content"
+            android:textSize="18sp"
+            android:text="新产品上线"
+            android:textColor="@color/text_gray"
+            android:padding="5dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/itemNotiMsgTimeTv"
+            android:layout_width="wrap_content"
+            android:text="2019-6-4"
+            android:padding="5dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/itemNotiMsgContentTv"
+            android:layout_width="match_parent"
+            android:padding="5dp"
+            android:gravity="left"
+            android:textIsSelectable="true"
+            android:autoLink="web"
+            android:text="  为保证良好的体验性，http://www.baidu.comAPP优化了部分操作， APP在2019-06-05日会升级。安卓手机用户请在APP内部或各大应用市场升级更新，苹果手机用户请在APPSore中更新。已更新用户请忽略次提醒。"
+            android:layout_height="wrap_content" />
+
+
+
+        <TextView
+            android:id="@+id/itemNotiMsgLinkTv"
+            android:layout_width="match_parent"
+            android:padding="5dp"
+            android:autoLink="web"
+            android:text="http://www.baidu.com"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

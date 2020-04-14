@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_marginTop="5dp"
+    android:id="@+id/spo2ChartListLayout"
+    android:layout_marginBottom="15dp"
+    android:layout_height="wrap_content">
+
+
+    <!--模块2 心脏负荷-->
+    <LinearLayout
+        android:id="@+id/block_heart"
+        style="@style/style_block"
+        android:background="@drawable/vpspo2h_bg_heart">
+
+        <RelativeLayout
+            android:id="@+id/block_title_heart"
+            style="@style/style_block_toptitle">
+
+            <TextView
+                style="@style/style_block_toptitle_tv"
+                android:text="@string/vpspo2h_toptitle_heart" />
+
+            <ImageView style="@style/style_block_toptitle_img" />
+
+        </RelativeLayout>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/block_chartview_heart"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/block_chartview_height"
+            android:layout_marginLeft="@dimen/block_chartview_maginleft"
+            android:layout_marginRight="@dimen/block_chartview_maginleft" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/block_state_maginleft"
+            android:layout_marginRight="@dimen/block_state_maginleft"
+            android:background="@color/block_backgroud_heart">
+
+            <LinearLayout style="@style/style_block_bottom_state_left">
+
+                <TextView
+                    style="@style/style_block_bottom_state_dot"
+                    android:textColor="@color/spo2h_dot_heart_1" />
+
+                <TextView
+                    style="@style/style_block_bottom_state_tv"
+                    android:text="@string/vpspo2h_state_little" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/style_block_bottom_state_middle">
+
+                <TextView
+                    style="@style/style_block_bottom_state_dot"
+                    android:textColor="@color/spo2h_dot_heart_2" />
+
+                <TextView
+                    style="@style/style_block_bottom_state_tv"
+                    android:text="@string/vpspo2h_state_normal"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/style_block_bottom_state_right">
+
+                <TextView
+                    style="@style/style_block_bottom_state_dot"
+                    android:textColor="@color/spo2h_dot_heart_3" />
+
+                <TextView
+                    style="@style/style_block_bottom_state_tv"
+                    android:text="@string/vpspo2h_state_error"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/block_bottom_tip_heart"
+                style="@style/style_block_bottom_tip" />
+        </LinearLayout>
+    </LinearLayout>
+    <!--模块3 睡眠活动-->
+    <LinearLayout
+        android:id="@+id/block_sleep"
+        style="@style/style_block"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/block_heart"
+        android:background="@drawable/vpspo2h_bg_sleep">
+
+        <RelativeLayout
+            android:id="@+id/block_title_sleep"
+            style="@style/style_block_toptitle">
+
+            <TextView
+                style="@style/style_block_toptitle_tv"
+                android:text="@string/vpspo2h_toptitle_sleep" />
+
+            <ImageView style="@style/style_block_toptitle_img" />
+        </RelativeLayout>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/block_chartview_sleep"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/block_chartview_height"
+            android:layout_marginLeft="@dimen/block_chartview_maginleft"
+            android:layout_marginRight="@dimen/block_chartview_maginleft" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/block_state_maginleft"
+            android:layout_marginRight="@dimen/block_state_maginleft"
+            android:background="@color/block_backgroud_sleep">
+
+            <LinearLayout style="@style/style_block_bottom_state_left">
+
+                <TextView
+                    style="@style/style_block_bottom_state_dot"
+                    android:textColor="@color/spo2h_dot_sleep_1" />
+
+                <TextView
+                    style="@style/style_block_bottom_state_tv"
+                    android:text="@string/vpspo2h_state_calm" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/style_block_bottom_state_middle">
+
+                <TextView
+                    style="@style/style_block_bottom_state_dot"
+                    android:textColor="@color/spo2h_dot_sleep_2" />
+
+                <TextView
+                    style="@style/style_block_bottom_state_tv"
+                    android:text="@string/vpspo2h_state_mulsport"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/style_block_bottom_state_right">
+
+                <TextView
+                    style="@style/style_block_bottom_state_dot"
+                    android:textColor="@color/spo2h_dot_sleep_3" />
+
+                <TextView
+                    style="@style/style_block_bottom_state_tv"
+                    android:text="@string/vpspo2h_state_mulmulsport"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/block_bottom_tip_sleep"
+                style="@style/style_block_bottom_tip" />
+        </LinearLayout>
+    </LinearLayout>
+    <!--模块5 呼吸率-->
+    <LinearLayout
+        android:id="@+id/block_breath"
+        style="@style/style_block"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/block_sleep"
+        android:background="@drawable/vpspo2h_bg_breath">
+
+        <RelativeLayout
+            android:id="@+id/block_title_breath"
+            style="@style/style_block_toptitle">
+
+            <TextView
+                style="@style/style_block_toptitle_tv"
+                android:text="@string/vpspo2h_toptitle_breath" />
+
+            <ImageView style="@style/style_block_toptitle_img" />
+        </RelativeLayout>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/block_chartview_breath"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/block_chartview_height"
+            android:layout_marginLeft="@dimen/block_chartview_maginleft"
+            android:layout_marginRight="@dimen/block_chartview_maginleft" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/block_state_maginleft"
+            android:layout_marginRight="@dimen/block_state_maginleft"
+            android:background="@color/block_backgroud_beath">
+
+            <LinearLayout style="@style/style_block_bottom_state_left">
+
+                <TextView
+                    style="@style/style_block_bottom_state_dot"
+                    android:textColor="@color/spo2h_dot_beath_1" />
+
+                <TextView
+                    style="@style/style_block_bottom_state_tv"
+                    android:text="@string/vpspo2h_state_normal" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/style_block_bottom_state_right">
+
+                <TextView
+                    style="@style/style_block_bottom_state_dot"
+                    android:textColor="@color/spo2h_dot_beath_2" />
+
+                <TextView
+                    style="@style/style_block_bottom_state_tv"
+                    android:text="@string/vpspo2h_state_error"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/block_bottom_tip_beath"
+                style="@style/style_block_bottom_tip" />
+        </LinearLayout>
+    </LinearLayout>
+    <!--模块6 低氧时间-->
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/block_breath"
+        android:id="@+id/block_lowspo2h"
+        style="@style/style_block"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/vpspo2h_bg_lowspo2h">
+
+        <RelativeLayout
+            android:id="@+id/block_title_lowsp"
+            style="@style/style_block_toptitle">
+
+            <TextView
+                style="@style/style_block_toptitle_tv"
+                android:text="@string/vpspo2h_toptitle_lowspo2h" />
+
+            <ImageView style="@style/style_block_toptitle_img" />
+        </RelativeLayout>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/block_chartview_lowspo2h"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/block_chartview_height"
+            android:layout_marginLeft="@dimen/block_chartview_maginleft"
+            android:layout_marginRight="@dimen/block_chartview_maginleft" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/block_state_maginleft"
+            android:layout_marginRight="@dimen/block_state_maginleft"
+            android:background="@color/block_backgroud_lowspo2h">
+
+            <LinearLayout style="@style/style_block_bottom_state_left">
+
+                <TextView
+                    style="@style/style_block_bottom_state_dot"
+                    android:textColor="@color/spo2h_dot_lowsp_1" />
+
+                <TextView
+                    style="@style/style_block_bottom_state_tv"
+                    android:text="@string/vpspo2h_state_normal" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/style_block_bottom_state_right">
+
+                <TextView
+                    style="@style/style_block_bottom_state_dot"
+                    android:textColor="@color/spo2h_dot_lowsp_2" />
+
+                <TextView
+                    style="@style/style_block_bottom_state_tv"
+                    android:text="@string/vpspo2h_state_error"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/block_bottom_tip_lowspo2h"
+                style="@style/style_block_bottom_tip" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>

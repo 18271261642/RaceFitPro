@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:background="@drawable/b30_sport_chart_select"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/size__15">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/size_5"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/size_35"
+                android:layout_height="@dimen/size_35"
+                android:background="@drawable/fgm_home_hrv" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/size_10"
+                android:gravity="center"
+                android:textSize="@dimen/sp_15"
+                android:text="HRV"
+                android:textColor="#6074BF" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/hrvHeartSocreTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/size_5"
+            android:gravity="right"
+            android:textSize="@dimen/sp_15"
+            android:text="@string/heart_health_sorce"
+            android:textColor="#6074BF"
+            tools:ignore="RtlHardcoded" />
+
+
+    </RelativeLayout>
+
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/b31HomeHrvChart"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="25dp" />
+
+    <View
+        android:id="@+id/b31HrvView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+
+</FrameLayout>

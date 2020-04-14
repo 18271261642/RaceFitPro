@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/b30_home_title_layout" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white" />
+
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/w30HomeSwipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srlAccentColor="@color/new_colorAccent"
+        app:srlEnableLoadMore="false"
+        app:srlEnablePreviewInEditMode="false"
+        app:srlPrimaryColor="#ffffff">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="61dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <!--圆的布局-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/new_colorAccent"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <com.littlejie.circleprogress.circleprogress.WaveProgress
+                            android:id="@+id/W30ProgressBar"
+                            android:layout_width="230dp"
+                            android:layout_height="230dp"
+                            android:layout_gravity="center"
+                            app:darkWaveAnimTime="3000"
+                            app:darkWaveColor="#1ebae3"
+                            app:lightWaveAnimTime="4000"
+                            app:lightWaveColor="#34c7e7"
+                            app:lightWaveDirect="R2L"
+                            app:lockWave="false"
+                            app:valueColor="@color/white"
+                            app:valueSize="45sp"
+                            app:waveHeight="8dp"
+                            app:waveNum="1" />
+
+
+                        <ImageView
+                            android:layout_width="270dp"
+                            android:layout_height="270dp"
+                            android:layout_gravity="center"
+                            android:background="@mipmap/icon_record_circule_luminous" />
+
+
+                    </FrameLayout>
+
+
+                    <TextView
+                        android:id="@+id/w30GoalStepTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+
+                <include layout="@layout/home_fast_menu_layout"/>
+
+
+
+                <!--步数-->
+                <!--运动图表-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_15"
+                    android:layout_marginRight="@dimen/size_15">
+
+                    <include layout="@layout/include_b30_barchart" />
+                </LinearLayout>
+
+                <!--心率图-->
+                <LinearLayout
+                    android:id="@+id/w30HeartLin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_15"
+                    android:layout_marginRight="@dimen/size_15"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/b30_sport_chart_select"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="-15dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="@dimen/size_5"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@mipmap/ic_b30_sport_heart" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/size_10"
+                                android:gravity="center"
+                                android:text="@string/heart_rate"
+                                android:textColor="#61D9F5"
+                                android:textSize="@dimen/sp_15" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="@dimen/size_5"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/lastTimeTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="#61D9F5" />
+
+                            <TextView
+                                android:id="@+id/b30HeartValueTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="#61D9F5" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+
+                    <com.example.bozhilun.android.w30s.views.W30CusHeartView
+                        android:id="@+id/w30_heart_chart"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_180"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:background="#25ffffff"
+                        app:w30s_heartLineColor="#F5BED3"
+                        app:w30s_parentHeight="@dimen/size_180"
+                        app:w30s_noDataColor="#61D9F5"
+                        app:w30s_pointColor="#FF307E" />
+
+
+                </LinearLayout>
+
+
+                <!--睡眠图-->
+                <LinearLayout
+                    android:id="@+id/w30SleepLin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_15"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="@dimen/size_15"
+                    android:background="@drawable/b30_sport_chart_select"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="-10dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="@dimen/size_5"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:background="@drawable/fgm_home_sleep" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/size_10"
+                                android:gravity="center"
+                                android:text="@string/sleep"
+                                android:textColor="#6074BF"
+                                android:textSize="@dimen/sp_15" />
+
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:id="@+id/w30StartEndTimeTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="@dimen/size_5"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="#6074BF"
+                            tools:ignore="RtlHardcoded" />
+
+
+                    </RelativeLayout>
+
+
+                    <com.example.bozhilun.android.w30s.views.W30CusSleepChartView
+                        android:id="@+id/w30_sleep_chart"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_180"
+                        android:layout_marginLeft="@dimen/size_5"
+                        android:layout_marginRight="3dp"
+                        android:background="#25ffffff"
+                        app:w30s_awakeSleepColor="#fcd647"
+                        app:w30s_deepSleepColor="#2D468A"
+                        app:w30s_lightSleepColor="#8898E6"
+                        app:w30s_sleepEmptyDataColor="#6074BF" />
+
+
+                </LinearLayout>
+
+
+                <!--血压图表-->
+                <LinearLayout
+                    android:id="@+id/w37BloodLin"
+                    android:layout_width="match_parent"
+                    android:layout_margin="15dp"
+                    android:visibility="gone"
+                    android:background="@drawable/b30_sport_chart_select"
+                    android:layout_height="wrap_content">
+
+                    <include layout="@layout/include_b30_bload_chart" />
+                </LinearLayout>
+
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</LinearLayout>

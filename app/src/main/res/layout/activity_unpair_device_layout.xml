@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+
+    <include layout="@layout/comment_b30_title_layout"/>
+
+
+
+    <TextView
+        android:id="@+id/unPairDescTv"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/red"
+        android:text="说明：以下是获取手机系列蓝牙已配对的设备，搜索界面无法搜索到或连接不成功时请解绑后再搜索，此处无法解绑请到手机系统蓝牙里解绑"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/commB31TitleLayout"
+        android:layout_height="wrap_content" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/unPairSwipe"
+        app:layout_constraintTop_toBottomOf="@+id/unPairDescTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/unpariRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>

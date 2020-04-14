@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ClubToolbar"
+    android:id="@+id/rela_layout_title"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/new_colorAccent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="7dp"
+            android:paddingRight="@dimen/size_20"
+            android:src="@mipmap/backs" />
+
+        <TextView
+            android:id="@+id/bar_titles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="title"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/size_20" />
+    </RelativeLayout>
+
+
+</android.support.v7.widget.Toolbar>

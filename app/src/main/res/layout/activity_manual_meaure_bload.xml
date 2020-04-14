@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/comment_b30_title_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="#FF8E0D"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/manual_blood_public"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/common_mode"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <View
+                    android:id="@+id/manual_blood_public_line"
+                    android:layout_width="100dp"
+                    android:layout_height="2dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/white" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/manual_blood_private"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/private_mode"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <View
+                    android:id="@+id/manual_blood_private_line"
+                    android:layout_width="100dp"
+                    android:layout_height="2dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:visibility="gone"
+                    android:background="@color/white" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/private_mode_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/private_mode_setting"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:gravity="end"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/white" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/b30MeaurePlaceHolderImg"
+                android:layout_width="190dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                android:background="@drawable/detect_bg" />
+
+
+            <com.example.bozhilun.android.b30.b30view.CustomCircleProgressBar
+                android:id="@+id/b30MeaureBloadProgressView"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:visibility="gone"
+                app:progress_text_size="@dimen/text_size_20"
+                app:direction="top"
+                app:max_progress="100"
+                app:outside_color="@color/colorPrimary"
+                app:outside_radius="90dp"
+                app:progress="0"
+                app:progress_text_color="@color/white"
+                app:progress_width="8dp" />
+
+
+        </FrameLayout>
+
+
+        <TextView
+            android:id="@+id/showStateTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/b30MeaureStartImg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center|bottom"
+            android:background="@drawable/detect_bp_start" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/comment_b30_title_layout"/>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@+id/commB31TitleLayout">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#eeeeee"
+                android:paddingLeft="@dimen/size_10"
+                android:paddingTop="@dimen/size_5"
+                android:paddingBottom="@dimen/size_5"
+                android:text="@string/menu_settings"
+                android:textSize="@dimen/sp_14" />
+
+
+            <RelativeLayout
+                android:id="@+id/b18DeviceSportRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img233"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_mubiao" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img233"
+                    android:text="@string/string_steps_target" />
+
+
+                <TextView
+                    android:id="@+id/b18DeviceSportGoalTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/ig1"
+                    android:text="10000" />
+
+
+                <ImageView
+                    android:id="@+id/ig1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+            <RelativeLayout
+                android:id="@+id/b18DeviceSleepRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img33"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_wurao" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img33"
+                    android:text="@string/string_sleep_target" />
+
+
+                <TextView
+                    android:id="@+id/b18DeviceSleepGoalTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_10"
+                    android:layout_toLeftOf="@+id/ig2"
+                    android:text="8.0" />
+
+
+                <ImageView
+                    android:id="@+id/ig2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+            <RelativeLayout
+                android:id="@+id/b18DeviceUnitRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img45"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_danwei" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img45"
+                    android:text="@string/string_unit_setting" />
+
+
+                <TextView
+                    android:id="@+id/b18DeviceUnitTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_10"
+                    android:layout_toLeftOf="@+id/ig3" />
+
+
+                <ImageView
+                    android:id="@+id/ig3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#eeeeee"
+                android:paddingLeft="@dimen/size_10"
+                android:paddingTop="@dimen/size_5"
+                android:paddingBottom="@dimen/size_5"
+                android:text="@string/string_mores"
+                android:textSize="@dimen/sp_14" />
+
+
+            <RelativeLayout
+                android:id="@+id/b18DeviceMsgRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img1"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_zhineng" />
+
+
+                <TextView
+                    android:id="@+id/b30MineDeviceTv"
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img1"
+                    android:text="@string/string_information_reminder" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/b18DeviceAlarmRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img2"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_naozhong" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img2"
+                    android:text="@string/string_clock_setting" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/b18DeviceLongSitRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img3"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_jiuzuo" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img3"
+                    android:text="@string/string_sedentary_setting" />
+
+
+
+
+                <ImageView
+                    android:id="@+id/bs1img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+            <RelativeLayout
+                android:id="@+id/b18DeviceWristRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img4"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_taishouliangping" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img4"
+                    android:text="@string/string_turning_wrist_screen" />
+
+
+
+                <ToggleButton
+                    android:id="@+id/b18TurnWristToggleBtn"
+                    android:layout_width="70dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOn="@null"
+                    android:layout_toLeftOf="@+id/bs2img"
+                    android:layout_centerVertical="true"
+                    android:textOff="@null"
+                    android:layout_height="40dp" />
+
+
+                <ImageView
+                    android:id="@+id/bs2img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+            <RelativeLayout
+                android:id="@+id/b18DeviceScreenTimeRel"
+                style="@style/B30DeviceRelStyle"
+                android:visibility="gone"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img133"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_shijian" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img133"
+                    android:text="屏保时间" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/b18DeviceClearDataRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img13"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@drawable/connect_success_cleardata" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img13"
+                    android:text="@string/string_clear_data" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/b18DeviceOtaRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img131"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_updata_gujian" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img131"
+                    android:text="@string/firmware_upgrade" />
+
+
+
+                <TextView
+                    android:id="@+id/b18VersionTv"
+                    android:layout_toLeftOf="@+id/b18oImg"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""/>
+
+
+
+                <ImageView
+                    android:id="@+id/b18oImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/b18DeviceunBindRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img23"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_jiebang" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img23"
+                    android:text="@string/string_devices_disconnected" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/size_100"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="@dimen/size_7"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_user"
+        android:layout_width="@dimen/size_50"
+        android:layout_height="@dimen/size_50"
+        android:src="@mipmap/bg_img" />
+
+    <TextView
+        android:id="@+id/text_names"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="1"
+        android:text="RaceFitPro"
+        android:textColor="#333333"
+        android:textSize="@dimen/sp_10" />
+
+</LinearLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name= "glossary_breath_item_1">
+		<item>A terminologia médica para vezes de respiração por minuto, apresenta que um levantamento e um abaixamento é uma respiração, ou seja uma vez de respiração e uma vez de expiração.</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_2">
+		<item>1.Lentura de respiração: ritmo regular, mas a frequência é inferior a 10 vezes/m, visível no fim de vida ou antes de apneia. As doenças nervosas e metabólicas e sobredosagem de certos medicamentos, podem resultar na lentura de respiração.\n\n2.Pressa de respiração,sensação de dificuldade respiratória.</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_3">
+		<item>Adopta-se as seguintes medidas de emergência em casa contra a dificuldade de respiração: \n1.Manter em silêncio, para evitar a agravação de tensão emocional.\n\n2.Manter a posição semi-deitada ou sentada, reduzindo fadiga e consumo de oxigênio.\n\n3.Manter ar fresco no interior, e ventilação. Dieta branda \n\n4.Dar a dieta branda, incentivar o paciente comer mais legumes e frutas, para complementar a humidade do corpo.\n\n5.Oferecer dequadamente os medicamentos expectorantes e antiespasmódicos, tais com bromexina e aminoflina, a fim de manter inobstrutivas as vias respiratórias.\n\n6.Mandar o paciente grave ao hospital ao redor.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_1">
+		<item>A apneia significa que pára o fluxo de ar através de boca e nariz totalmente por não menos de 10 segundos</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_2">
+		<item>1.Ronco irregular, aparecimento alternado de ronco-suspensão de fluxo de ar-arquejo-ronco, a suspensão de fluxo é de 20-30 segundo em geral, uns pacientes têm a cianose evidente por até 2 minutos em particular (lábio roxo ou unha roxa.\n\n2.Apneia:Giração e rotação corporal de modo pouco frequente durante a noite, a qual podia levar à baixa qualidade de sono, sonolência e tontura e fraqueze.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_3">
+		<item>Para os pacientes com apneia, podia tratar ou aliviar a doença através de maneiras a seguir, além de tomar medicamentos de acordo com conselho médico ou cirurgia: \n1.Controlar o peso corporal.Para os obesos, devido à acumulação de gorduras, há pressão intra-abdominal e hipóxia devido à diminuição de função pulmonar no processo de respiração.\n\n2.Limitar o álcool e deixar de fumar.O consumo de de álcool e cigarro pode causar a anormalidade metabólica e aterosclerose, agravar a obstrução de vias aéreas superiores. \n\n3.Certa quantidade de movimento.Certa quantidade de exercício pode melhroar a circulação de sangue cadiovascular, perfeiçoar a função de ventilação, reforçar a resistência de corpo, reduzindo a incidência de doençãs.\n\n4.Dormir a lado.O paciente pode manter a ventilação de vias respiratórias através de dormir a lado de modo apropriado</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_1">
+		<item>Um coração do índice de perfusão de carga , reflete o fluxo De Sangue.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_2">
+		<item>1.Pouco maior valor de pi.\n\n2.Pouco elevado valor de frequência cardíaca e pressão arterial. \n\n3.Rápida respiração, com a sensação de fadiga.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_3">
+		<item>1.Garantir descanso bastante, não excesso de trabalho e não fique acordado até tarde.\n\n2.Relaxar, evitar estresse.\n\n3.Comer pouca comida gordurosa.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_1">
+		<item>Duração de estado de falta de oxigênio fisiológico ou falta de de demanda de oxigênio pelo orgão.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_2">
+		<item>1.Tonturas, fraqueza.\n\n2.Sensação de dificuldade para respirar.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_3">
+		<item>1.Além de inalação de oxigênio, o suprimento de oxigênio inclui todos tipos de exercícios aeróbicos, tais como caminhada, corrida, respiração profunda, melherando o ambente de inalação de oxigênio.\n\n2.Se for necessário, ir ao médico para melhoria por drogas</item>
+	</string-array>
+	<string-array name= "glossary_lowremain">
+		<item>Mecanismo despertador</item>
+	</string-array>
+	<string-array name= "glossary_lowremain_item_1">
+		<item>Se detectar a sobre-baixo valor de oxigêncio de sangue a noite, o dispositivo vai dar um alarme para evitar afectar a sua saúde.</item>
+	</string-array>
+	<string-array name= "glossary_osahs">
+		<item>Interpretação de termos</item>
+		<item>Sintoma típico</item>
+		<item>Método de tratamento</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_1">
+		<item>Apresenta que há mais de 30 vezes de apneia,ou mais de 7 vezes de hiponeia por hora em média, durante o sono de 7 horas consecutivas, o qual resulta em síndroma clínica de hipoxemia e hipercapnia crônica devido à diminuição de oxigênio de sangue.</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_2">
+		<item>Manifestações clínicas no dia:\n1. sonolência.\n\n2. Tonturas e fraqueza.\n\n3. estado mental anormal, dor de cabeça, irritabilidade, ansiedade, agitação, etc.\n\n4. hipofunção sexual.</item>
+		<item>Manifestações clínicas à niote:\n1.Ronco: ronco irregular, aparecimento alternado de ronco-suspensão de fluxo de ar-arquejo-ronco.\n\n2.Apneia: com arquejo, sofucação ou ronco alto.\n\n3.Desperto à sufocação: muitas vezes acompanhadas de rotação de corpo, movimentos involuntários de 4 membros,até mesmo tremores ou assentos súbitos, sensação de de palpitação, aperto no peito ou desconforto precordial.\n\n4.Inqietação: giração e rotação corporal de modo pouco frequente durante a noite.\n\n5.sudorese e noctúria incrementada.\n\n6.Compartamento anormal de sono: tais com medo, grito, delírio, navigação à noite, alucinação, etc.\n\n7.além disso, obesidade, hipertrofia de corneto nasai e ronco, também são susceptível a provocar a síndroma de apneia.</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_3" formatted="false">
+		<item>Podia tratar ou aliviar a doença através de maneiras a seguir, além de tomar medicamentos de acordo com conselho médico ou cirurgia: \n1.Controlar o peso corporal.\n\n2.Limitar o álcool e deixar de fumar.\n\n3.Certa quantidade de movimento.\n\n4.Dormir a lado.</item>
+		<item>Tratamento através de cirurgia, medicamento e ventilação:\n1.Reparar anomlia do tracto respiratório superior com a operação cirúrgica.\n\n2.Terapia com medicamentos.\n\n3.Inalação de oxigênio de baixo fluxo de durante à noite.\n\n4.Inalar 2% -3% de carbono dióxido.\n\n5.NCPAP.\n\n6.Marca-passo diafragmático externo.\n\n7.ventilação mecânica.</item>
+		<item>Um estilo de vida saudável e diagnose correcta precoce é a chave de prevenir e reduzir a ocorrência de apneia de sono. Prova-se de modo clínico que tais deoenças como doenças cardiovasculares vão melhorar gruadualmente com a melhoria da síndroma de apneia de sono. Mais evidente a melhoria, mais longo o tratamento.</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_1">
+		<item>O oxigênio de sangue apresenta o rácio entre o volume da oxihemgobina combinada com o oxigênio e o total volume da hemoglobina combinável, ou seja a concentração de oxigênio no sangue.</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_2">
+		<item>1.Doenças cardiovasculares(doença arterial coronaria, hipertensão, hiperlipidemia, etc.).\n\n2.Doenças respiratótias( asma, traqueíte, doenças cardíacas e pulmonares).</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_3">
+		<item>1.Pelo que a doença ocorre em pacientes com baixo volume de oxigênio, os paciente podiam preparar os equipamentos de medição de oxigênio de sangue e inalação de oxigênio, a fim de suplementar o oxigênio a tempo em caso de detectar o baixo volume de oxigênio, além de cooperar com o tratamento de doença primária.\n\n2.Podiam participar em todos tipos de exercícios aeróbicos, tais como caminhada, corrida, respiração profunda, melherando o ambente de inalação de oxigênio, a final de aliviar a condição patilógica, além de inalar o oxigênio de forma directa.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_1">
+		<item>A mudança de diferença de ciclos cardíacos sucessivos, ou seja, a variação entre valores de intervalos RR, a qual pode reflete o estado cardiavascular e de espírito.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_2">
+		<item>1.Inactiva variabilidade de taxa de pulso, mantendo num nível pouco baixo.\n\n2.Muitas vezes com dores de cabeça, tonturas, palpitações, etc.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_3">
+		<item>1.Manter bom hábito de vida, descanso suficiente.\n\n2.Manter boa mentalidade, participando em exercícios aeróbicos, comendo menos sal, menos óleo.\n\n3.Em caso de baixo valor a longo prazo, e pouco intervalo de variação, podendo-se ser um precursor de uma doença cardiovascular, se desconforto, recomenda-se o tratamento médico.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_1">
+		<item>Resposta: Há mais de 30 vezes de apneia( nenhuma respiração, duração de 10s ou mais de 10s),ou mais de 5 vezes de hiponeia por hora em média, durante o sono de 7 horas consecutivas, o qual  podia ser com a síndroma de apneia.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_2">
+		<item>Resposta: A síndroma de apneia de sono é uma doença crônica, difícil de detectar e fácil de ignorar, uma vez de obstrução de respiração, quer pode-se causar o ronco quer resultar na falta de oxigêncio no pulmão, e diminuição de oxigênio de sangue, causando insuficente descanso e recuperação física, mau estado de espírito e corpo, baixa qualidade de vida.\nE até mesmo o paciente tém dificuldade em acordar até danificdos os órgãos, devido a falta de estímulos externos,durante a apneia,a longo prazo, os prejuízos acumulados vão resultar em diversas doenças cardiovasculares e mentais, até mesmo morte ao final.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_3">
+		<item>Resposta: a maioria é devida à obstruçãp de vias respiratórias. Inculindo hipertrofia de cornetos, hipertrofia de amígdalas, mandíbula curta e pescoço grosso, e gordura corporal, etc.\nPelo que a maioria de síndroma de apneia é obstrutiva, e parte é causada por trauma de sistema nervoso central,e disfunção de função de regulação, a qual é chamada a apneia central de sono ou mista de ambas.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_4">
+		<item>Resposta: Capaz de dar julgamento simples segundo sinais e sintomas clínicos típicos, mas por causa de carácteres de doença crônica, e falta de equipamentos de monitoramento, e o paciente tem dificuldade em descrever seu sintoma , apenas  com descrição de família, assim, é difícil de diagnosticar de forma de forma precisa, e falto de base científica.\nSó depois do estado grave, o paciente percebe a necessidade de ir para o hospital.\nO método padrão é a polissonografia(PSG), pode-se saber o tipo e grau de sintoma, centralizado ao monitoramento de oxigênio de sangue e combinado com vários parâmetros fisiológicos ECG,EEG,EMG, EOG. Entretanto, a doença já está na fase mais grave, o custo de tratamento e sensação de desconforto vão elevados consideravelmente, então, quanto mais cedo o diagnóstico, melhor.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_5">
+		<item>Resposta: Há pouco estudo sobre a síndroma de sono central,por agora, nenhum meio de tratamento eficaz excepto o sintoma de disfunção(doença primária), mas a síndorma de apneia de sono central não existe sozinho em geral, por isso, o tratamento para a síndroma de apneia de sono obstrutivo é certamente eficente para a síndroma de apneia de sono central.Adopta-se plano de tratamento de apneia de acordo com a condição de paciente em geral, ao tratar a síndroma de apneia de sono obstrutivo.\nHá dois métodos de tratar a síndroma de apneia de sono, independentemente de medidas de tratamento, um, interromper o sono através de estímulos externos por virtude de mecanismo de monitoramento, em caso de dificuladade de respiração,por exemplo, acordar o paciente por empurrão ou sobressaltar o mesmo em caso de hipóxia grave, reduzindo a duração de apneia e abaixando prejuízo para órgãos de corpo; dois, sem mechanismo de monitoramento, continuando em estado de tratamento, evitando ocorrência de apneia.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_6">
+		<item>1.Alerta o risco de doença em meio de fase de ronco e fase de suspensão de respiração. \n\n2.No início de doença, pode-se fazer diagnóstico a tempo, e tratamento precoce e reduzindo a dificuldade e custo de tratamento, aumentando a probabilidade de cura.\n\n3. Durante a fase de tratamento Da doença, acompanhamento em tempo real à noite, e feedback de efeito de tratamento.\n\n4.Base importante para o monitoramento de apneia, para monitorar sintomas e despertar o paciente.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip">
+		<item>1. Pergunta: O que é que é a síndroma de apneia de sono?</item>
+		<item>2.Perguanta: a apneia é um grande mal?</item>
+		<item>3. O que pode causar esta doença?</item>
+		<item>4. Pergunta: Como saber que sou um paciente com a síndroma de apneia?</item>
+		<item>5. Pergunta: Como tratar a síndroma de apneia?</item>
+		<item>6. Pergunta: O que é que é as funções de monitoramento de oxigênio de sangue para a síndroma de apneia?</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_1">
+		<item>A amplitude de movimento de sono significa o movimento de corpo durante o sono.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_2">
+		<item>1.Rotação giração de corpo de modo frequente, e sudorese</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_3">
+		<item>1.Cuidado com a dieta, beber um copo de bebida de forma adequeda,antes de dormir,como leite ou papa de arroz.\n\n2.Fazer alguma preparação antes de dormir, como pé à água quente,ou massgem de Yongquan, etc.\n\n3.Dormir a lado pode efetivamente reduzir o movimento de corpo.\n\n4.Melhorar o ambiente de sono (umidade, temperatura interna) também é ajudável.</item>
+	</string-array>
+</resources>

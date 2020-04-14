@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+    <include layout="@layout/comment_b30_title_layout" />
+
+    <ScrollView
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="设备功能"
+                android:visibility="gone"
+                android:paddingTop="7dp"
+                android:background="@color/chang_white"
+                android:textSize="@dimen/sp_17"
+                android:paddingBottom="@dimen/size_7"
+                android:paddingStart="@dimen/size_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="RtlSymmetry" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+            <RelativeLayout
+                style="@style/B30DeviceRelStyle">
+
+                <ImageView
+                    android:id="@+id/img6"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/pwsetting_disconnect_remind" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img6"
+                    android:text="@string/string_disconnection_reminder" />
+
+
+                <ToggleButton
+                    android:id="@+id/b31SwitchDisAlertTogg"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+            <RelativeLayout style="@style/B30DeviceRelStyle">
+
+                <ImageView
+                    android:id="@+id/img1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/connect_success_checkwear" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img1"
+                    android:text="@string/string_turning_wrist_screen" />
+
+
+                <ToggleButton
+                    android:id="@+id/b31CheckWearToggleBtn"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+            <RelativeLayout
+                android:id="@+id/line_sedentary_remind"
+                style="@style/B30DeviceRelStyle">
+
+                <ImageView
+                    android:id="@+id/img2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/pwsetting_fiveheart" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img2"
+                    android:text="@string/Sedentaryreminder" />
+
+
+                <ToggleButton
+                    android:id="@+id/b31AutoHeartToggleBtn"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/line_dring_remind"
+                style="@style/B30DeviceRelStyle">
+
+                <ImageView
+                    android:id="@+id/imgss"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/pwsetting_fivebp" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/imgss"
+                    android:text="@string/string_water_clock" />
+
+
+                <ToggleButton
+                    android:id="@+id/b30AutoBloadToggleBtn"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+
+            </RelativeLayout>
+
+
+            <View
+                android:id="@+id/view_drk"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+
+            <RelativeLayout
+                style="@style/B30DeviceRelStyle">
+
+                <ImageView
+                    android:id="@+id/img15"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/pwsetting_spo2hauto" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img15"
+                    android:text="@string/yaoyiyaoPhotograph" />
+
+
+                <ToggleButton
+                    android:id="@+id/b31AutoBPOxyToggbleBtn"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+
+            </RelativeLayout>
+
+
+            <View
+                android:id="@+id/view_miaobiao"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+
+            <!--===================
+
+            区分
+
+            =========================-->
+            <TextView
+                android:visibility="gone"
+                android:text="设备显示"
+                android:paddingTop="7dp"
+                android:background="@color/chang_white"
+                android:textSize="@dimen/sp_17"
+                android:paddingBottom="@dimen/size_7"
+                android:paddingStart="@dimen/size_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="RtlSymmetry" />
+
+
+            <View
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+            <RelativeLayout
+                android:visibility="gone"
+                style="@style/B30DeviceRelStyle">
+
+                <ImageView
+                    android:id="@+id/img_s"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/pwsetting_disconnect_remind" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img_s"
+                    android:text="步数显示" />
+
+
+                <ToggleButton
+                    android:id="@+id/b31SwitchStepShow"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+            <RelativeLayout
+                android:visibility="gone"
+                style="@style/B30DeviceRelStyle">
+
+                <ImageView
+                    android:id="@+id/img_d"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/connect_success_checkwear" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img_d"
+                    android:text="距离显示" />
+
+
+                <ToggleButton
+                    android:id="@+id/b31SwitchrangeDis"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+            </RelativeLayout>
+
+            <View
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+            <RelativeLayout
+                android:visibility="gone"
+                style="@style/B30DeviceRelStyle">
+
+                <ImageView
+                    android:id="@+id/img_k"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/pwsetting_fiveheart" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img_k"
+                    android:text="卡路里显示" />
+
+
+                <ToggleButton
+                    android:id="@+id/b31SwitchKcl"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+
+            </RelativeLayout>
+
+
+            <View
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+
+
+            <RelativeLayout
+                android:visibility="gone"
+                style="@style/B30DeviceRelStyle">
+
+                <ImageView
+                    android:id="@+id/imgs_h"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/pwsetting_fivebp" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/imgs_h"
+                    android:text="心率显示" />
+
+
+                <ToggleButton
+                    android:id="@+id/b30SwitchHeart"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+
+            </RelativeLayout>
+
+
+            <View
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+
+            <RelativeLayout
+                android:visibility="gone"
+                style="@style/B30DeviceRelStyle">
+
+                <ImageView
+                    android:id="@+id/img1_b"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/pwsetting_spo2hauto" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img1_b"
+                    android:text="血压显示" />
+
+
+                <ToggleButton
+                    android:id="@+id/b3SwirrerBlood"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+
+            </RelativeLayout>
+
+
+            <View
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+
+            <RelativeLayout
+                android:visibility="gone"
+                style="@style/B30DeviceRelStyle">
+
+                <ImageView
+                    android:id="@+id/img1_p"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/pwsetting_spo2hauto" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img1_p"
+                    android:text="@string/string_find_phone" />
+
+
+                <ToggleButton
+                    android:id="@+id/b3SwirrerFind"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+
+            </RelativeLayout>
+
+
+            <View
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+
+            <RelativeLayout
+                android:visibility="gone"
+                style="@style/B30DeviceRelStyle">
+
+                <ImageView
+                    android:id="@+id/img_a"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/pwsetting_spo2hauto" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img_a"
+                    android:text="MAC 显示" />
+
+
+                <ToggleButton
+                    android:id="@+id/b3SwirrerMac"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+
+            </RelativeLayout>
+
+
+            <View
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!--<include layout="@layout/comment_b30_title_layout" />-->
+
+    <!--<RelativeLayout style="@style/B30DeviceRelStyle">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/img1"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:background="@drawable/connect_success_checkwear" />-->
+
+
+        <!--<TextView-->
+            <!--style="@style/B30DeviceStyle"-->
+            <!--android:layout_toRightOf="@+id/img1"-->
+            <!--android:text="@string/string_wearing_test" />-->
+
+
+        <!--<ToggleButton-->
+            <!--android:id="@+id/b31CheckWearToggleBtn"-->
+            <!--android:layout_width="70dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="@drawable/toggle_select"-->
+            <!--android:textOff="@null"-->
+            <!--android:textOn="@null" />-->
+
+    <!--</RelativeLayout>-->
+
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@color/chang_white" />-->
+
+    <!--<RelativeLayout style="@style/B30DeviceRelStyle">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/img2"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:background="@drawable/pwsetting_fiveheart" />-->
+
+
+        <!--<TextView-->
+            <!--style="@style/B30DeviceStyle"-->
+            <!--android:layout_toRightOf="@+id/img2"-->
+            <!--android:text="@string/string_auto_blood_pressure" />-->
+
+
+        <!--<ToggleButton-->
+            <!--android:id="@+id/b31AutoHeartToggleBtn"-->
+            <!--android:layout_width="70dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="@drawable/toggle_select"-->
+            <!--android:textOff="@null"-->
+            <!--android:textOn="@null" />-->
+
+
+    <!--</RelativeLayout>-->
+
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@color/chang_white" />-->
+
+
+    <!--<RelativeLayout-->
+        <!--style="@style/B30DeviceRelStyle">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/img15"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:background="@drawable/pwsetting_spo2hauto" />-->
+
+
+        <!--<TextView-->
+            <!--style="@style/B30DeviceStyle"-->
+            <!--android:layout_toRightOf="@+id/img15"-->
+            <!--android:text="血氧夜间检测" />-->
+
+
+        <!--<ToggleButton-->
+            <!--android:id="@+id/b31AutoBPOxyToggbleBtn"-->
+            <!--android:layout_width="70dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="@drawable/toggle_select"-->
+            <!--android:textOff="@null"-->
+            <!--android:textOn="@null" />-->
+
+
+    <!--</RelativeLayout>-->
+
+
+
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@color/chang_white" />-->
+
+
+
+    <!--<RelativeLayout-->
+        <!--style="@style/B30DeviceRelStyle">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/img5"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:background="@drawable/pwsetting_stopwatch" />-->
+
+
+        <!--<TextView-->
+            <!--style="@style/B30DeviceStyle"-->
+            <!--android:layout_toRightOf="@+id/img5"-->
+            <!--android:text="@string/string_stopwatch_function" />-->
+
+
+        <!--<ToggleButton-->
+            <!--android:id="@+id/b31SecondToggleBtn"-->
+            <!--android:layout_width="70dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="@drawable/toggle_select"-->
+            <!--android:textOff="@null"-->
+            <!--android:textOn="@null" />-->
+
+
+    <!--</RelativeLayout>-->
+
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="@color/chang_white" />-->
+
+    <!--<RelativeLayout-->
+        <!--style="@style/B30DeviceRelStyle">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/img6"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:background="@drawable/pwsetting_disconnect_remind" />-->
+
+
+        <!--<TextView-->
+            <!--style="@style/B30DeviceStyle"-->
+            <!--android:layout_toRightOf="@+id/img6"-->
+            <!--android:text="@string/string_disconnection_reminder" />-->
+
+
+        <!--<ToggleButton-->
+            <!--android:id="@+id/b31SwitchDisAlertTogg"-->
+            <!--android:layout_width="70dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="@drawable/toggle_select"-->
+            <!--android:textOff="@null"-->
+            <!--android:textOn="@null" />-->
+
+
+    <!--</RelativeLayout>-->
+
+
+
+
+</LinearLayout>

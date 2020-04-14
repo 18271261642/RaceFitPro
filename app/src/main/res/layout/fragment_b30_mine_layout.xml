@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/comment_b30_title_layout" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginBottom="61dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:background="@mipmap/icon_de_head">
+
+                    <ImageView
+                        android:id="@+id/b30userImageHead"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/b30UserNameTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="@string/string_user_name" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:text="@string/mine_equipment"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/chang_white" />
+
+                <RelativeLayout
+                    android:id="@+id/b30MineDeviceRel"
+                    android:background="@drawable/square_white_btn_change"
+                    style="@style/B30DeviceRelStyle">
+
+                    <ImageView
+                        android:id="@+id/img1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/fgm_setting_watch" />
+
+
+                    <TextView
+                        android:id="@+id/b30MineDeviceTv"
+                        style="@style/B30DeviceStyle"
+                        android:layout_toRightOf="@+id/img1"
+                        android:text="@string/string_not_coon" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/fgm_fitness_arrow_left" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/chang_white" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:padding="3dp"
+                    android:text="@string/Targetsetting"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/chang_white" />
+
+                <RelativeLayout
+                    android:id="@+id/b30MineSportRel"
+                    android:background="@drawable/square_white_btn_change"
+                    style="@style/B30DeviceRelStyle">
+
+                    <ImageView
+                        android:id="@+id/img2"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/fgm_setting_activity" />
+
+
+                    <TextView
+                        style="@style/B30DeviceStyle"
+                        android:layout_toRightOf="@+id/img2"
+                        android:text="@string/string_steps_target" />
+
+
+
+                    <TextView
+                        android:id="@+id/b30MineSportGoalTv"
+                        android:layout_width="wrap_content"
+                        android:text=""
+                        android:layout_toLeftOf="@+id/ig1"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content" />
+
+
+                    <ImageView
+                        android:id="@+id/ig1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/fgm_fitness_arrow_left" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/chang_white" />
+
+                <RelativeLayout
+                    android:background="@drawable/square_white_btn_change"
+                    android:id="@+id/b30MineSleepRel"
+                    style="@style/B30DeviceRelStyle">
+
+                    <ImageView
+                        android:id="@+id/img3"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/fgm_setting_sleep" />
+
+
+                    <TextView
+                        style="@style/B30DeviceStyle"
+                        android:layout_toRightOf="@+id/img3"
+                        android:text="@string/string_sleep_target" />
+
+
+                    <TextView
+                        android:id="@+id/b30MineSleepGoalTv"
+                        android:layout_width="wrap_content"
+                        android:text="8.0"
+                        android:layout_toLeftOf="@+id/ig2"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content" />
+
+
+                    <ImageView
+                        android:id="@+id/ig2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/fgm_fitness_arrow_left" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/chang_white" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:padding="3dp"
+                    android:text="@string/string_mores"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/chang_white" />
+
+                <RelativeLayout
+                    android:background="@drawable/square_white_btn_change"
+                    android:id="@+id/b30MineUnitRel"
+                    style="@style/B30DeviceRelStyle">
+
+                    <ImageView
+                        android:id="@+id/img4"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/fgm_setting_activity" />
+
+
+                    <TextView
+                        style="@style/B30DeviceStyle"
+                        android:layout_toRightOf="@+id/img4"
+                        android:text="@string/string_unit_setting" />
+
+
+                    <TextView
+                        android:id="@+id/b30MineUnitTv"
+                        android:layout_width="wrap_content"
+                        android:layout_toLeftOf="@+id/ig3"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content" />
+
+
+
+                    <ImageView
+                        android:id="@+id/ig3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/fgm_fitness_arrow_left" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/chang_white" />
+
+                <RelativeLayout
+                    android:background="@drawable/square_white_btn_change"
+                    android:id="@+id/b30MineAboutRel"
+                    style="@style/B30DeviceRelStyle">
+
+                    <ImageView
+                        android:id="@+id/img5"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/fgm_setting_about" />
+
+
+                    <TextView
+                        style="@style/B30DeviceStyle"
+                        android:layout_toRightOf="@+id/img5"
+                        android:text="@string/system_settings" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/fgm_fitness_arrow_left" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/chang_white" />
+
+
+                <Button
+                    android:id="@+id/b30LogoutBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="25dp"
+                    android:background="@drawable/login_selector"
+                    android:text="@string/exit_login" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

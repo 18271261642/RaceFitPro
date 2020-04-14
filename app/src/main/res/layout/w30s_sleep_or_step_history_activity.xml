@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/new_colorAccent">
+
+        <ImageView
+            android:id="@+id/image_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/size_5"
+            android:padding="@dimen/size_15"
+            android:src="@mipmap/backs" />
+
+        <TextView
+            android:id="@+id/bar_titles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="title"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/size_20" />
+
+        <TextView
+            android:id="@+id/bar_mores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/size_14"
+            android:background="@mipmap/data_time"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/size_20" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/image_data_type"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:src="@mipmap/image_nomal_today"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+    <ListView
+        android:id="@+id/step_or_sleep_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+</LinearLayout>

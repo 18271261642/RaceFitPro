@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--
+    showAsAction主要是针对菜单的显示起作用的，它有三个可选项
+    always：总是显示在界面上
+    never：不显示在界面上，只让出现在右边的三个点中
+    ifRoom：如果有位置才显示，不然就出现在右边的三个点中
+    -->
+    <!--<item-->
+    <!--android:id="@+id/action_add_new_frend"-->
+    <!--android:icon="@mipmap/image_w30s_about"-->
+    <!--android:orderInCategory="100"-->
+    <!--android:title="添加好友"-->
+    <!--app:actionViewClass="android.support.v7.widget.SearchView"-->
+    <!--app:showAsAction="never" />-->
+    <!--<item-->
+    <!--android:id="@+id/action_new_frend_apply"-->
+    <!--android:icon="@mipmap/image_w30s_about"-->
+    <!--android:orderInCategory="100"-->
+    <!--android:title="好友申请"-->
+    <!--app:showAsAction="never" />-->
+
+    <item
+        android:id="@+id/action_mine_er"
+        android:orderInCategory="100"
+        android:title="@string/string_qr_code"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_frend_er"
+        android:orderInCategory="100"
+        android:title="@string/string_scan_code_add_frend"
+        app:showAsAction="never" />
+
+</menu>

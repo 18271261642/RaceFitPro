@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/b30_home_title_layout" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"/>
+
+
+    <TextView
+        android:id="@+id/syncStatusTv"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:background="@color/block_backgroud_hrv"
+        android:text="@string/syncy_data"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:padding="8dp"
+        android:layout_height="wrap_content" />
+
+    <!--4DDDFF-->
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/b31HomeSwipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="61dp"
+        android:scrollbars="none"
+        app:srlAccentColor="@color/new_colorAccent"
+        app:srlEnableLoadMore="false"
+        app:srlEnablePreviewInEditMode="false"
+        app:srlPrimaryColor="#ffffff">
+        <!-- srlAccentColor srlPrimaryColor 将会改变 Header 和 Footer 的主题颜色 -->
+        <!-- srlEnablePreviewInEditMode 可以开启和关闭下拉预览 -->
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:scrollbars="none"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!--圆的布局-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/new_colorAccent"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <com.littlejie.circleprogress.circleprogress.WaveProgress
+                            android:id="@+id/b31ProgressBar"
+                            android:layout_width="230dp"
+                            android:layout_height="230dp"
+                            android:layout_gravity="center"
+                            app:darkWaveAnimTime="3000"
+                            app:darkWaveColor="#1ebae3"
+                            app:lightWaveAnimTime="4000"
+                            app:lightWaveColor="#34c7e7"
+                            app:lightWaveDirect="R2L"
+                            app:lockWave="false"
+                            app:valueColor="@color/white"
+                            app:valueSize="45sp"
+                            app:waveHeight="10dp"
+                            app:waveNum="1" />
+
+
+                        <ImageView
+                            android:layout_width="270dp"
+                            android:layout_height="270dp"
+                            android:layout_gravity="center"
+                            android:background="@mipmap/icon_record_circule_luminous" />
+
+
+                    </FrameLayout>
+
+
+                    <TextView
+                        android:id="@+id/b31GoalStepTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+
+                <include layout="@layout/home_fast_menu_layout"/>
+
+
+
+                <!--日期-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/b31HomeTodayTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@string/today"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:id="@+id/b31HomeTodayImg"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:visibility="invisible"
+                            android:layout_gravity="center|bottom"
+                            android:background="@drawable/fgm_home_move" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/b31HomeYestTodayTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@string/yesterday"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:id="@+id/b31HomeYestdayImg"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="center|bottom"
+                            android:background="@drawable/fgm_home_move"
+                            android:visibility="invisible" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/b31HomeBeYestdayTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:text="@string/string_yesterday"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:id="@+id/b31HomeBeYestdayImg"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="center|bottom"
+                            android:background="@drawable/fgm_home_move"
+                            android:visibility="invisible" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <!--运动图表-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:background="#F2F2F2"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp">
+
+                    <include layout="@layout/include_b30_barchart" />
+                </LinearLayout>
+
+                <!--睡眠图表-->
+                <include layout="@layout/include_b30_sleep_view_layout" />
+                <!--心率图表-->
+                <include layout="@layout/include_b30_heart_chart" />
+
+                <!--血压图表-->
+                <include layout="@layout/include_b30_bload_chart" />
+
+                <!--血氧-->
+                <include layout="@layout/include_b31_home_bpoxy_layout"/>
+                <!--HRV-->
+                <include layout="@layout/inclue_b31_home_hrv_layout"/>
+
+
+                <include layout="@layout/include_b31_home_item_layout"/>
+
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+</LinearLayout>

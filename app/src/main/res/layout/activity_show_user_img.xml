@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="#000"
+    android:layout_height="match_parent">
+
+
+
+    <ImageView
+        android:id="@+id/userImgBackImg"
+        android:layout_width="wrap_content"
+        android:src="@mipmap/backs"
+        android:padding="5dp"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        app:layout_constraintLeft_toRightOf="@id/userImgBackImg"
+        android:layout_width="wrap_content"
+        android:textColor="@color/white"
+        android:text="头像"
+        android:padding="5dp"
+        android:layout_height="wrap_content" />
+
+
+
+    <com.bm.library.PhotoView
+        android:id="@+id/showUserDescImg"
+        android:layout_width="match_parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/userImgBackImg"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@mipmap/beraceiocn"
+        android:layout_height="match_parent" />
+
+
+</android.support.constraint.ConstraintLayout>

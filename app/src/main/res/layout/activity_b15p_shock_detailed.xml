@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/b18i_titil_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_10"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/tixingjiange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/size_15">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/string_reminding_times"
+                android:textColor="#444444"
+                android:textSize="@dimen/text_size_17" />
+
+            <LinearLayout
+                android:id="@+id/text_shock_time_line"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/size_15"
+                android:layout_weight="1"
+                android:gravity="center|end">
+
+                <TextView
+                    android:id="@+id/text_shock_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/w30s_text_view_backs"
+                    android:gravity="center"
+                    android:padding="@dimen/size_5"
+                    android:text="4H"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="@dimen/text_size_15" />
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/click_arrow" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_marginLeft="@dimen/size_15"
+            android:background="#dfdfdf" />
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/kaishijieshu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/size_15">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/string_reminding_start_end_times"
+                android:textColor="#444444"
+                android:textSize="@dimen/text_size_17" />
+
+            <TextView
+                android:id="@+id/text_start_shock_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|end"
+                android:text="12:12"
+                android:textColor="#666666"
+                android:textSize="@dimen/text_size_14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" -- "
+                android:textColor="#666666"
+                android:textSize="@dimen/text_size_14" />
+
+            <TextView
+                android:id="@+id/text_stop_shock_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/size_15"
+                android:gravity="center"
+                android:text="12:15"
+                android:textColor="#666666"
+                android:textSize="@dimen/text_size_14" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/click_arrow" />
+
+        </LinearLayout>
+
+        <!--######################-->
+        <LinearLayout
+            android:id="@+id/riqi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/size_15"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/string_reminding_metting_datas"
+                android:textColor="#444444"
+                android:textSize="@dimen/text_size_17" />
+
+            <TextView
+                android:id="@+id/text_data_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:paddingRight="@dimen/size_15"
+                android:text="0000-00-00"
+                android:textColor="#666666"
+                android:textSize="@dimen/text_size_14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/click_arrow" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/views_data"
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_marginLeft="@dimen/size_15"
+            android:background="#dfdfdf" />
+
+        <LinearLayout
+            android:id="@+id/shijian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/size_15"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/string_reminding_metting_times"
+                android:textColor="#444444"
+                android:textSize="@dimen/text_size_17" />
+
+            <TextView
+                android:id="@+id/text_timers_time"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:paddingRight="@dimen/size_15"
+                android:text="12:25"
+                android:textColor="#666666"
+                android:textSize="@dimen/text_size_14" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/click_arrow" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_25"
+        android:background="@color/new_colorAccent"
+        android:text="@string/save"
+        android:textColor="#ffffff" />
+
+</LinearLayout>

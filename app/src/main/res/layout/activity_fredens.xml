@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#efefef"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_normal"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:title=" ">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/m_tablayout"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/size_32"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_gray_solid_frend"
+            android:fillViewport="true"
+            android:minWidth="@dimen/size_160"
+            app:tabBackground="@drawable/bg_tab_frend"
+            app:tabIndicatorHeight="0dp"
+            app:tabSelectedTextColor="@color/new_colorAccent"
+            app:tabTextAppearance="@style/TabLayoutTextStyle"
+            app:tabTextColor="@android:color/white" />
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:id="@+id/myFriendMineLin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/line_onclick"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:paddingStart="@dimen/size_8"
+                android:paddingTop="@dimen/size_10"
+                android:paddingEnd="@dimen/size_5"
+                android:paddingBottom="@dimen/size_10">
+
+                <TextView
+                    android:id="@+id/myFriendPositionTv"
+                    android:layout_width="@dimen/size_50"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/size_2"
+                    android:layout_marginEnd="@dimen/size_3"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#111111"
+                    android:textSize="@dimen/sp_24"
+                    tools:ignore="HardcodedText" />
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/myFriendMineHeadImg"
+                    android:layout_width="@dimen/size_39"
+                    android:layout_height="@dimen/size_39"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/size_12"
+                    android:src="@mipmap/image_paobu_selete_no" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/myFriendMineNameTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_horizontal|start"
+                        android:maxLines="1"
+                        android:text="RaceFitPro"
+                        android:textColor="#555555"
+                        android:textSize="@dimen/sp_12"
+                        tools:ignore="HardcodedText" />
+
+
+                    <TextView
+                        android:id="@+id/myFriendMineStepTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textColor="@color/new_colorAccent"
+                        android:textSize="@dimen/sp_12"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/love_zan"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:id="@+id/myFriendMinZanImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/size_3" />
+
+                <TextView
+                    android:id="@+id/myFriendMineZanCountTv"
+                    android:layout_width="@dimen/size_70"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#555555"
+                    android:textSize="@dimen/sp_12"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_10"
+            android:background="#d6d6d6" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_frend"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_unfrend"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" />
+
+
+</LinearLayout>

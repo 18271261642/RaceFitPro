@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <include
+      android:id="@+id/app_bar" layout="@layout/appbar_toolbar" />
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/calendar1"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:orientation="vertical" >
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+      <com.example.bozhilun.android.coverflow.ListViewForScrollView
+          android:id="@+id/listview_history"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+      </com.example.bozhilun.android.coverflow.ListViewForScrollView>
+
+      <TextView
+          android:id="@+id/data_type_text"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="#FFFFFF"
+          android:gravity="center"
+          android:paddingBottom="@dimen/text_size_20"
+          android:paddingTop="@dimen/text_size_20"
+          android:text="@string/nodata"
+          android:textColor="@color/new_ui_backgrad"
+          android:textSize="@dimen/text_size_20"
+          android:textStyle="bold"
+          android:visibility="gone" />
+
+    </RelativeLayout>
+
+  </LinearLayout>
+
+</ScrollView>
+
+</LinearLayout>

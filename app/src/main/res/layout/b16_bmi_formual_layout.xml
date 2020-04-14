@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:scrollbars="none"
+    android:layout_marginTop="10dp"
+    android:layout_height="wrap_content">
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <View
+            android:layout_width="380dp"
+            android:layout_height="1dp"
+            android:background="#EBEBEB"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="BMI分类"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="WHO标准"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="亚洲标准"/>
+
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="120dp"
+            style="@style/B16BMIStyle"
+            android:text="相关疾病发病的危险性"/>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:background="#EBEBEB"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="偏瘦"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="≤18.5"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="≤18.5"/>
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="120dp"
+            style="@style/B16BMIStyle"
+            android:text="低(但其它疾病的危险性增加)"/>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:background="#EBEBEB"/>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="正常"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="18.5~24.9"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="18.5~22.9"/>
+
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="120dp"
+            style="@style/B16BMIStyle"
+            android:text="平均水平"/>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:background="#EBEBEB"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="超重"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="≥25"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="≥23"/>
+
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="120dp"
+            style="@style/B16BMIStyle"
+            android:text=""/>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:background="#EBEBEB"/>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="偏胖"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="25.0~29.9"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="23~24.9"/>
+
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="120dp"
+            style="@style/B16BMIStyle"
+            android:text="增加"/>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:background="#EBEBEB"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="肥胖"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="30~34.9"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="25~29.9"/>
+
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="120dp"
+            style="@style/B16BMIStyle"
+            android:text="中度增加"/>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:background="#EBEBEB"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="中度肥胖"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="35.0~39.9"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="≥30"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="120dp"
+            style="@style/B16BMIStyle"
+            android:text="严重增加"/>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:background="#EBEBEB"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="极重度肥胖"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text="≥40"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="80dp"
+            style="@style/B16BMIStyle"
+            android:text=""/>
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#EBEBEB"/>
+
+        <TextView
+            android:layout_width="120dp"
+            style="@style/B16BMIStyle"
+            android:text="非常严重增加"/>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:background="#EBEBEB"/>
+    </LinearLayout>
+
+</HorizontalScrollView>

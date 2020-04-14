@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/b36_women_title" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/chang_white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/womenCurrDateLeft"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:src="@drawable/arrow_white_left" />
+
+                    <TextView
+                        android:id="@+id/womenCurrDateTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2018-11"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/womenCurrDateRight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:src="@drawable/arrow_white_right" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <com.haibin.calendarview.CalendarView
+                android:id="@+id/womenCalendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                app:calendar_height="45dp"
+                app:calendar_padding="3dp"
+                app:current_month_text_color="#333333"
+                app:min_year="2004"
+                app:month_view="com.example.bozhilun.android.b36.calview.CusSimpleMonthView"
+                app:month_view_show_mode="mode_only_current"
+                app:other_month_text_color="#e1e1e1"
+                app:scheme_text_color="#111"
+                app:scheme_theme_color="#000"
+                app:selected_text_color="#fff"
+                app:selected_theme_color="#e6aaf8"
+                app:week_background="#fff"
+                app:week_text_color="#111"
+                app:week_view="com.example.bozhilun.android.b36.calview.CusSimpleWeekView"
+                app:year_view_day_text_color="#333333"
+                app:year_view_day_text_size="9sp">
+
+            </com.haibin.calendarview.CalendarView>
+
+
+            <TextView
+                android:id="@+id/womenShowChooseDateTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:padding="5dp"
+                android:text="周六,2018-11-24"
+                android:textColor="@color/contents_text"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/womenShowWomenStateTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="月经期"
+                android:textColor="@color/contents_text"
+                android:textSize="20sp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/chang_white" />
+
+            <LinearLayout
+                android:id="@+id/jignqiNoLin"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:visibility="visible"
+                android:layout_height="wrap_content">
+
+
+            <RelativeLayout style="@style/B30DeviceRelStyle">
+
+                <ImageView
+                    android:id="@+id/img1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/womendetail_period" />
+
+
+                <TextView
+                    android:id="@+id/womenJinQiStatusTv"
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img1"
+                    android:text="经期开始" />
+
+
+                <ToggleButton
+                    android:id="@+id/womenJinqiStartToggle"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/chang_white" />
+
+
+            <RelativeLayout
+                android:id="@+id/womenNotiRel"
+                android:visibility="visible"
+                style="@style/B30DeviceRelStyle">
+
+                <ImageView
+                    android:id="@+id/img13"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/women_detail_notice" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img13"
+                    android:text="@string/smart_watch_noti" />
+
+
+                <ToggleButton
+                    android:id="@+id/womenNotToggle"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/lastJingqiRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+
+                <ImageView
+                    android:id="@+id/img12"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/women_detail_menper" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/img12"
+                    android:padding="5dp"
+                    android:text="@string/b36_last_period"
+                    android:textColor="#1C1C1C"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/womenLastJingqiStartTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@id/lastJingqiDateIm"
+                    android:text="2018-08-08"
+                    android:textSize="18sp" />
+
+
+                <ImageView
+                    android:id="@+id/lastJingqiDateIm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="3dp"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/chang_white" />
+
+
+
+                <RelativeLayout
+                    android:id="@+id/womenPushNotiRel"
+                    android:visibility="visible"
+                    style="@style/B30DeviceRelStyle">
+
+                    <ImageView
+                        android:id="@+id/img131"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/women_detail_notice" />
+
+
+                    <TextView
+                        style="@style/B30DeviceStyle"
+                        android:layout_toRightOf="@+id/img131"
+                        android:text="推送开关" />
+
+
+                    <ToggleButton
+                        android:id="@+id/womenPushNotToggle"
+                        android:layout_width="70dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/toggle_select"
+                        android:textOff="@null"
+                        android:textOn="@null" />
+
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/b36NoOperLin"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/showNoOpStatusTv"
+                    android:layout_width="wrap_content"
+                    android:text="@string/b36_future"
+                    android:textSize="18sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content"/>
+
+
+                <Button
+                    android:id="@+id/backCurrDayBtn"
+                    android:layout_width="wrap_content"
+                    android:text="@string/b36_back_today"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

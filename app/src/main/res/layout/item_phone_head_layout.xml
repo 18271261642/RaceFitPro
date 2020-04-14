@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/itemPhoneRegionsTv"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Angola"
+            android:gravity="left"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:layout_gravity="center"
+            android:textSize="@dimen/sp_15"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:id="@+id/itemPhoneCountryTv"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="安哥拉"
+            android:textColor="#000"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:textSize="@dimen/sp_15"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:id="@+id/itemPhoneCodeTv"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="AO"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:layout_gravity="center"
+            android:textSize="@dimen/sp_15"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:id="@+id/tv_phone_head"
+            android:textSize="@dimen/sp_15"
+            android:textColor="#000"
+            android:text="244"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_height="@dimen/size_35" />
+    </LinearLayout>
+
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="@color/chang_white"/>
+
+</LinearLayout>

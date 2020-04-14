@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name= "glossary_breath_item_1">
+		<item>In terms of the medical term for the number of breaths per minute, one chest heaving is a breath, that is, one inhalation and one exhalation.</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_2">
+		<item>1.Bradypnea: respiratory rhythm is regular but the frequency is less than 10 BPM, which is very common in the end stage of life or before the apnea. Nerve or metabolic diseases or overdose of certain medicines can cause bradypnea due to the inhibition of the respiratory center. \n\n2.Tachypnea: breath very fast and feel respiratory distress.</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_3">
+		<item>For patients with dyspnea, emergency measures at home are as follows. \n1.Keep quiet, avoid emotional stress of the patient to aggravate the dyspnea. \n\n2.Take a semireclining or sitting position to reduce fatigue and oxygen consumption. \n\n3.Maintain the indoor air fresh and ventilated. \n\n4.Give a bland diet, and encourage the patient to eat more vegetables and fruits to replenish moisture in the body. \n\n5.Appropriate expectorant and antispasmodic medicine can be given, such as Bisolvon, Aminophylline and so on to keep the airway clear. \n\n6.Send the patient promptly to a nearby hospital for rescure when he/she is in a critical condition.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_1">
+		<item>Apnea means the complete cessation of airflow in the nose and mouth greater than or equal to 10 seconds.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_2">
+		<item>1.Snoring is irregular and the sound ranges from high to low, and generally snoring, airflow cessation, panting and snoring occur alternately. The period of airflow interruption is 20 to 30 seconds, or more than 2 minutes in individuals when obvious cyanosis may appear(the lips or fingernails are purple). \n\n2.Turning and rolling over at night occur more frequently, which often leads to low sleep quality and the symptoms of sleepiness, dizziness and fatigue at the daytime.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_3">
+		<item>In addition to taking medicine and receiving surgery and ventilation treatment according to the doctor\'s order, patients with sleep apnea caused by snoring can take the following methods to treat or alleviate the condition. \n1.Control weight. Intra-abdominal pressure would increase during breathing for the obese person due to accumulation of fat, resulting in decreased lung function and then hypoxia. \n\n2.Give up smoking and limit alcohol intake. Smoking and drinking can cause abnormal metabolism of blood lipids, arteriosclerosis and aggravation of the obstruction of the upper respiratory tract. \n\n3.Take a proper amount of exercise. Moderate exercise can improve the blood supply of the cardio and cerebral vessels, improve the ventilation function, strengthen the body resistance, and reduce the incidence of nasopharyngeal diseases. \n\n4.Lie on the side during sleep. The patient can keep the airway clear by taking the proper sleeping position of lying on the side.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_1">
+		<item>Heart load refers to the perfusion index, which reflects the pulsatile blood flow.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_2">
+		<item>1.pi value is larger. \n\n2.Heart rate and blood pressure are higher. \n\n3.Breathe very fast, which is often accompanied with a feeling of lack of strength.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_3">
+		<item>1.Ensure an adequate rest, and avoid overstrain and stay up late. \n\n2.Relax the mind and avoid mental stress. \n\n3.Eat less greasy food.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_1">
+		<item>The duration of the state of insufficient physiological oxygen or tissue oxygen demand.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_2">
+		<item>1.Dizziness and lack of strength. \n\n2.feeling difficult to breathe.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_3">
+		<item>1.In addition to direct oxygen inhalation, external oxygen supply also includes all kinds of aerobic exercise, such as walking, jogging, deep breathing, improving oxygen environment and so on. \n\n2.See a doctor and take medicine to improve the conditions when necessary.</item>
+	</string-array>
+	<string-array name= "glossary_lowremain">
+		<item>Wake-up mechanism</item>
+	</string-array>
+	<string-array name= "glossary_lowremain_item_1">
+		<item>If the monitored nocturnal blood oxygen value is too low continuously, your health may be affected, and the device will make an alarm notification.</item>
+	</string-array>
+	<string-array name= "glossary_osahs">
+		<item>Terminology</item>
+		<item>Typical symptoms</item>
+		<item>Treatment</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_1">
+		<item>It refers to a clinical syndrome of chronic hypoxemia and hypercapnia caused by decreased blood oxygen due to apnea appearing more than 30 times or hypoventilation occuring more than 5 times per hour on average in 7 consecutive hours of sleeping.</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_2">
+		<item>Clinical manifestations in the daytime:\n1.drowsiness. \n\n2.dizziness and lack of strength. \n\n3.abnormal mental state, headache, irritability, temperament, anxiety, etc. \n\n4.sexual dysfunction, etc.</item>
+		<item>Clinical manifestations at night: \n1.Snoring: snoring occurrs irregularly, and snoring, airflow cessation, panting and snoring occur alternately. \n\n2.Apnea: the breath suspends because of panting, waking up or loud snoring. \n\n3.Waking up: it is often accompanied by turning over, involuntary movement of limbs and even convulsions or suddenly sitting up, as well as feeling flustered, chest tightness or precordial discomfort. \n\n4.Hyperactivity: turning over and rolling more frequently at night. \n\n5.Hyperhidrosis and nocturia increasing. \n\n6.Abnormal sleep behavior: the patient acts as fear, screaming, raving, noctivagation, phonism, etc. \n\nIn addition, obesity, hypertrophy of nasal  turbinate, snoring and so on are also prone to lead to sleep apnea syndrome.</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_3" formatted="false">
+		<item>In addition to taking medicine and receiving a surgery according to the doctor\'s order, the patient can also perforrm the following methods to treat or alleviate the condition: \n1.Control weight. \n\n2.Give up smoking and limit alcohol intake. \n\n3.Take a proper amount of exercise. \n\n4.Lie on the side during sleep.</item>
+		<item>Surgery, medicine and ventilation treatment: \n1.Repair abnormal areas of the upper airway through surgery. \n\n2.Drug therapy. \n\n3.Low flow oxygen inhalation at night. \n\n4.Inhale carbon dioxide of 2% to 3%. \n\n5.Take continuous positive pressure ventilation via the intranasal route. \n\n6.External diaphragm pacing. \n\n7.Mechanical ventilation.</item>
+		<item>A healthy lifestyle and correct early diagnosis are the keys to preventing and reducing the occurrence of sleep apnea. Clinical medicine has proved that cardiovascular and other concomitant diseases are gradually getting better with the improvement of sleep apnea syndrome. The longer the treatment is, the more obvious the improvement of the symptoms is.</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_1">
+		<item>Blood oxygen refers to the percentage of the amount of oxygenated hemoglobin in the blood of all hemoglobin that can be combined, that is, the concentration of oxygen in the blood.</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_2">
+		<item>1.Cardiovascular and cerebrovascular diseases (coronary heart disease, hypertension, hyperlipidemia, etc.). \n\n2.Respiratory diseases (asthma, bronchitis, pulmonary heart disease, etc.).</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_3">
+		<item>1.As the disease occurs in patients with lower blood oxygen, in addition to actively receiving the treatment of the original disease, the equipment for measuring blood oxygen and oxygen inhalation should be prepared to be timely supplied with oxygen once hypoxemia is detected. \n\n2.In addition to the direct oxygen inhalation, a variety of aerobic exercises can also be performed to ease the condition such as walking, jogging, deep breathing and improving the oxygen environment.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_1">
+		<item>The change in the successive heartbeat cycle difference, that is, the change of RR interval difference. It can reflect the recent cardiovascular and mental states.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_2">
+		<item>1.Pulse rate variability is not active and maintains at a low level. \n\n2.The patient often has a feeling of dizziness, headache, palpitation and so on.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_3">
+		<item>1.Maintain good living habits and get plenty of rest. \n\n2.Keep a good mental state, and do more aerobic exercise, and have a diet with less salt and less oil. \n\n3.If the value is low over a long period of time and the scope of change is small, it is likely to be a precursor of some cardiovascular diseases, and timely medical treatment is recommended if feeling discomfort.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_1">
+		<item>Answer: during consecutive 7 hours of sleep, if apnea (no breathing for 10 senconds or more) occurs more than 30 times, or  hypoventilation (breathing gas flow reduces or stops completely) per hour on average happens more than 5 times, the person can be thought to suffer from sleep apnea syndrome.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_2">
+		<item>Answer: as a chronic disease, sleep apnea syndrome is difficult to detect when the disease develops and early illness is not easily taken seriously. Once the breath is not smooth, it will cause snoring in easy case, or lung hypoxia and decreased blood oxygen  in severe case so that the body gets no rest and recovery, thus bringing poor mental and health state and significant decline in quality of life. \nWhat is more serious is that when apnea occurs, it is very difficult for patients to awake if there is a lack of external stimuli until the body organs lack oxygen or even are damaged, while the patient often does not take it seriously and this phenomenon happens several times over a long period of time, and continuous cumulative damage would result in a variety of cardiovascular diseases and mental illness, and even sudden death.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_3">
+		<item>Answer: most are caused by upper airway obstruction, including hypertrophy of nasal turbinates, hypertrophy of the tonsils, short lower jaw, thick neck and overall obesity. \nSo sleep apnea syndrome is caused by obstruction in most cases, but some are induced by respiratory dysfunction from the injury of respiration center, which is known as the central illness, or a mixture of both.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_4">
+		<item>Answer: a simple judgment can be conducted according to whether there is the typical clinical symptoms and signs, but because of the characteristics of chronic disease and lack of monitoring equipment, it is difficult for patients in the sleep to perceive their nocturnal symptoms, and merely family description and self perception can easily lead to a misjudgment due to the lack of scientific basis. \nOnly after the illness is getting serious will the patient realize that he or she should go to the hospital for medical diagnosis. \nStandard method is polysomnography (PSG), which can accurately understand the type and degree of disease through the core of blood oxygen monitoring accompanied by monitoring multiple physiological parameters of ECG, EEG, EMG, electric eye and others. At this moment, the disease has often entered a more serious stage, and the difficulty and cost of treatment and the patient\'s discomfort are greatly increased, so the sooner a definite diagnosis does, the better the efficacy is.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_5">
+		<item>Answer: at present the researches on central sleep apnea syndrome is less, and in addition to the positive treatment of respiratory dysfunction disease (primary disease), there is still no effective ones. The central sleep apnea syndrome often do not exist alone, so the treatment of obstructive sleep apnea syndrome can also bring some effect. The measurement to treat obstructive sleep apnea syndrome usually requires to select the therapeutic regimens based on the severity of the patient\'s disease. \nNo matter what kind of treatment method of apnea is adopted, the way can never beyond the following two ones, 1) to interrupt the apnea through external stimuli when it is found through the detection mechanism, for example, when apnea with severe hypoxia occurs, the patient is shaken or pushed to wake up to lessen the duration of apnea and reduce or avoid damage to the organs of the body; 2) there is no need of detection mechanism, just maintaining the state of treatment to avoid the occurrence of apnea.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_6">
+		<item>Answer: for patients with sleep apnea syndrome, blood oxygen monitoring has the following advantages: \n1.Give warning to suggest a risk in the phase of snoring developing into apnea. \n\n2.In the early stages of disease, it can serve as a basis for diagnosis to take early medical treatment, which would reduce the difficulty of treatment, decrease the cost and increase the cure rate. \n\n3.In the treatment phase, timely monitor nocturnal condition and feedback the treatment effect. \n\n4.As an important basis for the detection of apnea, it can be combined with wake-up means to monitor the disease change.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip">
+		<item>1. Question: what is sleep apnea syndrome?</item>
+		<item>2. Question: dose sleep apnea syndrome have serious harms?</item>
+		<item>3. Question: how is this disease caused?</item>
+		<item>4. Question: how do I know if I have sleep apnea syndrome or not?</item>
+		<item>5. Question: how to treat sleep apnea syndrome?</item>
+		<item>6. Question: what is the benefit of blood oxygen monitoring for sleep apnea syndrome?</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_1">
+		<item>The range of sleep activity refers to the unconscious body movement during sleep.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_2">
+		<item>1.Turn and roll over more frequently and sweat a lot at night.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_3">
+		<item>1.Pay attention to the diet, and a moderate amount of drink can be taken before going to bed, such as milk or millet congee. \n\n2.Do some preparation before going to bed, such as taking hot foot bath and massaging the Yongquan point of sole center, etc. \n\n3.Lie on the side to effectively reduce body movements. \n\n4.Improving sleep environment (indoor humidity and temperature) also has some help.</item>
+	</string-array>
+</resources>

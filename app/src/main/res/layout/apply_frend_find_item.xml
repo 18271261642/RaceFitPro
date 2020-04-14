@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/find_frend_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/layout_click"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/size_8"
+    android:layout_marginTop="5dp"
+    android:paddingTop="@dimen/size_10"
+    android:paddingEnd="@dimen/size_5"
+    android:paddingBottom="@dimen/size_10"
+    android:visibility="visible">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imahe_list_heard"
+        android:layout_width="@dimen/size_28"
+        android:layout_height="@dimen/size_28"
+        android:layout_marginEnd="@dimen/size_7"
+        android:src="@mipmap/image_paobu_selete_no" />
+
+
+    <TextView
+        android:id="@+id/user_names"
+        android:layout_width="@dimen/size_110"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ellipsize="end"
+        android:gravity="center_horizontal|start"
+        android:maxLines="1"
+        android:text="RaceFitPro"
+        android:textColor="#555555"
+        android:textSize="@dimen/sp_14"
+        tools:ignore="HardcodedText" />
+
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/frend_sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical|end"
+        android:text="@string/sex_nan"
+        android:textColor="@color/new_colorAccent"
+        android:textSize="@dimen/sp_16"
+        tools:ignore="HardcodedText" />
+
+
+    <TextView
+        android:id="@+id/frend_birthday"
+        android:layout_width="@dimen/size_50"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/size_3"
+        android:gravity="center"
+        android:text="18"
+        android:textColor="#555555"
+        android:textSize="@dimen/sp_12"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/frend_friend_status"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/size_3"
+        android:layout_marginEnd="@dimen/size_5"
+        android:gravity="end|bottom"
+        android:text="等待验证"
+        android:textColor="#555555"
+        android:textSize="@dimen/sp_8"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>

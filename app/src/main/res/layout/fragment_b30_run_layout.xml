@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/new_colorAccent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <android.support.design.widget.TabLayout
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/mTabLayout"
+        android:layout_width="@dimen/size_200"
+        android:layout_height="@dimen/size_35"
+        android:layout_margin="3dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_gray_solid"
+        android:fillViewport="true"
+        app:tabBackground="@drawable/bg_tab"
+        app:tabIndicatorHeight="0dp"
+        app:tabSelectedTextColor="@color/new_colorAccent"
+        app:tabTextColor="@android:color/white" />
+
+
+
+    <com.example.bozhilun.android.siswatch.run.ViewPagerSlide
+        android:layout_below="@+id/mTabLayout"
+        android:id="@+id/run_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.example.bozhilun.android.siswatch.run.ViewPagerSlide>
+
+    <FrameLayout
+        android:visibility="gone"
+        android:layout_below="@+id/mTabLayout"
+        android:id="@+id/w30_run_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+    <ImageView
+        android:layout_marginTop="@dimen/size_15"
+        android:layout_marginRight="@dimen/size_15"
+        android:id="@+id/watch_run_sportHistoryTitleTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:src="@mipmap/image_his_data"/>
+
+</RelativeLayout>

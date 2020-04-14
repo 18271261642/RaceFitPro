@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="15dp"
+    android:layout_height="wrap_content">
+
+
+
+    <TextView
+        android:id="@+id/friendPermissDesc"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:background="@drawable/layout_click"
+        android:textColor="@color/backgoundhtest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="好友权限说明"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/chang_white"/>
+
+
+    <TextView
+        android:id="@+id/starSpecialTv"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:background="@drawable/layout_click"
+        android:textColor="@color/contents_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置为特殊好友"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/chang_white"/>
+
+    <TextView
+        android:id="@+id/starStarTv"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:background="@drawable/layout_click"
+        android:textColor="@color/contents_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置为星标好友"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/chang_white"/>
+
+
+
+    <TextView
+        android:id="@+id/starNormalTv"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:background="@drawable/layout_click"
+        android:textColor="@color/contents_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置为普通好友"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/chang_white"/>
+
+
+    <TextView
+        android:id="@+id/starCancleTv"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:background="@drawable/layout_click"
+        android:textColor="@color/contents_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="取消"/>
+
+
+</LinearLayout>

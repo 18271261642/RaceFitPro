@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/b30_tab_home"
+        android:icon="@mipmap/jilu_icon_sel"
+        android:title="@string/recording"
+        app:showAsAction="ifRoom" />
+
+    <!--<item-->
+        <!--android:id="@+id/b30_tab_data"-->
+        <!--android:icon="@mipmap/draw_data_item"-->
+        <!--android:title="@string/data"-->
+        <!--app:showAsAction="ifRoom" />-->
+
+    <item
+        android:id="@+id/b30_tab_set"
+        android:icon="@mipmap/paobu_icon_sel"
+        android:title="@string/running"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/b30_tab_my"
+        android:icon="@mipmap/wode_icon_sel"
+        android:title="@string/mine"
+        app:showAsAction="ifRoom" />
+</menu>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/b18i_titil_bar" />
+
+    <LinearLayout
+        android:id="@+id/line_sedentary_remind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_margin="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/image_w30s_jiuzuo" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Sedentaryreminder"
+            android:textColor="#444444"
+            android:textSize="@dimen/text_size_17" />
+
+
+        <ToggleButton
+            android:id="@+id/sw_sedentary_remind"
+            style="@style/B30MsgToggleStyle"/>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="8dp"
+        android:background="@color/gray_background_color" />
+
+    <LinearLayout
+        android:id="@+id/line_dring_remind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_margin="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/image_w30s_heshui" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/string_water_clock"
+            android:textColor="#444444"
+            android:textSize="@dimen/text_size_17" />
+
+        <ToggleButton
+            android:id="@+id/sw_dring_remind"
+            style="@style/B30MsgToggleStyle"/>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="8dp"
+        android:background="@color/gray_background_color" />
+
+    <LinearLayout
+        android:id="@+id/line_medicine_remind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_margin="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/image_w30s_chiyao" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/string_drug_reminding"
+            android:textColor="#444444"
+            android:textSize="@dimen/text_size_17" />
+
+        <ToggleButton
+            android:id="@+id/sw_medicine_remind"
+            style="@style/B30MsgToggleStyle"/>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="8dp"
+        android:background="@color/gray_background_color" />
+
+    <LinearLayout
+        android:id="@+id/line_metting_remind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_margin="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/image_w30s_huiyi" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/string_conference_reminding"
+            android:textColor="#444444"
+            android:textSize="@dimen/text_size_17" />
+
+        <ToggleButton
+            android:id="@+id/sw_metting_remind"
+            style="@style/B30MsgToggleStyle"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/b30_sport"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/comment_b30_title_layout"/>
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:background="@drawable/oad_pic"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_height="100dp"/>
+
+
+
+    <LinearLayout
+        android:id="@+id/up_prooss"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/progress_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:gravity="center"
+            android:padding="@dimen/size_5"
+            android:text="@string/auto_upgrade"
+            android:textColor="#666666"
+            android:textSize="@dimen/sp_12" />
+
+        <ProgressBar
+            android:id="@+id/progressBar_upgrade"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_10"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/w30s_up_bar_color" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/b30DufBtn"
+        style="@style/match_btn"
+        android:layout_height="45dp"
+        android:layout_marginTop="@dimen/size_25"
+        android:background="@drawable/blue_btn_selector"
+        android:text="@string/string_upgrade" />
+
+</LinearLayout>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--<include layout="@layout/comment_b30_title_layout"/>-->
+
+
+    <!--<ImageView-->
+        <!--android:layout_width="100dp"-->
+        <!--android:background="@drawable/oad_pic"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_height="100dp"/>-->
+
+
+
+
+    <!--<Button-->
+        <!--android:id="@+id/b30DufBtn"-->
+        <!--style="@style/match_btn"-->
+        <!--android:layout_height="45dp"-->
+        <!--android:layout_below="@+id/email_login_form"-->
+        <!--android:layout_marginTop="@dimen/size_16"-->
+        <!--android:background="@drawable/blue_btn_selector"-->
+        <!--android:text="@string/string_upgrade" />-->
+
+<!--</LinearLayout>-->

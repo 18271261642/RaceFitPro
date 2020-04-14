@@ -1,0 +1,3 @@
+include ':app', ':wheelpicker', ':circleviewprogress',
+        ':w30sblelibrary', ':MPChartLib',
+        ':calendarview', ':banner'

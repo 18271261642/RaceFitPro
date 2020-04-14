@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/comment_b30_title_layout" />
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_marginBottom="61dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_15"
+                    android:layout_marginRight="@dimen/size_15"
+                    android:background="@drawable/mybackground_off"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+                    <!--android:background="@drawable/newh9data_top_shap"-->
+
+                    <TextView
+                        android:id="@+id/b30DataWeekTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/newh9data_selecte_text_shap"
+                        android:gravity="center"
+                        android:padding="6dp"
+                        android:text="@string/weeks"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_size_17" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/chang_white" />
+
+                    <TextView
+                        android:id="@+id/b30DataMonthTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/newh9data_selecte_text_shap"
+                        android:gravity="center"
+                        android:padding="6dp"
+                        android:text="@string/data_report_month"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_size_17" />
+
+                    <View
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/chang_white" />
+
+                    <TextView
+                        android:id="@+id/b30DataYearTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/newh9data_selecte_text_shap"
+                        android:gravity="center"
+                        android:padding="6dp"
+                        android:text="@string/year"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_size_17" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <include layout="@layout/include_b30_step_data" />
+
+            <include layout="@layout/include_b30_sleep_data" />
+
+            <include layout="@layout/include_b30_heart_data" />
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

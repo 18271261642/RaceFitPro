@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:background="@color/new_colorAccent"
+    android:padding="5dp"
+    android:layout_height="?actionBarSize">
+
+
+    <ImageView
+        android:id="@+id/homeTypeImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/icon_b16_top"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="5dp"/>
+
+
+    <TextView
+        android:id="@+id/homeBatteryStatusTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/homeTypeImg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/homeTypeImg"
+        android:layout_marginLeft="5dp"
+        android:text="已连接"
+        android:textColor="@color/white"/>
+
+
+
+    <com.example.bozhilun.android.view.BatteryView
+        android:id="@+id/homeBatteryView"
+        app:batteryOrientation="horizontal"
+        app:batteryPower="0"
+        android:layout_width="33dp"
+        android:layout_height="15dp"
+        app:layout_constraintLeft_toRightOf="@id/homeTypeImg"
+        app:layout_constraintTop_toBottomOf="@+id/homeBatteryStatusTv"
+        android:layout_marginLeft="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+    <TextView
+        android:id="@+id/batteryDateTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    <ImageView
+        android:id="@+id/batteryShareImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginRight="10dp"/>
+
+
+</android.support.constraint.ConstraintLayout>

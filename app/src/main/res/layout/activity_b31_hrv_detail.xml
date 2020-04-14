@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/comment_b30_title_layout" />
+
+
+    <include layout="@layout/comment_date_arrow_layout" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/include_b31_hrv_analisys_top_chart" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="@string/heart_health_sorce"
+                    android:textColor="@color/red"
+                    android:textSize="17sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_height="wrap_content" />
+
+
+                <TextView
+                    android:id="@+id/hrvDetailHeartSocreTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="0"
+                    android:textColor="@color/contents_text"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <ImageView
+                        android:id="@+id/hrvReferBackImg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/hrv_refer_img" />
+
+
+                    <ImageView
+                        android:id="@+id/hrvReferMarkviewImg"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/hrv_refer_markview"
+                        android:layout_height="20dp" />
+
+
+                </FrameLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+
+                        android:text="0"
+                        android:layout_gravity="center"
+                        android:gravity="left"
+                        android:layout_height="wrap_content" />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                       android:layout_weight="2"
+                        android:text="@string/vpspo2h_state_error"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="40"
+                        android:layout_gravity="center"
+                        android:gravity="left"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/vpspo2h_state_little"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="60"
+                        android:layout_gravity="center"
+                        android:gravity="right"
+                        android:paddingRight="8dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/vpspo2h_state_normal"
+                        android:layout_gravity="center"
+                        android:gravity="right"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="100"
+                        android:layout_gravity="center"
+                        android:gravity="right"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ccc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:background="#ECA83D"
+                    android:id="@+id/herLerzeoTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/vphrv_lorentz_chart"
+                    android:textSize="17sp" />
+
+
+                <TextView
+                    android:id="@+id/herDataTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/hrv_data"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ccc" />
+
+            <include layout="@layout/include_hrv_leroz_layout" />
+
+            <include layout="@layout/include_hrv_list_data_layout" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

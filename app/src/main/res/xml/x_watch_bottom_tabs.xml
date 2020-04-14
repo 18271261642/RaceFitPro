@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        icon="@mipmap/jilu_icon_sel"
+        id="@+id/x_watch_tab_home"
+        title="@string/recording" />
+    <tab
+        icon="@mipmap/paobu_icon_sel"
+        id="@+id/x_watch_table_sport"
+        title="@string/move_ment" />
+
+    <tab
+        icon="@mipmap/wode_icon_sel"
+        id="@+id/x_watch_tab_my"
+        title="@string/mine" />
+</tabs>

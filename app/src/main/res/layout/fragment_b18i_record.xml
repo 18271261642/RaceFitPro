@@ -1,0 +1,1566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/b18irecordFm"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/icon_record_bg_picture"
+    android:orientation="vertical">
+    <!--android:background="@mipmap/race_image"-->
+    <!--android:background="@color/colorPrimaryDark"-->
+    <!--android:background="@mipmap/icon_record_bg_picture"-->
+
+    <include layout="@layout/battery_top_layout" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffffff" />
+
+
+    <com.example.bozhilun.android.h9.utils.VerticalSwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ScrollView
+                android:id="@+id/scroll_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:scrollbars="none"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/size_50" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:gravity="center"
+                        android:text="@string/string_today_step"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_15" />
+
+                    <!--步数-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="4">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="5dp"
+                                android:orientation="vertical">
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center">
+
+
+                                    <com.littlejie.circleprogress.circleprogress.WaveProgress
+                                        android:id="@+id/recordwave_progress_bar"
+                                        android:layout_width="230dp"
+                                        android:layout_height="230dp"
+                                        android:layout_gravity="center"
+                                        app:darkWaveAnimTime="3000"
+                                        app:darkWaveColor="#1ebae3"
+                                        app:lightWaveAnimTime="4000"
+                                        app:lightWaveColor="#34c7e7"
+                                        app:lightWaveDirect="R2L"
+                                        app:lockWave="false"
+                                        app:valueColor="@color/white"
+                                        app:valueSize="45sp"
+                                        app:waveHeight="10dp"
+                                        app:waveNum="1" />
+
+                                    <ImageView
+                                        android:layout_width="270dp"
+                                        android:layout_height="270dp"
+                                        android:layout_gravity="center"
+                                        android:background="@mipmap/icon_record_circule_luminous" />
+
+
+                                </FrameLayout>
+
+
+                                <TextView
+                                    android:id="@+id/watch_recordTagstepTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="10dp"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/text_size_14" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/stepData_imageView"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="@dimen/size_5"
+                                android:layout_marginRight="10dp"
+                                android:gravity="center"
+                                android:src="@mipmap/image_his_data"
+                                android:visibility="gone" />
+
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:id="@+id/im_kcal"
+                                android:layout_width="@dimen/size_100"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/size_10"
+                                android:gravity="center"
+                                android:src="@mipmap/ic_new_calories"
+                                tools:ignore="ContentDescription" />
+                            <!--android:src="@mipmap/ic_h8_calories"-->
+
+                            <TextView
+                                android:id="@+id/t_kcal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/size_20"
+                                android:layout_below="@+id/im_kcal"
+                                android:layout_alignStart="@+id/im_kcal"
+                                android:layout_alignEnd="@+id/im_kcal"
+                                android:gravity="center"
+                                android:text="kcal"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_14"
+                                tools:ignore="HardcodedText" />
+
+
+                            <TextView
+                                android:id="@+id/watch_recordKcalTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/size_20"
+                                android:layout_below="@+id/t_kcal"
+                                android:layout_alignStart="@+id/im_kcal"
+                                android:layout_alignEnd="@+id/im_kcal"
+                                android:gravity="center"
+                                android:text="0.0"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_15"
+                                tools:ignore="HardcodedText" />
+
+
+                            <ImageView
+                                android:id="@+id/im_mi"
+                                android:layout_width="@dimen/size_100"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                android:src="@mipmap/ic_new_distance"
+                                tools:ignore="ContentDescription" />
+                            <!--android:src="@mipmap/ic_h8_distance"-->
+
+                            <TextView
+                                android:id="@+id/t_mi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/size_20"
+                                android:layout_below="@+id/im_mi"
+                                android:layout_alignStart="@+id/im_mi"
+                                android:layout_alignEnd="@+id/im_mi"
+                                android:gravity="center"
+                                android:text="m"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_14"
+                                tools:ignore="HardcodedText" />
+
+
+                            <TextView
+                                android:id="@+id/watch_recordMileTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/size_20"
+                                android:layout_below="@+id/t_mi"
+                                android:layout_alignStart="@+id/im_mi"
+                                android:layout_alignEnd="@+id/im_mi"
+                                android:gravity="center"
+                                android:text="0.0"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_15"
+                                tools:ignore="HardcodedText" />
+
+
+                            <ImageView
+                                android:id="@+id/im_reach"
+                                android:layout_width="@dimen/size_100"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="@dimen/size_10"
+                                android:gravity="center"
+                                android:paddingTop="@dimen/size_4"
+                                android:src="@mipmap/ic_new_reach"
+                                tools:ignore="ContentDescription" />
+                            <!--android:src="@mipmap/image_step_toal"-->
+
+                            <TextView
+                                android:id="@+id/t_reach"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/size_20"
+                                android:layout_below="@+id/im_reach"
+                                android:layout_alignStart="@+id/im_reach"
+                                android:layout_alignEnd="@+id/im_reach"
+                                android:gravity="center"
+                                android:text="reach"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_14"
+                                tools:ignore="HardcodedText" />
+
+
+                            <TextView
+                                android:id="@+id/text_step_reach"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/size_20"
+                                android:layout_below="@+id/t_reach"
+                                android:layout_alignStart="@+id/im_reach"
+                                android:layout_alignEnd="@+id/im_reach"
+                                android:gravity="center"
+                                android:text="0.0"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_15"
+                                tools:ignore="HardcodedText" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_weight="1"
+                            android:visibility="gone">
+
+                            <!--<TextView-->
+                            <!--android:id="@+id/watch_recordKcalTv"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginLeft="@dimen/size_48"-->
+                            <!--android:drawableTop="@mipmap/record_icon_kcal"-->
+                            <!--android:gravity="center"-->
+                            <!--android:text="0"-->
+                            <!--android:textColor="@color/white"-->
+                            <!--android:textSize="@dimen/sp_14"-->
+                            <!--tools:ignore="HardcodedText,RtlHardcoded" />-->
+
+
+                            <!--<TextView-->
+                            <!--android:id="@+id/watch_recordMileTv"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_centerInParent="true"-->
+                            <!--android:drawableTop="@mipmap/image_w30s_mi"-->
+                            <!--android:gravity="center"-->
+                            <!--android:text="0"-->
+                            <!--android:textColor="@color/white"-->
+                            <!--android:textSize="@dimen/sp_14"-->
+                            <!--tools:ignore="HardcodedText" />-->
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="@dimen/size_48"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                tools:ignore="RtlHardcoded">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/size_4"
+                                    android:src="@mipmap/image_step_toal"
+                                    tools:ignore="ContentDescription" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/size_2"
+                                    android:gravity="center"
+                                    android:text=" reach"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/sp_15"
+                                    tools:ignore="HardcodedText" />
+
+                                <!--<TextView-->
+                                <!--android:id="@+id/text_step_reach"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:gravity="center"-->
+                                <!--android:text="0%"-->
+                                <!--android:textColor="@color/white"-->
+                                <!--android:textSize="@dimen/sp_14" />-->
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginTop="@dimen/size_30"
+                        android:layout_marginBottom="@dimen/size_30"
+                        android:background="#25ffffff" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:text="@string/string_today_heart"
+                        android:textColor="@color/white" />
+
+                    <!--心率图-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <!--忽略-->
+                        <!--<LinearLayout
+                            android:id="@+id/heart_lines"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/size_35"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="3dp"
+                                android:text="Bpm/Hour"
+                                android:textColor="#ffffff"
+                                android:textSize="@dimen/text_size_10"
+                                android:visibility="gone" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="@dimen/size_10"
+                                android:visibility="gone">
+
+                                &lt;!&ndash;<lecho.lib.hellocharts.view.LineChartView&ndash;&gt;
+                                &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+
+                                &lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;
+                                &lt;!&ndash;android:visibility="gone" />&ndash;&gt;
+
+                                &lt;!&ndash;<com.example.bozhilun.android.w30s.views.W30CusHeartView&ndash;&gt;
+                                &lt;!&ndash;android:id="@+id/heart_chart"&ndash;&gt;
+                                &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                                &lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;
+                                &lt;!&ndash;android:layout_marginLeft="@dimen/size_10"&ndash;&gt;
+                                &lt;!&ndash;android:layout_marginRight="@dimen/size_10"&ndash;&gt;
+                                &lt;!&ndash;app:pointColor="@color/white" />&ndash;&gt;
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="#23ffffff"
+                                    android:gravity="center"
+                                    android:textSize="@dimen/text_size_18" />
+
+                                <TextView
+                                    android:id="@+id/data_type_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="#7fffffff"
+                                    android:gravity="center"
+                                    android:text="@string/nodata"
+                                    android:textColor="#ffffff"
+                                    android:textSize="@dimen/text_size_18"
+                                    android:visibility="gone" />
+
+
+                            </RelativeLayout>
+
+
+                        </LinearLayout>-->
+
+                        <!--心率历史记录入口-->
+                        <ImageView
+                            android:id="@+id/autoData_imageView"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="@dimen/size_6"
+                            android:layout_marginRight="@dimen/size_10"
+                            android:gravity="center"
+                            android:src="@mipmap/image_his_data"
+                            android:visibility="gone"
+                            tools:ignore="RtlHardcoded" />
+
+                        <!--滑动显示心率的控件-->
+                        <FrameLayout
+                            android:id="@+id/frm_heard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/size_5"
+                            android:layout_gravity="center"
+                            android:minWidth="@dimen/size_200"
+                            android:padding="@dimen/size_1">
+
+                            <TextView
+                                android:id="@+id/heart_times"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:text="00"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_14"
+                                android:visibility="gone" />
+
+
+                            <TextView
+                                android:id="@+id/heart_more"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="@string/string_long_onclick_heart"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_14"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/heard_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:drawableLeft="@mipmap/image_w30s_xonlv"
+                                android:gravity="center"
+                                android:text="  000"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/sp_14"
+                                android:visibility="gone" />
+
+                        </FrameLayout>
+
+                        <!--心率图-->
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/size_200">
+
+
+                            <com.example.bozhilun.android.w30s.views.W30CusHeartView
+                                android:id="@+id/heart_chart"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/size_200"
+                                android:layout_marginLeft="@dimen/size_10"
+                                android:layout_marginRight="@dimen/size_10"
+                                android:background="#25ffffff"
+                                app:pointColor="@color/white" />
+
+
+                            <SeekBar
+                                android:id="@+id/seek_bar_my_heart"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/size_200"
+                                android:background="@null"
+                                android:overScrollMode="never"
+                                android:progressDrawable="@drawable/seekbar_bg"
+                                android:thumb="@null" />
+
+
+                        </FrameLayout>
+                    </LinearLayout>
+
+                    <!--高低平均心率-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            tools:ignore="NestedWeights" />
+
+
+                        <LinearLayout
+                            android:id="@+id/line_heart_datas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/size_10"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:id="@+id/maxHeart_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:drawableTop="@mipmap/image_new_max_hight"
+                                    android:gravity="center"
+                                    android:padding="@dimen/size_3"
+                                    android:text="@string/zuigaoxinlv"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/sp_12"
+                                    tools:ignore="InefficientWeight,NestedWeights" />
+                                <!--android:drawableTop="@mipmap/image_max_hight"-->
+
+
+                                <TextView
+                                    android:id="@+id/maxHeart_text_number"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="@dimen/size_3"
+                                    android:text="0bpm"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/sp_14" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:id="@+id/zuidiHeart_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:drawableTop="@mipmap/image_new_lad_hight"
+                                    android:gravity="center"
+                                    android:padding="@dimen/size_3"
+                                    android:text="@string/zuidixinlv"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/sp_12"
+                                    tools:ignore="InefficientWeight,NestedWeights" />
+                                <!--android:drawableTop="@mipmap/image_lad_hight"-->
+
+
+                                <TextView
+                                    android:id="@+id/zuidiHeart_text_number"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="@dimen/size_3"
+                                    android:text="0bpm"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/sp_14" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:id="@+id/autoHeart_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:drawableTop="@mipmap/image_new_lad_pingjun"
+                                    android:gravity="center"
+                                    android:padding="3dp"
+                                    android:text="@string/pinjunxin"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/sp_12"
+                                    tools:ignore="InefficientWeight,NestedWeights" />
+                                <!--android:drawableTop="@mipmap/image_lad_pingjun"-->
+
+                                <TextView
+                                    android:id="@+id/autoHeart_text_number"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="@dimen/size_3"
+                                    android:text="0bpm"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/sp_14" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:id="@+id/autoData_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableTop="@mipmap/image_his_data"
+                            android:gravity="center"
+                            android:padding="@dimen/size_5"
+                            android:text="@string/data"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_14"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+
+                    <!--<com.example.bozhilun.android.B18I.b18iview.LeafLineChart-->
+                    <!--android:id="@+id/leaf_chart"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="0dp"-->
+                    <!--android:layout_weight="2"-->
+                    <!--android:visibility="gone" />-->
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginTop="@dimen/size_30"
+                        android:layout_marginBottom="@dimen/size_30"
+                        android:background="#25ffffff" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:text="@string/string_today_sleep"
+                        android:textColor="@color/white" />
+
+                    <!--睡眠图-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/sleepData_imageView"
+                            android:layout_width="@dimen/size_20"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="@dimen/size_5"
+                            android:layout_marginRight="@dimen/size_5"
+                            android:gravity="right"
+                            android:src="@mipmap/image_his_data"
+                            android:visibility="gone"
+                            tools:ignore="RtlHardcoded" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+
+                            <!--文本-->
+                            <LinearLayout
+                                android:layout_marginBottom="@dimen/size_5"
+                                android:id="@+id/line_time_star_end"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/text_sleep_type"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/size_7"
+                                    android:layout_marginEnd="@dimen/size_7"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#ffffff"
+                                    android:textSize="@dimen/sp_14" />
+
+                                <TextView
+                                    android:id="@+id/text_sleep_start"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=""
+                                    android:textColor="#ffffffff"
+                                    android:textSize="@dimen/sp_14" />
+
+                                <TextView
+                                    android:id="@+id/text_sleep_lines"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/size_7"
+                                    android:layout_marginEnd="@dimen/size_7"
+                                    android:text=" -- "
+                                    android:textColor="#ffffffff"
+                                    android:textSize="@dimen/sp_14" />
+
+                                <TextView
+                                    android:id="@+id/text_sleep_end"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text=""
+                                    android:textColor="#ffffffff"
+                                    android:textSize="@dimen/sp_14" />
+
+                            </LinearLayout>
+
+                            <!--<RelativeLayout
+                                android:background="@color/new_colorAccent"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <FrameLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <com.example.bozhilun.android.w30s.views.W30S_SleepChart
+                                        android:id="@+id/sleep_chart"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="175dp"
+                                        android:layout_marginLeft="@dimen/size_5"
+                                        android:layout_marginRight="3dp" />
+
+                                    <SeekBar
+                                        android:id="@+id/seek_bar_my"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:overScrollMode="never"
+                                        android:background="@null"
+                                        android:progressDrawable="@drawable/seekbar_bg"
+                                        android:thumb="@null" />
+                                </FrameLayout>
+
+                                <TextView
+                                    android:visibility="gone"
+                                    android:id="@+id/text_sleep_nodata"
+                                    android:textColor="#ffffff"
+                                    android:gravity="center"
+                                    android:textSize="@dimen/text_size_20"
+                                    android:text="@string/nodata"
+                                    android:background="#7fffffff"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="150dp" />
+
+                            </RelativeLayout>-->
+
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/size_200"
+                                android:layout_marginLeft="@dimen/size_8"
+                                android:layout_marginRight="@dimen/size_8">
+
+                                <com.example.bozhilun.android.w30s.views.W30S_SleepChart
+                                    android:id="@+id/sleep_chart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/size_200"
+                                    android:layout_marginLeft="@dimen/size_5"
+                                    android:layout_marginRight="3dp"
+                                    android:background="#25ffffff" />
+
+
+                                <SeekBar
+                                    android:id="@+id/seek_bar_my_sleep"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/size_200"
+                                    android:background="@null"
+                                    android:max="100"
+                                    android:overScrollMode="never"
+                                    android:progressDrawable="@drawable/seekbar_bg"
+                                    android:thumb="@null" />
+
+                                <TextView
+                                    android:id="@+id/text_sleep_nodata"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="#25ffffff"
+                                    android:gravity="center"
+                                    android:text="@string/nodata"
+                                    android:textColor="#ffffff"
+                                    android:textSize="@dimen/sp_15"
+                                    android:visibility="visible" />
+                            </FrameLayout>
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <!--起床  状态   退出睡眠-->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/size_20"
+                                    android:layout_marginRight="@dimen/size_20"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/sleep_into_time"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="@dimen/size_5"
+                                        android:text=""
+                                        android:textColor="#ffffffff"
+                                        android:textSize="@dimen/sp_14" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="@dimen/size_5"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text=""
+                                        android:textColor="#ffffff"
+                                        android:textSize="@dimen/sp_12" />
+
+                                    <TextView
+                                        android:id="@+id/sleep_out_time"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="@dimen/size_5"
+                                        android:text=""
+                                        android:textColor="#ffffffff"
+                                        android:textSize="@dimen/sp_14" />
+
+
+                                </LinearLayout>
+
+
+                                <!--总睡眠和达标情况-->
+                                <TextView
+                                    android:id="@+id/text_all_sleep_data"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/size_15"
+                                    android:layout_marginBottom="7dp"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#fff"
+                                    android:textSize="@dimen/sp_13" />
+
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <!--睡眠介绍-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/size_5"
+                            android:layout_marginTop="@dimen/size_5"
+                            android:layout_marginRight="@dimen/size_5"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/sleep_lines_bac"
+                                        android:padding="@dimen/size_1">
+
+                                        <TextView
+                                            android:id="@+id/w30_shenshui_text"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/sleep_lines_bac_shenshui"
+                                            android:gravity="center"
+                                            android:minWidth="@dimen/size_25"
+                                            android:text="0"
+                                            android:textColor="#ffffff"
+                                            android:textSize="@dimen/sp_10" />
+                                    </LinearLayout>
+
+
+                                    <TextView
+                                        android:id="@+id/deepState"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/size_7"
+                                        android:text="@string/sleep_deep"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp_12"
+                                        tools:ignore="RtlHardcoded" />
+
+                                </LinearLayout>
+
+
+                                <!--深睡-->
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="25"
+                                        android:textColor="#ffffff"
+                                        android:textSize="@dimen/sp_12" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="%"
+                                        android:textColor="#ffffff"
+                                        android:textSize="@dimen/sp_12" />
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/sleep_lines_bac"
+                                        android:padding="@dimen/size_1">
+
+                                        <TextView
+                                            android:id="@+id/w30_qianshui_text"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/sleep_lines_bacqianshui"
+                                            android:gravity="center"
+                                            android:minWidth="@dimen/size_25"
+                                            android:text="0"
+                                            android:textColor="#ffffff"
+                                            android:textSize="@dimen/sp_10" />
+                                    </LinearLayout>
+
+
+                                    <TextView
+                                        android:id="@+id/shallowState"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="7dp"
+                                        android:text="@string/sleep_light"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp_12" />
+                                </LinearLayout>
+
+
+                                <!--潜睡-->
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:visibility="gone">
+
+                                    <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="25"
+                                        android:textColor="#ffffff"
+                                        android:textSize="@dimen/sp_12" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="%"
+                                        android:textColor="#ffffff"
+                                        android:textSize="@dimen/size_8" />
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/sleep_lines_bac"
+                                        android:padding="1dp">
+
+                                        <TextView
+                                            android:id="@+id/w30_qingxing_text"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:background="@drawable/sleep_lines_bacqingxing"
+                                            android:gravity="center"
+                                            android:minWidth="@dimen/size_25"
+                                            android:text="0"
+                                            android:textColor="#b591d6"
+                                            android:textSize="@dimen/sp_10" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/awakeState"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="7dp"
+                                        android:text="@string/string_qingxing"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp_12" />
+
+                                </LinearLayout>
+
+                                <!--清醒-->
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:visibility="gone">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="25"
+                                        android:textColor="#ffffff"
+                                        android:textSize="@dimen/sp_12" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="%"
+                                        android:textColor="#ffffff"
+                                        android:textSize="@dimen/sp_8" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <!--深睡、浅睡、时长-->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/size_15"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:drawableTop="@mipmap/image_new_home_shenshui"
+                                        android:gravity="center"
+                                        android:lines="1"
+                                        android:text="@string/string_shensuhi_time"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp_12" />
+                                    <!--android:drawableTop="@mipmap/image_w30s_home_shenshui"-->
+
+                                    <TextView
+                                        android:id="@+id/deep_sleep"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:padding="@dimen/size_3"
+                                        android:text="0 H"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp_14" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/textView5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:drawableTop="@mipmap/image_new_home_qianshui"
+                                        android:gravity="center"
+                                        android:lines="1"
+                                        android:text="@string/string_qianshui_time"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp_12" />
+                                    <!--android:drawableTop="@mipmap/image_w30s_home_qianshui"-->
+
+                                    <TextView
+                                        android:id="@+id/shallow_sleep"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:padding="@dimen/size_3"
+                                        android:text="0 H"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp_14" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/textView6"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:drawableTop="@mipmap/image_new_home_qingxing"
+                                        android:gravity="center"
+                                        android:lines="1"
+                                        android:text="@string/string_qingxing_time"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp_12" />
+                                    <!--android:drawableTop="@mipmap/image_w30s_home_qingxing"-->
+
+                                    <TextView
+                                        android:id="@+id/awake_sleep"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:lines="1"
+                                        android:padding="@dimen/size_3"
+                                        android:text="0 H"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp_14" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <!--&lt;!&ndash;深睡、浅睡、时长&ndash;&gt;-->
+                            <!--<LinearLayout-->
+                            <!--android:gravity="center"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_marginTop="@dimen/size_20"-->
+                            <!--android:orientation="horizontal">-->
+
+                            <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:gravity="center"-->
+                            <!--android:orientation="vertical">-->
+
+                            <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="center"-->
+                            <!--android:drawableTop="@mipmap/deep_sleep"-->
+                            <!--android:gravity="center"-->
+                            <!--android:lines="1"-->
+                            <!--android:text="@string/sleep_deep"-->
+                            <!--android:textSize="12dp"-->
+                            <!--android:textColor="@color/white" />-->
+
+                            <!--<TextView-->
+                            <!--android:id="@+id/deep_sleep"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="center"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:gravity="center"-->
+                            <!--android:padding="3dp"-->
+                            <!--android:text="0"-->
+                            <!--android:textColor="@color/white"-->
+                            <!--android:textSize="14dp" />-->
+
+                            <!--</LinearLayout>-->
+
+                            <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:gravity="center"-->
+                            <!--android:orientation="vertical">-->
+
+                            <!--<TextView-->
+                            <!--android:id="@+id/textView5"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="center"-->
+                            <!--android:drawableTop="@mipmap/light"-->
+                            <!--android:gravity="center"-->
+                            <!--android:lines="1"-->
+                            <!--android:text="@string/sleep_light"-->
+                            <!--android:textSize="12dp"-->
+                            <!--android:textColor="@color/white" />-->
+
+                            <!--<TextView-->
+                            <!--android:id="@+id/shallow_sleep"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="center"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:gravity="center"-->
+                            <!--android:padding="3dp"-->
+                            <!--android:text="0"-->
+                            <!--android:textColor="@color/white"-->
+                            <!--android:textSize="14dp" />-->
+
+                            <!--</LinearLayout>-->
+
+                            <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:gravity="center"-->
+                            <!--android:orientation="vertical">-->
+
+                            <!--<TextView-->
+                            <!--android:id="@+id/textView6"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="center"-->
+                            <!--android:drawableTop="@mipmap/sleep_time"-->
+                            <!--android:gravity="center"-->
+                            <!--android:lines="1"-->
+                            <!--android:text="@string/long_when"-->
+                            <!--android:textSize="12dp"-->
+                            <!--android:textColor="@color/white" />-->
+
+                            <!--<TextView-->
+                            <!--android:id="@+id/awake_sleep"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_gravity="center"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:gravity="center"-->
+                            <!--android:padding="3dp"-->
+                            <!--android:text="0"-->
+                            <!--android:lines="1"-->
+                            <!--android:textColor="@color/white"-->
+                            <!--android:textSize="14dp" />-->
+
+                            <!--</LinearLayout>-->
+
+                            <!--</LinearLayout>-->
+
+                            <!--入睡时间、苏醒次数、苏醒时间-->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/size_10"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:drawableTop="@mipmap/sleepinto"
+                                        android:gravity="center"
+                                        android:lines="1"
+                                        android:text="@string/sleep_asleep"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp_12" />
+
+                                    <TextView
+                                        android:id="@+id/text_sleep_into"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:padding="@dimen/size_3"
+                                        android:text="0"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp_14" />
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:drawableTop="@mipmap/sleep_wake"
+                                        android:gravity="center"
+                                        android:lines="1"
+                                        android:text="@string/recovery_count"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp_12" />
+
+                                    <TextView
+                                        android:id="@+id/text_sleep_wake"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:padding="@dimen/size_3"
+                                        android:text="0"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp_14" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:drawableTop="@mipmap/sleep_wakes"
+                                        android:gravity="center"
+                                        android:lines="1"
+                                        android:text="@string/recovery_time"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp_12" />
+
+                                    <TextView
+                                        android:id="@+id/text_sleep_time"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:padding="@dimen/size_3"
+                                        android:text="0"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp_14" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp" />
+                </LinearLayout>
+            </ScrollView>
+
+
+            <TextView
+                android:id="@+id/text_stute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#EE3A8C"
+                android:gravity="center"
+                android:padding="6dp"
+                android:text=""
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_17"
+                android:visibility="invisible" />
+
+
+            <ImageView
+                android:id="@+id/history_data"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/size_15"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:src="@mipmap/image_his_data"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+    </com.example.bozhilun.android.h9.utils.VerticalSwipeRefreshLayout>
+
+
+    <!--<RelativeLayout-->
+    <!--android:visibility="gone"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+
+    <!--<com.example.bozhilun.android.h9.utils.CusRefreshLayout-->
+
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--<android.support.v4.view.ViewPager-->
+    <!--android:id="@+id/b18i_viewpager"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:overScrollMode="never" />-->
+    <!--</com.example.bozhilun.android.h9.utils.CusRefreshLayout>-->
+
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:layout_marginTop="30dp"-->
+    <!--android:visibility="gone">-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/previousImage"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content" />-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/nextImage"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentRight="true" />-->
+
+
+    <!--</RelativeLayout>-->
+
+    <!--<View-->
+    <!--android:id="@+id/v"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="60dp"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:layout_marginBottom="@dimen/size_60"-->
+    <!--android:background="@null" />-->
+
+    <!--&lt;!&ndash;滑动圆点布局&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:id="@+id/line_pontion"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="20dp"-->
+    <!--android:layout_below="@+id/v"-->
+    <!--android:layout_marginTop="@dimen/size_70"-->
+    <!--android:gravity="center"-->
+    <!--android:orientation="horizontal" />-->
+
+
+    <!--</RelativeLayout>-->
+
+    <!--30-->
+    <!--<View-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="30dp"-->
+    <!--android:layout_alignParentBottom="true" />-->
+
+</LinearLayout>

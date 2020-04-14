@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name= "glossary_breath_item_1">
+		<item>Thuật ngữ y học của số lượng hít thở mỗi phút, một nhịp thở ở lồng ngực chính là một lần thở, tức là một lần hít vào và một lần thở ra.</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_2">
+		<item>1.Hít thở quá chậm: nhịp thở đều nhưng tần suất ít hơn 10 lần/phút, thường gặp ở những phút cuối của cuộc đời hoặc trước khi ngưng thở. Khi bệnh thần kinh, bệnh trao đổi chất hoặc uống một số loại thuốc quá liều, do trung khu hô hấp bị ức chế, cũng có thể dẫn đến thở quá chậm. \n\n2.Hít thở quá gấp: hít thở gấp, cảm giác hơi thở bị chèn ép.</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_3">
+		<item>Đối với việc hít thở khó khăn, trong nhà cần sử dụng các biện pháp cấp cứu khẩn cấp như sau: \n1.Giữ yên tĩnh, tránh cho người bệnh căng thẳng, dễ xúc động để phòng việc hít thở khó khăn trở nên nặng hơn. \n\n2.Để bệnh nhân ngồi nửa chừng hoặc ngồi dậy, giảm sự mệt mỏi và tiêu hao oxy.\n\n3.Giữ không khí trong phòng trong lành và thoáng mát.\n\n4.Cho ăn các thức ăn thanh đạm, khuyến khích bệnh nhân ăn nhiều rau và hoa quả để bổ sung nước cho cơ thể.\n\n5.Hút lượng đờm thích hợp, dùng thuốc chống co thắt như Bromhexine (Bisolvon), aminophylline,... để duy trì sự tuần hoàn, lưu thông của đường hô hấp.\n\n6.Khi bệnh tình có chuyển biến xấu đi, phải đưa ngay đến bệnh viện gần nhất để cấp cứu.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_1">
+		<item>Ngưng thở cho thấy luồng không khí mũi miệng hoàn toàn dừng lại trong khoảng 10 giây.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_2">
+		<item>1.Ngáy bất thường, cao thấp không đều, thường là  tiếng ngáy - khí thở ngừng lưu thông- khí thở- xuất hiện tiếng ngáy liên tục, khoảng thời gian gián đoạn khí thở thường là 20-30 giây, cá biệt lên đến 2 phút hoặc hơn, lúc này bệnh nhân có thể bị tím tái rõ rệt (Môi hoặc móng tay tím lại).\n\n2.Đêm ngủ xoay người,xoay chuyển liên tục, thường dẫn đến chất lượng giấc ngủ thấp, gây buồn ngủ vào ban ngày, chóng mặt, mệt mỏi.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_3">
+		<item>Đối với bệnh nhân có triệu chứng ngáy ngưng thở khi ngủ, ngoài việc dùng thuốc theo sự hướng dẫn của bác sĩ,làm phẫu thuật và trị liệu lưu thông khí, còn có thực hiện theo các cách dưới đây để trị liệu hoặc giảm nhẹ bệnh tình: \n1.khống chế cân nặng, người béo phì do tích tụ chất béo, trong quá trình hô hấp áp lực tại lồng ngực gia tăng, giảm chức năng phổi dẫn đến thiếu ôxy \n\n2.Cai thuốc hạn chế bia rượu.Hút thuốc, uống rượu có thể gây ra chứng rối loạn lipid máu, xơ cứng động mạch, tắc nghẽn đường hô hấp trên.\n\n3.tập thể dục vừa phải. Tập thể dục vừa phải có thể cải thiện việc cung cấp máu cho tim và mạch máu não, cải thiện chức năng lưu thông không khí, tăng sức đề kháng cho cơ thể, giảm tỷ lệ mắc bệnh bạch hầu.\n\n4.Nằm nghiêng khi ngủ. Bệnh nhân thực hiện tư thế nằm nghiêng thích hợp để ngủ, sẽ duy trì được sự lưu thông ở đường hô hấp.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_1">
+		<item>Tải về chỉ số tưới máu tim rung động, phản ánh tình trạng chảy máu.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_2">
+		<item>1.giá trị pi tương đối lớn. \n\n2.Nhịp tim và huyết áp tương đối cao. \n\n3.Hít thở gấp gáp, thường có cảm giác mệt mỏi.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_3">
+		<item>1. Đảm bảo nghỉ ngơi đầy đủ, không nên làm việc quá sức và thức khuya. \n\n2.Thả lỏng tâm thức, tránh căng thẳng tinh thần. \n\n3.Ăn ít thức ăn nhiều dầu mỡ.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_1">
+		<item>Thời gian trạng thái thiếu lượng oxy sinh lý hoặc thiếu lượng oxy tổ chức mô để duy trì.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_2">
+		<item>1.Chóng mặt mệt mỏi. \n\n2.cảm thấy khó thở.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_3">
+		<item>1.Ngoài bổ sung oxy trực tiếp từ bên ngoài, còn có thể thực hiện các động tác tập aerobic, như đi bộ, chạy chậm, thở sâu, để cải thiện môi trường oxy. \n\n2.Khi cần thiết phải đưa đi bệnh viện và dùng thuốc.</item>
+	</string-array>
+	<string-array name= "glossary_lowremain">
+		<item>Cơ chế đánh thức</item>
+	</string-array>
+	<string-array name= "glossary_lowremain_item_1">
+		<item>Nếu bạn theo dõi nồng độ oxy trong máu của bạn duy trì ở mức quá thấp, nó có thể ảnh hưởng đến sức khoẻ của bạn, thiết bị sẽ phát ra các thông báo cảnh báo.</item>
+	</string-array>
+	<string-array name= "glossary_osahs">
+		<item>Giải thích danh từ</item>
+		<item>Triệu chứng bệnh </item>
+		<item>Phương pháp điều trị</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_1">
+		<item>Chỉ khi ngủ liên tục trong vòng 7 tiếng, xảy ra hiện tượng ngưng thở trên 30 lần trở lên hoặc bình quân mỗi tiếng đồng hồ số lần hô hấp kém vượt quá 5 lần, dẫn đến ô xy trong máu giảm xuống gây ra bệnh</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_2">
+		<item>Biểu hiện lâm sàng ban ngày: \n1.thèm ngủ \n\n2.chóng mặt mệt mỏi\n\n3.trạng thái tinh thần không bình thường, đau đầu, khó chịu, dễ bị kích động, lo lắng bất an.\n\n4.Chức năng sinh dục giảm.</item>
+		<item>Biểu hiện lâm sàng ban đêm: \n1.ngáy: tiếng ngáy không đều, tiếng ngáy - khí thở ngừng lưu thông- khí thở-xuất hiện tiếng ngáy liên tục. \n\n2.ngưng thở: thở hổn hển, tỉnh giấc hoặc tiếng ngáy vang lên rồi ngừng hẳn.\n\n3.Bừng tỉnh: thường kết hợp với xoay người, bốn chi không tự chủ vận động thậm chí co rút hoặc co giật thình lình, cảm giác hoảng loạn,tức ngực hoặc vùng trước tim khó chịu.\n\n4.Tăng động bất an: Ban đêm thường xoay người, xoay chuyển liên tục.\n\n5.Ra nhiều mồ hôi, đi tiểu nhiều.\n\n6.Hành vi ngủ bất thường: biểu hiện ở chỗ sợ hãi, la hét, nói mơ, mộng du, nghe mơ...\n\nNgoài ra, cơ thể béo phì, cánh mũi phình to, khi ngáy cũng dễ dẫn đến hội chứng ngưng thở.</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_3" formatted="false">
+		<item>Ngoài việc tuân thủ theo hướng dẫn của thầy thuốc: uống thuốc và làm phẫu thuật, có thể thực hiện theo các cách dưới đây để trị liệu hoặc giảm nhẹ bệnh tình: \n1.khống chế cân nặng\n\n2.Cai thuốc hạn chế bia rượu.\n\n3.tập thể dục vừa phải.\n\n4.Nằm nghiêng khi ngủ.</item>
+		<item>Trị liệu bằng phẫu thuật, dùng thuốc và thông khí: \n1.phẫu thuật để chỉnh lại khu vực dị thường trong đường hô hấp.\n\n2.Trị liệu bằng thuốc.\n\n3.Hít khí ooxxy lưu lượng thấp vào ban đêm.\n\n4.Hít vào 2%-3% khí CO2.\n\n5.Kéo mũi dài ép thẳng thông khí. \n\n6.ép nén cơ hoành bênh ngoài cơ thể \n\n7. máy hỗ trợ lưu thông khí</item>
+		<item>Lối sống lành mạnh, chẩn đoán sớm và chính xác là chìa khóa để ngăn ngừa và giảm thiểu sự xuất hiện của chứng ngưng thở khi ngủ. Y học lâm sàng chứng minh, khi hội chứng ngưng thở khi ngủ được cải thiện, thì các bệnh đi kèm khác như bệnh tim mạch cũng sẽ được cải thiện dần. Thời gian điều trị càng lâu, sự cải thiện tình trạng bệnh càng rõ rệt.</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_1">
+		<item>Ôxy máu là lượng hemoglobin oxy hoá bị oxy kết hợp trong máu chiếm tỷ lệ phần trăm của tổng lượng hemoglobin được kết hợp, nghĩa là nồng độ oxy trong máu.</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_2">
+		<item>1.Các bệnh tim và mạch máu não (bệnh mạch vành, cao huyết áp, lipid máu cao ...). \n\n2.Bệnh đường hô hấp (hen, viêm phế quản, bệnh tim phổi, ...).</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_3">
+		<item>1.Khi bệnh xảy ra ở những bệnh nhân có lượng oxy máu thấp, ngoài việc tích cực hợp tác điều trị bệnh khởi phát, có thể sử dụng thiết bị thường xuyên đo oxy hít vào và oxy trong máu, một khi phát hiện ra oxy máu thấp, ngay lập tức bổ sung oxy kịp thời. \n\n2.Ngoài việc trực tiếp thở Oxy, cũng có thể thực hiện các động tác aerobic, như đi bộ, chạy chậm, hít thở sâu, cải thiện môi trường oxy thở để giảm bớt bệnh.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_1">
+		<item>Tình trạng thay đổi liên tục trong chu kỳ nhịp tim, tức là những thay đổi giá trị sai số của kỳ RR. Có thể phản ánh trạng thái tim mạch và trạng thái tinh thần dịp gần đây.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_2">
+		<item>1.Biến dị về nhịp tim không linh hoạt, và được duy trì ở mức thấp. \n\n2.thường thấy hiện tượng chóng mặt, nhức đầu, đánh trống ngực.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_3">
+		<item>1.Giữ thói quen sinh hoạt lành mạnh, nghỉ ngơi đầy đủ. \n\n2.Giữ tâm thái vui vẻ, thực hiện các bài tập aerobic thường xuyên, thực hiện chế độ ăn ít muối, ít dầu. \n\n3.Nếu giá trị số thấp kéo dài, phạm vi thay đổi không phải lớn, rất có thể là bệnh tiền tim mạch, như cảm thấy khó chịu, nên đi bệnh viện điều trị kịp thời.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_1">
+		<item>Đáp: Nếu có hơn 30 lần ngưng thở khi ngủ xảy ra trong 7 giờ ngủ liên tục (không thở trong 10 giây hoặc trên 10 giây), hoặc trung bình số lần lưu thông khí (lưu lượng khí hít thở giảm thiểu hoặc ngưng hoàn toàn) mỗi giờ không quá 5 lần, thì có thể chẩn đoán đã mắc bệnh ngưng thở khi ngủ.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_2">
+		<item>Đáp: hội chứng ngưng thở khi ngủ là một loại bệnh mãn tính, khi phát bệnh rất khó phát hiện, giai đoạn đầu của bệnh không mấy ai coi trọng, nhưng khi việc hít thở không dễ dàng, nhẹ thì dẫn đến việc ngáy, nặng thì dẫn đến phổi thiếu ô xy, ô xy trong máu giảm xuống, khi cơ thể không được nghỉ ngơi và phục hồi, trạng thái tinh thần và điều kiện thể chất kém, chất lượng cuộc sống giảm rõ rệt. \nNghiêm trọng hơn là khi xuất hiện chứng ngưng thở, thiếu sự kích thích bên ngoài, bệnh nhân rất khó để có thể tỉnh táo, cho đến khi các cơ quan của cơ thể thiếu oxy thậm chí bị tổn thương, mới đột nhiên bừng tỉnh, mà bệnh nhân thường không lưu tâm, nếu để lâu, không những gia tăng tổn thương, mà còn dẫn đến các bệnh về tim mạch, mạch máu não và bệnh tâm thần, thậm chí tử vong đột ngột.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_3">
+		<item>Đáp: Hầu hết là do tắc nghẽn đường thở trên gây ra. Bao gồm các nguyên nhân như: xương lá mía phình to, amidan phình to, cằm ngắn, vòng cổ thô và béo phì toàn thân. \nDo đó, hầu hết hội chứng ngưng thở khi ngủ là do tắc nghẽn, còn một phần là do hệ thần kinh trung khu hô hấp bị tổn thương, chức năng điều tiết hô hấp bị tắc nghẽn, được gọi là tính trung khu, hoặc loại hỗn hợp gộp cả 2 nguyên nhân.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_4">
+		<item>A: Căn cứ theo những triệu chứng lâm sàng điển hình và dấu hiệu cơ thể để phán đoán đơn giản, nhưng vì đặc điểm của bệnh mãn tính này, thiếu các trang thiết bị giám sát, bệnh nhân rất khó nhận thấy các triệu chứng ban đêm của mình trong khi ngủ, chỉ qua sự mô tả của người nhà và tự nhận thức của mình, nó rất dễ bị chẩn đoán sai, thiếu cơ sở khoa học. \nchỉ khi bệnh nặng rồi, bệnh nhân mới ý thức được cần phải đến bệnh viện để khám. \nPhương pháp tiêu chuẩn là giám sát giấc ngủ nhiều lần (PSG), thông qua việc theo dõi oxy trong máu trọng tâm, phối hợp với các thông số sinh lý như: điện tâm đồ, điện não đồ, điện cơ đồ, điện mắt đồ..., để có thể xác định chính xác loại hình và mức độ của bệnh. Lúc này, bệnh tình thường đã ở giai đoạn tương đối nghiêm trọng, khó khăn trong điều trị và chi phí và sự khó chịu của bệnh nhân đã tăng cao, do đó càng được chẩn đoán sớm càng tốt.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_5">
+		<item>Đáp: Hiện nay, có rất ít nghiên cứu về hội chứng ngưng thở khi ngủ ở trung khu và vẫn chưa có cách điều trị hiệu quả nào ngoài việc điều trị tích cực việc tắc nghẽn chức năng điều tiết hô hấp (nguyên nhân phát bệnh). Nhưng hội chứng ngưng thở trong khi ngủ ở trung khu thường không tồn tại đơn độc, vì vậy sử dụng phương pháp điều trị tắc nghẽn để điều trị hội chứng ngưng thở khi ngủ cũng chỉ có tác dụng nhất định. Điều trị việc tắc nghẽn trong bệnh ngưng thở khi ngủ, thông thường cần lựa chọn phương án điều trị theo mức độ nghiêm trọng của bệnh. \nBất kể phương pháp điều trị nào được sử dụng để điều trị hội chứng ngưng thở, nó cũng đều thuộc vào một trong hai cách sau: cách đầu tiên là thông qua cơ chế đo kiểm tra, khi xuất hiện việc ngưng thở, thì thông qua các kích thích bên ngoài để chấm dứt tình trạng ngưng thở. Ví dụ, khi xuất hiện tình trạng thiếu oxy trầm trọng liên quan đến chứng ngưng thở, thì phải đánh thức hoặc lay dậy, giảm thiểu thời gian liên tục ngưng thở, giảm hoặc tránh làm hư hại các cơ quan trong cơ thể; Cách thứ hai là không cần phải thông qua cơ chế đo kiểm tra, duy trì trạng thái điều trị liên tục, tránh việc xuất hiện cơn ngưng thở.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_6">
+		<item>Đáp: Đối với bệnh nhân có hội chứng ngưng thở khi ngủ, theo dõi oxy máu có những ưu điểm sau: \n1.Khi chứng ngáy phát triển chính là giai đoạn ngưng thở, cảnh báo sớm báo hiệu nguy cơ bệnh tật. \n\n2.Bệnh thời kỳ đầu, làm căn cứ chẩn đoán, điều trị sớm, giảm các khó khăn trong điều trị, giảm chi phí điều trị, tăng khả năng chữa khỏi bệnh. \n\n3.Trong giai đoạn điều trị, theo dõi kịp thời tình trạng bệnh vào ban đêm, để phản ánh hiệu quả điều trị. \n\n4.Có thể được sử dụng làm cơ sở quan trọng để phát hiện chứng ngưng thở, phối hợp với các phương pháp làm thức tỉnh để theo dõi bệnh.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip">
+		<item>1. Hỏi: hội chứng ngưng thở khi ngủ là gì?</item>
+		<item>2. Hỏi: hội chứng ngưng thở khi ngủ có nguy hiểm không?</item>
+		<item>3. Hỏi: Tại sao mắc bệnh này?</item>
+		<item>4. Hỏi: Làm thế nào để biết rằng mình bị mắc bệnh hội chứng ngưng thở khi ngủ?</item>
+		<item>5. Hỏi: Làm thế nào để điều trị hội chứng ngưng thở khi ngủ?</item>
+		<item>6. Hỏi: Việc theo dõi oxy trong máu có tác dụng gì đối với hội chứng ngưng thở khi ngủ?</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_1">
+		<item>Biên độ của hoạt động ngủ là chỉ trong lúc ngủ cơ thể hoạt động vô thức.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_2">
+		<item>1.Xoay lật người khi ngủ, tần suất xoay tương đối nhiều, ra mồ hôi.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_3">
+		<item>1.Lưu ý chế độ ăn uống, trước khi đi ngủ có thể uống một lượng đồ uống thích hợp, chẳng hạn như sữa hoặc cháo kê. \n\n2.Chuẩn bị các công việc hỗ trợ việc ngủ sâu, chẳng hạn như ngâm chân bằng nước nóng, massage huyệt dũng tuyền ở gan bàn chân. \n\n3.Nằm nghiêng khi ngủ có thể làm giảm việc cơ thể hoạt động một cách hiệu quả. \n\n4.Cải thiện môi trường ngủ (độ ẩm trong phòng, nhiệt độ) cũng có những lợi ích nhất định.</item>
+	</string-array>
+</resources>

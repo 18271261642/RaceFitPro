@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <include
+        layout="@layout/comment_b30_title_layout" />
+
+
+    <com.amap.api.maps.MapView
+        android:id="@+id/amapMapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <Button
+        android:id="@+id/amapSportStartBtn"
+        android:layout_width="@dimen/size_70"
+        android:layout_height="@dimen/size_70"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/jieshu_style"
+        android:text="@string/star"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/amapDescLin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/amapDescLin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="#2F4F4F"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_editor_absoluteX="30dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mapSportCountDisTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00 km"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/mapSportAvgSpeedTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00 km/s"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/avg_speed"
+                android:textColor="#FFFFFF" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/mapSportSpeeddTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00 km"
+                android:textColor="#FFFFFF" />
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/paces"
+                android:textColor="#FFFFFF" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mapSportCountTimeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00:00"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/mapSportKcalTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00 kcal"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/km_cal"
+                android:textColor="#FFFFFF" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

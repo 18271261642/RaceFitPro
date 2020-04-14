@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/new_colorAccent">
+
+
+        <ImageView
+            android:id="@+id/image_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/size_5"
+            android:padding="@dimen/size_15"
+            android:src="@mipmap/backs" />
+
+        <TextView
+            android:id="@+id/bar_titles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="title"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/size_20" />
+
+
+        <ImageView
+            android:id="@+id/image_add_remind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/size_5"
+            android:padding="@dimen/size_15"
+            android:src="@mipmap/image_add" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/text_w30s_alarm_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginBottom="2dp"
+        android:layout_marginRight="@dimen/size_10"
+        android:layout_marginTop="@dimen/size_5"
+        android:text="5/1"
+        android:textSize="@dimen/sp_18" />
+
+    <RelativeLayout
+        android:id="@+id/rela_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/image_alock_remined" />
+
+            <TextView
+                android:id="@+id/text_ones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_15"
+                android:text="@string/str_three"
+                android:textColor="#cecece"
+                android:textSize="@dimen/sp_17" />
+
+            <TextView
+                android:id="@+id/text_twos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_15"
+                android:text="@string/string_reminding_text"
+                android:textColor="#cecece"
+                android:textSize="@dimen/sp_17" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!--android:descendantFocusability=""-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/alarm_rec"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>

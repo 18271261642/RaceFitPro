@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/watch_record_titleLin"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/size_45"
+    android:gravity="center"
+    android:background="@color/new_colorAccent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/watch_poorRel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size_5"
+        android:gravity="center_vertical"
+        tools:ignore="RtlHardcoded">
+        <ImageView
+            android:src="@mipmap/image_w30s"
+            android:id="@+id/batteryshouhuanImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="2dp"
+            tools:ignore="ContentDescription" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="connect"
+            android:textColor="#fff"
+            android:id="@+id/battery_watch_connectStateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:padding="2dp"
+            android:singleLine="true"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:padding="2dp"
+            android:visibility="visible"
+            android:id="@+id/batteryLayout"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <!--<com.bozlun.bozhilun.android.view.BatteryView-->
+            <!--android:id="@+id/batteryTopView"-->
+            <!--android:layout_width="25dp"-->
+            <!--android:layout_marginLeft="8dp"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_height="12dp" />-->
+
+            <ImageView
+                android:id="@+id/batteryTopView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/batteryPowerTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="3dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="10sp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/battery_watch_recordtop_dateTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginRight="@dimen/size_5"
+        android:layout_weight="2"
+        tools:ignore="RtlHardcoded">
+
+        <ImageView
+            android:id="@+id/battery_watchRecordShareImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:padding="2dp"
+            android:src="@mipmap/fenxiang"
+            tools:ignore="ContentDescription" />
+
+    </FrameLayout>
+
+</LinearLayout>

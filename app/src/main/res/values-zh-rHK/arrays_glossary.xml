@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name= "glossary_breath_item_1">
+		<item>每分鐘呼吸次數的醫學術語，胸部的一次起伏就是一次呼吸，即一次吸氣一次呼氣。</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_2">
+		<item>1.呼吸過緩：呼吸節律整齊但頻率小於10次/分，常見於生命終末期或呼吸暫停前。神經、代謝疾病或某些藥物服用過量時由於抑制呼吸中樞，也可產生呼吸過緩。\n\n2.呼吸過速：呼吸急促，感到呼吸窘迫。</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_3">
+		<item>針對呼吸困難，家中應急措施如下\n1.保持安靜，避免患者情緒緊張以防加重呼吸困難。\n\n2.取半臥位或坐位，减少疲勞及耗氧。\n\n3.保持室內空氣新鮮，通風流暢。\n\n4.給予清淡飲食，鼓勵患者多吃菜及水果以補充體內水份。\n\n5.適當給予化痰、解痙藥物如必嗽平，氨茶鹼等，以保持呼吸道通暢。\n\n6.病情危重時及時送附近醫院搶救。</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_1">
+		<item>呼吸暫停指口鼻氣流完全停止大於等於10秒。</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_2">
+		<item>1.鼾聲不規則，高低不等，往往是鼾聲-氣流停止-喘氣-鼾聲交替出現，一般氣流中斷的時間為20-30秒，個別長達2分鐘以上，此時患者可出現明顯的發紺（嘴唇或指甲呈紫色）。\n\n2.夜間翻身、轉動較頻繁，常導致睡眠品質低，引起白天嗜睡，頭暈乏力。</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_3">
+		<item>對於有睡眠呼吸暫停打鼾的患者，除遵醫囑服用藥物、手術和通氣治療外，可以通過以下管道治療或緩解病情\n1.控制體重。肥胖者由於脂肪囤積，在呼吸的過程中腹內壓新增，肺功能下降導致低氧。\n\n2.戒烟限酒。吸烟、飲酒可引起血脂代謝异常，動脈硬化，加重上呼吸道阻塞的情况。\n\n3.適量運動。適量運動能够改善心腦血管的供血情况，改善通氣功能，加强身體抵抗力，减少鼻咽部疾病的發生率。\n\n4.側臥睡眠。患者通過採取適當側臥比特睡姿，保持呼吸道通暢。</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_1">
+		<item>心臟負荷指血流灌注指數，反映了脈動血流情况。</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_2">
+		<item>1.pi值較大。\n\n2.心率和血壓較高。\n\n3.呼吸急促，常有乏力感。</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_3">
+		<item>1.保證充足的休息，不要過度勞累和熬夜。\n\n2.放鬆心態，切忌精神緊張。\n\n3.少吃油膩食物。</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_1">
+		<item>生理性氧量不足或組織需氧量不足的狀態所持續的時間。</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_2">
+		<item>1.頭暈乏力。\n\n2.感到呼吸困難。</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_3">
+		<item>1.外供氧除直接吸氧外，還包括各種有氧運動，如散步、慢跑、深呼吸、改善吸氧環境等。\n\n2.必要時就醫，藥物改善。</item>
+	</string-array>
+	<string-array name= "glossary_lowremain">
+		<item>喚醒機制</item>
+	</string-array>
+	<string-array name= "glossary_lowremain_item_1">
+		<item>如果監測到您的夜間血氧值持續過低，可能會影響到您的身體健康，設備會做出報警通知。</item>
+	</string-array>
+	<string-array name= "glossary_osahs">
+		<item>名詞解釋</item>
+		<item>典型病症</item>
+		<item>智慧預測</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_1">
+		<item>指在連續7小時睡眠中發生30次以上的呼吸暫停或平均每小時低通氣次數超過5次，導致血氧下降而引起慢性低氧血症及高碳酸血症的臨床綜合症。</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_2">
+		<item>白天臨床表現：\n1.嗜睡。\n\n2.頭暈乏力。\n\n3.精神狀態异常、頭痛、煩躁、易激動、焦慮等。\n\n4.性功能减退。</item>
+		<item>夜間的臨床表現：\n1.打鼾：鼾聲不規則，鼾聲-氣流停止-喘氣-鼾聲交替出現。\n\n2.呼吸暫停：隨著喘氣、憋醒或響亮的鼾聲而終止。\n\n3.憋醒：常伴有翻身，四肢不自主運動甚至抽搐或忽然做起，感覺心慌、胸悶或心前區不適。\n\n4.多動不安：夜間翻身、轉動較頻繁。\n\n5.多汗，夜尿增多。\n\n6.睡眠行為异常：表現為恐懼、驚叫、囈語、夜遊、幻聽等。\n\n另外，身體肥胖，鼻甲肥大，打鼾等也容易引發呼吸暫停綜合症。</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_3" formatted="false">
+		<item>除遵醫囑服用藥物和手術，可以通過以下管道治療或緩解病情：\n1.控制體重。\n\n2.戒烟限酒。\n\n3.適量運動。\n\n4.側臥睡眠。</item>
+		<item>手術、藥物以及通氣治療：\n1.手術修復上呼吸道的异常區域。\n\n2.藥物治療。\n\n3.夜間低流量吸氧。\n\n4.吸入2%-3%的二氧化碳。\n\n5.經鼻持續正壓通氣。\n\n6.體外膈肌起搏。\n\n7.機械通氣。</item>
+		<item>健康的生活方式和早期的正確診斷是預防和减少睡眠呼吸暫停發生的關鍵。臨床醫療證明，隨著睡眠呼吸暫停綜合症的好轉，心血管等伴隨疾病也逐漸好轉。治療時間越久，症狀好轉越明顯。</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_1">
+		<item>血氧指血液中被氧結合的氧合血紅蛋白的容量占全部可結合的血紅蛋白容量的百分比，即血液中氧的濃度。</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_2">
+		<item>1.心腦血管疾病（冠心病、高血壓、高血脂等）。\n\n2.呼吸系統疾病（哮喘、氣管炎、肺心病等）。</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_3">
+		<item>1.由於疾病出現在血氧較低的患者，除了積極配合治療原發病外，可以常備量測血氧和吸氧的設備，一旦檢測血氧過低，及時補充氧氣。\n\n2.除直接吸氧外，還可以進行各種有氧運動，如散步、慢跑、深呼吸、改善吸氧環境等來緩解病情。</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_1">
+		<item>逐次心跳週期差异的變化情况，即RR間期差值的變化。可以反映近期心血管和精神狀態。</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_2">
+		<item>1.脈率變異性不活躍，維持在較低水準。\n\n2.常有頭暈、頭痛、心悸等現象。</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_3">
+		<item>1.保持良好的生活習慣，休息充足。\n\n2.保持心態良好，多進行有氧運動，飲食少鹽少油。\n\n3.如長期數值較低，變化範圍不大，很可能是某種心血管疾病的前兆，如感到不適，建議及時就醫。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_1">
+		<item>答：連續7小時睡眠中發生30次以上的呼吸暫停（沒有呼吸，持續10s或10s以上），或者平均每小時低通氣次數（呼吸氣流量减少或完全停止）超過5次，可認為患有睡眠呼吸暫停綜合症。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_2">
+		<item>答：睡眠呼吸暫停綜合症是一種慢性病，病發時難以察覺，早期病症不易受重視，一旦呼吸不暢，輕則引起打鼾，重則使肺部缺氧，血氧下降，導致身體得不到休息和恢復，精神狀態和身體狀況不佳，生活質量明顯下降。\n更嚴重的是呼吸暫停發生時，缺少外界刺激，患者很難清醒，直到身體器官缺氧甚至受損，才猛然驚醒，而患者往往不以為意，長期如此，不斷累加的損傷，最終引起各種心腦血管疾病和精神疾病，甚至猝死。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_3">
+		<item>答：大多數是由於上呼吸道阻塞引起的。包括鼻甲肥大、扁桃體肥大、下頜短、頸圍粗以及全身肥胖等原因。\n囙此睡眠呼吸暫停併發症大多數是阻塞性的，還有一部分是由於呼吸中樞神經受創，呼吸調節功能障礙引起的，稱為中樞性，或者兩者皆有的混合型。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_4">
+		<item>答：根據是否具有典型的臨床症狀和體征可以進行簡單的判斷，但由於其慢性病的特點，缺少監測設備，患者在睡眠中很難感知自己的夜間症狀，僅憑家人描述和自我感知，很容易誤判，缺乏科學的依據。\n只有病情嚴重後，病患才意識到要去醫院確診。\n標準方法是多導睡眠監測（PSG），通過以血氧監測為覈心，配合心電、腦電、肌電、眼電等多個生理參數，能準確瞭解病症的類型及程度。此時病情往往已經進入較為嚴重的階段，治療的難度和成本以及病患的不適感都大幅增高，所以越早確診越好。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_5">
+		<item>答：現時有關中樞性睡眠呼吸暫停綜合症的研究較少，除積極治療引起呼吸調節功能障礙的病症（原發病）外，仍沒有較為有效的治療手段，但中樞性睡眠呼吸暫停綜合症往往不會單獨存在，因此採用治療阻塞性睡眠呼吸暫停綜合症的方法也具有一定療效。治療阻塞性睡眠呼吸暫停綜合症，通常需要根據患病的嚴重程度來選擇治療方案。\n無論採用哪種方法治療呼吸暫停綜合症，其途徑無非兩種，一是通過檢測機制，在呼吸暫停發生時，通過外界刺激將其打斷，例如，出現呼吸暫停伴有嚴重缺氧時，被震醒或推醒，减少呼吸暫停的持續時間，降低或避免對身體器官造成損傷；二是無需檢測機制，一直維持治療狀態，避免呼吸暫停的發生。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_6">
+		<item>答：針對睡眠呼吸暫停綜合症患者，血氧監測有以下優點：\n1.在打鼾發展為呼吸暫停階段，預警提示患病風險。\n\n2.在病症早期，作為診斷依據，及早就醫，减少治療難度，降低治療成本，增大治癒幾率。\n\n3.在治療階段，及時監測夜間病情，迴響治療效果。\n\n4.能够作為檢測呼吸暫停的重要依據，配合喚醒手段，監測病症。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip">
+		<item>1.問：什麼是睡眠呼吸暫停綜合症？</item>
+		<item>2.問：睡眠呼吸暫停綜合症危害大嗎？</item>
+		<item>3.問：這種病是怎麼引起的？</item>
+		<item>4.問：怎麼知道自己是不是睡眠呼吸暫停綜合症患者？</item>
+		<item>5.問：怎樣治療睡眠呼吸暫停綜合症？</item>
+		<item>6.問：血氧監測對睡眠呼吸暫停綜合症有什麼用？</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_1">
+		<item>睡眠活動幅度指睡眠過程中無意識的體動。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_2">
+		<item>1.夜間翻身、轉動較頻繁，多汗。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_3">
+		<item>1.注意飲食，睡前可以適量地喝一杯飲品，如牛奶或者小米粥。\n\n2.做一些睡前準備，如熱水泡脚，按摩足心湧泉穴等。\n\n3.側身入睡能有效减少體動。\n\n4.改善睡眠環境（室內濕度、溫度）也有一定的幫助。</item>
+	</string-array>
+</resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gv_one_selector"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/item_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_200"
+        android:background="@drawable/bg_gv">
+
+        <RelativeLayout
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_marginTop="@dimen/size_30"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/icon_img"
+                    android:layout_width="@dimen/size_70"
+                    android:layout_gravity="center"
+                    android:layout_height="@dimen/size_60"
+                    android:layout_marginTop="@dimen/size_15" />
+
+                <TextView
+                    android:id="@+id/name_tv"
+                    android:layout_gravity="center"
+                    android:textColor="@color/txt_black"
+                    android:textSize="@dimen/sp_16"
+                    android:layout_below="@+id/icon_img"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/size_30"
+                    android:text="dsfdsfs"
+                    android:layout_marginBottom="@dimen/size_20"
+                    android:layout_marginTop="@dimen/size_10" />
+            </LinearLayout>
+
+
+
+            <View
+                android:layout_alignParentRight="true"
+                android:layout_width="@dimen/size_3"
+                android:background="@drawable/shujianxi"
+                android:layout_height="match_parent"/>
+            <View
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:background="@drawable/hengjianxi"
+                android:layout_height="@dimen/size_3"/>
+        </RelativeLayout>
+
+    </FrameLayout>
+</LinearLayout>

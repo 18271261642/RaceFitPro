@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:id="@+id/lin_tmp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="时间区间"
+            android:layout_marginLeft="10dp"
+            android:padding="3dp"
+            android:layout_height="wrap_content" />
+
+
+
+        <TextView
+            android:id="@+id/spo2MaxTv"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:padding="3dp"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        app:layout_constraintTop_toBottomOf="@id/lin_tmp"
+        android:id="@+id/spo2SecondDialogRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</android.support.constraint.ConstraintLayout>

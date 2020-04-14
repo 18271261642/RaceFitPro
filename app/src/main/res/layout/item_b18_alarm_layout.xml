@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@drawable/black_background_selector"
+    android:layout_margin="5dp"
+    android:layout_height="wrap_content">
+
+
+
+    <ImageView
+        android:id="@+id/itemB18AlarmImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+       />
+
+
+
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/itemB18AlarmTimeTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12:00"
+        android:textColor="@color/text_color"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+       app:layout_constraintLeft_toRightOf="@+id/itemB18AlarmImg"
+        android:textSize="30sp"/>
+
+
+
+    <TextView
+        android:id="@+id/itemB18AlarmWeeksTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/text_color"
+        app:layout_constraintLeft_toRightOf="@+id/itemB18AlarmImg"
+        app:layout_constraintTop_toBottomOf="@id/itemB18AlarmTimeTv"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:text="周一周二"/>
+
+
+    <ToggleButton
+        android:id="@+id/itemB18AlarmSwitchToggle"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="@null"
+        android:textOn="@null"
+        android:background="@drawable/toggle_select"/>
+
+
+
+</android.support.constraint.ConstraintLayout>

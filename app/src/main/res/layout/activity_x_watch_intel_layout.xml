@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+    <include
+        app:layout_constraintTop_toTopOf="parent"
+        layout="@layout/comment_b30_title_layout"/>
+
+    <android.support.v4.widget.NestedScrollView
+        app:layout_constraintTop_toBottomOf="@+id/commB31TitleLayout"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="获取手表时间"
+               android:id="@+id/getDeviceTimeBtn"/>
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="同步手表时间"
+               android:id="@+id/syncDeviceTimeBtn"/>
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="获取用户信息"
+               android:id="@+id/getUserInfoBtn"/>
+
+
+
+           <TextView
+               android:id="@+id/xWatchShowTv"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+       </LinearLayout>
+
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.constraint.ConstraintLayout>

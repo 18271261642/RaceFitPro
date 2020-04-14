@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/new_colorAccent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:padding="1dp"
+            android:layout_marginLeft="@dimen/size_15"
+            android:layout_marginRight="@dimen/size_15"
+            android:background="@drawable/mybackground_off"
+            android:orientation="horizontal">
+            <!--android:background="@drawable/newh9data_top_shap"-->
+
+            <TextView
+                android:id="@+id/gpsSportTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="2dp"
+                android:background="@drawable/newh9data_selecte_text_shap"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/string_gps_run"
+                android:textColor="#333333"
+                android:textSize="@dimen/text_size_17" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="@color/chang_white" />
+
+            <TextView
+                android:id="@+id/deviceSportTc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="2dp"
+                android:gravity="center"
+                android:padding="5dp"
+                android:background="@drawable/newh9data_selecte_text_shap"
+                android:text="@string/string_devices_run"
+                android:textColor="#333333"
+                android:textSize="@dimen/text_size_17" />
+
+
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:id="@+id/deviceSportHistoryImg"
+            android:layout_width="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/image_his_data"
+            android:layout_height="35dp" />
+
+
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+
+        android:id="@+id/fragmentViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </android.support.v4.view.ViewPager>
+
+
+</LinearLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/b16BmiLayout"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/size_15"
+    android:layout_height="wrap_content"
+    android:background="#F2F2F2">
+
+
+    <ImageView
+        android:id="@+id/b16CadenceImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@mipmap/icon_b16__candle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="减脂指数"
+        android:textColor="#FA9850"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintBottom_toBottomOf="@id/b16CadenceImg"
+        app:layout_constraintLeft_toRightOf="@id/b16CadenceImg"
+        app:layout_constraintTop_toTopOf="@id/b16CadenceImg" />
+
+
+    <TextView
+        android:id="@+id/b16BMIDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:text="BMI"
+        android:textColor="#FA9850"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/b16CadenceImg"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/b16BmiStatusTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="18dp"
+        android:text="正常"
+        android:textColor="#FA9850"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/b16BMIDesc" />
+
+
+    <FrameLayout
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/b16CadenceImg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_180">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/b16BmiLinChart"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_180"
+            />
+
+
+        <com.example.bozhilun.android.b18.modle.CusLinView
+            android:id="@+id/b16CusLinView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
+
+
+</android.support.constraint.ConstraintLayout>

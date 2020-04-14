@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    android:padding="3dp"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/itemHeartDetailDateTv"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:text="13:00"
+        android:textSize="@dimen/sp_18"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content" />
+
+
+    <ImageView
+        android:id="@+id/itemHeartDetailImg"
+        android:layout_width="@dimen/size_25"
+        android:layout_height="@dimen/size_40" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_width="@dimen/size_20"
+            android:background="@drawable/history_heart"
+            android:layout_height="@dimen/size_20" />
+
+        <TextView
+            android:id="@+id/itemHeartDetailValueTv"
+            android:layout_width="wrap_content"
+            android:text="78"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#1C1C1C"
+            android:layout_marginLeft="8dp"
+            android:textSize="@dimen/sp_18"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

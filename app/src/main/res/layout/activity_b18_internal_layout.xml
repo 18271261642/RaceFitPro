@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        app:layout_constraintTop_toTopOf="parent"
+        layout="@layout/comment_b30_title_layout"/>
+
+
+    <Button
+        android:id="@+id/b18SyncTimeBtn"
+        app:layout_constraintTop_toBottomOf="@+id/commB31TitleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="同步时间"/>
+
+    <Button
+        android:id="@+id/b18GetDeviceSleepBtn"
+        app:layout_constraintTop_toBottomOf="@id/b18SyncTimeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送来电提醒"/>
+
+
+    <Button
+        android:id="@+id/b18GetDbSleepBtn"
+        app:layout_constraintTop_toBottomOf="@id/b18GetDeviceSleepBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送挂断电话的指令"/>
+
+
+
+    <LinearLayout
+        android:id="@+id/b50WomenLin"
+        app:layout_constraintTop_toBottomOf="@+id/b18GetDbSleepBtn"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/womenYearEdit"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:padding="8dp"
+                android:hint="年"/>
+
+
+            <EditText
+                android:id="@+id/womenMonthEdit"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:padding="8dp"
+                android:layout_margin="5dp"
+                android:hint="月"/>
+
+
+            <EditText
+                android:id="@+id/womenDayEdit"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:padding="8dp"
+                android:layout_margin="5dp"
+                android:hint="日"/>
+
+
+
+            <EditText
+                android:id="@+id/womenCycleEdit"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_margin="5dp"
+                android:inputType="number"
+                android:hint="周期"/>
+
+
+            <EditText
+                android:id="@+id/womenInterEdit"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_margin="5dp"
+                android:inputType="number"
+                android:hint="长度"/>
+
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/sendWomenBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="设置数据"/>
+
+
+
+    </LinearLayout>
+
+
+
+    <EditText
+        android:id="@+id/b50MsgEdit"
+        app:layout_constraintTop_toBottomOf="@+id/b50WomenLin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="输入短信内容"/>
+
+
+
+<Button
+
+    app:layout_constraintTop_toBottomOf="@+id/b50MsgEdit"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="发送"
+    android:id="@+id/b50SendMsgBtn"/>
+
+    <LinearLayout
+        android:id="@+id/weekLin"
+        app:layout_constraintTop_toBottomOf="@+id/b50SendMsgBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/weekEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="输入星期"/>
+
+
+        <Button
+            android:id="@+id/syncWeekBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="同步"/>
+
+    </LinearLayout>
+
+
+
+    <android.support.v4.widget.NestedScrollView
+        app:layout_constraintTop_toBottomOf="@id/weekLin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+
+        <TextView
+            android:id="@+id/showB18Tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

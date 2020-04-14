@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/comment_b30_title_layout" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#FF8E0D"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/b30MeaurePlaceHolderImg"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/detect_bg"
+            android:visibility="visible" />
+
+
+        <com.example.bozhilun.android.b30.b30view.CustomCircleProgressBar
+            android:id="@+id/b30MeaureBloadProgressView"
+            android:layout_width="@dimen/size_200"
+            android:layout_height="@dimen/size_200"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:direction="top"
+            app:max_progress="100"
+            app:outside_color="@color/colorPrimary"
+            app:outside_radius="90dp"
+            app:progress="0"
+            app:progress_text_color="@color/white"
+            app:progress_text_size="@dimen/text_size_20"
+            app:progress_width="8dp" />
+
+
+        <!--<LinearLayout-->
+        <!--android:background="@drawable/yuana"-->
+        <!--android:layout_gravity="bottom"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_width="@dimen/size_70"-->
+        <!--android:layout_height="@dimen/size_70">-->
+        <!--<ImageView-->
+        <!--android:id="@+id/b30MeaureStartImg"-->
+        <!--android:layout_width="60dp"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:src="@drawable/detect_bp_start"/>-->
+        <!--</LinearLayout>-->
+
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/b30DetailBloadRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/size_50">
+
+        </android.support.v7.widget.RecyclerView>
+
+
+        <ImageView
+            android:id="@+id/b30MeaureStartImg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="@dimen/size_30"
+            android:elevation="@dimen/size_10"
+            android:src="@drawable/detect_bp_start"
+            android:translationZ="@dimen/size_10"
+            tools:ignore="UnusedAttribute" />
+
+    </FrameLayout>
+
+</LinearLayout>

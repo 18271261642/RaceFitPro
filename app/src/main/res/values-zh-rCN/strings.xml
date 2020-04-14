@@ -1,0 +1,891 @@
+<resources>
+
+    <string name="string_bmi_title">减脂指数</string>
+
+    <string name="string_privacy_str1">我们收集数据是根据您与我们的互动和您所做出的选择,包括您的隐私设置以及您使用的产品和功能。我们收集的数据可能包括 SOK/API/JS 代码版本、浏览器、互联网服务提供商、IP地址、平台、时间戳、应用标识符、 应用程序版本、应用分发渠道、独立设备标识符、IOS广告标识符（IDFA）、安卓广告主标识符、 网卡（MAC）地址、国际移动设备识别码（IMEI）、设备型号、终端制造厂商、终端设备操作系统版本、 会话启动/停止时间、语言所在地、时区和网络状态（WIFi等）、硬盘、CPU和电池使用情况等。</string>
+    <string name="string_privacy_str2">当您使用账号登录 App时，我们会收集您个人填写的基本信息和智能穿戴设备采集的健康数据， 我们会对您的数据进行存储和分析，以便给您提供更好的数据展示和健康指导。如何不希望您的个人数据被收集，您可以使用无账号登录。</string>
+    <string name="string_privacy_str3">我们的业务可能需要我们转移您的个人数据至欧洲经济区以外的国家，这些国家可能包括中国。我们会采取适当的措施以确保您个人数据的接收者履行保密义务。如果您不希望您的个人数据被收集和转移，您可以选择使用无账号登录。</string>
+    <string name="string_privacy_str4">您使用我们 App 时，我们会如上文所述，对信息进行收集，信息的收集是为了更好的优化和管理软件，以便给您提供更好的服务。对于您个人数据的收集，您有权选择账号登录或无账号登录，使用账号登录我们会收集您的个人数据，无账号登录我们不会收集您的个人数据。如果您认为我们对您个人数据和信息的处理违反了适用法律，您可以向监管机构投诉。</string>
+
+    <string name="string_less_18">&lt;18.5</string>
+    <string name="string_more_than_25">&gt;25</string>
+    <string name="string_more_than_23">&gt;23</string>
+    <string name="string_more_than_24">&gt;24</string>
+    <string name="string_more_than_30">&gt;30</string>
+    <string name="string_more_than_40">&gt;40.0</string>
+
+    
+    <string name="string_bmi_formual">体重指数BMI=体重/身高的平方(国际单位kg/m²)\n 理想BMI(18.5~23.9)=体重(单位kg)÷身高的平方(单位m)  根据世界卫生组织定下的标准：</string>
+    <string name="string_bmi_desc">身体质量指数（BMI，BodyMassIndex）是国际上常用的衡量人体肥胖程度和是否健康的重要标准，主要用于统计分析。肥胖程度的判断不能采用体重的绝对值，它天然与身高
+有关。因此，BMI通过人体体重和身高两个数值获得相对客观的参数，并用这个参数所处范围衡量身体质量。</string>
+
+
+    <string name="string_note">注意:</string>
+    <string name="string_light_alert">亮度设置最高会导致耗电量加快，续航时间变短。</string>
+    <string name="string_wrist_alert">灵敏度设置较高会导致耗电量加快，续航时间变短。</string>
+    <string name="smart_watch_noti">手环通知</string>
+    <string name="app_firm_version">固件版本</string>
+    <string name="string_ota_dev_ready">稍等....设备准备中</string>
+    <string name="string_ota_uccess">升级成功</string>
+    <string name="more_opera">更多操作</string>
+    <string name="string_long_time">延時提醒</string>
+    <string name="string_res_alarm">确定要重置闹钟？</string>
+    <string name="string_res_ing">重置中...</string>
+    <string name="string_radeing">读取中...</string>
+    <string name="strinf_up_data_getvis">获取版本中...</string>
+    <string name="string_rade_updata">准备完成  可更新</string>
+    <string name="string_updata_error_isup">升级失败  可重新更新</string>
+    <string name="string_updata_error_tryup">升级失败  尝试重新更新</string>
+
+
+    <string name="msg_center">消息中心</string>
+    <string name="string_msg_basic_requ">实现消息提醒的基本要求</string>
+    <string name="string_basic_cont1">1.确认 RaceFitPro 处于运行状态并与设备连接</string>
+    <string name="string_basic_cont2">2.确认 RaceFitPro 已设置耗电保护</string>
+    <string name="string_basic_cont3">3.确认 RaceFitPro 已设置自动启动权限</string>
+    <string name="string_basic_cont4">4.确认 RaceFitPro 已设置系统或手机管家白名单保护</string>
+    <string name="string_apps_alert_title">Q:Facebook、QQ、Wechat等应用没有消息提醒?</string>
+    <string name="string_apps_cont1">1.确认FaceBook、QQ、Wechat等应用允许在通知栏上显示消息</string>
+    <string name="string_apps_cont2">2.关闭 RaceFitPro 通知使用权限后重新打开</string>
+    <string name="string_to_restart">去重启</string>
+    <string name="string_call_phone_alert">Q:来电没有提醒?</string>
+    <string name="string_call_phone_cont1">1.确认开启了联系人/通讯录权限</string>
+    <string name="string_call_phone_cont2">2.确认开启了电话权限</string>
+    <string name="string_call_phone_cont3">3.确认开启了通话记录权限</string>
+    <string name="string_smg_alert_title">Q:短信没有提醒?</string>
+    <string name="string_smg_alert_content1">2.确认开启了短信权限</string>
+    <string name="string_enable">已获取</string>
+    <string name="string_disable">未获取</string>
+
+
+    <string name="string_prmiss_close">已禁用权限，请手动授予</string>
+    <string name="string_checkGPS_prmiss">请检查您的位置权限是否打开</string>
+    <string name="string_sos_prmiss">SOS相关权限未打开</string>
+
+    <string name="string_sos_tip">SOS未打开或者没有添加紧急联系人</string>
+    <string name="string_long_onclick_phone">长按编辑</string>
+    <string name="string_emergency_gelp">危险，救我</string>
+    <string name="string_emergency_gps">位置</string>
+    <string name="string_long_onclick">长按编辑紧急内容</string>
+    <string name="string_emergency_contact_one">紧急联系人 一</string>
+    <string name="string_emergency_contact_two">紧急联系人 二</string>
+    <string name="string_emergency_contact_three">紧急联系人 三</string>
+    <string name="string_one_key_help">一键呼救</string>
+    <string name="string_edit_emergency_messge">请编辑紧急信息</string>
+    <string name="string_edit_emergency_person">请编辑紧急联系人</string>
+
+
+    <string name="string_wear_properlay">请保持正确佩戴姿势</string>
+    <string name="string_spo2_no_normal">警告！血氧远低于正常值！</string>
+    <string name="string_spo2_lowest">血氧浓度偏低,请重视!</string>
+    <string name="string_spo2_low">血氧浓度偏低</string>
+    <string name="string_spo2_concent">血氧浓度</string>
+    <string name="string_add_fd_qr">扫一扫加我为好友</string>
+    <string name="string_bp_night_spo2_check">血氧夜间检测</string>
+    <string name="string_my_qrcode">我的二维码</string>
+    <string name="string_today_step">今日运动总量</string>
+    <string name="string_today_heart">今日心率统计</string>
+    <string name="string_today_sleep">今日睡眠质量</string>
+    <string name="string_long_onclick_heart">长按滑动查看心率数据</string>
+
+    <string name="string_systolic">收缩压</string>
+    <string name="string_diastolic">舒张压</string>
+    <string name="string_bloop_di">低血压</string>
+    <string name="string_bloop_lixiang">理想血压</string>
+    <string name="string_bloop_zhengchang">正常血压</string>
+    <string name="string_bloop_qingdugao">轻度高血压</string>
+    <string name="string_bloop_zhongdugao">中度高血压</string>
+    <string name="string_bloop_zzhongdugao">重度高血压</string>
+    <string name="string_cankao_res">参考结果</string>
+
+    <string name="fatigue_normal">状态良好</string>
+    <string name="fatigue_mild">轻度疲劳</string>
+    <string name="fatigue_moderate">中度疲劳</string>
+    <string name="fatigue_severe">重度疲劳</string>
+    <string name="fatigue_noral_suggest">您的精力充沛,无疲乏感觉,注意力集中,工作效率会非常高</string>
+    <string name="fatigue_mild_suggest">您略有疲乏不适感,平时可以多听一些自己喜欢的音乐来进行缓解。</string>
+    <string name="fatigue_moderate_suggest">您可能有困倦疲乏、头晕脑胀、身体僵硬等感觉，您可以看看远处风景或小憩片刻，缓解疲劳同时为高效工作做准备</string>
+    <string name="fatigue_sebere_suggest">您可能无法集中注意力，特别困乏，平时要多注意休息，多喝水，保持心情舒畅，身心轻松，工作效率才会高。</string>
+    <string name="count_down">倒计时</string>
+    <string name="show_on_screen">界面显示</string>
+    <string name="common_time">常用时间</string>
+    <string name="count_douwn_desc">备注 \n 1,界面显示开启，设备端才能单独使用计时功能。\n 2,设备端单独使用时，计时时长为常用时长。
+        \n 3,设备单独使用计时功能时，在计时界面长按3秒开始。\n 4,倒计时开始后，在计时界面长按3秒结束计时。</string>
+
+    <string name="vpspo2h_sleep_sportvalue">睡眠活动幅度</string>
+    <string name="vpspo2h_breath_break">呼吸暂停综合征</string>
+    <string name="vpspo2h_ratevaraive">脉率变异性</string>
+    <string name="vpspo2h_spo2h">血氧</string>
+    <string name="vpspo2h_low_remain">低氧唤醒</string>
+    <string name="ave_value">平均值</string>
+    <string name="heart_health_sorce">心脏健康指数</string>
+    <string name="analysis_result">分析结果（仅供参考）</string>
+    <string name="spo2_breath_break">血氧/呼吸暂停</string>
+    <string name="spo2_main_sorce">主要指标</string>
+    <string name="more">更多</string>
+    <string name="pack_up">收起</string>
+    <string name="name">名称</string>
+    <string name="frequent_time">频现时间</string>
+    <string name="times">次数</string>
+    <string name="reference">参考值</string>
+    <string name="max_min">最高(最低)</string>
+    <string name="intervention_measures">干预手段</string>
+    <string name="vpspo2h_state_realtime">实时血氧</string>
+    <string name="vpspo2h_state_breathbreak">呼吸暂停</string>
+    <string name="vpspo2h_state_calm">安静</string>
+    <string name="vpspo2h_state_error">异常</string>
+    <string name="vpspo2h_state_little">轻度</string>
+    <string name="vpspo2h_state_mulmulsport">躁动</string>
+    <string name="vpspo2h_state_mulsport">多动</string>
+    <string name="vpspo2h_state_normal">正常</string>
+    <string name="vpspo2h_toptitle_breath">呼吸率</string>
+    <string name="vpspo2h_toptitle_heart">心脏负荷</string>
+    <string name="vpspo2h_toptitle_lowspo2h">低氧时间</string>
+    <string name="vpspo2h_toptitle_sleep">睡眠活动</string>
+    <string name="lero_referenc">洛伦兹散点图参考</string>
+    <string name="hrv_data">HRV数据</string>
+    <string name="spo2_test">血氧测试</string>
+    <string name="spo2_calibration_pro">校准进度</string>
+    <string name="fatigue_test">疲劳度测试</string>
+    <string name="fatigue_no_test_desc">适当的关注一下自己的身体状态哦</string>
+    <string name="test_invalid">测试无效</string>
+    <string name="mild_fait">轻度疲劳</string>
+    <string name="general_fait">一般疲劳</string>
+    <string name="weight_fait">重度疲劳</string>
+    <string name="severe">重度</string>
+    <string name="moderate">中度</string>
+    <string name="common_sense_of_apnea">呼吸暂停常识</string>
+    <string name="max_value">最大值</string>
+    <string name="min_value">最小值</string>
+    <string name="signle_minute">分</string>
+    <string name="second">秒</string>
+    <string name="time_area">时间区间</string>
+    <string name="accumulate">累加值</string>
+
+
+
+    <string name="string_delete_alarm">确定删除该闹钟？</string>
+    <string name="string_language_setting">语言设置</string>
+    <string name="string_vibration_level">震动强度</string>
+    <string name="string_correction_time">快速校针</string>
+    <string name="string_alarm_eat">吃饭</string>
+    <string name="string_alarm_medic">吃药</string>
+    <string name="string_alarm_drink">喝水</string>
+    <string name="string_alarm_sleep">睡觉</string>
+    <string name="string_alarm_metting">会议</string>
+    <string name="string_alarm_week">周期</string>
+    <string name="string_alarm_ch">中文</string>
+    <string name="string_alarm_en">英文</string>
+    <string name="string_alarm_resume_factory">恢复出厂会删除所有运动数据,确定操作?</string>
+    <string name="string_alarm_time_difference">时间相差大于一天的错误,去校正？</string>
+    <string name="string_alarm_time_difference_h">时间相差大于一小时的错误,去校正？</string>
+    <string name="string_alarm_time_difference_m">时间相差大于十分钟的错误,去校正？</string>
+
+    <string name="string_frend_datas">好友数据</string>
+    <string name="string_no_frend">非好友状态</string>
+    <string name="b36_update_women_status">是否修改状态为</string>
+    <string name="b36_period">月经</string>
+    <string name="b36_pregnancy_probability">怀孕概率</string>
+    <string name="b36_baby_born_days">距离孩子出生还有</string>
+    <string name="b36_predict_period">预测月经期</string>
+    <string name="ssdk_oks_sharing">分享中...</string>
+    <string name="b36_ovulation_day">排卵日</string>
+    <string name="b36_ovulation_period">排卵期</string>
+    <string name="b36_period_day">月经期</string>
+    <string name="b36_safety_day">安全期</string>
+    <string name="b36_future">未来不可操作</string>
+    <string name="b36_back_today">回到当天</string>
+    <string name="b36_baby_info_data">填写宝宝的基本信息吧</string>
+    <string name="b36_smart_baby_born">如果您不知道您的预产期,我们可以根据您的最后一次月经来帮您计算</string>
+    <string name="b36_expected_date">填写您的预产期</string>
+    <string name="b36_last_period_date">最后一次月经是什么时候</string>
+    <string name="b36_period_interval_avg">您的经期之间的平均间隔周期天数?</string>
+    <string name="b36_period_length_avg">您的经期平均持续天数?</string>
+    <string name="b36_choose_status">选择您的状态</string>
+    <string name="b36_last_period">最后一次月经</string>
+    <string name="b36_period_start">月经开始</string>
+    <string name="b36_period_end">月经结束</string>
+    <string name="b36_femal_pages">女性详情页</string>
+    <string name="b36_insist_wearing">请坚持佩戴</string>
+    <string name="female">女性</string>
+
+
+
+
+    <string name="b36_period_interval">间隔长度</string>
+    <string name="b36_period_length">经期长度</string>
+    <string name="b36_expected_baby">预产期</string>
+    <string name="b36_smart_test">智能预测</string>
+    <string name="b36_record_menstruation">只记经期</string>
+    <string name="b36_pre_for_pre">备孕期</string>
+    <string name="b36_pregnancy">怀孕期</string>
+    <string name="b36_monther">宝妈期</string>
+    <string name="b36_light_adju">亮度调节</string>
+    <string name="b36_auto_light">自动设置</string>
+    <string name="b36_set_light_index">设置亮度指数</string>
+
+
+    <string name="string_love_mine_frend">赞我的好友</string>
+    <string name="string_delete_frend">删除好友</string>
+    <string name="string_ok_delete_frend">确定删除好友 </string>
+    <string name="string_add_frend_de">删除与好友 </string>
+    <string name="string_add_frend_delete"> 的记录？ </string>
+    <string name="string_my_frend_privacy">隐私设置</string>
+    <string name="string_my_frend_privacy_step">运动数据对TA隐藏</string>
+    <string name="string_my_frend_privacy_sleep">睡眠数据对TA隐藏</string>
+    <string name="string_my_frend_privacy_heart">心率数据对TA隐藏</string>
+    <string name="string_my_frend">我的好友</string>
+    <string name="string_mine">我</string>
+    <string name="string_person_frend">通讯录可添加</string>
+    <string name="string_add">添加</string>
+    <string name="string_qr_code">我的二维码</string>
+    <string name="string_scan_code_add_frend">扫码加好友</string>
+    <string name="string_agree_frend">同意</string>
+    <string name="string_refuse_frend">拒绝</string>
+    <string name="sreing_apply_history">我的申请记录</string>
+    <string name="string_frend">好友</string>
+    <string name="string_world">排行</string>
+    <string name="string_frend_apply">好友申请</string>
+    <string name="string_apply_added">申请添加</string>
+    <string name="string_wite_verified">待验证</string>
+    <string name="string_wite_passed">已通过</string>
+    <string name="string_wite_refused">已拒绝</string>
+    <string name="string_wite_added">已添加</string>
+
+    <string name="string_add_frend">添加好友</string>
+    <string name="string_sex_null">未知</string>
+    <string name="string_network_error">失败</string>
+    <string name="string_user_isregister">用户已被注册</string>
+    <string name="string_nameorpass_error">用户名或密码错误</string>
+    <string name="string_useror_code_error">用户不存在或验证码失效</string>
+    <string name="string_datetype_error">日期格式错误</string>
+    <string name="string_jsontype_error">json格式错误</string>
+    <string name="string_user_isnull">该用户不存在</string>
+    <string name="string_user_null_apply">没有申请记录</string>
+    <string name="string_linke_two">已经赞过了，明天再来吧</string>
+    <string name="string_frend_two">已经是好友了</string>
+    <string name="string_wait_code">申请正在等待验证</string>
+    <string name="string_default_style">默认风格</string>
+    <string name="style_position">风格</string>
+    <string name="style_1">风格1</string>
+    <string name="style_2">风格2</string>
+    <string name="style_3">风格3</string>
+    <string name="style_4">风格4</string>
+    <string name="string_devices_ui">界面风格设置</string>
+    <string name="string_normal">正常</string>
+    <string name="input_user">请输入您的注册账号</string>
+    <string name="recovery_count_frequency">苏醒</string>
+    <string name="string_double_out">再按一次退出程序</string>
+    <string name="string_phone_er">请输入正确的手机号码</string>
+    <string name="string_fuse_color">肤色</string>
+    <string name="string_conn_fail">连接失败，重新尝试</string>
+    <string name="string_code_null">验证不能为空</string>
+    <string name="string_time_speed">时速</string>
+    <string name="string_sport_run">运动开始</string>
+    <string name="string_stop_run_dowln">正在运动中,右滑停止运动</string>
+    <string name="string_no_sport">你还没运动，或者位移太小</string>
+    <string name="string_fuse">肤色选择</string>
+    <string name="bloodpressure_msg1">请选择私人血压模式数据，私人血压模式只针对个人有效，他人请选择通用模式</string>
+    <string name="private_blood_val">您的私人血压：</string>
+    <string name="common_mode">通用模式</string>
+    <string name="private_mode_setting">设置私人模式数据 >></string>
+    <string name="blood_manual_test">血压手动测试</string>
+    <string name="mileage_setkm">km</string>
+    <string name="mileage_setmi">mile</string>
+    <string name="user_emil_regsiter">邮箱注册</string>
+    <string name="forget_user_phone">手机用户</string>
+    <string name="forget_user_email">邮箱用户</string>
+    <string name="string_out_gps">是否退出GPS运动？</string>
+    <string name="string_tijiao">提交</string>
+    <string name="string_gps_run">GPS运动</string>
+    <string name="string_devices_run">手环运动</string>
+    <string name="string_all_rkcal">本月手环运动消耗总热量</string>
+    <string name="string_no_permission">没有获取照相机权限，该功能无法使用</string>
+    <string name="string_get_permission">请授权应用以下权限</string>
+
+    <string name="string_is_24_hour">24小时制</string>
+    <string name="string_auto_blood_pressure">心率自动检测</string>
+    <string name="string_auto_heart">血压自动检测</string>
+    <string name="string_find_phone">查找手机</string>
+    <string name="string_stopwatch_function">秒表功能</string>
+    <string name="string_disconnection_reminder">断连提醒</string>
+    <string name="string_wrist_sensitivity">转腕灵敏度</string>
+    <string name="string_recommend">推荐</string>
+    <string name="string_reset_password_successfully">重置密码成功</string>
+    <string name="string_old_password_incorrect">旧密码不正确</string>
+    <string name="string_two_passwords_are_different">两次密码不相同</string>
+    <string name="string_necessary_authority">必要权限</string>
+    <string name="string_alarm_repeated">闹钟设置失败，请检查是否重复</string>
+    <string name="string_verify_device_password">验证设备密码</string>
+    <string name="string_user_name">用户名</string>
+    <string name="string_not_coon">未连接</string>
+    <string name="string_mores">更多</string>
+    <string name="string_yesterday">前天</string>
+    <string name="string_max_steps">最大步数:</string>
+    <string name="string_recent">最近</string>
+    <string name="string_sleep_time">睡眠时长</string>
+    <string name="string_heart_rate_time">心率区域内时间</string>
+    <string name="string_steps_still">静止</string>
+    <string name="string_steps_small">少量</string>
+    <string name="string_steps_medium">中等</string>
+    <string name="string_steps_mass">大量</string>
+    <string name="string_steps_severe">剧烈</string>
+    <string name="string_min_blood_pressure">最低血压</string>
+    <string name="string_max_blood_pressure">最高血压</string>
+    <string name="string_get_time">测得时间</string>
+    <string name="string_manual_blood_pressure">手动测量心率</string>
+    <string name="string_steps_target">运动目标</string>
+    <string name="string_sleep_target">睡眠目标</string>
+    <string name="string_information_reminder">信息提醒</string>
+    <string name="string_turning_wrist_screen">转腕亮屏</string>
+    <string name="string_blood_pressure_mode">血压私人模式</string>
+    <string name="string_switch_setting">开关设置</string>
+    <string name="string_take_photo">拍照</string>
+    <string name="string_reset_device_password">重置设备密码</string>
+    <string name="string_firmware_update">固件更新</string>
+    <string name="string_clear_data">清除数据</string>
+    <string name="string_devices_disconnected">断开连接</string>
+    <string name="string_devices_is_disconnected">是否断开连接？</string>
+    <string name="string_init_device_password">初始密码0000</string>
+    <string name="string_writ_old_password">请输入旧密码</string>
+    <string name="string_writ_new_device_password">请输入新密码</string>
+    <string name="string_is_clear_data">是否确认清除数据？</string>
+    <string name="string_wearing_test">佩戴检测</string>
+    <string name="string_turn_wrist_switch">转腕开关</string>
+    <string name="string_sedentary_setting">久坐设置</string>
+    <string name="string_add_new_reminder">添加新的提醒</string>
+    <string name="string_alarm_type">闹钟类型</string>
+    <string name="string_alarm_reminder">闹钟提醒</string>
+    <string name="string_ocial_message">社交消息</string>
+    <string name="string_upgrade">升级</string>
+
+
+    <string name="privacy">隐私政策</string>
+    <string name="string_data_tell">双击图标区域查看更多</string>
+    <string name="string_net_work">网络设置提示</string>
+    <string name="string_no_net_work">网络连接不可用,是否进行设置?</string>
+    <string name="string_open_gps">请打开GPS连接</string>
+    <string name="string_hello_gps">为准确测量，请您先打开GPS</string>
+    <string name="string_gps_stute">打开后直接点击返回键即可，若不打开返回下次将再次出现</string>
+    <string name="string_qingxing">清醒</string>
+    <string name="string_shensuhi_time">深睡时长</string>
+    <string name="string_qianshui_time">浅睡时长</string>
+    <string name="string_qingxing_time">清醒时长</string>
+    <string name="string_running">跑步</string>
+    <string name="string_cycling">骑车</string>
+    <string name="string_harete_data">心率数据</string>
+    <string name="string_one_day_record">单日最高记录</string>
+    <string name="string_selecte_sleep_stuta">长按滑动查看睡眠详情</string>
+    <string name="string_w30s_ota_file">OTA文件不完整</string>
+    <string name="string_w30s_re_upgrade">重新升级</string>
+    <string name="string_w30s_upgrade_failed">升级失败</string>
+    <string name="string_w30s_prepare_updates">准备更新</string>
+    <string name="string_w30s_device_connection">设备连接中...</string>
+    <string name="string_w30s_upgradeable">可升级</string>
+    <string name="string_w30s_reacquire_version">重新获取版本</string>
+    <string name="string_w30s_up_isok">4.升级成功之后必须重新启应用</string>
+    <string name="string_w30s_up_error">5.升级失败断开蓝牙200s手表退出升级模式</string>
+    <string name="string_w30s_up_statu">升级状态禁止操作</string>
+    <string name="string_w30s_up_zip">获取升级资源</string>
+
+    <string name="string_w30s_alldis">总里程数</string>
+    <string name="string_w30s_upgrade">开始升级</string>
+    <string name="string_w30s_up_one">1.升级操作之前请保持电量充足</string>
+    <string name="string_w30s_up_two">2.升级操作过程中请勿断开连接</string>
+    <string name="string_w30s_up_three">3.升级更新可能需要几分钟时间</string>
+    <string name="string_no_dialog">打开后，22:00-08:00期间内设备停止接收通知，抬手亮屏功能停止。</string>
+    <string name="string_standar">达标</string>
+    <string name="string_today_sleep_all_time">睡眠总时长</string>
+    <string name="sleep_data_history">睡眠历史</string>
+    <string name="string_sports_total">当天GPS运动总量</string>
+    <string name="string_sport_all_data">跑步总里程</string>
+    <string name="string_run_all_data">骑行总里程</string>
+    <string name="string_find_watch">查找手表</string>
+    <string name="string_january">1月</string>
+    <string name="string_february">2月</string>
+    <string name="string_march">3月</string>
+    <string name="string_april">4月</string>
+    <string name="string_may">5月</string>
+    <string name="string_june">6月</string>
+    <string name="string_july">7月</string>
+    <string name="string_august">8月</string>
+    <string name="string_deptember">9月</string>
+    <string name="string_october">10月</string>
+    <string name="string_november">11月</string>
+    <string name="string_december">12月</string>
+
+    <string name="string_healthy_noti">健康提醒</string>
+    <string name="string_step_day">步数/日</string>
+    <string name="string_step_year">步数/月</string>
+    <string name="string_heart_day">心率/日</string>
+    <string name="string_heart_year">心率/月</string>
+    <string name="string_sleep_day">睡眠/日</string>
+    <string name="string_sleep_year">睡眠/月</string>
+
+    <string name="string_data_chart_pingjun">平均：</string>
+    <string name="string_third_login_changepass">第三方登录无法修改密码!</string>
+    <string name="string_disconnected_ok">是否断开当前连接?</string>
+    <string name="string_no_data">无数据!</string>
+
+    <string name="string_Immediate_experience">立即体验</string>
+    <string name="string_not_disturb">勿扰模式</string>
+    <string name="string_application_reminding">应用提醒</string>
+    <string name="string_clock_setting">闹钟设置</string>
+    <string name="string_equipment_reminding">设备提醒</string>
+    <string name="string_unit_setting">单位设置</string>
+    <string name="string_factory_setting">恢复出厂</string>
+    <string name="string_water_clock">喝水提醒</string>
+    <string name="string_drug_reminding">吃药提醒</string>
+    <string name="string_conference_reminding">会议提醒</string>
+    <string name="string_contacts">联系人</string>
+    <string name="string_search_friends">搜索好友</string>
+    <string name="string_new_phone">电话</string>
+    <string name="string_new_messege">短信</string>
+    <string name="string_reminding_times">提醒间隔</string>
+    <string name="string_reminding_start_end_times">开始 - 结束</string>
+    <string name="string_reminding_metting_datas">生效日期：</string>
+    <string name="string_reminding_metting_times">生效时间：</string>
+    <string name="string_reminding_text">试试设置闹钟,提醒自己做预定的事</string>
+
+    <string name="notif_explain">说明</string>
+    <string name="notif_messge">消息提醒需打开通知使用权或者辅助权限</string>
+    <string name="open_notif">打开通知权限</string>
+    <string name="open_function">打开辅助功能</string>
+
+    <string name="device_times">设备时间</string>
+    <string name="now_times">当前时间</string>
+    <string name="get_device_times">获取设备时间</string>
+    <string name="correct_pointer_times">指针不对?去矫正</string>
+    <string name="sporttimes">运动次数</string>
+    <string name="grandtotalstep">累计步数</string>
+    <string name="grandtotal">累计时长</string>
+    <string name="sportdata">运动数据</string>
+    <string name="avg_speed">平均配速</string>
+    <string name="long_onclick">长按‘+’和‘-’可设置调节较大的角度</string>
+    <string name="add_sharpe">合成并分享</string>
+    <string name="syncy_data">同步数据中</string>
+    <string name="connted">已连接</string>
+    <string name="disconnted">已断开</string>
+
+    <string name="nodata">无数据</string>
+    <string name="age">年龄</string>
+
+    <string name="history_times">历史时间</string>
+    <string name="search_alert">搜索设备请打开手机蓝牙和GPS</string>
+    <string name="sleep_deep">深睡</string>
+    <string name="sleep_light">浅睡</string>
+    <string name="long_when">时长</string>
+    <string name="sleep_asleep">入睡时间</string>
+    <string name="recovery_count">苏醒次数</string>
+    <string name="recovery_time">苏醒时间</string>
+    <string name="mine_equipment">我的设备</string>
+    <string name="low_voltage">低压限制</string>
+    <string name="high_voltage">高压限制</string>
+    <string name="year">年</string>
+    <string name="news">消息</string>
+    <string name="messages">收到新的消息</string>
+    <string name="system_settings">系统设置</string>
+    <string name="guide">校时指南</string>
+    <string name="step_one">1.\t 在手表与App正常连接状态下首先点击归零按钮</string>
+    <string name="step_two">2.\t 分别选择时针、分针，按+和-调针至12:00整</string>
+    <string name="step_three">3.\t 点击完成按钮实现自动追针校时</string>
+    <string name="manualsleep">手动睡眠</string>
+    <string name="automaticsleep">自动睡眠</string>
+    <string name="dlog">加载...</string>
+    <string name="minezhen">分针</string>
+    <string name="hourzhen">时针</string>
+    <string name="zero">归零</string>
+    <string name="setmi">英制</string>
+    <string name="setkm">公制</string>
+    <string name="jiaozhen">校针</string>
+    <string name="unit">单位</string>
+    <string name="heartcheck">心率检测</string>
+    <string name="auxiliary_function">如果你打开了通知还是收不到消息提醒，你可以试试打开辅助功能。
+    \n  如果你可以收到通知消息，那么你可以忽略它的存在，也可以通知或者辅助功能限开一个。
+    \n （此功能是为了解决部分机型收不到消息而设置，可以收到消息打开此功能会造成消息提醒重复）</string>
+    <string name="siren_str">排行榜</string>
+    <string name="personal_str">个人资料</string>
+    <string name="function_str">功能设置</string>
+    <string name="find_str">查找好友</string>
+    <string name="waking_state">清醒状态</string>
+    <string name="shallow_sleep">浅度睡眠</string>
+    <string name="deep_sleep">深度睡眠</string>
+    <string name="daily_distancia">每日运动距离</string>
+    <string name="notice_str">通知</string>
+    <string name="shock_str">震动</string>
+    <string name="time_forma">时间格式</string>
+    <string name="advanced_setting">高级设置</string>
+    <string name="add_frendes">添加好友</string>
+    <string name="reset_device">重置设备</string>
+    <string name="heart_rate_test">心率测试</string>
+    <string name="heart_rate_warning_range">心率预警范围</string>
+    <string name="close_str">关</string>
+    <string name="weak_str">弱</string>
+    <string name="standard_str">标准</string>
+    <string name="strong_str">强</string>
+    <string name="preset_sleep">预设睡眠</string>
+    <string name="missed_calls">未接来电</string>
+    <string name="sms_reminder">短信提醒</string>
+    <string name="mailbox_reminder">邮箱提醒</string>
+    <string name="social_reminder">社交提醒</string>
+    <string name="calendar_alarm">日历提醒</string>
+    <string name="today_step">今日步数</string>
+    <string name="goal_step">目标</string>
+    <string name="str_one">你可以设置多种类型的每天提醒</string>
+    <string name="str_two">选择提醒类型</string>
+    <string name="str_three">长按可删除闹钟</string>
+    <string name="str_four">选择提醒时间和日期</string>
+    <string name="str_five">一旦到提醒点该设备会轻轻\n颤动并显示相应图标提醒你</string>
+    <string name="noright">您当前是游客,不支持此功能</string>
+    <string name="newversion">有新版本,是否更新?</string>
+    <string name="visitor_enter">游客进入</string>
+    <string name="login_alert">是否以游客身份进入?</string>
+    <string name="settarget_steps">目标</string>
+    <string name="operation">操作说明</string>
+    <string name="msg_jiange">消息提醒间隔</string>
+    <string name="psm">节电模式</string>
+    <string name="setting_pair">是否确认配对?</string>
+    <string name="clocktimes">您需选择闹钟重复次数 !</string>
+    <string name="fuwuqi">链接服务器失败</string>
+    <string name="zuigaoxinlv">最高心率</string>
+    <string name="zuidixinlv">最低心率</string>
+    <string name="pinjunxin">平均心率</string>
+    <string name="shangzhou">上周</string>
+    <string name="benzhou">本周</string>
+    <string name="shangyue">上月</string>
+    <string name="benyue">本月</string>
+    <string name="XIAOHAO">消耗</string>
+    <string name="paces">配速</string>
+    <string name="xuanzeshijian">请选择时间</string>
+    <string name="minute">分钟</string>
+    <string name="bluetooth_disconnected">蓝牙已断开</string>
+    <string name="bangdinged">已绑定</string>
+    <string name="sports_history">运动历史记录</string>
+    <string name="good">良</string>
+    <string name="mild_pollution">轻度污染</string>
+    <string name="moderate_pollution">中度污染</string>
+    <string name="heavy_pollution">重度污染</string>
+    <string name="serious_pollution">严重污染</string>
+    <string name="save_record">是否保存运动记录</string>
+    <string name="upgrade">升级中</string>
+    <string name="latest_version">已经是最新版本</string>
+    <string name="upgrade_completed">升级完成</string>
+    <string name="auto_upgrade">自动升级中....</string>
+    <string name="deleda">确定要删除?</string>
+    <string name="zerostep">0 步</string>
+    <string name="zeroday">0 天</string>
+    <string name="zerokm">0 公里</string>
+    <string name="wechat_home_page">4.返回微信运动主页，进入排行榜，此时就能看到 设备的数据已经同步到微信运动中，如果还不能同 步，请多刷新几次排行榜页面</string>
+    <string name="openwhchat">3.打开微信,进入微信运动，点击微信主页右右上角的设置按钮，找到“记录运动数据”栏,选择“添 加数据来源”，您将搜索到您购买设备厂家的公众 号，请添加此公众号作为数据来源</string>
+    <string name="please_disconnect">2.绑定成功后,请先断开当前连接</string>
+    <string name="first_use">1.初次使用,请先绑定设备</string>
+    <string name="operation_method">操作方法</string>
+    <string name="bangding">绑定</string>
+    <string name="wechat_sports">接入微信运动,与朋友分享运动的乐趣!</string>
+    <string name="stop">结束</string>
+    <string name="xiaohao">消耗  0kcal</string>
+    <string name="Pace">配速00"00</string>
+    <string name="distance">全程距离：公里</string>
+    <string name="total_time">总计时间</string>
+    <string name="history_record">历史记录</string>
+    <string name="third_party_login">第三方登录</string>
+    <string name="measurement_results">测量结果</string>
+    <string name="call_reminder">来电提醒</string>
+    <string name="mywechat">微信</string>
+    <string name="leiji">累计运动</string>
+    <string name="cishu">次</string>
+    <string name="bluetooth_not_supported">不支持蓝牙</string>
+    <string name="try_again">请佩戴好手环，并重试.</string>
+    <string name="resend">重新发送</string>
+    <string name="mailbox_format_error">邮箱格式错误</string>
+    <string name="not_b_less">密码不得小于6位</string>
+    <string name="format_is_wrong">手机号格式不对</string>
+    <string name="change_password">修改密码成功</string>
+    <string name="measurement_record">是否保存本次测量结果</string>
+    <string name="prompt">提示</string>
+    <string name="data_upload">数据上传成功</string>
+    <string name="data_upload_fail">数据上传失败</string>
+    <string name="input_email">请输您的注册账号</string>
+    <string name="shouquancg">授权成功</string>
+    <string name="shouquanshib">授权失败</string>
+    <string name="Allgemeiner">通用模式</string>
+    <string name="Privater">私人模式</string>
+    <string name="wangluo">网络信号差</string>
+    <string name="BPM">BPM</string>
+    <string name="suspend">停止</string>
+    <string name="measure">测量</string>
+
+    <string name="heartrooate">当前心率</string>
+    <string name="bloodpressure">血压</string>
+    <string name="blood">血压</string>
+
+
+
+    <string name="app_name">RaceFitPro</string>
+    <string name="input_password">请输入密码</string>
+    <string name="input_code">请输入验证码</string>
+    <string name="input_nickname">请输入昵称</string>
+    <string name="input_name">请输入手机号码</string>
+    <string name="user_login">登录</string>
+    <string name="confirm_unbind_strap">确定解除绑定当前连接的设备?</string>
+    <string name="exit_login">退出登录</string>
+    <string name="user_regsiter">注册</string>
+    <string name="confirm_compelte">完成</string>
+    <string name="mine_data">我的资料</string>
+    <string name="next">跳过</string>
+    <string name="save">保存</string>
+    <string name="complete">完成</string>
+    <string name="modify_success">修改成功</string>
+
+    <string name="nick_name">昵称:</string>
+    <string name="select_photo">请选择照片</string>
+    <string name="take_camera">相机</string>
+    <string name="take_Album">相册</string>
+    <string name="cancle">取消</string>
+    <string name="confirm">确定</string>
+
+
+    <string name="goalfinish">达标天数</string>
+    <string name="totaldistance">总公里数</string>
+    <string name="Totalnumberofsteps">日均步数</string>
+    <string name="submit_success">提交成功</string>
+    <string name="submit_fail">数据提交失败</string>
+    <string name="write_nickname">请填写用户昵称</string>
+    <string name="forget_password">忘记密码</string>
+    <string name="send_code">发送验证码</string>
+
+    <string name="yonghuzdffhej">验证码错误</string>
+    <string name="yonghuzhej">号码已被注册,请更换!</string>
+    <string name="tianxie">用户名填写错误</string>
+    <string name="miamacuo">密码错误</string>
+    <string name="regsiter_fail">注册失败</string>
+
+    <string name="yanzhengma">验证码已经发送</string>
+    <string name="guojia">获取国家列表成功</string>
+
+    <string-array name="banner_txt_one">
+        <item>运动全新定义</item>
+        <item>健康数据云存储</item>
+        <item>户外运动实时导航</item>
+    </string-array>
+
+    <string-array name="banner_txt_two">
+        <item>精准进步，迎接挑战</item>
+        <item>提供只能数据处理</item>
+        <item>记录每条努力的轨迹</item>
+    </string-array>
+
+    <string-array name="select_sex">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+
+    <string name="select_running_mode">请选择模式</string>
+    <string-array name="select_running_mode">
+        <item>户外跑步</item>
+        <item>户外骑行</item>
+    </string-array>
+
+    <string name="week">星期</string>
+    <string name="select_repeat_week">请选择重复星期</string>
+
+    <string name="select_brithday">请选择生日</string>
+    <string name="select_height">请选择身高</string>
+    <string name="select_weight">请选择体重</string>
+
+    <string name="Sedentaryreminder">久坐提醒</string>
+    <string name="alarmclock">闹钟</string>
+    <string name="Messagealert">消息提醒</string>
+    <string name="Raisethebrightscreen">抬手亮屏</string>
+    <string name="Intelligentalost">智能防丢</string>
+    <string name="Automaticheartrate">自动心率检测</string>
+    <string name="yaoyiyaoPhotograph">摇一摇拍照</string>
+    <string name="weixinpaizhao">微信运动</string>
+    <string name="add_alarm">添加闹钟</string>
+
+    <string name="weather">AQI</string>
+    <string name="mine">我的</string>
+    <string name="device">设备</string>
+    <string name="running">开跑</string>
+    <string name="star">开始</string>
+    <string name="long_stop">长按暂停</string>
+    <string name="data">数据</string>
+    <string name="Targetsetting">目标设置</string>
+    <string name="siren">私人模式</string>
+    <string name="search_device">搜索设备</string>
+    <string name="menu_settings">设置</string>
+    <string name="settings_success">设置成功</string>
+    <string name="settings_fail">设置失败</string>
+    <string name="get_fail">获取失败</string>
+    <string name="activity_time">活动时长</string>
+    <string name="hour">小时</string>
+    <string name="km">千米</string>
+    <string name="km_cal">千卡</string>
+    <string name="steps">步</string>
+    <string name="calories">卡路里</string>
+    <string name="mileage">里程</string>
+    <string name="time">时间</string>
+    <string name="step">步数</string>
+    <string name="recording">记录</string>
+    <string name="target_step">目标步数 10000</string>
+
+    <string name="indoor_sports">室内运动</string>
+    <string name="outdoor_running">户外跑步</string>
+    <string name="outdoor_cycling">户外骑车</string>
+    <string name="sleep">睡眠</string>
+    <string name="move_ment">运动</string>
+
+    <string name="data_report_day">天</string>
+    <string name="data_report_week">周</string>
+    <string name="data_report_month">月</string>
+
+    <string name="allday_sleep">全天睡眠</string>
+    <string name="allday_deepsleep">全天深睡</string>
+    <string name="allday_shallowsleep">全天浅睡</string>
+
+    <string name="heartbeats_per_minute">心率</string>
+
+    <string name="activity_repor">活动报告</string>
+    <string name="sleep_repor">睡眠报告</string>
+    <string name="heart_repor">心率报告</string>
+    <string name="bloodpressure_repor">血压报告</string>
+    <string name="bloodoxygen_repor">血氧报告</string>
+
+    <string name="personal_info">个人信息</string>
+    <string name="modify_nickname">修改昵称</string>
+    <string name="personal_avatar">头像</string>
+    <string name="sex">性别</string>
+    <string name="weight">体重</string>
+    <string name="height">身高</string>
+    <string name="birthday">生日</string>
+
+    <string name="select_sex">请选择性别</string>
+    <string name="select">选择</string>
+    <string name="sex_nan">男</string>
+    <string name="sex_nv">女</string>
+
+    <string name="app_version">app版本</string>
+    <string name="modify_password">修改密码</string>
+    <string name="help">帮助</string>
+    <string name="abour">关于更多</string>
+    <string name="yesterday">昨日</string>
+    <string name="today">今日</string>
+    <string name="cumulative_number_of_movements">累计运动0次</string>
+    <string name="agree_agreement">点击"注册"按钮，意味着你同意</string>
+    <string name="register_agreement">相关协议</string>
+    <string name="feedback">意见反馈</string>
+    <string name="confrim_exit">确定退出当前账户?</string>
+
+    <string name="input_old_password">请输入旧密码</string>
+    <string name="input_new_password">请输入4位新密码</string>
+    <string name="input_confirm_password">请输入确认密码</string>
+    <string name="question_detail">问题详情</string>
+    <string name="contact_info">联系方式</string>
+    <string name="describe_problem">请描述你遇到的问题</string>
+    <string name="leave_phone">请留下电话或者邮箱，方便我们联系您</string>
+
+    <string name="leave_contact">联系方式或邮箱不能为空</string>
+
+    <string name="daily_numberofsteps">每日运动步数</string>
+    <string name="daily_sleepduration">每日睡眠时长</string>
+    <string name="daily_consunergy">每日消耗能量</string>
+
+    <string name="daily_numberofsteps_default">步</string>
+    <string name="daily_sleepduration_default">8小时</string>
+    <string name="daily_consunergy_defaultcalorie">173千卡</string>
+
+    <string name="my_strap">我的手环</string>
+    <string name="sedentary_reminder">久坐提醒</string>
+    <string name="firmware_upgrade">固件升级</string>
+    <string name="unbind">解除绑定</string>
+
+    <string name="effective_time">生效时间</string>
+    <string name="end_time">结束时间</string>
+    <string name="start_time">开始时间</string>
+
+    <string name="heart_rate">心率</string>
+
+
+    <string name="time_set">时间设置</string>
+    <string name="repeat">重复</string>
+    <string name="alarm_name">请填写闹钟名称</string>
+
+    <string name="private_mode">私人模式</string>
+    <string name="minimumsystolic_bloodpressure">最低收缩压</string>
+    <string name="maximumdiastolic_bloodpressure">最高舒张压</string>
+    <string name="private_mode_bloodpressure">私人血压</string>
+    <string name="bloodpressure_msg">设置您的私人血压模式，以获取更精确的数据，此处你需要设置的是未服用降压药的有效血压值.</string>
+
+    <string name="stop_clock">振动过程中,点击手环可停止闹钟</string>
+    <string name="getup">起床</string>
+    <string name="other">其他</string>
+    <string name="alarm_clock">闹钟</string>
+    <string name="every_time">每天</string>
+    <string name="monday_to_friday">周一至周五</string>
+
+    <string name="select_star_time">请选择开始时间</string>
+    <string name="select_end_time">请选择结束时间</string>
+
+    <string name="weibo_upload_content">分享图片</string>
+
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="shortmessage">信息</string>
+    <string name="linkedin">领英</string>
+    <string name="qq">QQ</string>
+    <!-- Tab界面 -->
+    <!-- 闹铃界面 -->
+    <string name="press_right_top">按右上的  </string>
+    <string name="add_alarm_clock">  添加闹钟  </string>
+    <string name="retrieve_alarm_clock_success">被删除的闹钟已成功找回</string>
+    <!-- 新建编辑闹钟界面 -->
+    <string name="new_alarm_clock">新建闹钟</string>
+    <string name="edit_alarm_clock">编辑闹钟</string>
+    <string name="tag">标签</string>
+    <string name="countdown_day_hour_minute">距闹钟响起还有%1$d天%2$d小时%3$d分</string>
+    <string name="countdown_hour_minute">距闹钟响起还有%1$d小时%2$d分</string>
+    <string name="countdown_minute">距闹钟响起还有%1$d分钟</string>
+    <string name="monday">周一</string>
+    <string name="tuesday">周二</string>
+    <string name="wednesday">周三</string>
+    <string name="thursday">周四</string>
+    <string name="friday">周五</string>
+    <string name="saturday">周六</string>
+    <string name="sunday">周日</string>
+    <string name="repeat_once">只响一次</string>
+    <string name="one_h">一</string>
+    <string name="two_h">二</string>
+    <string name="three_h">三</string>
+    <string name="four_h">四</string>
+    <string name="five_h">五</string>
+    <string name="six_h">六</string>
+    <string name="day">日</string>
+    <string name="every_day">每天</string>
+    <string name="week_day">平日</string>
+    <string name="week_end">周末</string>
+    <string name="weeks">周</string>
+    <string name="caesura">、</string>
+
+    <!-- 铃声选择界面 -->
+
+    <!-- 闹钟响起界面 -->
+
+    <!-- 小睡编辑界面 -->
+
+    <!-- 录音 -->
+    <string name="record_fail">录音失败</string>
+    <string name="record_fail_confirm">录音失败，请检查录音权限是否开启或录音已被其他应用占用。</string>
+    <!-- 录音操作 -->
+    <!-- 录音详情画面 -->
+
+    <!-- 录音重命名画面 -->
+    <!-- 录音删除画面 -->
+    <!-- 录音批量删除画面 -->
+    <!-- 音频播放 -->
+    <string name="play_fail">播放失败</string>
+    <!-- 天气 -->
+    <!-- 城市管理，添加城市 -->
+
+
+
+</resources>

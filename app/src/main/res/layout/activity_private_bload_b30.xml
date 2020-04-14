@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <include layout="@layout/comment_b30_title_layout"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:padding="3dp"
+        android:text="@string/bloodpressure_msg"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginTop="15dp"
+        android:padding="3dp"
+        android:layout_marginLeft="15dp"
+        android:text="@string/bloodpressure_msg1"
+        android:layout_height="wrap_content" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="150dp"/>
+
+        <com.example.bozhilun.android.b30.view.StringScrollPicker
+            android:id="@+id/hightBloadView"
+            android:layout_width="80dp"
+            android:layout_height="200dp"
+            app:spv_disallow_intercept_touch="true"
+            app:spv_max_text_size="30dp"
+            app:spv_min_text_size="24dp"
+            app:spv_visible_item_count="5"/>
+
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="150dp"/>
+
+
+
+        <com.example.bozhilun.android.b30.view.StringScrollPicker
+            android:id="@+id/lowBloadView"
+            android:layout_width="80dp"
+            android:layout_height="200dp"
+            app:spv_disallow_intercept_touch="true"
+            app:spv_max_text_size="30dp"
+            app:spv_min_text_size="24dp"
+            app:spv_visible_item_count="5"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="150dp"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+
+
+
+        <TextView
+            android:text="@string/private_blood_val"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_bload"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content" />
+
+
+
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/b30SetPrivateBloadBtn"
+        android:layout_width="match_parent"
+        android:text="@string/save"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/login_selector"
+        android:layout_marginTop="25dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

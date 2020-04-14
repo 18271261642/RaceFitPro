@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/b18i_titil_bar" />
+
+
+    <LinearLayout
+        android:id="@+id/updatePwdLin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/b18i_selected_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/size_10">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/image_w30s_change_pass" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_15"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:padding="@dimen/size_5"
+            android:text="@string/modify_password"
+            android:textColor="#333333"
+            android:textSize="@dimen/text_size_17" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/my_arrow_right"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/size_25"
+        android:background="@color/chang_white" />
+
+
+    <LinearLayout
+        android:id="@+id/feebackLin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/b18i_selected_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/size_10">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/image_w30s_about" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_15"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:padding="@dimen/size_5"
+            android:text="@string/feedback"
+            android:textColor="#333333"
+            android:textSize="@dimen/text_size_17" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/my_arrow_right"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/size_25"
+        android:background="@color/chang_white" />
+
+
+    <LinearLayout
+        android:id="@+id/privacyLin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/b18i_selected_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/size_10">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/icon_privacy_img" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_15"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:padding="@dimen/size_5"
+            android:text="隐私政策"
+            android:textColor="#333333"
+            android:textSize="@dimen/text_size_17" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/my_arrow_right"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/size_25"
+        android:background="@color/chang_white" />
+
+
+    <LinearLayout
+        android:id="@+id/userProtocalLin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/b18i_selected_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/size_10">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/icon_user_procotol" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_15"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:padding="@dimen/size_5"
+            android:text="用户协议"
+            android:textColor="#333333"
+            android:textSize="@dimen/text_size_17" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/my_arrow_right"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/size_25"
+        android:background="@color/chang_white" />
+
+
+    <LinearLayout
+        android:id="@+id/logoutLin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/b18i_selected_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/size_10">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/icon_logout_img" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_15"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:padding="@dimen/size_5"
+            android:text="注销账号"
+            android:textColor="#333333"
+            android:textSize="@dimen/text_size_17" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/my_arrow_right"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/size_25"
+        android:background="@color/chang_white" />
+
+
+    <LinearLayout
+        android:id="@+id/aboutLin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/b18i_selected_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/size_10">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/image_w30s_banben" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_15"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:padding="@dimen/size_5"
+            android:text="@string/app_version"
+            android:textColor="#333333"
+            android:textSize="@dimen/text_size_17" />
+
+        <TextView
+            android:id="@+id/version_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/size_15"
+            android:text="@string/app_version"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/size_25"
+        android:background="@color/chang_white" />
+
+
+    <Button
+        android:id="@+id/commExit_login"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="@dimen/size_20"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="@dimen/size_20"
+        android:layout_marginBottom="@dimen/size_150"
+        android:background="@drawable/login_selector"
+        android:padding="@dimen/size_10"
+        android:text="@string/exit_login"
+        android:textColor="@color/white" />
+
+
+</LinearLayout>

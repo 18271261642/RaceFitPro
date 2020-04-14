@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/comment_b30_title_layout"/>
+
+
+    <RelativeLayout
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commB31TitleLayout"
+        android:id="@+id/b30LongSitStartRel"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/square_white_btn_change"
+        style="@style/B30DeviceRelStyle">
+
+
+        <TextView
+            style="@style/B30DeviceStyle"
+            android:text="屏保时间" />
+
+
+        <TextView
+            android:id="@+id/b18ScreenTimeTv"
+            android:layout_width="wrap_content"
+            android:text="0s"
+            android:layout_toLeftOf="@+id/ig1"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            android:id="@+id/ig1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/fgm_fitness_arrow_left" />
+
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>

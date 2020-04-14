@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/b18i_titil_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="RtlHardcoded,RtlSymmetry,ScrollViewSize">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/size_7">
+
+                <LinearLayout
+                    android:id="@+id/set_notifi_app"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/b18i_selected_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/size_10"
+                    android:paddingBottom="@dimen/size_10">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_8"
+                        android:src="@mipmap/image_w30s_zhineng"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/Messagealert"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/sp_16"
+                        tools:ignore="InefficientWeight,RtlHardcoded" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/size_8"
+                        android:background="@mipmap/my_arrow_right"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="@dimen/size_45"
+                    android:background="@color/help_button_view"
+                    tools:ignore="RtlHardcoded" />
+
+
+                <LinearLayout
+                    android:id="@+id/targetSetting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/b18i_selected_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/size_10"
+                    android:paddingBottom="@dimen/size_10">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_8"
+                        android:src="@mipmap/image_w30s_mubiao"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/Targetsetting"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/sp_16"
+                        tools:ignore="InefficientWeight,RtlHardcoded" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:background="@mipmap/my_arrow_right"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="@dimen/size_45"
+                    android:background="@color/help_button_view" />
+
+                <!--更多提醒-->
+                <LinearLayout
+                    android:id="@+id/set_more_shock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/b18i_selected_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/size_10"
+                    android:paddingBottom="@dimen/size_10">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_8"
+                        android:src="@mipmap/image_w30s_jiankang"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/string_switch_setting"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/sp_16"
+                        tools:ignore="InefficientWeight,RtlHardcoded" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/size_8"
+                        android:background="@mipmap/my_arrow_right"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="@dimen/size_45"
+                    android:background="@color/help_button_view"
+                    tools:ignore="RtlHardcoded" />
+
+                <LinearLayout
+                    android:id="@+id/set_clock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/b18i_selected_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/size_10"
+                    android:paddingBottom="@dimen/size_10">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_8"
+                        android:src="@mipmap/image_w30s_naozhong"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/string_clock_setting"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/sp_16"
+                        tools:ignore="InefficientWeight,RtlHardcoded" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/size_8"
+                        android:background="@mipmap/my_arrow_right"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="@dimen/size_45"
+                    android:background="@color/help_button_view"
+                    tools:ignore="RtlHardcoded" />
+
+
+                <LinearLayout
+                    android:id="@+id/set_devices_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/b18i_selected_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/size_10"
+                    android:paddingBottom="@dimen/size_10">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_8"
+                        android:src="@mipmap/image_w30s_zhineng"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/string_correction_time"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/sp_16"
+                        tools:ignore="InefficientWeight,RtlHardcoded" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/size_8"
+                        android:background="@mipmap/my_arrow_right"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/help_button_view"
+                    tools:ignore="RtlHardcoded" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_20" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/size_7">
+
+
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/b18i_selected_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/size_5"
+                    android:paddingTop="@dimen/size_5">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_8"
+                        android:src="@mipmap/image_w30s_taishouliangping"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="久坐提醒"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/sp_16"
+                        tools:ignore="InefficientWeight,RtlHardcoded" />
+
+
+                    <ToggleButton
+                        android:id="@+id/switch_bright"
+                        style="@style/B30MsgToggleStyle"/>
+
+
+
+                </LinearLayout>
+
+                <View
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="@dimen/size_45"
+                    android:background="@color/help_button_view"
+                    tools:ignore="RtlHardcoded" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/b18i_selected_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/size_5"
+                    android:paddingRight="@dimen/size_5"
+                    android:paddingBottom="@dimen/size_5">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_8"
+                        android:src="@mipmap/image_w30s_shijian"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:layout_marginBottom="@dimen/size_10"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/time_forma"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/text_size_17"
+                        tools:ignore="RtlHardcoded" />
+
+                    <HorizontalScrollView
+                        android:id="@+id/h_scroll"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:scrollbars="none">
+
+                        <RadioGroup
+                            android:id="@+id/radioGroup_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/size_8"
+                            android:gravity="center_vertical|end"
+                            android:orientation="horizontal"
+                            tools:ignore="RtlHardcoded">
+
+                            <RadioButton
+                                android:id="@+id/radio_T1"
+                                android:layout_width="@dimen/size_30"
+                                android:layout_height="@dimen/size_30"
+                                android:layout_weight="1"
+                                android:background="@drawable/w30s_checkbox_style"
+                                android:button="@null"
+                                android:checked="true"
+                                android:gravity="center"
+                                android:padding="@dimen/size_3"
+                                android:text="T1"
+                                android:textColor="@drawable/w30s_radiobutton_textcolor"
+                                android:textSize="@dimen/sp_10"
+                                tools:ignore="HardcodedText" />
+
+                            <RadioButton
+                                android:id="@+id/radio_T2"
+                                android:layout_width="@dimen/size_30"
+                                android:layout_height="@dimen/size_30"
+                                android:layout_weight="1"
+                                android:background="@drawable/w30s_checkbox_style"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:padding="@dimen/size_3"
+                                android:text="T2"
+                                android:textColor="@drawable/w30s_radiobutton_textcolor"
+                                android:textSize="@dimen/sp_10"
+                                tools:ignore="HardcodedText" />
+
+                            <RadioButton
+                                android:id="@+id/radio_T3"
+                                android:layout_width="@dimen/size_30"
+                                android:layout_height="@dimen/size_30"
+                                android:layout_weight="1"
+                                android:background="@drawable/w30s_checkbox_style"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:padding="@dimen/size_3"
+                                android:text="T3"
+                                android:textColor="@drawable/w30s_radiobutton_textcolor"
+                                android:textSize="@dimen/sp_10"
+                                tools:ignore="HardcodedText" />
+
+                            <RadioButton
+                                android:id="@+id/radio_T4"
+                                android:layout_width="@dimen/size_30"
+                                android:layout_height="@dimen/size_30"
+                                android:layout_weight="1"
+                                android:background="@drawable/w30s_checkbox_style"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:padding="@dimen/size_3"
+                                android:text="T4"
+                                android:textColor="@drawable/w30s_radiobutton_textcolor"
+                                android:textSize="@dimen/sp_10"
+                                tools:ignore="HardcodedText" />
+
+                            <RadioButton
+                                android:id="@+id/radio_T5"
+                                android:layout_width="@dimen/size_30"
+                                android:layout_height="@dimen/size_30"
+                                android:layout_weight="1"
+                                android:background="@drawable/w30s_checkbox_style"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:padding="@dimen/size_3"
+                                android:text="T5"
+                                android:textColor="@drawable/w30s_radiobutton_textcolor"
+                                android:textSize="@dimen/sp_10"
+                                tools:ignore="HardcodedText" />
+
+
+                            <RadioButton
+                                android:id="@+id/radio_T6"
+                                android:layout_width="@dimen/size_30"
+                                android:layout_height="@dimen/size_30"
+                                android:layout_weight="1"
+                                android:background="@drawable/w30s_checkbox_style"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:padding="@dimen/size_3"
+                                android:text="T6"
+                                android:textColor="@drawable/w30s_radiobutton_textcolor"
+                                android:textSize="@dimen/sp_10"
+                                tools:ignore="HardcodedText" />
+
+                            <RadioButton
+                                android:id="@+id/radio_T7"
+                                android:layout_width="@dimen/size_30"
+                                android:layout_height="@dimen/size_30"
+                                android:layout_weight="1"
+                                android:background="@drawable/w30s_checkbox_style"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:padding="@dimen/size_3"
+                                android:text="T7"
+                                android:textColor="@drawable/w30s_radiobutton_textcolor"
+                                android:textSize="@dimen/sp_10"
+                                tools:ignore="HardcodedText" />
+
+                            <RadioButton
+                                android:id="@+id/radio_T8"
+                                android:layout_width="@dimen/size_30"
+                                android:layout_height="@dimen/size_30"
+                                android:layout_weight="1"
+                                android:background="@drawable/w30s_checkbox_style"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:padding="@dimen/size_3"
+                                android:text="T8"
+                                android:textColor="@drawable/w30s_radiobutton_textcolor"
+                                android:textSize="@dimen/sp_10"
+                                tools:ignore="HardcodedText" />
+
+                            <RadioButton
+                                android:id="@+id/radio_T9"
+                                android:layout_width="@dimen/size_30"
+                                android:layout_height="@dimen/size_30"
+                                android:layout_weight="1"
+                                android:background="@drawable/w30s_checkbox_style"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:padding="@dimen/size_3"
+                                android:text="T9"
+                                android:textColor="@drawable/w30s_radiobutton_textcolor"
+                                android:textSize="@dimen/sp_10"
+                                tools:ignore="HardcodedText" />
+
+                        </RadioGroup>
+
+                    </HorizontalScrollView>
+
+
+                    <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginRight="8dp"-->
+                    <!--android:background="@mipmap/my_arrow_right" />-->
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="@dimen/size_45"
+                    android:background="@color/help_button_view"
+                    tools:ignore="RtlHardcoded" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/b18i_selected_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/size_5"
+                    android:paddingRight="@dimen/size_5"
+                    android:paddingBottom="@dimen/size_5">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_8"
+                        android:src="@mipmap/ic_languege"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:layout_marginBottom="@dimen/size_10"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/string_language_setting"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/sp_16"
+                        tools:ignore="RtlHardcoded" />
+
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup_language"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/size_8"
+                        android:layout_weight="2.5"
+                        android:background="@drawable/line_shape_senment"
+                        android:checkedButton="@+id/radio_km"
+                        android:gravity="center_vertical|end"
+                        android:orientation="horizontal"
+                        tools:ignore="RtlHardcoded">
+
+                        <RadioButton
+                            android:id="@+id/radio_zh"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/flat_round_shape_left"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="@dimen/size_8"
+                            android:text="@string/string_alarm_ch"
+                            android:textColor="@drawable/w30s_radiobutton_textcolor"
+                            android:textSize="@dimen/sp_11"
+                            tools:ignore="HardcodedText" />
+
+
+                        <!--style="@style/FlatRadioButtonStyle"-->
+                        <RadioButton
+                            android:id="@+id/radio_en"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/flat_round_shape_right"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="@dimen/size_8"
+                            android:checked="true"
+                            android:text="@string/string_alarm_en"
+                            android:textColor="@drawable/w30s_radiobutton_textcolor"
+                            android:textSize="@dimen/sp_11"
+                            tools:ignore="HardcodedText" />
+
+                    </RadioGroup>
+
+                    <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginRight="8dp"-->
+                    <!--android:background="@mipmap/my_arrow_right" />-->
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="@dimen/size_45"
+                    android:background="@color/help_button_view"
+                    tools:ignore="RtlHardcoded" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/b18i_selected_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/size_5"
+                    android:paddingRight="@dimen/size_5"
+                    android:paddingBottom="@dimen/size_5">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_8"
+                        android:src="@mipmap/image_w30s_danwei"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:layout_marginBottom="@dimen/size_10"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/string_unit_setting"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/sp_16"
+                        tools:ignore="RtlHardcoded" />
+
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup_unti"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/size_8"
+                        android:layout_weight="2.5"
+                        android:background="@drawable/line_shape_senment"
+                        android:checkedButton="@+id/radio_km"
+                        android:gravity="center_vertical|end"
+                        android:orientation="horizontal"
+                        tools:ignore="RtlHardcoded">
+
+                        <RadioButton
+                            android:id="@+id/radio_km"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/flat_round_shape_left"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="@dimen/size_8"
+                            android:text="@string/setkm"
+                            android:textColor="@drawable/w30s_radiobutton_textcolor"
+                            android:textSize="@dimen/sp_11"
+                            tools:ignore="HardcodedText" />
+
+
+                        <!--style="@style/FlatRadioButtonStyle"-->
+                        <RadioButton
+                            android:id="@+id/radio_mi"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/flat_round_shape_right"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:checked="true"
+                            android:padding="@dimen/size_8"
+                            android:text="@string/setmi"
+                            android:textColor="@drawable/w30s_radiobutton_textcolor"
+                            android:textSize="@dimen/sp_11"
+                            tools:ignore="HardcodedText" />
+
+                    </RadioGroup>
+
+                    <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginRight="8dp"-->
+                    <!--android:background="@mipmap/my_arrow_right" />-->
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/help_button_view" />
+
+            </LinearLayout>
+
+
+            <!--##########################-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_20" />
+            <!--##########################-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/size_7">
+
+                <!-- <LinearLayout
+                     android:id="@+id/set_photograph"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:background="@drawable/b18i_selected_bg"
+                     android:clickable="true"
+                     android:gravity="center_vertical"
+                     android:orientation="horizontal"
+                     android:paddingBottom="@dimen/size_10"
+                     android:paddingTop="@dimen/size_10">
+
+
+                     <ImageView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginLeft="@dimen/size_8"
+                         android:src="@mipmap/image_w30s_yaoyiyao"
+                         tools:ignore="ContentDescription,RtlHardcoded" />
+
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginLeft="@dimen/size_15"
+                         android:layout_weight="1"
+                         android:gravity="center_vertical"
+                         android:text="@string/yaoyiyaoPhotograph"
+                         android:textColor="#333333"
+                         android:textSize="@dimen/sp_16"
+                         tools:ignore="InefficientWeight,RtlHardcoded" />
+
+                     <ImageView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginRight="@dimen/size_8"
+                         android:background="@mipmap/my_arrow_right"
+                         tools:ignore="ContentDescription,RtlHardcoded" />
+
+                 </LinearLayout>
+
+                 <View
+                     android:layout_width="match_parent"
+                     android:layout_height="0.5dp"
+                     android:layout_marginLeft="@dimen/size_45"
+                     android:background="@color/help_button_view"
+                     tools:ignore="RtlHardcoded" />-->
+
+                <LinearLayout
+                    android:id="@+id/set_findeDevice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/b18i_selected_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/size_10"
+                    android:paddingBottom="@dimen/size_10">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_8"
+                        android:src="@mipmap/ic_zhendong"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/string_vibration_level"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/sp_16"
+                        tools:ignore="InefficientWeight,RtlHardcoded" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/size_8"
+                        android:background="@mipmap/my_arrow_right"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="@dimen/size_45"
+                    android:background="@color/help_button_view"
+                    tools:ignore="RtlHardcoded" />
+
+                <LinearLayout
+                    android:id="@+id/set_factory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/b18i_selected_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/size_10"
+                    android:paddingBottom="@dimen/size_10">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_8"
+                        android:src="@mipmap/image_w30s_shebei"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/string_factory_setting"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/sp_16"
+                        tools:ignore="InefficientWeight,RtlHardcoded" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/size_8"
+                        android:background="@mipmap/my_arrow_right"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="@dimen/size_45"
+                    android:background="@color/help_button_view"
+                    tools:ignore="RtlHardcoded" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="@dimen/size_45"
+                    android:background="@color/help_button_view"
+                    android:visibility="gone"
+                    tools:ignore="RtlHardcoded" />
+
+                <!---->
+
+                <!-- <LinearLayout
+                     android:id="@+id/set_updata"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:background="@drawable/b18i_selected_bg"
+                     android:clickable="true"
+                     android:gravity="center_vertical"
+                     android:orientation="horizontal"
+                     android:paddingBottom="@dimen/size_10"
+                     android:paddingTop="@dimen/size_10">
+
+
+                     <ImageView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginLeft="@dimen/size_8"
+                         android:src="@mipmap/image_w30s_updata_gujian"
+                         tools:ignore="ContentDescription,RtlHardcoded" />
+
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginLeft="@dimen/size_15"
+                         android:layout_weight="1"
+                         android:gravity="center_vertical"
+                         android:text="@string/firmware_upgrade"
+                         android:textColor="#333333"
+                         android:textSize="@dimen/sp_16"
+                         tools:ignore="InefficientWeight,RtlHardcoded" />
+
+                     <ImageView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginRight="@dimen/size_8"
+                         android:background="@mipmap/my_arrow_right"
+                         tools:ignore="ContentDescription,RtlHardcoded" />
+
+                 </LinearLayout>
+
+                 <View
+                     android:layout_width="match_parent"
+                     android:layout_height="0.5dp"
+                     android:layout_marginLeft="@dimen/size_45"
+                     android:background="@color/help_button_view"
+                     tools:ignore="RtlHardcoded" />-->
+
+                <LinearLayout
+                    android:id="@+id/set_unbind"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/size_15"
+                    android:background="@drawable/b18i_selected_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/size_10">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_8"
+                        android:src="@mipmap/image_w30s_jiebang"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/unbind"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/sp_16"
+                        tools:ignore="InefficientWeight,RtlHardcoded" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/size_8"
+                        android:background="@mipmap/my_arrow_right"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/wx_sport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_25"
+                    android:layout_marginBottom="@dimen/size_25"
+                    android:background="@drawable/b18i_selected_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/size_5"
+                    android:visibility="gone">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_8"
+                        android:src="@mipmap/ic_wx_sport"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/weixinpaizhao"
+                        android:textColor="#333333"
+                        android:textSize="@dimen/sp_16"
+                        tools:ignore="InefficientWeight,RtlHardcoded" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/size_8"
+                        android:background="@mipmap/my_arrow_right"
+                        tools:ignore="ContentDescription,RtlHardcoded" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/help_button_view"
+                tools:ignore="RtlHardcoded" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_20" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

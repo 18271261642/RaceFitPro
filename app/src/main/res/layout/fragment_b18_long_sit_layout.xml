@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        app:layout_constraintTop_toTopOf="parent"
+        layout="@layout/comment_b30_title_layout" />
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commB31TitleLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+            <RelativeLayout
+                style="@style/B30DeviceRelStyle">
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:text="@string/Sedentaryreminder" />
+
+
+                <ToggleButton
+                    android:id="@+id/b18LongSitToggleBtn"
+                    android:layout_width="70dp"
+                    android:background="@drawable/toggle_select"
+                    android:textOn="@null"
+                    android:layout_toLeftOf="@+id/bs1img"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="3dp"
+                    android:textOff="@null"
+                    android:layout_height="40dp" />
+
+
+
+                <ImageView
+                    android:id="@+id/bs1img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/b18LongSitStartRel"
+                style="@style/B30DeviceRelStyle">
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:text="@string/start_time" />
+
+
+                <TextView
+                    android:id="@+id/showB18LongSitStartTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/ig1"
+                    android:text="00:00" />
+
+
+                <ImageView
+                    android:id="@+id/ig1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/st_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+            <RelativeLayout
+                android:id="@+id/b30LongSitEndRel"
+                style="@style/B30DeviceRelStyle">
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:text="@string/end_time" />
+
+
+                <TextView
+                    android:id="@+id/showB30LongSitEndTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/ig2"
+                    android:text="00:00" />
+
+
+                <ImageView
+                    android:id="@+id/ig2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/ed_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+            <RelativeLayout
+                android:id="@+id/b18LongSitTimeRel"
+                style="@style/B30DeviceRelStyle">
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:text="@string/string_reminding_times" />
+
+
+                <TextView
+                    android:id="@+id/show18LongSitTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/ig3"
+                    android:text="" />
+
+
+                <ImageView
+                    android:id="@+id/ig3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+
+            <Button
+                android:id="@+id/b18LongSitSaveBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/blue_btn_selector"
+                android:text="@string/save"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

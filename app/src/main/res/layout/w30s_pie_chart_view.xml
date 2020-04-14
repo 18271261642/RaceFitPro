@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/sleepData_imageView"
+            android:layout_width="@dimen/size_20"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/size_5"
+            android:layout_marginRight="@dimen/size_5"
+            android:gravity="right"
+            android:src="@mipmap/image_his_data"
+            android:visibility="visible"
+            tools:ignore="RtlHardcoded" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_25"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <!--文本-->
+            <LinearLayout
+                android:id="@+id/line_time_star_end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_7"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_sleep_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/size_5"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:id="@+id/text_sleep_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/size_5"
+                    android:text=""
+                    android:textColor="#ffffffff"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:id="@+id/text_sleep_lines"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" -- "
+                    android:textColor="#ffffffff"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:id="@+id/text_sleep_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/size_5"
+                    android:text=""
+                    android:textColor="#ffffffff"
+                    android:textSize="@dimen/sp_14" />
+
+            </LinearLayout>
+
+            <!--<RelativeLayout
+                android:background="@color/new_colorAccent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.example.bozhilun.android.w30s.views.W30S_SleepChart
+                        android:id="@+id/sleep_chart"
+                        android:layout_width="match_parent"
+                        android:layout_height="175dp"
+                        android:layout_marginLeft="@dimen/size_5"
+                        android:layout_marginRight="3dp" />
+
+                    <SeekBar
+                        android:id="@+id/seek_bar_my"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:overScrollMode="never"
+                        android:background="@null"
+                        android:progressDrawable="@drawable/seekbar_bg"
+                        android:thumb="@null" />
+                </FrameLayout>
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/text_sleep_nodata"
+                    android:textColor="#ffffff"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_size_20"
+                    android:text="@string/nodata"
+                    android:background="#7fffffff"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+
+            </RelativeLayout>-->
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_25"
+                android:layout_marginRight="@dimen/size_25">
+
+                <com.example.bozhilun.android.w30s.views.W30S_SleepChart
+                    android:id="@+id/sleep_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_175"
+                    android:layout_marginLeft="@dimen/size_5"
+                    android:layout_marginRight="3dp" />
+
+
+                <SeekBar
+                    android:id="@+id/seek_bar_my"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:max="100"
+                    android:overScrollMode="never"
+                    android:progressDrawable="@drawable/seekbar_bg"
+                    android:thumb="@null" />
+
+                <TextView
+                    android:id="@+id/text_sleep_nodata"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#7fffffff"
+                    android:gravity="center"
+                    android:text="@string/nodata"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/sp_20"
+                    android:visibility="visible" />
+            </FrameLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <!--起床  状态   退出睡眠-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_20"
+                    android:layout_marginRight="@dimen/size_20"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/sleep_into_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/size_5"
+                        android:text=""
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/sp_14" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/size_5"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/sp_12" />
+
+                    <TextView
+                        android:id="@+id/sleep_out_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/size_5"
+                        android:text=""
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/sp_14" />
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/text_all_sleep_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_15"
+                    android:layout_marginBottom="7dp"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#fff"
+                    android:textSize="@dimen/sp_13" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_5"
+            android:layout_marginTop="@dimen/size_5"
+            android:layout_marginRight="@dimen/size_5"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/sleep_lines_bac"
+                        android:padding="@dimen/size_1">
+
+                        <TextView
+                            android:id="@+id/w30_shenshui_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/sleep_lines_bac_shenshui"
+                            android:gravity="center"
+                            android:minWidth="@dimen/size_25"
+                            android:text="0"
+                            android:textColor="#ffffff"
+                            android:textSize="@dimen/sp_10" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/deepState"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_7"
+                        android:text="@string/sleep_deep"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_12"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+
+
+                <!--深睡-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="25"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/sp_12" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="%"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/sp_12" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/sleep_lines_bac"
+                        android:padding="@dimen/size_1">
+
+                        <TextView
+                            android:id="@+id/w30_qianshui_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/sleep_lines_bacqianshui"
+                            android:gravity="center"
+                            android:minWidth="@dimen/size_25"
+                            android:text="0"
+                            android:textColor="#fcd647"
+                            android:textSize="@dimen/sp_10" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/shallowState"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dp"
+                        android:text="@string/sleep_light"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_12" />
+                </LinearLayout>
+
+
+                <!--潜睡-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="25"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/sp_12" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="%"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/size_8" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/sleep_lines_bac"
+                        android:padding="1dp">
+
+                        <TextView
+                            android:id="@+id/w30_qingxing_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/sleep_lines_bacqingxing"
+                            android:gravity="center"
+                            android:minWidth="@dimen/size_25"
+                            android:text="0"
+                            android:textColor="#b591d6"
+                            android:textSize="@dimen/sp_10" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/awakeState"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="7dp"
+                        android:text="@string/string_qingxing"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_12" />
+
+                </LinearLayout>
+
+                <!--清醒-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="25"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/sp_12" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="%"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/sp_8" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_5"
+            android:orientation="vertical">
+
+            <!--深睡、浅睡、时长-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_15"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableTop="@mipmap/image_w30s_home_shenshui"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/string_shensuhi_time"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_12" />
+
+                    <TextView
+                        android:id="@+id/deep_sleep"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/size_3"
+                        android:text="0 H"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_14" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableTop="@mipmap/image_w30s_home_qianshui"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/string_qianshui_time"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_12" />
+
+                    <TextView
+                        android:id="@+id/shallow_sleep"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/size_3"
+                        android:text="0 H"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_14" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableTop="@mipmap/image_w30s_home_qingxing"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/string_qingxing_time"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_12" />
+
+                    <TextView
+                        android:id="@+id/awake_sleep"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:padding="@dimen/size_3"
+                        android:text="0 H"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_14" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--&lt;!&ndash;深睡、浅睡、时长&ndash;&gt;-->
+            <!--<LinearLayout-->
+            <!--android:gravity="center"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="@dimen/size_20"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:drawableTop="@mipmap/deep_sleep"-->
+            <!--android:gravity="center"-->
+            <!--android:lines="1"-->
+            <!--android:text="@string/sleep_deep"-->
+            <!--android:textSize="12dp"-->
+            <!--android:textColor="@color/white" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/deep_sleep"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="3dp"-->
+            <!--android:text="0"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView5"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:drawableTop="@mipmap/light"-->
+            <!--android:gravity="center"-->
+            <!--android:lines="1"-->
+            <!--android:text="@string/sleep_light"-->
+            <!--android:textSize="12dp"-->
+            <!--android:textColor="@color/white" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/shallow_sleep"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="3dp"-->
+            <!--android:text="0"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/textView6"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:drawableTop="@mipmap/sleep_time"-->
+            <!--android:gravity="center"-->
+            <!--android:lines="1"-->
+            <!--android:text="@string/long_when"-->
+            <!--android:textSize="12dp"-->
+            <!--android:textColor="@color/white" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/awake_sleep"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="3dp"-->
+            <!--android:text="0"-->
+            <!--android:lines="1"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--</LinearLayout>-->
+
+            <!--入睡时间、苏醒次数、苏醒时间-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/sleepinto"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/sleep_asleep"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_12" />
+
+                    <TextView
+                        android:id="@+id/text_sleep_into"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/size_3"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_14" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/sleep_wake"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/recovery_count"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_12" />
+
+                    <TextView
+                        android:id="@+id/text_sleep_wake"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/size_3"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_14" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/sleep_wakes"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text="@string/recovery_time"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_12" />
+
+                    <TextView
+                        android:id="@+id/text_sleep_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/size_3"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp_14" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name= "glossary_breath_item_1">
+		<item>Il termine medico per il numero di respiri al minuto. Un\'onda nel petto è un respiro o un alito alla volta.</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_2">
+		<item>1. Bradicardia respiratoria: ritmo respiratorio pulito ma frequenza inferiore a 10 BPM, comune alla fine della vita o all\'apnea prima. Quando il nervo, la malattia metabolica o alcuni medicinali prendono eccessivi, perché frenano il centro respiratorio, possono anche produrre la respirazione troppo lenta. \n\n2.Tachicardia: mancanza di respiro, disturbi respiratori.</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_3">
+		<item>Per le difficoltà di respiratorie, le misure di emergenza a casa sono le seguenti\n1.Mantenere tranquilla e evitare stress emotivo per aggravare la dispnea.\n\n2.La posizione sospensiva o la posizione di seduta possono ridurre la fatica e il consumo di ossigeno.\n\n3.Mantenere aria fresca e ventilazione liscia.\n\n4.Dare una dieta leggera, e mangiare più frutti e incoraggiare i pazienti a completare il corpo d\'acqua.\n\n5.Appropriato espettorante, farmaci antispasmodici, come l\'aminofillina, l\'aminofillina, ecc., per mantenere la traspirazione delle vie aeree.\n\n6.In una condizione critica, inoltrare al vicino ospedale in tempo.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_1">
+		<item>Apnea significa completa cessazione del flusso d\'aria nel naso e nella bocca, maggiore o uguale a 10 secondi.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_2">
+		<item>1. Il russare irregolare, il russare è spesso irregolare, smettere di respirare il flusso d\'aria - Rossa con alternanza, tempo di interruzione generale è di 20-30 secondi di aria, l\'individuo è durato più di 2 minuti, il paziente può apparire evidente cianosi (le labbra o le unghie sono viola).\n\n2.Girare frequentemente alla notte, spesso portano a una bassa qualità del sonno, causando sonnolenza diurna, vertigini e stanchezza.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_3">
+		<item>Per russare i pazienti con apnea del sonno, possono essere trattati o alleviati seguendo il farmaco prescritto, la chirurgia e la ventilazione\n1.Controllo del peso. Obesità è dovuta all\'accumulo di grasso e ad una maggiore pressione intra-addominale durante la respirazione, con conseguente diminuzione della funzionalità polmonare e ipossemia.\n\n2.Non fumo e restrizione dell\'alcol. Il fumo e il bere possono causare il metabolismo anormale dei lipidi nel sangue, l\'arteriosclerosi e aggravare l\'ostruzione del tratto respiratorio superiore.\n\n3.Moderato esercizio. Esercizio moderato può migliorare l\'approvvigionamento di sangue dei vasi cerebrali cardiali, migliorare la funzione di ventilazione, rafforzare la resistenza del corpo e ridurre l\'incidenza delle malattie nasofaringeali.\n\n4.Sonno laterale. Il paziente mantiene la via aerea senza ostacoli prendendo posizione adeguata di sonno.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_1">
+		<item>IL Cuore di carico Dito Indice di fluttuazione di perfusione, riflette la situazione di sangue.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_2">
+		<item>1. Il valore di pi è più grande. \n\n2. La frequenza cardiaca e la pressione sanguigna sono più alti. \n\n3. Ha respiro corto, spesso con una sensazione di mancanza di forza.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_3">
+		<item>1. Assicurare un riposo adeguato, non superare lavoro e rimanere in ritardo.  \n\n2. Rilassare la mente e evitare stress mentali. \n\n3. Mangiare meno cibo grasso.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_1">
+		<item>La durata di uno stato di insufficienza ossigeno o di ossigeno tissutale insufficiente.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_2">
+		<item>1. Vertigini e mancanza di forza. \n\n2.Si sente difficile respirare.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_3">
+		<item>1. Al di fuori dell\'approvvigionamento di ossigeno, oltre all\'ossidazione diretta di ossigeno, ma comprende anche una varietà di esercizi aerobici, come camminare, jogging, respirazione profonda, migliorare l\'ambiente di ossigeno. \n\n2. Quando necessario il trattamento medico, il miglioramento dei farmaci.</item>
+	</string-array>
+	<string-array name= "glossary_lowremain">
+		<item>Meccanismo di eccitazione</item>
+	</string-array>
+	<string-array name= "glossary_lowremain_item_1">
+		<item>Se controlli il tuo valore di ossigeno del sangue notturno per continuare ad essere troppo basso e potrebbe influenzare la salute, il dispositivo effettuerà una notifica di allarme.</item>
+	</string-array>
+	<string-array name= "glossary_osahs">
+		<item>Nomina interpretazione</item>
+		<item>Tipica malattia</item>
+		<item>Metodo terapeutico</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_1">
+		<item>In 7 ore consecutive di sonno, più di 30 apnea o la volta di ipoventilazione più di 5 volte ogni ora, con conseguente diminuzione dell\'ossigeno di sangue e causa ipossemia cronica e sindrome clinica di ipercapnia.</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_2">
+		<item>Presentazione clinica diurna:\n1.Somnolenza.\n\n2.Vertigini e mancanza di forza. \n\n3Anormale stato di mente, mal di testa, irritabilità, agitazione, ansia, ecc.\n\n4.Disfunzione sessuale, ecc.</item>
+		<item>Manifestazione clinica notturna:\n1.Russare: russare irregolarmente, russare - flusso d\'aria - smettere di ansimare - russare alternativamente.\n\n2.Apnea: termina con ansante, sveglia o forte russamento.\n\n3.Si sveglia: spesso accompagnati da girarsi, arti involontari, anche convulsioni o improvvisamente inizio, si sentono in flessibilità, la tenuta del torace o il disagio della zona precordiale.\n\n4.Iperattività: gira e gira più frequentemente alla notte.\n\n5.Sudore, nocturia.\n\n6.Disordine di comportamento del sonno: per paura, grida, raggiri, noctivagant, fonismo, ecc.\n\nInoltre, l\'obesità, l\'ipertrofia del turbinato, il russare e altri facilmente causati sindrome di arresto respiratorio.</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_3" formatted="false">
+		<item>Oltre a prendersi farmaci e chirurgia, i pazienti possono essere trattati o alleviati con seguente trattamento:\n1.controllo del peso.\n\n2.non fumo e limite sull\'alcol.\n\n3. qualche esercizio.\n\n4.Sonno laterale.</item>
+		<item>Trattamento su chirurgia, medicazione e ventilazione:\n1.Riparazione chirurgica di aree anormali del tratto respiratorio superiore.\n\n2.medicazione.\n\n3.Inalazione di ossigeno a basso flusso alla notte.\n\n4.inalazione di anidride carbonica di 2% -3%.\n\n5.nasale continua ventilazione a pressione.\n\n6.stimolazione di diaframma esterno.\n\n7.ventilazione meccanica.</item>
+		<item>Lo stile di vita sano e la diagnosi precoce sono fondamentali per prevenire e ridurre apnea del sonno. I dati clinici medici mostrano che le malattie cardiovascolari e le altre malattie sono gradualmente migliorate con il miglioramento della sindrome dell\'apnea del sonno. Più lungo è il trattamento, meglio i sintomi.</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_1">
+		<item>Ossigeno del sangue si riferisce alla quantità di emoglobina ossigenata ossigenata nel sangue che rappresenta la percentuale di tutta la capacità combinata di emoglobina, cioè la concentrazione di ossigeno nel sangue.</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_2">
+		<item>1. Malattie cardiovascolari e cerebrovascolari (malattia coronarica, ipertensione, iperlipidemia, ecc.).\n\n2.malattie respiratorie (asma, bronchiti, malattie cardiache polmonari, ecc.).</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_3">
+		<item>1. Perché la malattia si verifica nei pazienti con ossigeno più basso del sangue, oltre a cooperare attivamente con il trattamento della malattia originale, è sempre possibile misurare l\'ossigeno e l\'ossigeno attrezzature di inalazione, una volta che il rilevamento di ipossiemia è troppo basso, riempimento tempestivo di ossigeno . Oltre all\'iniezione diretta di ossigeno, \n\n2.Può anche eseguire una serie di esercizi aerobici come passeggiate, jogging, respirazione profonda e migliorare l\'ambiente di ossigeno.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_1">
+		<item>La variazione del ciclo successivo del battito cardiaco, cioè la differenza dell\'intervallo RR. Può riflettere i recenti stati cardiovascolari e mentali.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_2">
+		<item>1. La variabilità del tasso di impulso non è attiva, mantenuta a basso livello. \n\n2. Spesso ha vertigini, mal di testa, palpitazione e così via.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_3">
+		<item>1. Mantenere buone abitudini di vita e un sacco di riposo.\n\n2.Mantenere un buon atteggiamento, esercizio più aerobico, dieta meno sale, meno olio.\n\n3.Se il valore a lungo termine è basso, la portata del cambiamento non è grande, è probabile che sia un precursore di alcune malattie cardiovascolari, se si sente male, suggeriscono un trattamento medico tempestivo.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_1">
+		<item>Risposta: 7 ore di apnea continua del sonno avvenute più di 30 volte (non respirando, per 10 o 10 secondi di più), o l\'indice ipopnea medio di un\'ora (flusso di gas respiratorio per ridurre o interrompere completamente) più di 5 volte soffre di sindrome da apnea del sonno.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_2">
+		<item>Risposta: sindrome dell\'apnea del sonno è una malattia cronica, la malattia è difficile da individuare malattie precoci non è influenzata dall\'attenzione, una volta che la respirazione corporea, la luce è causata dal russamento, mentre nel polmone dell\'ipossia l\'ossigeno si è ridotto, causando corpo per riposo e ripristino, stato mentale e cattiva salute, qualità della vita è stata significativamente diminuita. \n È più grave apnea si verifica, la mancanza di stimoli esterni, è molto difficile per i pazienti svegliare, fino a quando l\'organo corpo ipossia o addirittura danneggiati, si è svegliato improvvisamente, e spesso non lo prendono sul serio, così lungo, continuo cumulativo danni, causando una serie di malattie cardiovascolari e malattie mentali, e persino la morte.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_3">
+		<item>Risposta: la maggior parte di esse è causata dall\'ostruzione superiore della via aerea. Essi includono l\'ipertrofia del turbinato, l\'ipertrofia delle tonsille, la mascella inferiore, la circonferenza del collo e l\'obesità complessiva. \nQuindi la sindrome dell\'apnea del sonno è più ostruttiva, in parte dovuta al nervo centrale respiratorio, alla disfunzione respiratoria causata dalla regolazione, nota come centrale o entrambi ibridi.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_4">
+		<item>Risposta: se i sintomi ei segni clinici tipici possono essere un semplice giudizio, ma a causa delle caratteristiche della malattia cronica, la mancanza di apparecchiature di monitoraggio, i pazienti nel sonno sono difficili da percepire i loro sintomi notturni, solo la descrizione della famiglia e la percezione di sé, facile da giudire errato, mancanza di base scientifica.\nDopo che la malattia era grave, il paziente si rese conto che sarebbe andato in ospedale per confermare la diagnosi.\nIl metodo standard è la polisonnografia (PSG), attraverso il monitoraggio dell\'ossigeno di sangue come nucleo, con ECG, EEG, EMG, elettricità degli occhi e altri parametri fisiologici, può comprendere con precisione il tipo e il grado di malattia. A questo punto, la malattia è spesso entrata in una fase più grave, la difficoltà e il costo del trattamento e il disagio del paziente sono notevolmente aumentate, quindi prima è meglio la diagnosi.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_5">
+		<item>Risposta:Al momento, ci sono pochi studi sulla sindrome da apnea del sonno, Oltre al trattamento attivo della disfunzione respiratoria causata da malattia (malattia primaria), non c\'è ancora un trattamento più efficace, ma la sindrome da apnea del sonno centrale spesso non esiste da solo, quindi è anche efficace il trattamento della sindrome dell\'apnea del sonno ostruttiva. Il trattamento della sindrome dell\'apnea del sonno obstrettivo richiede solitamente opzioni di trattamento basate sulla gravità della malattia.\nNon importa quale metodo è adottato, ci sono due modi per trattare l\'apnea, uno è attraverso il meccanismo di rilevazione e l\'altro viene interrotto da stimolazione esterna quando apnea, per esempio, una apnea o un\'ipossia grave è accompagnata da un improvviso risveglio o risveglio, riducendo la durata dell\'apnea e riducendo o evitando danni agli organi del corpo; non c\'è bisogna del meccanismo di rilevazione, lo stato di trattamento è stato mantenuto e si è evitato il verificarsi di apnea.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_6">
+		<item>Risposta: per i pazienti con sindrome da apnea del sonno, il monitoraggio dell\'ossigeno di sangue ha i seguenti vantaggi：\n1. Quando il russare diventa apnea, il rischio di malattia è indicato in anticipo.\n\n2.Nella fase iniziale della malattia, come un base della diagnosi, il trattamento medico precoce, ridurre la difficoltà del trattamento, ridurre i costi di trattamento e aumentare il tasso di cura.\n\n3.Nella fase di trattamento, monitoraggio della malattia notturna tempestivo, feedback di effetto trattamento.\n\n4.Può essere utilizzato come un base importante di rilevazione dell\'apnea e svegliarsi per monitorare la malattia.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip">
+		<item>Domanda 1: che cosa è la sindrome dell\'apnea del sonno?</item>
+		<item>Domanda 2: sindrome dell\'apnea del sonno ha grave danno?</item>
+		<item>Domanda 3: come è causata questa malattia?</item>
+		<item>Domanda 4: come si può sapere se sta dormendo la sindrome dell\'apnea?</item>
+		<item>Domanda 5: come trattare la sindrome dell\'apnea del sonno?</item>
+		<item>Domanda 6: qual è l\'uso del monitoraggio dell\'ossigeno del sangue per la sindrome dell\'apnea del sonno?</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_1">
+		<item>La gamma di attività del sonno si riferisce al movimento involontario del corpo durante il sonno.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_2">
+		<item>1. Si alza alla notte, gira più frequentemente, sudorazione.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_3">
+		<item>1. Prestare attenzione alla dieta, bere una buona quantità di bevande prima di coricarsi, come latte o porridge.\n\n2.Fare qualche ora di andare a letto, come i piedi caldi,  massaggio di arco ecc.\n\n3.Dormire lateralmente riduce in modo efficace il movimento del corpo.\n\n4.Migliorare l\'ambiente di sonno (umidità interna, temperatura) anche avere qualche aiuto.</item>
+	</string-array>
+</resources>

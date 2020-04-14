@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/comment_b30_title_layout" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/comment_date_arrow_layout"/>
+
+
+            <Button
+                android:id="@+id/clearSleepBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="清空" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+
+                <Button
+                    android:id="@+id/deviceSleepBtn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="读取所有设备睡眠数据" />
+
+
+
+
+                <Button
+                    android:id="@+id/sqlSleepBtn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="数据库中的睡眠数据" />
+
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+
+
+
+
+
+
+                <Button
+                    android:id="@+id/readDBHeartBtn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="数据库中的心率数据" />
+
+
+                <Button
+                    android:id="@+id/readDBBpBtn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="数据库中的血压数据" />
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+
+                <Button
+                    android:id="@+id/readDeviceAllSportBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="读取设备中所有的运动数据" />
+
+
+
+            <Button
+                android:id="@+id/verticalDevicePwdBtn"
+                android:layout_width="match_parent"
+                android:text="验证设备密码"
+                android:layout_height="wrap_content" />
+
+
+
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/showDeviceSleepTv"
+                android:layout_width="match_parent"
+                android:textSize="18sp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

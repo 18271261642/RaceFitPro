@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.suchengkeji.android.w30sblelibrary">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+<!--
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        tools:ignore="HardcodedDebugMode">
+
+        &lt;!&ndash;<service android:name=".W30SBLEServices" />&ndash;&gt;
+        <receiver android:name=".BlueStateReceiver">
+
+            <intent-filter>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+    </application>
+-->
+
+</manifest>

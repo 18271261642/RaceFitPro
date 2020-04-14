@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#efefef"
+    android:paddingStart="@dimen/size_2"
+    android:paddingTop="@dimen/size_5"
+    android:paddingBottom="@dimen/size_5">
+
+    <TextView
+        android:id="@+id/text_frend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/size_5"
+        android:text="我的申请历史"
+        android:textSize="@dimen/sp_12" />
+
+</android.support.constraint.ConstraintLayout>

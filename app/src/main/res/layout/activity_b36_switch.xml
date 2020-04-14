@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/comment_b30_title_layout" />
+
+    <RelativeLayout style="@style/B30DeviceRelStyle">
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/connect_success_checkwear" />
+
+
+        <TextView
+            style="@style/B30DeviceStyle"
+            android:layout_toRightOf="@+id/img1"
+            android:text="@string/string_wearing_test" />
+
+
+        <ToggleButton
+            android:id="@+id/b36CheckWearToggleBtn"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/toggle_select"
+            android:textOff="@null"
+            android:textOn="@null" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/chang_white" />
+
+    <RelativeLayout style="@style/B30DeviceRelStyle">
+
+        <ImageView
+            android:id="@+id/img2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/pwsetting_fiveheart" />
+
+
+        <TextView
+            style="@style/B30DeviceStyle"
+            android:layout_toRightOf="@+id/img2"
+            android:text="@string/string_auto_blood_pressure" />
+
+
+        <ToggleButton
+            android:id="@+id/b36AutoHeartToggleBtn"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/toggle_select"
+            android:textOff="@null"
+            android:textOn="@null" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/chang_white" />
+
+    <RelativeLayout
+        style="@style/B30DeviceRelStyle">
+
+        <ImageView
+            android:id="@+id/img5"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/pwsetting_stopwatch" />
+
+
+        <TextView
+            style="@style/B30DeviceStyle"
+            android:layout_toRightOf="@+id/img5"
+            android:text="@string/string_stopwatch_function" />
+
+
+        <ToggleButton
+            android:id="@+id/b36SecondToggleBtn"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/toggle_select"
+            android:textOff="@null"
+            android:textOn="@null" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/chang_white" />
+
+    <RelativeLayout
+        android:id="@+id/b36DisconnRel"
+        android:visibility="gone"
+        style="@style/B30DeviceRelStyle">
+
+        <ImageView
+            android:id="@+id/img6"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/pwsetting_disconnect_remind" />
+
+
+        <TextView
+            style="@style/B30DeviceStyle"
+            android:layout_toRightOf="@+id/img6"
+            android:text="@string/string_disconnection_reminder" />
+
+
+        <ToggleButton
+            android:id="@+id/b36SwitchDisAlertTogg"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/toggle_select"
+            android:textOff="@null"
+            android:textOn="@null" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/chang_white"
+         />
+
+
+    <RelativeLayout
+        android:id="@+id/b36is24HourRel"
+        style="@style/B30DeviceRelStyle">
+
+        <ImageView
+            android:id="@+id/img7"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/pwsetting_hour24" />
+        <!--android:background="@drawable/ic_shijian_zhi"-->
+
+
+        <TextView
+            style="@style/B30DeviceStyle"
+            android:layout_toRightOf="@+id/img7"
+            android:text="@string/string_is_24_hour" />
+
+
+        <ToggleButton
+            android:id="@+id/b36SwitchTimeTypeTogg"
+            android:layout_width="70dp"
+            android:background="@drawable/toggle_select"
+            android:textOn="@null"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:textOff="@null"
+            android:layout_height="40dp" />
+
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

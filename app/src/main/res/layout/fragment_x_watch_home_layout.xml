@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <include
+        layout="@layout/new_h8_record_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/xWatchRefreshLayout"
+        app:layout_constraintTop_toBottomOf="@+id/new_h8_record_titleLin"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srlAccentColor="@color/new_colorAccent"
+        app:srlEnableLoadMore="false"
+        app:srlEnablePreviewInEditMode="false"
+        app:srlPrimaryColor="#ffffff">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="61dp"
+        android:layout_gravity="top">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/xwatchRecordLin"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@mipmap/icon_xwatch_home_img"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+
+                <com.example.bozhilun.android.siswatch.view.RiseNumberTextView
+                    android:id="@+id/xWatchSportNumberTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:shadowDx="10"
+                    android:shadowDy="10"
+                    android:shadowRadius="8"
+                    android:text="0"
+                    android:textColor="#FF5F6364"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/steps"
+                        android:textSize="24sp" />
+
+
+                    <TextView
+                        android:id="@+id/xWatchGoalTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="目标 10000"
+                        android:textSize="20sp" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/xwatchRecordLin">
+
+
+                <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+
+                    <ImageView
+                        android:id="@+id/homeSportImg"
+                        android:layout_width="48dp"
+                        android:layout_height="43dp"
+                        android:background="@mipmap/icon_xwatch_home_sport"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <com.example.bozhilun.android.view.CusScheduleView
+                        android:id="@+id/homeSportSchudeView"
+                        android:layout_width="80dp"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="10dp"
+                        app:cus_all_schedule_color="#E2E0DF"
+                        app:cus_curr_schedule_color="#86D7C3"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/homeSportImg" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/homeSportSchudeView">
+
+
+                        <TextView
+                            android:id="@+id/homeSportValueTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="0.00"
+                            android:textSize="20sp" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="@string/km"
+                            app:layout_constraintLeft_toRightOf="@id/homeSportValueTv"
+                            app:layout_constraintTop_toBottomOf="@id/homeSportSchudeView" />
+
+
+                    </LinearLayout>
+
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+
+                    <ImageView
+                        android:id="@+id/homeKcalImg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_xwatch_home_kcal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <com.example.bozhilun.android.view.CusScheduleView
+                        android:id="@+id/homeKcalSchudeView"
+                        android:layout_width="80dp"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="10dp"
+                        app:cus_all_schedule_color="#E2E0DF"
+                        app:cus_curr_schedule_color="#F56D94"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/homeKcalImg" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/homeKcalSchudeView">
+
+
+                        <TextView
+                            android:id="@+id/homeKcalValueTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="0.00"
+                            android:textSize="20sp" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="@string/km_cal"
+                            app:layout_constraintLeft_toRightOf="@id/homeKcalValueTv"
+                            app:layout_constraintTop_toBottomOf="@id/homeKcalValueTv" />
+
+
+                    </LinearLayout>
+
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+
+                    <ImageView
+                        android:id="@+id/homeAlarmImg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/icon_xwatch_home_alarm"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <com.example.bozhilun.android.view.CusScheduleView
+                        android:id="@+id/homeAlarmSchudeView"
+                        android:layout_width="80dp"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="15dp"
+                        app:cus_all_schedule_color="#E2E0DF"
+                        app:cus_curr_schedule_color="#9785E2"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/homeAlarmImg" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/homeAlarmSchudeView">
+
+
+                        <TextView
+                            android:id="@+id/xWatchHomeSportTimeTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="0"
+                            android:textSize="20sp" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="@string/minute"
+                            app:layout_constraintLeft_toRightOf="@id/homeSportValueTv"
+                            app:layout_constraintTop_toBottomOf="@id/homeSportSchudeView" />
+
+
+                    </LinearLayout>
+
+
+                </android.support.constraint.ConstraintLayout>
+
+
+            </LinearLayout>
+
+
+            <!--日期-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#F7F7F7"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/xWatchHomeTodayLin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/b31HomeTodayTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|top"
+                        android:textColor="#5F6364"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="@string/today"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/xWatchHomeTodayImg"
+                        android:layout_width="23dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center|bottom"
+                        android:background="@drawable/fgm_home_move"
+                        android:visibility="invisible" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/xWatchHomeYesDayLin"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/b31HomeYestTodayTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|top"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="@string/yesterday"
+                        android:textColor="#5F6364"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/xWatchHomeYestdayImg"
+                        android:layout_width="23dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center|bottom"
+                        android:background="@drawable/fgm_home_move"
+                        android:visibility="invisible" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/xWatchHomeThirdDayLin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/b31HomeBeYestdayTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|top"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:textColor="#5F6364"
+                        android:text="@string/string_yesterday"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/xWatchHomeBeYestdayImg"
+                        android:layout_width="23dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center|bottom"
+                        android:background="@drawable/fgm_home_move"
+                        android:visibility="invisible" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!--运动图表-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:background="@mipmap/icon_x_watch_sport_detail_img">
+
+                <include layout="@layout/x_watch_comm_step_layout"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/xWatchTitleToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/xWatchBackImg"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/size_5"
+                android:paddingRight="@dimen/size_15"
+                android:src="@mipmap/icon_black_back_img" />
+
+
+            <TextView
+                android:id="@+id/xWatchTitleTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:text="这是标题"
+                android:textColor="#5F6364"
+                android:textSize="@dimen/sp_17" />
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+
+    <LinearLayout
+        android:id="@+id/xWatchSportLinlin"
+        app:layout_constraintTop_toBottomOf="@id/xWatchTitleToolBar"
+        android:layout_width="match_parent"
+        android:paddingBottom="5dp"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/icon_x_watch_sport_detail_img"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/stepCurrDateLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginRight="@dimen/size_25"
+                android:src="@mipmap/icon_x_watch_date_left" />
+
+            <TextView
+                android:id="@+id/stepCurrDateTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2018-8-4"
+                android:textColor="#5F6364"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/stepCurrDateRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_25"
+                android:padding="10dp"
+                android:src="@mipmap/icon_x_watch_date_right" />
+
+        </LinearLayout>
+
+        <include layout="@layout/x_watch_comm_step_layout"/>
+
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/xWatchSportDetailRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/xWatchSportLinlin"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageView
+    android:id="@+id/itemReleaseImg"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/size_80"
+    android:background="@drawable/connect_success_reset"
+    android:layout_margin="5dp"
+    android:layout_height="@dimen/size_80"/>
+

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/comment_b30_title_layout"/>
+
+
+
+    <LinearLayout
+        android:id="@+id/friendWomenDateLin"
+        app:layout_constraintTop_toBottomOf="@+id/commB31TitleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/chang_white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/friendWomenCurrDateLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/arrow_white_left" />
+
+            <TextView
+                android:id="@+id/friendWomenCurrDateTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2018-11"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/friendWomenCurrDateRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/arrow_white_right" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+    <com.haibin.calendarview.CalendarView
+        app:layout_constraintTop_toBottomOf="@+id/friendWomenDateLin"
+        android:id="@+id/friendWomenCalendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        app:calendar_height="45dp"
+        app:calendar_padding="3dp"
+        app:current_month_text_color="#333333"
+        app:min_year="2004"
+        app:month_view="com.example.bozhilun.android.b36.calview.CusSimpleMonthView"
+        app:month_view_show_mode="mode_only_current"
+        app:other_month_text_color="#e1e1e1"
+        app:scheme_text_color="#111"
+        app:scheme_theme_color="#000"
+        app:selected_text_color="#fff"
+        app:selected_theme_color="#e6aaf8"
+        app:week_background="#fff"
+        app:week_text_color="#111"
+        app:week_view="com.example.bozhilun.android.b36.calview.CusSimpleWeekView"
+        app:year_view_day_text_color="#333333"
+        app:year_view_day_text_size="9sp">
+
+    </com.haibin.calendarview.CalendarView>
+
+
+
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/friendWomenCalendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
+
+
+
+        <TextView
+            android:id="@+id/friendWomenShowChooseDateTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:padding="5dp"
+            android:textColor="@color/contents_text"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/friendWomenShowWomenStateTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="@color/contents_text"
+            android:textSize="20sp" />
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</android.support.constraint.ConstraintLayout>

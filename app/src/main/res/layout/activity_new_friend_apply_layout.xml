@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <include layout="@layout/comment_b30_title_layout"/>
+
+    <TextView
+        android:id="@+id/tmpTv1"
+        app:layout_constraintTop_toBottomOf="@+id/commB31TitleLayout"
+        android:layout_width="match_parent"
+        android:text="@string/string_frend_apply"
+        android:background="@color/chang_white"
+        android:padding="8dp"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.RecyclerView
+        app:layout_constraintTop_toBottomOf="@+id/tmpTv1"
+        android:id="@+id/friendApplyRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <TextView
+        android:id="@+id/tmpTv2"
+        app:layout_constraintTop_toBottomOf="@+id/friendApplyRecyclerView"
+        android:layout_width="match_parent"
+        android:text="@string/sreing_apply_history"
+        android:background="@color/chang_white"
+        android:layout_marginTop="15dp"
+        android:padding="8dp"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.RecyclerView
+        app:layout_constraintTop_toBottomOf="@+id/tmpTv2"
+        android:id="@+id/friendMyApplyRecordRecyclerView"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</android.support.constraint.ConstraintLayout>

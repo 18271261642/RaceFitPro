@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/comment_b30_title_layout"/>
+
+
+    <include layout="@layout/comment_date_arrow_layout"/>
+
+    <ScrollView
+        android:id="@+id/ananly_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/block_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--模块1 血氧/呼吸暂停-->
+            <LinearLayout
+                android:id="@+id/block_spo2h"
+                style="@style/style_block"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/vpspo2h_bg_spo2h">
+
+                <RelativeLayout
+                    android:id="@+id/block_title_spo2h"
+                    style="@style/style_block_toptitle">
+
+                    <TextView
+                        android:id="@+id/analysis_chartview_title_spo2h"
+                        style="@style/style_block_toptitle_tv"
+                        android:text="@string/spo2_breath_break" />
+
+                    <ImageView style="@style/style_block_toptitle_img" />
+
+                </RelativeLayout>
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/block_chartview_spo2h"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/block_chartview_height"
+                    android:layout_marginLeft="@dimen/block_chartview_maginleft"
+                    android:layout_marginRight="@dimen/block_chartview_maginleft" />
+
+                <LinearLayout
+                    android:id="@+id/block_state_spo2h"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/block_state_maginleft"
+                    android:layout_marginRight="@dimen/block_state_maginleft"
+                    android:background="@color/block_backgroud_spo2h">
+
+                    <LinearLayout style="@style/style_block_bottom_state_left">
+
+                        <TextView
+                            style="@style/style_block_bottom_state_dot"
+                            android:textColor="@color/spo2h_dot_spo2h_1" />
+
+                        <TextView
+                            style="@style/style_block_bottom_state_tv"
+                            android:text="@string/vpspo2h_state_realtime" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/style_block_bottom_state_right">
+
+                        <TextView
+                            style="@style/style_block_bottom_state_dot"
+                            android:textColor="@color/spo2h_dot_spo2h_2" />
+
+                        <TextView
+                            style="@style/style_block_bottom_state_tv"
+                            android:text="@string/vpspo2h_state_breathbreak"
+                            android:textColor="@android:color/white" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/block_bottom_tip_spo2h"
+                    style="@style/style_block_bottom_tip" />
+            </LinearLayout>
+
+
+            <include layout="@layout/include_spo2_analy_result_layout"/>
+
+            <include layout="@layout/include_b31_spo2_charts_layout"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

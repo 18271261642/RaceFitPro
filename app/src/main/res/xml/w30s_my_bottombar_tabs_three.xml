@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <!--icon="@mipmap/jilu_icon_sel"-->
+    <tab
+        icon="@mipmap/jilu_icon_sel"
+        id="@+id/tab_home"
+        title="@string/recording" />
+    <!--icon="@mipmap/shuju_icon_sel"-->
+    <!--<tab-->
+        <!--icon="@mipmap/draw_data_item"-->
+        <!--id="@+id/tab_data"-->
+        <!--title="@string/data" />-->
+    <!--&lt;!&ndash;icon="@mipmap/paobu_icon_sel"&ndash;&gt;-->
+    <tab
+        icon="@mipmap/paobu_icon_sel"
+        id="@+id/tab_set"
+        title="@string/move_ment" />
+
+    <tab
+        icon="@mipmap/wode_icon_sel"
+        id="@+id/tab_my"
+        title="@string/mine" />
+</tabs>

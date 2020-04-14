@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/id_rl_cp_view"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.example.bozhilun.android.w30s.carema.CameraPreview
+        android:id="@+id/camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white" />
+    <!-- 网格线 -->
+    <com.example.bozhilun.android.w30s.carema.CameraLine
+        android:id="@+id/ccmer_line"
+        app:lineCrossLength="@dimen/size_5"
+        app:lineCrossWidth="@dimen/size_1"
+        app:lineWidth="@dimen/size_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/shanguang"
+            android:src="@mipmap/camera_flash_off"
+            android:layout_margin="@dimen/size_20"
+            android:padding="@dimen/size_5"
+            android:layout_width="@dimen/size_35"
+            android:layout_height="@dimen/size_35" />
+
+        <!--<ImageView-->
+            <!--android:visibility="gone"-->
+            <!--android:id="@+id/shanguang"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:onClick="onClick"-->
+            <!--android:padding="15dp"-->
+            <!--android:src="@mipmap/camera_flash_off"-->
+            <!--tools:ignore="ContentDescription,RtlHardcoded" />-->
+
+
+        <ImageView
+            android:visibility="visible"
+            android:id="@+id/xiangtouzhuan"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/camera_change"
+            android:layout_margin="@dimen/size_20"
+            android:padding="@dimen/size_5"
+            android:layout_width="@dimen/size_35"
+            android:layout_height="@dimen/size_35" />
+
+
+        <!--<ImageView-->
+            <!--android:id="@+id/xiangtouzhuan"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:onClick="onClick"-->
+            <!--android:padding="15dp"-->
+            <!--android:src="@mipmap/camera_change"-->
+            <!--tools:ignore="ContentDescription,RtlHardcoded" />-->
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_60"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/image_backes"
+            android:layout_width="@dimen/size_40"
+            android:layout_height="@dimen/size_40"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/size_15"
+            android:onClick="onClick"
+            android:background="@mipmap/image_backs"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/xiangce"
+            android:layout_width="@dimen/size_30"
+            android:layout_height="@dimen/size_30"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="#88ffffff"
+            android:layout_marginRight="@dimen/size_15"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <ImageView
+            android:id="@+id/paizhao"
+            android:layout_width="@dimen/size_45"
+            android:layout_height="@dimen/size_45"
+            android:layout_centerInParent="true"
+            android:onClick="onClick"
+            android:padding="@dimen/size_5"
+            android:src="@mipmap/camera_normal_new"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

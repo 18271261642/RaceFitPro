@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#efefef"
+    android:id="@+id/line_search"
+    android:orientation="horizontal"
+    xmlns:tools="http://schemas.android.com/tools">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_10"
+            android:layout_weight="1"
+            android:background="@drawable/w30s_edit_bg"
+            android:gravity="center"
+            android:minHeight="@dimen/size_35"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription=""
+                android:paddingLeft="8dp"
+                android:src="@mipmap/image_seach"
+                tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry" />
+
+            <EditText
+                android:imeOptions="actionSearch"
+                android:id="@+id/edit_seach"
+                android:layout_width="0dp"
+                android:maxLength="20"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center_vertical"
+                android:hint="@string/string_search_friends"
+                android:inputType=""
+                android:lines="1"
+                android:maxLines="1"
+                android:padding="@dimen/size_5"
+                android:singleLine="true"
+                android:textColorHint="#888888"
+                android:textSize="@dimen/sp_12"
+                tools:ignore="LabelFor" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/frend_find_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/size_35"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/size__10"
+            android:layout_marginRight="@dimen/size_10"
+            android:background="@drawable/w30s_text_bg"
+            android:gravity="center"
+            android:textColor="@drawable/b18i_selector_text_press_color"
+            android:minWidth="@dimen/size_75"
+            android:text="@string/cancle"
+            android:textSize="@dimen/sp_14"
+            android:visibility="gone" />
+
+</LinearLayout>

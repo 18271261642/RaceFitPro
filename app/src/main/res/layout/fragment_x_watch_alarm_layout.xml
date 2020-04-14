@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        app:layout_constraintTop_toTopOf="parent"
+        layout="@layout/comment_b30_title_layout"/>
+
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/xWatchAlarmItem1"
+        android:layout_width="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:background="@drawable/black_background_selector"
+        android:layout_margin="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/commB31TitleLayout"
+        android:layout_height="wrap_content">
+
+
+
+        <ImageView
+            android:id="@+id/xWatchAlarmImg1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+
+
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/xWatchAlarmTimeTv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="@color/text_color"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            app:layout_constraintLeft_toRightOf="@+id/xWatchAlarmImg1"
+            android:textSize="30sp"/>
+
+
+
+        <TextView
+            android:id="@+id/xWatchAlarmWeeksTv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/text_color"
+            app:layout_constraintLeft_toRightOf="@+id/xWatchAlarmImg1"
+            app:layout_constraintTop_toBottomOf="@id/xWatchAlarmImg1"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:text=""/>
+
+
+        <ToggleButton
+            android:id="@+id/xWatchAlarmSwitchToggle1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="@null"
+            android:textOn="@null"
+            android:background="@drawable/toggle_select"/>
+
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+
+        android:id="@+id/xWatchAlarmItem2"
+        android:layout_width="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:background="@drawable/black_background_selector"
+        android:layout_margin="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/xWatchAlarmItem1"
+        android:layout_height="wrap_content">
+
+
+
+        <ImageView
+            android:id="@+id/xWatchAlarmImg2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+
+
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/xWatchAlarmTimeTv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="@color/text_color"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            app:layout_constraintLeft_toRightOf="@+id/xWatchAlarmImg2"
+            android:textSize="30sp"/>
+
+
+
+        <TextView
+            android:id="@+id/xWatchAlarmWeeksTv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/text_color"
+            app:layout_constraintLeft_toRightOf="@+id/xWatchAlarmImg2"
+            app:layout_constraintTop_toBottomOf="@id/xWatchAlarmImg2"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:text=""/>
+
+
+        <ToggleButton
+            android:id="@+id/xWatchAlarmSwitchToggle2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="@null"
+            android:textOn="@null"
+            android:background="@drawable/toggle_select"/>
+
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/xWatchAlarmItem3"
+        android:layout_width="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:background="@drawable/black_background_selector"
+        android:layout_margin="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/xWatchAlarmItem2"
+        android:layout_height="wrap_content">
+
+
+
+        <ImageView
+            android:id="@+id/xWatchAlarmImg3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+
+
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/xWatchAlarmTimeTv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="@color/text_color"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            app:layout_constraintLeft_toRightOf="@+id/xWatchAlarmImg3"
+            android:textSize="30sp"/>
+
+
+
+        <TextView
+            android:id="@+id/xWatchAlarmWeeksTv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/text_color"
+            app:layout_constraintLeft_toRightOf="@+id/xWatchAlarmImg3"
+            app:layout_constraintTop_toBottomOf="@id/xWatchAlarmImg3"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:text=""/>
+
+
+        <ToggleButton
+            android:id="@+id/xWatchAlarmSwitchToggle3"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="@null"
+            android:textOn="@null"
+            android:background="@drawable/toggle_select"/>
+
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>

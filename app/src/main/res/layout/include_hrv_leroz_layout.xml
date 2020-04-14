@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:visibility="visible"
+    android:id="@+id/hrvLerozenLin"
+    android:orientation="vertical">
+
+
+    <com.veepoo.protocol.view.LorenzChartView
+        android:id="@+id/lorezChartView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="@string/lero_referenc"
+        android:textColor="@color/contents_text"
+        android:textSize="18sp" />
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:id="@+id/hrvType1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/read_radius_layout"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/hrv_gradivew_1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/red"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="@string/vphrv_lorentz_chart_1"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hrvType2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/read_radius_layout"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/hrv_gradivew_2" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/red"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="@string/vphrv_lorentz_chart_2"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hrvType3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/read_radius_layout"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/hrv_gradivew_3" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/red"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="@string/vphrv_lorentz_chart_3"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hrvType4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/read_radius_layout"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/hrv_gradivew_4" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/red"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="@string/vphrv_lorentz_chart_4"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hrvType5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/read_radius_layout"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/hrv_gradivew_5" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/red"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="@string/vphrv_lorentz_chart_5"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/hrvType6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/read_radius_layout"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/hrv_gradivew_6" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/red"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="@string/vphrv_lorentz_chart_6"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hrvType7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/read_radius_layout"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/hrv_gradivew_7" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/red"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="@string/vphrv_lorentz_chart_7"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hrvType8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/read_radius_layout"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/hrv_gradivew_8" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/red"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="@string/vphrv_lorentz_chart_8"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hrvType9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/read_radius_layout"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/hrv_gradivew_9" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/red"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="@string/vphrv_lorentz_chart_9"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+    </HorizontalScrollView>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/vphrv_repo_0"
+            android:textColor="@color/contents_text"
+            android:textSize="18sp" />
+
+
+        <TextView
+            android:id="@+id/hrvNoLeroDescTv"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/vphrv_repo_1_00"
+            android:textColor="@color/contents_text"
+            android:textSize="15sp" />
+
+
+
+
+        <ListView
+            android:id="@+id/lorenz_list_descripe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

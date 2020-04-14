@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name= "glossary_breath_item_1">
+		<item>La terminologie médicale du nombre de respiration par minute est qu\'un des hauts et des bas de la poitrine est un souffle, c\'est-à-dire une inspiration et une expiration.</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_2">
+		<item>1.Le souffle est plus lent: le rythme de souffle est régulier mais la fréquence est inférieure à 10 fois par minute, il apparaît souvent à la fin de la vie ou avant l\'apnée. Lors des maladies nerveuses et métaboliques ou de la prise excessive des médicaments, le souffle aussi peut être très lent à cause de réprimer le centre respiration.\n\n2.Tachypnée: La respiration est très rapide et le patient sent la détresse respiratoire.</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_3">
+		<item>Les mesures de secours visant aux essoufflements à la maison sont comme ci-dessous \n1.le patient doit rester calme et s\'éviter l\'humeur nerveuse afin d\'éviter rendre plus sérieux de l\'essoufflement.\n\n2.Prendre la position semi-clinostatique ou la position assise afin de diminuer la fatigue et la consommation de l\'oxygène.\n\n3.Rester l\'air frais à la maison et la ventilation fluide.\n\n4.Prendre le repas léger, et encourager le patient à prendre beaucoup de légumes et fruits afin d\'ajouter la quantité d\'eau in vivo. \n\n5.Prendre les remèdes fluidifiant et antispasmodique convenablement, par exemple: Bromhexine, Aminophylline etc. afin de rester les voies respiratoires sans entraves.\n\n6.Quand les maladies sont graves, il faut l\'envoyer à l\'hôpital proche et le sauve en temps opportun.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_1">
+		<item>L\'apnée est que le flux d\'air du nez et de la bouche est complètement arrêté égale à 10 secondes ou plus de 10 secondes.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_2">
+		<item>1.Le ronflement n\'est pas régulier, mais a les hautes et basses modifications, ainsi que le ronflement – l\'arrêt d\'air – l\'haleine – le ronflement, tous sont en alternance le plus souvent, en général, le flux d\'air est arrêté 20-30 secondes, il y a très peu qui sont plus de 2 minutes, à ce moment le patient peut surgir la dyshématose évidente (les lèvres ou les ongles sont violets).Les fréquences de se retourner et tourner pendent la nuit souvent baisser la qualité de sommeil, ce qui entraîne la somnolence, le vertige et la fatigue.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_3">
+		<item>Pour les patients qui contactent les apnées du sommeil et ont les ronflements pendant le sommeil, à part de prendre des remèdes selon l\'avis du médecin et subir d\'opérations et des traitements de ventilation, on peut traiter ou soulager les états de la maladie selon les moyens suivants: \n1.Contrôler le pois du corps. À cause de l\'accumulation de graisse, au cours de respiration, la pression abdominale de l\'obèse augmente, ainsi que la fonction pulmonaire diminue, ce qui cause l\'hypoxie. \n\n2.S\'arrêter de fumer et limiter de prendre l\'alcool. Fumer et boire peuvent causer l\'anomalie métabolique de lipidémie, le durcissement des artères, l\'augmentation de l\'obstruction de l\'appareil respiratoire supérieur.\n\n3.Faire du sport modérément. Les exercices modérés peuvent améliorer la situation de la fourniture du sang cardiovasculaire et cérébro vasculaire, la fonction de ventilation, ainsi que renforcer la force de résistance corporelle et diminuer le taux de morbidité des maladies rhino-pharyngé.\n\n4.Se coucher sur le côté. Les patients peuvent se coucher sur le côté convenablement afin de laisser le tractus respiratoire sans entraves.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_1">
+		<item>Le coeur de la charge de l\'indice de perfusion, reflète les pulsations du flux sanguin.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_2">
+		<item>1.La valeur pi est assez grande. \n\n2.La fréquence cardiaque et la tension artérielle sont plus hautes.\n\n3. La respiration est plus rapide et le patient toujours sent fatigué.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_3">
+		<item>1.Le patient doit se reposer suffisamment, ne pas être excessivement fatigue et veiller tard.\n\n2.Rester calme et éviter la nervosité.\n\n3. Prendre peu de nourritures grasses.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_1">
+		<item>La durée continue de l\'état de la carence physiologique en oxygène ou la carence de la demande d\'oxygène tissulaire.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_2">
+		<item>1.Vertige et fatigue.\n\n2.Sentir l\'essoufflement.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_3">
+		<item>1.En plus de l\'oxygène directement absorbé à l\'extérieur, l\'alimentation d\'oxygène externe aussi comprend divers exercices aérobies, par exemple, la promenade, le jogging, la respiration profonde ou on peut améliorer l\'environnement d\'oxygène etc.\n\n2.S\'il est nécessaire, il faut consulter le médecin et améliorer par les médicaments.</item>
+	</string-array>
+	<string-array name= "glossary_lowremain">
+		<item>Système de Réveiller </item>
+	</string-array>
+	<string-array name= "glossary_lowremain_item_1">
+		<item>Si l\'appareil détecte que votre valeur d\'oxygène du sang est plus basse continue qui peut avoir un effet sur votre santé, il aura des notifications d\'alarme.</item>
+	</string-array>
+	<string-array name= "glossary_osahs">
+		<item>Interprétations des noms</item>
+		<item>Symptôme d\'exemple</item>
+		<item>Méthodes de traitement </item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_1">
+		<item>Soit, il y a des apnées de 30 fois et plus au cours de 7 heures de sommeil continu ou le nombre moyen d\'hypopnées par heure est plus de 5 fois, ce qui cause la diminution de l\'oxygène du sang qui entraîne les syndromes cliniques de l\'hypoxémie chronique et l\'hypercapnie.</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_2">
+		<item>Manifestations cliniques de jour: \n1.Somnolence.\n\n2.Vertige et fatigue.\n\n3.Anomalie de l\'état d\'esprit, les maux de tête, l\'agité, facilité de l\'excitation, l\'anxiété etc.\n\n4.Dégénération de la fonction sexuelle etc.</item>
+		<item>Manifestations cliniques de nuit: \n1.Ronfler: le ronflement n\'est pas régulière, le ronflement - l\'arrêt d\'air – l\'haleine – le ronflement, tous sont en alternance.\n\n2.Apnée: elle est terminée avec l\'haleine, le réveil suffocant ou le ronflement sonore.\n\n3.Réveil suffocant: il est souvent accompagné de se tourner, dérouiller involontairement des membres ou même avoir les convulsions ou soudainement s\'asseoir, et aussi de surgir la palpitation, l\'oppression thoracique ou l\'inconfort précordial.\n\n4.Hyperactivité et inquiétude: dans la nuit, il est fréquent de se retourner et tourner.\n\n5.Transpirations excessive et augmentation d\'énurésie nocturne.\n\n6.Comportement du sommeil est anormal: il y a l\'appréhension, les cris d\'épouvante, les paroles dites en rêvant, le somnambulisme, l\'acousmie etc.\n\nEn outre, l\'obésité corporelle, l\'hypertrophie de cornet, le ronflement etc. sont également susceptibles de causer le syndrome d\'apnée.</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_3" formatted="false">
+		<item>À part de prendre des remèdes selon l\'avis du médecin et subir d\'opérations, on peut traiter ou soulager les états de la maladie selon les moyens suivants: \n1.Contrôler le pois du corps.\n\n2.S\'arrêter de fumer et limiter de prendre l\'alcool.\n\n3.Faire du sport modérément.\n\n4.Se coucher sur le côté.</item>
+		<item>Opérations, remèdes, ainsi que les traitements de ventilation: \n1.Les zones anormales de l\'appareil respiratoire supérieur sont réparées par les opérations. \n\n2.Traitements de remède.\n\n3.Absorption d\'oxygène à bas débit de nuit.\n\n4.Absorption le bioxyde de carbone de 2%-3%.\n\n5.Ventilation nasale à pression positive continue\n\n6.Stimulation du diaphragme externe.\n\n7.Ventilation mécanique.</item>
+		<item>La mode de vie sain et le diagnostic précoce correct sont les clés pour prévenir et réduire l\'apparition de l\'apnée du sommeil. Les soins cliniques démontrent que les maladies cardiovasculaires et d\'autres maladies peuvent s\'améliorer graduellement à mesure que le syndrome d\'apnées du sommeil s\'améliore. Le temps de traitement est plus long, les symptômes sont de plus en plus meilleurs.</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_1">
+		<item>L\'oxygène du sang est le pourcentage que la contenance de l\'oxyhémoglobine liée à l\'oxygène dans le sang représente la capacité d\'hémoglobine liée à tout, soit la concentration de l\'oxygène dans le sang.</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_2">
+		<item>1.Maladies cardiovasculaire et cérébro vasculaire (maladies coronariennes, hypertension, hyperlipémie etc.).\n\n2.Maladies du système respiratoire (asthme, trachéite, maladie cardiaque pulmonaire etc.).</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_3">
+		<item>1.Parce que le patient avec moins d\'oxygène du sang contacte des maladies, en plus de traiter les maladies primaires avec coopération active, il faut toujours bien préparer l\'équipement qui peut mesurer les oxygènes du sang et l\'absorption des oxygènes, un fois que la détection de l\'oxygène du sang est plus faible, il peut remplir les oxygènes rapidement.\n\n2.En plus de l\'absorption d\'oxygène directe, il aussi comprend divers exercices aérobies, par exemple, la promenade, le jogging, la respiration profonde ou on peut améliorer l\'environnement d\'oxygène, etc., afin de soulager les maladies.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_1">
+		<item>La situation de variation de la différence du cycle de battements du cœur successif, soit la variation de la différence d\'intervalle RR. Il peut réfléchir les états cardiovasculaires et mentaux récents.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_2">
+		<item>1.La variabilité de taux de pulsation n\'est pas active, elle maintient au niveau bas.\n\n2.Il y a souvent le vertige, la céphalalgie, la palpitation et d\'autres maladies.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_3">
+		<item>1.Garder bonne habitude et coutumes et avoir assez de repos.\n\n2.Rester bonne l\'humeur, faire plus d\'aérobics et prendre peu de sels et huiles dans la nourriture.\n\n3.Si la valeur était plus basse à long terme et la gamme de variation n\'est pas grande, il serait le pronostic d\'une maladie cardiovasculaire. Si vous sentiez mal, il est recommandé de consulter un traitement médical en temps opportun.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_1">
+		<item>Réponse : Le fait que dans le sommeil durant 7 heures consécutives ont lieu plus de 30 d\'apnées (sans respiration, durée de 10s ou plus de 10s) ou plus de 5 fois d\'hypoventilation (débit de respiration diminué ou cessée complètement) par heure en moyenne peut être diagnostiqué comme le syndrome d\'apnées du sommeil.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_2">
+		<item>Réponse: Le syndrome d\'apnées du sommeil est une sorte de maladie chronique qui est peu perceptible à l\'atteinte. Dans la première période cette maladie a une tendance d\'être méprisée. Une fois que la respiration n\'est plus libre, dans des situations légères, le patient commence à ronfler, mais dans des situations graves, il manque d\'oxygène pour le poumon et le niveau de l\'oxygène du sang baisse, par la suite le patient ne peut pas se reposer et se retrouver, ensuite l\'état d\'esprit et la situation physique seront endommagées et la qualité de vie sera évidemment abaissée.\n Ce qui est plus grave est que lors de l\'apnée il manque de stimulations extérieures donc le patient a du mal à se réveiller. Il se réveillera soudain jusqu\'à ce qui les organes corporaux manquent d\'oxygène ou encore sont lésés, toutefois le patient y est, en général, indifférent, ainsi causeront-t-elle les lésions accumulées toutes sortes de maladies vasculaires cérébrales et cardiovasculaires et de maladies psychologiques, même la mort subite.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_3">
+		<item>Réponse : Dans les plupart de cas elle est causée par l\'obstruction de l\'appareil respiratoire supérieur. Il y a d\'autres raisons telles que l\'hypertrophie de cornet, la mâchoire inférieure courte, l\'encolure grosse et l\'obésité du corps etc. \n Par conséquent, le syndrome d\'apnées du sommeil, dans les plupart de cas, est obstructif ; dans d\'autres cas il est causé par la lésion du nerf du centre respiratoire et par la perturbation fonctionnelle de la régularisation respiratoire, qui est appelée le syndrome central, ou de type mixte qui comprend deux sortes de situations.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_4">
+		<item>Réponse: Vous pouvez faire de simples jugements conformément aux symptômes cliniques typiques et signes. Cependant, à cause de sa particularité chronique et par défaut des équipements de surveillance, il n\'est pas facile pour le patient de percevoir ses symptômes dans la nuit. Il est susceptible de faire de faux jugements seulement par la description dans la famille et par l\'auto-perception par défaut de données scientifiques.\n Le patient ne se rend compte à aller chez un médecin pour un diagnostic sûr que quand l\'état du malade s\'est aggravé.\n Le procédé standard est polysomnography (PSG), à l\'aide de la surveillance du niveau d\'oxygène du sang avec plusieurs paramètres physiques y compris électro-cardiaque, électro-encéphalique, myo-électrique et électro-oculaire pour connaître précisément le type et le degré de la maladie. Mais l\'état de la maladie est entré, à ce moment-là, en général dans une phase relativement grave. La difficulté et le coût du traitement ainsi que le sentiment d\'être indisposé se sont largement élevés, donc il vaut mieux de faire un diagnostic définitif le plus tôt possible.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_5">
+		<item>Réponse: Maintenant, il y a peu d\'examens sur le syndrome d\'apnée centrale du sommeil, en plus de traiter les maladies (les maladies primaires) qui causent la dysfonction de la régulation respiratoire avec coopération active, il n\'y a pas de traitements efficaces, mais la maladie du syndrome d\'apnée centrale du sommeil toujours n\'existe pas seulement, donc les moyens de traiter le syndrome d\'apnée obstructive du sommeil ont aussi certains effets pour lui. Il est nécessaire souvent de choisir un traitement selon la gravité de la maladie pour traiter le syndrome d\'apnée obstructive du sommeil.\n Mais n\'importe prendre quel traitement pour le syndrome d\'apnée du sommeil, les moyens ne sont rien de plus que deux, le premier moyen: à l\'aide du système de détection, lors que l\'apnée se déclare, elle est interrompue par des stimulations externes, par exemple, lors de l\'apnée avec l\'hypoxie sévère, le patient est réveillé par le choc et la poussée afin de diminuer la durée continue de l\'apnée qui peut diminuer et éviter les dommages d\'organes du corps; le deuxième moyen: sans le système de détection, la patient maintien toujours l\'état de traitement afin d\'éviter l\'apnée se déclarer.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_6">
+		<item>Réponse: La surveillance du niveau de l\'oxygène du sang pour un patient qui subit le syndrome d\'apnées du sommeil a des avantages suivants : \n1. Dans la phase où le ronflement devient l\'apnée, la machine alerte le patient.\n\n2. Dans la première période de la maladie, elle peut fournir des preuves pour la prescription. Le fait d\'aller voir un médecin au plus tôt possible réduira la difficulté de traitement, diminuera la dépense du traitement et augmentera la possibilité de guérison.\n\n3. Au cours du traitement, elle permet de surveiller les conditions du patient dans la nuit à temps et donner des rétroactions du soin.\n\n4. Elle peut fournir des preuves importantes de la détection de l\'apnée, et avec les moyens de réveiller contrôler la maladie.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip">
+		<item>1. Question: Quel est le syndrome d\'apnées du sommeil ?</item>
+		<item>2. Question : Nuira-t-il, le syndrome d\'apnées du sommeil beaucoup?</item>
+		<item>3. Question: Quelles sont les causes de cette maladie ?</item>
+		<item>4. Question : Comment je sais si je subis le syndrome d\'apnées du sommeil ?</item>
+		<item>5. Question: Comment traiter le syndrome d\'apnées du sommeil?</item>
+		<item>6. Question : Quelle la fonction de la surveillance du niveau de l\'oxygène du sang pour le syndrome d\'apnée de sommeil ?</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_1">
+		<item>La portée d\'activité du sommeil est le mouvement physique inconscient lors du sommeil. </item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_2">
+		<item>1.Dans la nuit, il est fréquent de se retourner et tourner, ainsi que l\'hyperhidrose.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_3">
+		<item>1.Garder les nourritures, avant d\'aller au lit, vous pouvez boire une boisson, par exemple: lait ou brouet de millet. \n\n2.Prendre des préparations avant d\'aller au lit, comme tremper les pieds à l\'eau chaude et masser le point Yongquan dans le centre de pied etc.\n\n3.Si vous vous couchez sur le côté, il peut réduire efficacement l\'activité physique.\n\n4. L\'amélioration de l\'environnement du sommeil (humidité intérieure, température) a également d\'aides.</item>
+	</string-array>
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_gravity="center"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/size_20"
+    android:background="@color/backgounds"
+    android:gravity="center"
+    android:padding="@dimen/size_10">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_30"
+        android:background="@color/backgounds"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_verify_device_password"
+            android:textStyle="bold" />
+
+        <EditText
+            android:maxLines="1"
+            android:lines="1"
+            android:inputType="number"
+            android:maxLength="4"
+            android:id="@+id/intput_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:textColor="@color/new_colorAccent" />
+
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/new_colorAccent"
+            android:text="@string/confirm"
+            android:textColor="@color/backgounds" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

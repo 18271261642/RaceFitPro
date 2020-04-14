@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/chang_white"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/new_search_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:textSize="18sp"
+                android:background="#ee3a8c"
+                android:text="@string/notif_messge"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content" />
+
+
+            <LinearLayout
+                android:id="@+id/watch_msgOpenNitBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/b18i_selected_bg"
+                android:orientation="horizontal"
+                android:padding="@dimen/size_10">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="@dimen/size_5"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/size_5"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_msg_open_noti"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_15"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/size_5"
+                    android:text="@string/open_notif"
+                    android:textColor="#333333"
+                    android:textSize="@dimen/text_size_17" />
+
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginRight="@dimen/size_15"
+                    android:src="@mipmap/lanage" />
+
+
+
+            </LinearLayout>
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/square_white_btn_change"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/msg_jiange"
+                    android:textSize="@dimen/text_size_18" />
+
+
+                <LinearLayout
+                    android:id="@+id/watch_message_jiangeLin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/watch_message_jiangeTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@+id/msg_img1"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="15dp"
+                        android:text=""
+                        android:textSize="@dimen/size_16" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:background="@mipmap/lanage" />
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/linear_border" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_5"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/size_5"
+                        android:src="@mipmap/image_wecach_notif" />
+
+                    <TextView
+                        style="@style/B30ToggTxtStyle"
+                        android:text="@string/mywechat" />
+
+                    <ToggleButton
+                        android:id="@+id/watchmWechatSwitch"
+                        style="@style/B30MsgToggleStyle" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="40dp"
+                    android:background="@color/linear_border" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_5"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/size_5"
+                        android:src="@mipmap/image_msg_notif" />
+
+                    <TextView
+                        style="@style/B30ToggTxtStyle"
+                        android:text="@string/shortmessage" />
+
+                    <ToggleButton
+                        android:id="@+id/watchmsgSwitch"
+                        style="@style/B30MsgToggleStyle" />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="40dp"
+                    android:background="@color/linear_border" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_5"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/size_5"
+                        android:src="@mipmap/image_qq_notif" />
+
+                    <TextView
+                        style="@style/B30ToggTxtStyle"
+                        android:text="QQ" />
+
+                    <ToggleButton
+                        android:id="@+id/watchmQQSwitch"
+                        style="@style/B30MsgToggleStyle" />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="40dp"
+                    android:background="@color/linear_border" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_5"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/size_5"
+                        android:src="@mipmap/image_viber_notif" />
+
+                    <TextView
+                        style="@style/B30ToggTxtStyle"
+                        android:text="Viber" />
+
+                    <ToggleButton
+                        android:id="@+id/watchViberSwitch"
+                        style="@style/B30MsgToggleStyle" />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="40dp"
+                    android:background="@color/linear_border" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_5"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/size_5"
+                        android:src="@mipmap/image_twitter_notif" />
+
+                    <TextView
+                        style="@style/B30ToggTxtStyle"
+                        android:text="Twitter" />
+
+                    <ToggleButton
+                        android:id="@+id/watchTwitterSwitch"
+                        style="@style/B30MsgToggleStyle" />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="40dp"
+                    android:background="@color/linear_border" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_5"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/size_5"
+                        android:src="@mipmap/image_facebook_notif" />
+
+                    <TextView
+                        style="@style/B30ToggTxtStyle"
+                        android:text="Facebook" />
+
+                    <ToggleButton
+                        android:id="@+id/watchFacebookSwitch"
+                        style="@style/B30MsgToggleStyle" />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="40dp"
+                    android:background="@color/linear_border" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_5"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/size_5"
+                        android:src="@mipmap/image_whatsapp_notif" />
+
+                    <TextView
+                        style="@style/B30ToggTxtStyle"
+                        android:text="Whatsapp" />
+
+                    <ToggleButton
+                        android:id="@+id/watchWhatsappSwitch"
+                        style="@style/B30MsgToggleStyle" />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="40dp"
+                    android:background="@color/linear_border" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="@dimen/size_5"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/size_5"
+                        android:src="@mipmap/instagram_noti" />
+
+                    <TextView
+                        style="@style/B30ToggTxtStyle"
+                        android:text="Instagram" />
+
+                    <ToggleButton
+                        android:id="@+id/watchInstagramSwitch"
+                        style="@style/B30MsgToggleStyle" />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/linear_border" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/size_20"
+                    android:visibility="gone"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="3dp">
+
+
+                    <TextView
+                        android:id="@+id/watchMsgExplainTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:padding="3dp"
+                        android:text="@string/notif_explain"
+                        android:textColor="@color/supermarket"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:padding="3dp"
+                        android:text="@string/notif_messge"
+                        android:textSize="17sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/linear_border" />
+
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/square_white_btn_change"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:id="@+id/device_img3"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_5"
+                            android:background="@mipmap/h9_mine_notice"
+                            android:visibility="gone" />
+
+
+                        <TextView
+                            android:id="@+id/watch_watchmsg_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_10"
+                            android:layout_toEndOf="@+id/device_img3"
+                            android:padding="8dp"
+                            android:text="@string/open_notif"
+                            android:textSize="15sp" />
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/size_18"
+                            android:src="@mipmap/lanage" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="15dp"
+                        android:background="@color/linear_border" />
+
+                    <RelativeLayout
+                        android:id="@+id/watch_msgOpenAccessBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/square_white_btn_change"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:id="@+id/device_img"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_5"
+                            android:background="@mipmap/h9_mine_notice"
+                            android:visibility="gone" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_10"
+                            android:layout_toEndOf="@+id/device_img"
+                            android:padding="8dp"
+                            android:text="@string/open_function"
+                            android:textSize="15sp" />
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/size_18"
+                            android:src="@mipmap/lanage" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/linear_border" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

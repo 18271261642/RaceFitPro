@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+
+    <include layout="@layout/comment_b30_title_layout"/>
+
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_marginBottom="15dp"
+        android:paddingBottom="15dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_marginBottom="15dp"
+            android:layout_height="match_parent">
+
+
+            <Button
+                android:id="@+id/w37IntelClearBtn"
+                android:layout_width="match_parent"
+                android:text="清空"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/w37IntelHeartBtn"
+                android:layout_width="match_parent"
+                android:text="查询手环所有数据"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/w37DbSportBtn"
+                android:layout_width="match_parent"
+                android:text="数据库步数数据"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/w37DbHeartBtn"
+                android:layout_width="match_parent"
+                android:text="数据库心率数据"
+                android:layout_height="wrap_content" />
+
+
+            <Button
+                android:id="@+id/w37DbSleepBtn"
+                android:layout_width="match_parent"
+                android:text="数据库睡眠数据"
+                android:layout_height="wrap_content" />
+
+
+
+            <Button
+                android:id="@+id/w37AllBtn"
+                android:layout_width="match_parent"
+                android:text="所有原始数据"
+                android:layout_height="wrap_content" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/inputDataEdit"
+                    android:layout_width="match_parent"
+                    android:hint="输入指令"
+                    android:padding="8dp"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/sendInputBtn"
+                    android:layout_width="match_parent"
+                    android:text="发送指令"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/showW37ResultTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

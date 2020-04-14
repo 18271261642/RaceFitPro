@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        app:layout_constraintTop_toTopOf="parent"
+        layout="@layout/new_search_title" />
+
+    <android.support.v4.widget.NestedScrollView
+        app:layout_constraintTop_toBottomOf="@+id/searchLinearLayout"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:textSize="18sp"
+                android:background="#ee3a8c"
+                android:text="@string/notif_messge"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content" />
+
+
+            <LinearLayout
+                android:id="@+id/xWatchMsgOpenNitBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/b18i_selected_bg"
+                android:orientation="horizontal"
+                android:padding="@dimen/size_10">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="@dimen/size_5"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/size_5"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_msg_open_noti"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_15"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/size_5"
+                    android:text="@string/open_notif"
+                    android:textColor="#333333"
+                    android:textSize="@dimen/text_size_17" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginRight="@dimen/size_15"
+                    android:src="@mipmap/lanage" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@color/white"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:padding="@dimen/size_10">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_5"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/size_5"
+                    android:src="@mipmap/image_skype_notif"/>
+
+                <TextView
+                    android:text="Skype"
+                    style="@style/B30ToggTxtStyle" />
+
+                <ToggleButton
+                    android:id="@+id/xWatchSkypeTogg"
+                    style="@style/B30MsgToggleStyle"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/size_20"
+                android:background="#dddddd" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/size_10">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_5"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/size_5"
+                    android:src="@mipmap/image_whatsapp_notif"/>
+
+                <TextView
+                    style="@style/B30ToggTxtStyle"
+                    android:text="WhatsApp"
+                    />
+
+                <ToggleButton
+                    android:id="@+id/xWatchWhatsAppTogg"
+                    style="@style/B30MsgToggleStyle"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/size_20"
+                android:background="#dddddd" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/size_10">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_5"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/size_5"
+                    android:src="@mipmap/image_facebook_notif"/>
+
+                <TextView
+
+                    android:text="Facebook"
+                    style="@style/B30ToggTxtStyle"  />
+
+                <ToggleButton
+                    android:id="@+id/xWatchFacebookTogg"
+                    style="@style/B30MsgToggleStyle"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/size_20"
+                android:background="#dddddd" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/size_10">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_5"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/size_5"
+                    android:src="@mipmap/image_twitter_notif"/>
+
+                <TextView
+
+                    android:text="Twitter"
+                    style="@style/B30ToggTxtStyle" />
+
+                <ToggleButton
+                    android:id="@+id/xWatchTwitterTogg"
+                    style="@style/B30MsgToggleStyle"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/size_20"
+                android:background="#dddddd" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/size_20"
+                android:background="#dddddd" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/size_10">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_5"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/size_5"
+                    android:src="@mipmap/image_wecach_notif"/>
+
+                <TextView
+
+                    android:text="@string/mywechat"
+                    style="@style/B30ToggTxtStyle" />
+
+                <ToggleButton
+                    android:id="@+id/xWatchWechatTogg"
+                    style="@style/B30MsgToggleStyle"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/size_20"
+                android:background="#dddddd" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/size_10">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_5"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/size_5"
+                    android:src="@mipmap/image_qq_notif"/>
+
+                <TextView
+
+                    android:text="QQ"
+                    style="@style/B30ToggTxtStyle"  />
+
+                <ToggleButton
+                    android:id="@+id/xWatchQQTogg"
+                    style="@style/B30MsgToggleStyle"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/size_20"
+                android:background="#dddddd" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/size_10">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_5"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/size_5"
+                    android:src="@mipmap/image_msg_notif"/>
+
+                <TextView
+
+                    android:text="@string/string_new_messege"
+                    style="@style/B30ToggTxtStyle" />
+
+                <ToggleButton
+                    android:id="@+id/xWatchMessageTogg"
+                    style="@style/B30MsgToggleStyle"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/size_20"
+                android:background="#dddddd" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:padding="@dimen/size_10">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_5"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/size_5"
+                    android:src="@mipmap/image_phone_notif" />
+
+                <TextView
+                    android:text="@string/string_new_phone"
+                    style="@style/B30ToggTxtStyle"  />
+
+                <ToggleButton
+                    android:id="@+id/xWatchPhoneTogg"
+                    style="@style/B30MsgToggleStyle"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginBottom="15dp"
+                android:background="#dddddd" />
+
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.constraint.ConstraintLayout>

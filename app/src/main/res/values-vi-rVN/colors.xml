@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="b30_sport">#f2f2f2</color>
+    <color name="dark_red">#ee7c040f</color>
+    <color name="sec_time_color">#24accc</color>
+
+    <!--字体颜色-->
+    <color name="txt_color">#1C1C1C</color>
+    <color name="newwatchdatatvcolor">#2990FA</color>
+    <color name="new_ui_backgrad">#4dddff</color>
+    <color name="lineSelect">#4f32c0ff</color>
+    <color name="xieyarorort">#23aaa8</color>
+    <color name="white_trans30">#4dffffff</color>
+    <color name="xinmosi">#43a043</color>
+    <color name="black_trans15">#26000000</color>
+    <color name="gray_divider_line">#C0C0C0</color>
+    <color name="mosi">#46b4b7</color>
+    <color name="black_text_normal_common">#4B4B4B</color>
+    <color name="black_trans20">#33000000</color>
+    <color name="gray_background_color">#F4F4F4</color>
+    <color name="black_trans70">#b3000000</color>
+    <color name="gray_seekbar">#C0C0C0</color>
+    <color name="blue_tog_btn">#397cbf</color>
+    <!-- 深蓝色:toggleBtn -->
+    <color name="blue_tog_btn_pressed">#286DD4</color>
+    <color name="htcolor">#FE8BB7</color>
+
+    <color name="backgoundhtest">#D0593B</color>
+    <color name="colorPrimaryDarks">#303F9F</color>
+    <color name="colorAccents">#FF4081</color>
+    <color name="backgounds">#FFffffff</color>
+    <color name="white_trans90">#e6ffffff</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#65cce7</color>
+    <color name="txt_black">#595959</color>
+    <color name="chang_white">#EBEBEB</color>
+
+    <color name="title_background">#151515</color>
+    <color name="btn_txt_background">#2b2b2b</color>
+    <color name="linear_border">#CCCCCC</color>
+    <color name="blue_bg">#F2F2F2</color><!-- 灰蓝 -->
+    <color name="new_colorAccent">#17E1EB</color>
+    <color name="new_deep_colorAccent">#1ca3c6</color>
+    <color name="mpc_start_color">#65cce7</color>
+    <color name="mpc_end_color">#1ca3c6</color>
+    <!-- 没有被渐变填充区域的颜色 -->
+    <color name="licheng_start_color">#32B16C</color>
+    <color name="red_heart">#FA5F56</color>
+    <color name="deep_sleep">#511D82</color>
+
+
+    <color name="SECHAb">#511d82</color>
+    <color name="SECHAa">#6924a9</color>
+
+    <color name="colorPrograss">#51a947</color>
+
+    <color name="transparent">#00000000</color>
+    <!-- 紫色 -->
+
+    <!-- 用色标准 -->
+
+    <!-- 标准加深/减淡 -->
+    <color name="base_yellow_dark10">#e5cd00</color>
+    <color name="dark50">#000000</color>
+    <color name="black">#ff000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="dim_foreground_light_disabled">#80323232</color>
+    <color name="head_text">#0e5986</color>
+    <!-- 灰色 -->
+
+    <!-- 象牙色 -->
+
+    <!-- 亮黄色 -->
+
+    <!-- 黄色 -->
+
+    <!-- 雪白色 -->
+
+    <!-- 花白色 -->
+
+    <!-- 柠檬绸色 -->
+
+    <!-- 米绸色 -->
+
+    <!-- 海贝色 -->
+
+    <!-- 淡紫红 -->
+
+    <!-- 番木色 -->
+
+    <!-- 白杏色 -->
+
+    <!-- 浅玫瑰色 -->
+
+    <!-- 桔黄色 -->
+
+    <!-- 鹿皮色 -->
+
+    <!-- 纳瓦白 -->
+
+    <!-- 桃色 -->
+
+    <color name="gold">#FFD700</color> <!-- 金色 -->
+
+    <!-- 粉红色 -->
+
+    <!-- 亮粉红色 -->
+
+    <!-- 橙色 -->
+
+    <!-- 橙黄色 -->
+
+    <!-- 亮肉色 -->
+
+    <!-- 暗桔黄色 -->
+
+    <!-- 珊瑚色 -->
+
+    <!-- 热粉红色 -->
+
+    <!-- 西红柿色 -->
+
+    <!-- 红橙色 -->
+
+    <!-- 深粉红色 -->
+
+    <!-- 深蓝色 -->
+
+    <!-- 紫红色 -->
+
+    <!-- 红紫色 -->
+
+    <color name="red">#FF0000</color> <!-- 红色 -->
+
+    <!-- 老花色 -->
+
+    <!-- 亮金黄色 -->
+
+    <!-- 亚麻色 -->
+
+    <color name="antiquewhite">#FAEBD7</color> <!-- 古董白 -->
+
+    <!-- 鲜肉色 -->
+
+    <!-- 幽灵白 -->
+
+    <!-- 薄荷色 -->
+
+    <!-- 烟白色 -->
+
+    <!-- 米色 -->
+
+    <!-- 浅黄色 -->
+
+    <!-- 沙褐色 -->
+
+    <!-- 天蓝色 -->
+
+    <!-- 蜜色 -->
+
+    <!-- 艾利斯兰 -->
+
+    <!-- 黄褐色 -->
+
+    <!-- 亮珊瑚色 -->
+
+    <!-- 苍麒麟色 -->
+
+    <!-- 紫罗兰色 -->
+
+    <!-- 暗肉色 -->
+
+    <!-- 淡紫色 -->
+
+    <!-- 亮青色 -->
+
+    <!-- 实木色 -->
+
+    <!-- 洋李色 -->
+
+    <!-- 淡灰色 -->
+
+    <!-- 暗深红色 -->
+
+    <!-- 苍紫罗兰色 -->
+
+    <!-- 金麒麟色 -->
+
+    <!-- 淡紫色 -->
+
+    <!-- 蓟色 -->
+
+    <!-- 亮灰色 -->
+
+    <!-- 亮灰色 -->
+
+    <!-- 茶色 -->
+
+    <!-- 巧可力色 -->
+
+    <!-- 秘鲁色 -->
+
+    <!-- 印第安红 -->
+
+    <!-- 中紫罗兰色 -->
+
+    <!-- 银色 -->
+
+    <!-- 暗黄褐色 -->
+
+    <!-- 褐玫瑰红 -->
+
+    <!-- 中粉紫色 -->
+
+    <!-- 暗金黄色 -->
+
+    <!-- 火砖色 -->
+
+    <!-- 粉蓝色 -->
+
+    <!-- 亮钢兰色 -->
+
+    <!-- 苍宝石绿 -->
+
+    <!-- 黄绿色 -->
+
+    <color name="darkgray">#A9A9A9</color> <!-- 暗灰色 -->
+
+    <!-- 褐色 -->
+
+    <!-- 赭色 -->
+
+    <!-- 暗紫色 -->
+
+    <!-- 苍绿色 -->
+
+    <!-- 暗紫罗兰色 -->
+
+    <!-- 中紫色 -->
+
+    <!-- 亮绿色 -->
+
+    <!-- 暗海兰色 -->
+
+    <!-- 重褐色 -->
+
+    <!-- 暗洋红 -->
+
+    <!-- 暗红色 -->
+
+    <!-- 紫罗兰蓝色 -->
+
+    <!-- 亮天蓝色 -->
+
+    <!-- 天蓝色 -->
+
+    <!-- 灰色 -->
+
+    <!-- 灰色 -->
+
+    <!-- 橄榄色 -->
+
+    <!-- 紫色 -->
+
+    <!-- 粟色 -->
+
+    <!-- 碧绿色 -->
+
+    <!-- 黄绿色 -->
+
+    <!-- 草绿色 -->
+
+    <!-- 中暗蓝色 -->
+
+    <!-- 亮蓝灰 -->
+
+    <!-- 亮蓝灰 -->
+
+    <!-- 灰石色 -->
+
+    <!-- 灰石色 -->
+
+    <!-- 深绿褐色 -->
+
+    <!-- 石蓝色 -->
+
+    <!-- 暗灰色 -->
+
+    <color name="qinghui">#EEE</color> <!-- 浅灰色 -->
+
+    <!-- 暗灰色 -->
+
+    <!-- 中绿色 -->
+
+    <!-- 菊兰色 -->
+
+    <!-- 军兰色 -->
+
+    <!-- 暗橄榄绿 -->
+
+    <!-- 靛青色 -->
+
+    <!-- 中绿宝石 -->
+
+    <!-- 暗灰蓝色 -->
+
+    <!-- 钢兰色 -->
+
+    <!-- 皇家蓝 -->
+
+    <!-- 青绿色 -->
+
+    <!-- 中海蓝 -->
+
+    <!-- 橙绿色 -->
+
+    <!-- 暗瓦灰色 -->
+
+    <!-- 暗瓦灰色 -->
+
+    <!-- 海绿色 -->
+
+    <!-- 森林绿 -->
+
+    <!-- 亮海蓝色 -->
+
+    <!-- 闪兰色 -->
+
+    <!-- 中灰兰色 -->
+
+    <!-- 浅绿色 -->
+
+    <!-- 青色 -->
+
+    <!-- 春绿色 -->
+
+    <!-- 酸橙色 -->
+
+    <!-- 中春绿色 -->
+
+    <!-- 暗宝石绿 -->
+
+    <!-- 深天蓝色 -->
+
+    <!-- 暗青色 -->
+
+    <!-- 水鸭色 -->
+
+    <!-- 绿色 -->
+
+    <!-- 暗绿色 -->
+
+    <color name="blue">#0000FF</color> <!-- 蓝色 -->
+
+    <!-- 中兰色 -->
+
+    <!-- 暗蓝色 -->
+
+    <!-- 海军色 -->
+
+    <color name="black_2">#222222</color>
+    <color name="black_9">#999999</color>
+    <color name="black_c">#cccccc</color>
+    <!-- 首页按钮点击变背景色 -->
+
+    <!-- 按钮颜色 -->
+    <color name="tweet_list_divider_color_lights">#ffffff</color>
+    <color name="tweet_list_divider">#0000</color>
+
+    <!-- 数据显示颜色 -->
+
+    <!-- 体重、目标体重 -->
+
+    <!-- 实用工具 -->
+    <color name="contents_text">#ff000000</color>
+    <color name="help_button_view">#ffcccccc</color>
+
+    <!-- 新加 -->
+    <color name="supermarket">#9457F3</color>
+
+    <!-- 数据色域 -->
+
+    <!-- 基色调 -->
+
+
+
+    <drawable name="ssdk_oks_classic_platfrom_cell_back_nor">#ffffffff</drawable>
+    <drawable name="ssdk_oks_classic_platfrom_cell_back_sel">#ffeeeeee</drawable>
+</resources>

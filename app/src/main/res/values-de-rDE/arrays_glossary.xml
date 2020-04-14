@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name= "glossary_breath_item_1">
+		<item>Die Anzahl der Atemzüge pro Minute ist medizinische Begriffe, die Brust ist ein Hauch von Atem, das heißt, ein Atemzug einmal atmen.</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_2">
+		<item>1. Atmung: Atemrhythmus, aber weniger als das Zehnfache der Frequenz, häufig am Ende des Lebens oder vor der Apnoe. Nerven, Stoffwechselerkrankungen oder bestimmte Medikamente, die aufgrund der Hemmung des Atmungszentrums zu viel nehmen, können ebenfalls zu Hypothermie führen. \ n \ n2. Atmung: schnelle Atmung, Atemnot fühlen.</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_3">
+		<item>Bei Atembeschwerden sind folgende Notfallmaßnahmen zu beachten: \ n1. Halten Sie ruhig, um bei Patienten mit erhöhten Atembeschwerden emotionalen Stress zu vermeiden. \ n \ n2. Nehmen Sie halb-liegend oder sitzend, reduzieren Sie Ermüdungs- und Sauerstoffverbrauch. \ n \ n3 Halten Sie die Raumluft frisch und luftig. \ n \ n4. Geben Sie eine leichte Diät, ermutigen Sie Patienten, zu essen und Frucht, um den Körper des Wassers zu ergänzen. \ n \ n5.Geeignet, um Schleim zu geben, sollten krampflösende Medikamente wie Husten, Aminophyllin usw. sein, um Atemwegsdurchgängigkeit aufrechtzuerhalten. schwer krank in der Zeit, um ein nahe gelegenes Krankenhaus zu schicken.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_1">
+		<item>Apnoe bedeutet, dass der Nasenluftstrom länger als oder gleich 10 Sekunden vollständig gestoppt ist.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_2">
+		<item>1. Schnarchen unregelmäßig, von hoch und niedrig, oft Schnarchen - Luft zu stoppen - Schnarchen - Schnarchen abwechselnd, die allgemeine Luftstromunterbrechungszeit von 20-30 Sekunden, individuell bis zu 2 Minuten oder mehr, diesmal kann der Patient erhebliche Zyanose Lippen oder Nägel sind violett). \ n \ n2.Nacht aufstehen, häufiger drehen, oft zu niedriger Schlafqualität führen, tagsüber Schläfrigkeit, Schwindel, Müdigkeit verursachen.</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_3">
+		<item>Für Patienten mit Schlafapnoe Schnarchen, zusätzlich zu Medikamenten, Medikamenten und Beatmungsbehandlungen, können Sie auf folgende Weise die Krankheit behandeln oder lindern: 1. Kontrollgewicht. Adipositas durch Fettansammlung, Atembeschwerden erhöhten intraabdominellen Druck, verminderte Lungenfunktion führte zu Hypoxie. \ n \ n2. Rauchen, Trinken kann Dyslipidämie, Arteriosklerose, erhöhte Obstruktion der oberen Atemwege verursachen. \ n \ n3. mäßige Übung. Moderate Übung kann die kardiovaskuläre und zerebrovaskuläre Blutversorgung verbessern, die Beatmungsfunktion verbessern, den Körperwiderstand stärken und die Häufigkeit von Nasopharynxkrankheiten reduzieren. \ n \ n4.Schlafschlaf. Patienten, indem sie eine geeignete seitliche Schlafposition einnehmen, um die Durchgängigkeit der Atemwege aufrechtzuerhalten.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_1">
+		<item>HERZ - Laden heißt index Spiegelt die durchblutung, pulsierende blut fließen.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_2">
+		<item>1.pi Wert ist größer. \ n \ n2. Die Zahl der Herzfrequenz und Bluthochdruck ist hoch. Kurzatmigkeit, oft ein Gefühl der Müdigkeit.</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_3">
+		<item>1. Um eine angemessene Ruhepause zu gewährleisten, nicht zu spaet zu schlafen \ n \ n2. Entspannen Sie Mentalität, vermeiden Sie psychischen Stress. \ n \ n3. Essen Sie weniger fettiges Essen.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_1">
+		<item>die Dauer des Physiologisches Sauerstoffmangels oder Gewebehypoxie des Zustandes  </item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_2">
+		<item> 1.Schwindel und schwach. \ n \ n2. Schwierigkeiten beim Atmen fühlen.</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_3">
+		<item>1. Externer Sauerstoff zusätzlich zu direktem Sauerstoff, aber auch eine Vielzahl von Aerobic-Übungen, wie Gehen, Joggen, tiefe Atmung, verbessern die Sauerstoff-Umgebung. \ n \ n2 Falls erforderlich, gehen Sie  zur einem Arzt.</item>
+	</string-array>
+	<string-array name= "glossary_lowremain">
+		<item>Wake-Mechanismus</item>
+	</string-array>
+	<string-array name= "glossary_lowremain_item_1">
+		<item>Wenn das Geraet überwaecht, dass Ihr Sauerstoffgehalt im Blut zu niedrig ist, kann dies Ihre Gesundheit beeinträchtigen. Und das Gerät wird  Ihnen eine Alarmbenachrichtigung geben. </item>
+	</string-array>
+	<string-array name= "glossary_osahs">
+		<item>die Nomen Erklaerung</item>
+		<item>typische Krankheit</item>
+		<item>Behandlungsmethode</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_1">
+		<item>Bezieht sich auf ein klinisches Syndrom, das mehr als 30-mal während einer Stunde von 7 aufeinanderfolgenden Schlafstunden oder durchschnittlich weniger als 5-mal pro Stunde von Hypopnoe auftritt, was zu einer verminderten Blutoxygenierung und chronischer Hypoxämie und Hyperkapnie führt.</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_2">
+		<item>Tagesklinische Manifestationen: \ n1. \ n \ n2  Schläfrigkeit \ n \ n3. Psychische Zustandsabweichungen, Kopfschmerzen, Reizbarkeit,  Angstzustände und so weiter. \ n \ n4. sexuelle Dysfunktion und so weiter.</item>
+		<item> klinischen Manifestationen in der Nacht: \ n1. Schnarchen: Schnarchen unregelmäßig, Schnarchen - Luftstop - keuchen - schnarchen abwechselnd. \ n \ n2 Apnoe: Beendet sich mit keuchendem, wachem oder lautem Schnarchen. Aufwachen: oft begleitet von Aufstehen, Gliedmaßen unfreiwillige Bewegung oder sogar Krämpfe oder plötzlich beginnen, Herzklopfen, Engegefühl in der Brust oder präkordialen Beschwerden. \ n \ n4. Übung: nachts umdrehen, häufiger drehen. \ n \ n5. Schwitzen, Nykturie erhöht. \ n \ n6 Schlafverhalten Abnormitäten: die Leistung von Angst, Schreien, Toben, Nacht, akustische Halluzinationen und so weiter. \ n \ n Darüber hinaus verursachen das Körperfett, die Hypertrophie der Nase, das Schnarchen usw. wahrscheinlich auch ein Apnoe-Syndrom.</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_3" formatted="false">
+		<item>Zusätzlich zu Medikamenten und Medikamenten können Sie den Zustand behandeln  \ n1. Kontrollieren Sie das Gewicht. \ n \ n2. Rauchen aufhören und weniger Alkohol trinken\ n \ n3. mäßige Übung. \ n \ n4..Seitigschalf</item>
+		<item>Operation, Medikation und Beatmung: 1. Operation Reparatur anomaler Bereiche der oberen Atemwege. \ n \ n2. Drogenbehandlung. \ n \ n3. Nacht niedriger Fluss Sauerstoff. \ n \ n4. Inhalation von 2% -3% Kohlendioxid. \ n \ n5. nasale kontinuierliche Ueberdruckventilation. \ n \ n6.Diagnostische Diaphragma-Stimulation. \ n \ n7. Mechanische Belueftung.</item>
+		<item>Gesunder Lebensmethode und fruehzeitige korrekte Diagnose sind der Schluessel zur Vorbeugung und Verringerung des Auftretens von Schlafapnoe. Klinische aerztliche Bescheinigung, mit der Verbesserung von Schlafapnoe-Syndrom, Herz-Kreislauf-Erkrankungen und anderen Krankheiten haben sich allmählich verbessert. Je langer die Behandlungszeit war, desto besser verbesserten sich die Symptome.</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_1">
+		<item>Sauerstoff bezieht sich auf die Menge an sauerstoffgebundenem oxygeniertem Hämoglobin im Blut, die den Prozentsatz der gesamten gebundenen Hämoglobinkapazität ausmacht, dh die Konzentration an Sauerstoff im Blut.</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_2">
+		<item>1. Herz-Kreislauf-und zerebrovaskuläre Erkrankungen (koronare Herzkrankheit, Bluthochdruck, hohe Blutfette, etc.). \ n \ n2. Atemwegserkrankungen (Asthma, Bronchitis, Lungenerkrankung usw.).</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_3">
+		<item>1. Da die Krankheit bei Patienten mit niedrigerem Blutsauerstoff auftritt, können Sie zusätzlich zur aktiven Erkrankung der primären Erkrankung aktiv mit Blut Sauerstoff und Sauerstoff Geräte messen, sobald der Nachweis von niedrigem Blutsauerstoffgehalt, rechtzeitige Wiederauffüllung des Sauerstoffs. \n\n2 Zusätzlich zu direktem Sauerstoff Einatmen , gibt es  eine Vielzahl von Aerobic-Übungen, wie Laufen, Joggen, tiefes Atmen, verbessern die Sauerstoff-Umgebung, um die Krankheit zu lindern</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_1">
+		<item>Sukzessive Änderungen im Heartbeat-Zyklus sowieso Änderungen der RR-Intervalldifferenz. Die aktuellen kardiovaskulären und mentalen Zustand kann widerspiegeln.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_2">
+		<item>1. Die Variabilität der Pulsfrequenz ist nicht aktiv und wird auf einem niedrigen Pegel gehalten. \n\n2 Oft Schwindel, Kopfschmerzen, Herzklopfen und andere Phänomene.</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_3">
+		<item>1. Halten Sie eine gute Lebensgewohnheiten und genug Ruhe. \ n \ n2. Halten Sie einen guten Geist, mehr Aerobic, weniger Salz und weniger Oel.\n\n3 Wenn der langfristige Wert niedrig ist, ist der Umfang der Änderung nicht, es ist wahrscheinlich ein Vorläufer von Herz-Kreislauf-Erkrankungen, wie Beschwerden, eine rechtzeitige medizinische Behandlung empfohlen.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_1">
+		<item>Antwort: Wenn es sich mehr als 30-malige Schlafapnoe (keine Atmung über 10 s oder mehr)  in 7 Schlafstunden oder durchschnittlich mehr als 5-mal Atmzahlen von Hypopnoe (reduzierte oder vollständig gestoppte Atmung) pro Stunde passiert, leiden Schlaf-Apnoe-Syndrom an.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_2">
+		<item>Antwort:Schlafapnoe-Syndrom ist eine chronische Krankheit und diese Krankheit ist schwer zu erkennen. Anfangliche Krankheit ist nicht zu beobachten.Sobald die Atmung schlecht ist und vom Schnarchen ausgeht,gibt es weniger  Sauerstoff in Lungen, sinkt der Blutsauerstoff, was dazu führt, dass der Körper nicht ruhen und sich erholen kann, der mentale Zustand und die schlechte körperliche Verfassung. Mehr schwerer ist, wenn das Auftreten von Apnoe passiert, fehlt das äußeren Reizen, der Patient ist schwer zu erwachen, dann bis die Körperorgane Hypoxie oder sogar Schäden, plötzlich aufgewacht, und Patienten oft nicht stören, langfristig, so die kumulative Schäden, Verschiedene kardiovaskuläre und zerebrovaskuläre Erkrankungen und psychische Erkrankungen und sogar plötzlicher Tod.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_3">
+		<item>Antwort:Die meisten Patienten werden aufgrund der Obstruktion der oberen Atemwege verursacht und dazu gehören Muschelhypertrophie, Mandelhypertrophie, Mandibular-Short, Dickhals, systemische Fettleibigkeit und andere Gruende.\nDer Großteil des Schlafapnoe-Syndroms ist also obstruktiv und teilweise aufgrund des zentralen Nervensystems der Atemwege, verursacht durch Atmungsregulationsfunktionsstörungen, die als zentral oder als gemischter Typ bekannt sind.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_4">
+		<item>Antwort: Aufgrund des typischenes klinischenes Symptomens und Symptomens kann man einfach beurteilen.  Aufgrund der chronischen Krankheitsmerkmale und Mangels an Überwachungsgeraet sind die Patienten im Schlaf schwierig, ihre eigenen Nachtsymptome, Familienbeschreibung und Selbstwahrnehmung allein wahrzunehmen. Es ist leicht zu fälschlich und ohne wissenschaftliche Grundlage.\ n wenn man sich bewussten kann ,ist man in der schwerwiegenden Erkrankungen und dann man soll ins Krankenhaus zur Diagnose zu gehen. \ n  Das Standardmethode ist Polysomnographie (PSG), durch die Sauerstoffüberwachung als der Kern, mit ECG, EEG, EMG, Auge und anderen physiologischen Parametern, kann Art und Ausmaß der Krankheit genau verstehen. An diesem Punkt ist die Krankheit oft in ein ernsteres Stadium eingetreten, die Schwierigkeit der Behandlung und der Kosten und die Beschwerden des Patienten sind signifikant erhöht, also je früher die bessere Diagnose.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_5">
+		<item>Antwort: Jetzt gibt es wenige Studien zum zentralen Schlafapnoesyndrom und es gibt keine wirksamere Behandlung zusätzlich zur aktiven Behandlung von Dysfunktionen der Atemwegsregulation (primäre Erkrankung),Das zentrale Schlafapnoesyndrom existiert jedoch oft nicht allein, so dass die Anwendung der Behandlung der obstruktiven Schlafapnoesyndrom-Methode auch eine gewisse Wirkung hat. Wenn die Leute das obstruktiven Schlafapnoesyndroms behandlen, müssen sie normalerweise das Method Behandlung entsprechend der Schwere der Krankheit wählen. Unabhängig von der Art der Behandlung des Apnoe-Syndroms gibt es jetzt nicht mehr als Zwei Arten.Erstens wird durch den Detektionsmechanismus zum Zeitpunkt der Apnoe, die durch externe Stimuli unterbrochen wird. Zum Beispiel wenn das Auftreten von Apnoe passiert, die mit schwerer Hypoxie einhergeht, gewacht oder geweckt wurde, um die Dauer der Apnoe zu reduzieren, Schäden an den Körperorganen zu reduzieren oder zu vermeiden. Zweitens muss der Mechanismus der Apnoe nicht aufgespuert werden.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_6">
+		<item>Antwort: Fuer die Patienten, die an Schlafapnoe-Syndrom leiden, hat die Blutsauerstoff-ueberwachung folgende Vorteile:\n 1. Bei der Entstehung des Schnarchens im Apnoe-Stadium gibt das Alarm ueber Risiko der Krankheit. \n\n2. In der anfanglicher Krankheit,kann man durch das Ergebnis als Grundlagen der Diagnose, Fruehe Medizin behandlen, die Schwierigkeit der Behandlung reduzieren, Behandlungskosten reduzieren und Moeglischkeit der Heilung erhoeren.  \n\n3.In der Behandlungsphase kann man rechtzeitige der Nachtkrankheit ueberwachen und Ergebnis der Behandlung rueckmelden. \n\n4 Es Kann als wichtige Grundlage für die Erkennung von Apnoe verwendet werden und Weckmitteln zur Überwachung der Krankheit.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip">
+		<item>Was ist Schlaf-Apnoe-Syndrom?</item>
+		<item>Hat Schlaf-Apnoe-Syndrom die grosse Schaden fuer Gesundheit?</item>
+		<item>Was verursacht diese Krankheit?</item>
+		<item>Wie kann man wissen, ob er sich selber an Schlaf-Apnoe-Syndrom leidet?</item>
+		<item>Wie behandelt Schlaf-Apnoe-Syndrom?</item>
+		<item>Was ist die Verwendung von Beobachtung des Blutsauerstoff zur Schlaf-Apnoe-Syndrom?</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_1">
+		<item>Bereich der Schlafaktivitaet ist unbewusste koeperbewegung im Schlaf.</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_2">
+		<item>Nacht haeufig aufstehen und schwitzen</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_3">
+		<item>1. Beachten Sie die Ernährung und vor dem Schlaf koennen Sie ein  Drink trinken,Z.b ein Getränk, wie Milch oder Hirse Brei.\n\n2. Machen Sie etwas Vorbereitung vor dem Schlaf,Z.B Fusswaschen mit warmem Wasser ,Fussmassage usw. \n\n3 Seitlicher Schlaf kann körperliche Aktivität effektiv verringern.\ n \ n4. Verbessern Sie die Schlafumgebung (Raumfeuchtigkeit, Temperatur) haben auch einige Hilfe.</item>
+	</string-array>
+</resources>

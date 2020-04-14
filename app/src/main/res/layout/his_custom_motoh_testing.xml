@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/run_pop_data_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="@dimen/size_10"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/size_5"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:paddingRight="@dimen/size_5"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_17"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|end"
+                android:paddingRight="2dp"
+                android:paddingTop="2dp"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_12" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/one_motoh"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/size_5"
+            android:background="@drawable/text_history_selete"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/string_january"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+            <!--android:paddingRight="@dimen/size_5"-->
+            <!--android:textSize="@dimen/text_size_17"-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:gravity="center|end"-->
+                <!--android:paddingRight="2dp"-->
+                <!--android:paddingTop="2dp"-->
+                <!--android:text="月"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="@dimen/text_size_12" />-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/two_motoh"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/size_5"
+            android:background="@drawable/text_history_unselete"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/string_february"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:gravity="center|end"-->
+                <!--android:paddingRight="2dp"-->
+                <!--android:paddingTop="2dp"-->
+                <!--android:text="月"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="@dimen/text_size_12" />-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/three_motoh"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/size_5"
+            android:background="@drawable/text_history_unselete"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/string_march"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:gravity="center|end"-->
+                <!--android:paddingRight="2dp"-->
+                <!--android:paddingTop="2dp"-->
+                <!--android:text="月"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="@dimen/text_size_12" />-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/four_motoh"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/size_5"
+            android:background="@drawable/text_history_unselete"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/string_april"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:gravity="center|end"-->
+                <!--android:paddingRight="2dp"-->
+                <!--android:paddingTop="2dp"-->
+                <!--android:text="月"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="@dimen/text_size_12" />-->
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <RelativeLayout
+            android:clickable="true"
+            android:id="@+id/five_motoh"
+            android:layout_margin="@dimen/size_5"
+            android:orientation="horizontal"
+            android:background="@drawable/text_history_unselete"
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/string_may"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:gravity="center|end"-->
+                <!--android:text="月"-->
+                <!--android:paddingRight="2dp"-->
+                <!--android:paddingTop="2dp"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="@dimen/text_size_12" />-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:clickable="true"
+            android:id="@+id/six_motoh"
+            android:layout_margin="@dimen/size_5"
+            android:orientation="horizontal"
+            android:background="@drawable/text_history_unselete"
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/string_june"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:gravity="center|end"-->
+                <!--android:text="月"-->
+                <!--android:paddingRight="2dp"-->
+                <!--android:paddingTop="2dp"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="@dimen/text_size_12" />-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:clickable="true"
+            android:id="@+id/senve_motoh"
+            android:layout_margin="@dimen/size_5"
+            android:orientation="horizontal"
+            android:background="@drawable/text_history_unselete"
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/string_july"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:gravity="center|end"-->
+                <!--android:text="月"-->
+                <!--android:paddingRight="2dp"-->
+                <!--android:paddingTop="2dp"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="@dimen/text_size_12" />-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:clickable="true"
+            android:id="@+id/eight_motoh"
+            android:layout_margin="@dimen/size_5"
+            android:orientation="horizontal"
+            android:background="@drawable/text_history_unselete"
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/string_august"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:gravity="center|end"-->
+                <!--android:text="月"-->
+                <!--android:paddingRight="2dp"-->
+                <!--android:paddingTop="2dp"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="@dimen/text_size_12" />-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:clickable="true"
+            android:id="@+id/niece_motoh"
+            android:layout_margin="@dimen/size_5"
+            android:orientation="horizontal"
+            android:background="@drawable/text_history_unselete"
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/string_deptember"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:gravity="center|end"-->
+                <!--android:text="月"-->
+                <!--android:paddingRight="2dp"-->
+                <!--android:paddingTop="2dp"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="@dimen/text_size_12" />-->
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <RelativeLayout
+            android:clickable="true"
+            android:id="@+id/ten_motoh"
+            android:layout_margin="@dimen/size_5"
+            android:orientation="horizontal"
+            android:background="@drawable/text_history_unselete"
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/string_october"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:gravity="center|end"-->
+                <!--android:text="月"-->
+                <!--android:paddingRight="2dp"-->
+                <!--android:paddingTop="2dp"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="@dimen/text_size_12" />-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:clickable="true"
+            android:id="@+id/ten_one_motoh"
+            android:layout_margin="@dimen/size_5"
+            android:orientation="horizontal"
+            android:background="@drawable/text_history_unselete"
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/string_november"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:gravity="center|end"-->
+                <!--android:text="月"-->
+                <!--android:paddingRight="2dp"-->
+                <!--android:paddingTop="2dp"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="@dimen/text_size_12" />-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:clickable="true"
+            android:id="@+id/ten_two_motoh"
+            android:layout_margin="@dimen/size_5"
+            android:orientation="horizontal"
+            android:background="@drawable/text_history_unselete"
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/string_december"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:gravity="center|end"-->
+                <!--android:text="月"-->
+                <!--android:paddingRight="2dp"-->
+                <!--android:paddingTop="2dp"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textSize="@dimen/text_size_12" />-->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:clickable="true"
+            android:layout_margin="@dimen/size_5"
+            android:orientation="horizontal"
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingRight="@dimen/size_5"
+                android:layout_centerInParent="true"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_17"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|end"
+                android:paddingRight="2dp"
+                android:paddingTop="2dp"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_12" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:clickable="true"
+            android:layout_margin="@dimen/size_5"
+            android:orientation="horizontal"
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingRight="@dimen/size_5"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/text_size_17"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|end"
+                android:paddingRight="2dp"
+                android:paddingTop="2dp"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_size_12" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

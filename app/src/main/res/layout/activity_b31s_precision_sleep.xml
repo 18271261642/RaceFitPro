@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/comment_b30_title_layout" />
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="#20806F"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/sleepCurrDateLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:src="@drawable/arrow_white_left" />
+
+                <TextView
+                    android:id="@+id/sleepCurrDateTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2018-8-16"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_16" />
+
+                <ImageView
+                    android:id="@+id/sleepCurrDateRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:src="@drawable/arrow_white_right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#20806F"
+                android:orientation="vertical">
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/size_10">
+
+                    <com.example.bozhilun.android.b30.b30view.B30CusSleepView
+                        android:id="@+id/b31sDetailCusSleepView"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_180"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_marginRight="@dimen/size_15"
+                        app:awakeSleepColor="#FDEF77"
+                        app:b30SleepNoDataColor="#FFFFFF"
+                        app:deepSleepColor="#9579D3"
+                        app:lightSleepColor="#29D8E6"
+                        app:sleepEmptyData="@dimen/sp_15" />
+
+
+                    <SeekBar
+                        android:id="@+id/b31sSleepSeekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_180"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_marginRight="@dimen/size_15"
+                        android:background="@null"
+                        android:progressDrawable="@drawable/seekbar_bg"
+                        android:thumb="@null" />
+
+
+                </FrameLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp">
+
+                    <TextView
+                        android:id="@+id/b31sStartSleepTimeTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:textColor="@color/white" />
+
+
+                    <TextView
+                        android:id="@+id/b31sEndSleepTimeTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:textColor="@color/white" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="睡眠质量"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+
+                <android.support.v7.widget.AppCompatRatingBar
+                    android:id="@+id/b31sPercisionSleepQualityRatingBar"
+                    style="@style/CusHRVRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:progressBackgroundTint="#e2e2e2"
+                    android:progressTint="#ffc600"
+                    android:secondaryProgressTint="#ffc600"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/siBackImg11"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/siBackImg11"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/fgm_fitness_arrow_left"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/sleepLengthConLin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1">
+
+
+                    <LinearLayout
+                        android:id="@+id/sleepLengthLin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent">
+
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_sleep_length_img"
+                            android:padding="3dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:gravity="center"
+                                android:layout_height="wrap_content">
+
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_margin="2dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/sleep_day_list_sleeptime" />
+                            </LinearLayout>
+
+
+
+
+                            <TextView
+                                android:id="@+id/b31sSleepLengthResultTv"
+                                style="@style/B31STvStyle"
+                                android:text="--" />
+
+
+                        </FrameLayout>
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/b31sSleepLengthTv"
+                        style="@style/B31STvDescStyle"
+                        android:text="睡眠时长"
+                        app:layout_constraintLeft_toRightOf="@+id/sleepLengthLin"
+                        tools:ignore="MissingConstraints" />
+
+
+                    <TextView
+                        android:id="@+id/b31sDetailAllSleepTv"
+                        style="@style/B31STvDescStyle"
+                        android:layout_marginTop="20dp"
+                        android:text="0h0m"
+                        app:layout_constraintLeft_toRightOf="@+id/sleepLengthLin"
+                        app:layout_constraintTop_toBottomOf="@+id/b31sSleepLengthTv" />
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/sleep_day_mid_info"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/chang_white" />
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/sleepAwakeConLin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1">
+
+
+                    <LinearLayout
+                        android:id="@+id/sleepAwakeLin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent">
+
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_b31s_awake_backgrount_img"
+                            android:padding="3dp">
+
+
+                            <TextView
+                                android:id="@+id/b31sAwawkPercentTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="0%"
+                                android:textSize="16sp"
+                                android:textColor="@color/white" />
+
+
+                            <TextView
+                                android:id="@+id/b31sSleepAwakeResultTv"
+                                style="@style/B31STvStyle"
+                                android:text="--" />
+
+
+                        </FrameLayout>
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/b31sSleepAwakeTv"
+                        style="@style/B31STvDescStyle"
+                        android:text="苏醒"
+                        app:layout_constraintLeft_toRightOf="@+id/sleepAwakeLin"
+                        tools:ignore="MissingConstraints" />
+
+
+                    <TextView
+                        android:id="@+id/b31sDetailAwakeTimesTv"
+                        style="@style/B31STvDescStyle"
+                        android:layout_marginTop="20dp"
+                        android:text="0h0m"
+                        app:layout_constraintLeft_toRightOf="@+id/sleepAwakeLin"
+                        app:layout_constraintTop_toBottomOf="@+id/b31sSleepAwakeTv" />
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/sleep_day_mid_info"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/sleepInsomniaConLin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1">
+
+
+                    <LinearLayout
+                        android:id="@+id/sleepInsomniaLin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent">
+
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_b31s_sleep_insomnia_backgrount_img"
+                            android:padding="3dp">
+
+
+                            <TextView
+                                android:id="@+id/b31sSleepInsomniaPercentTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="0%"
+                                android:textSize="16sp"
+                                android:textColor="@color/white" />
+
+
+                            <TextView
+                                android:id="@+id/b31sSleepInsomniaResultTv"
+                                style="@style/B31STvStyle"
+                                android:text="--" />
+
+
+                        </FrameLayout>
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/b31sSleepInsomniaTv"
+                        style="@style/B31STvDescStyle"
+                        android:text="失眠"
+                        app:layout_constraintLeft_toRightOf="@+id/sleepInsomniaLin"
+                        tools:ignore="MissingConstraints" />
+
+
+                    <TextView
+                        android:id="@+id/detailInsomniaSleepTv"
+                        style="@style/B31STvDescStyle"
+                        android:layout_marginTop="20dp"
+                        android:text="0h0m"
+                        app:layout_constraintLeft_toRightOf="@+id/sleepInsomniaLin"
+                        app:layout_constraintTop_toBottomOf="@+id/b31sSleepInsomniaTv" />
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/sleep_day_mid_info"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/chang_white" />
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/sleepEayConLin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1">
+
+
+                    <LinearLayout
+                        android:id="@+id/sleepEayLin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent">
+
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_b31s_sleep_eye_backgrount_img"
+                            android:padding="3dp">
+
+                            <TextView
+                                android:id="@+id/b31sSleepEayPercentTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:textColor="@color/white" />
+
+
+                            <TextView
+                                android:id="@+id/b31sSleepEayResultTv"
+                                style="@style/B31STvStyle"
+                                android:text="--" />
+
+                        </FrameLayout>
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/b31sSleepEayTv"
+                        style="@style/B31STvDescStyle"
+                        android:text="快速眼动"
+                        app:layout_constraintLeft_toRightOf="@+id/sleepEayLin"
+                        tools:ignore="MissingConstraints" />
+
+
+                    <TextView
+                        android:id="@+id/detailAwakeHeightTv"
+                        style="@style/B31STvDescStyle"
+                        android:layout_marginTop="20dp"
+                        android:text="0h0m"
+                        app:layout_constraintLeft_toRightOf="@+id/sleepEayLin"
+                        app:layout_constraintTop_toBottomOf="@+id/b31sSleepEayTv" />
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/sleep_day_mid_info"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/sleepDeepConLin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1">
+
+
+                    <LinearLayout
+                        android:id="@+id/sleepDeepLin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent">
+
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_b31s_sleep_insomnia_backgrount_img"
+                            android:padding="3dp">
+
+
+                            <TextView
+                                android:id="@+id/b31sSleepDeepPercentTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="0%"
+                                android:textSize="16sp"
+                                android:textColor="@color/white" />
+
+
+                            <TextView
+                                android:id="@+id/b31sSleepDeepResultTv"
+                                style="@style/B31STvStyle"
+                                android:text="--" />
+
+
+                        </FrameLayout>
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/b31sSleepDeepTv"
+                        style="@style/B31STvDescStyle"
+                        android:text="深度睡眠"
+                        app:layout_constraintLeft_toRightOf="@+id/sleepDeepLin"
+                        tools:ignore="MissingConstraints" />
+
+
+                    <TextView
+                        android:id="@+id/b31sDetailDeepTv"
+                        style="@style/B31STvDescStyle"
+                        android:layout_marginTop="20dp"
+                        android:text="0h0m"
+                        app:layout_constraintLeft_toRightOf="@+id/sleepDeepLin"
+                        app:layout_constraintTop_toBottomOf="@+id/b31sSleepDeepTv" />
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/sleep_day_mid_info"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/chang_white" />
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/sleepLowConLin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1">
+
+
+                    <LinearLayout
+                        android:id="@+id/sleepLowLin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent">
+
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_b31s_deep_sleep_backgrount_img"
+                            android:padding="3dp">
+
+
+                            <TextView
+                                android:id="@+id/b31sSleepLowPercentTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="42%"
+                                android:textSize="15sp"
+                                android:textColor="@color/white" />
+
+
+                            <TextView
+                                android:id="@+id/b31sSleepLowResultTv"
+                                style="@style/B31STvStyle"
+                                android:text="正常" />
+
+
+                        </FrameLayout>
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/b31sSleepLowTv"
+                        style="@style/B31STvDescStyle"
+                        android:text="浅度睡眠"
+                        app:layout_constraintLeft_toRightOf="@+id/sleepLowLin"
+                        tools:ignore="MissingConstraints" />
+
+
+                    <TextView
+                        android:id="@+id/b31sDetailHightSleepTv"
+                        style="@style/B31STvDescStyle"
+                        android:layout_marginTop="20dp"
+                        android:text="0h0m"
+                        app:layout_constraintLeft_toRightOf="@+id/sleepLowLin"
+                        app:layout_constraintTop_toBottomOf="@+id/b31sSleepLowTv" />
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/sleep_day_mid_info"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/chang_white" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp">
+
+
+                    <ImageView
+                        android:id="@+id/imgg11"
+                        android:layout_width="@dimen/size_35"
+                        android:layout_height="@dimen/size_35"
+                        android:background="@drawable/sleep_day_list_awake"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/b31sAwakeNumbersTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="0次"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgg11" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="苏醒次数"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/b31sAwakeNumbersTv" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/chang_white" />
+
+                <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp">
+
+
+                    <ImageView
+                        android:id="@+id/imgg22"
+                        android:layout_width="@dimen/size_35"
+                        android:layout_height="@dimen/size_35"
+                        android:background="@drawable/sleep_day_list_fallasleep"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/b31sSleepInEfficiencyScoreTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="0次"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgg22" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="入睡效率"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/b31sSleepInEfficiencyScoreTv" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/chang_white" />
+
+
+                <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp">
+
+
+                    <ImageView
+                        android:id="@+id/imgg33"
+                        android:layout_width="@dimen/size_35"
+                        android:layout_height="@dimen/size_35"
+                        android:background="@drawable/sleep_day_list_awake"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/b31sSleepEffectivenessTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="0次"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgg33" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="睡眠效率"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/b31sSleepEffectivenessTv" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/chang_white" />
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

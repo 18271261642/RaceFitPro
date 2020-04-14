@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/comment_b30_title_layout"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="#FF8E0D"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/bloadCurrDateLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/size_10"
+                android:src="@drawable/arrow_white_left"/>
+
+            <TextView
+                android:id="@+id/bloadCurrDateTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_16" />
+
+            <ImageView
+                android:id="@+id/bloadCurrDateRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/size_10"
+                android:src="@drawable/arrow_white_right"/>
+        </LinearLayout>
+
+
+
+
+        <com.example.bozhilun.android.b30.b30view.CusB30CusBloadView
+            android:id="@+id/cusB30BpView"
+            android:layout_width="match_parent"
+            android:background="#FF8E0D"
+            android:layout_height="150dp" />
+
+
+
+
+        <com.example.bozhilun.android.b30.b30view.B30CusBloadView
+            app:highPointColor="@color/white"
+            app:lowPointColor="@color/white"
+            app:timeColor="@color/white"
+            app:linPaintColor="@color/white"
+            android:visibility="gone"
+            android:id="@+id/b30DetailBloadView"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/size_140" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bpDetailLin1"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/size_5"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_width="@dimen/size_25"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/history_bp_highest"
+            android:layout_height="@dimen/size_25" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/string_min_blood_pressure"
+                android:textSize="@dimen/sp_14"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:id="@+id/b30DetailLowestBloadTv"
+                android:layout_width="wrap_content"
+                android:text="--"
+                android:textSize="@dimen/sp_14"
+                android:textColor="#1C1C1C"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:layout_width="@dimen/size_25"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/history_bp_lowest"
+            android:layout_height="@dimen/size_25" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/string_max_blood_pressure"
+                android:textSize="@dimen/sp_14"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:id="@+id/b30DetailHeightBloadTv"
+                android:layout_width="wrap_content"
+                android:text="--"
+                android:textColor="#1C1C1C"
+                android:textSize="@dimen/sp_14"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bpDetailLin2"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/size_5"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_width="@dimen/size_25"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/history_bp_clock1"
+            android:layout_height="@dimen/size_25" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/string_get_time"
+                android:textSize="@dimen/sp_14"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:id="@+id/b30DetailLowestBloadDateTv"
+                android:layout_width="wrap_content"
+                android:text="--"
+                android:textSize="@dimen/sp_14"
+                android:textColor="#1C1C1C"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:layout_width="@dimen/size_25"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:src="@drawable/history_bp_clock2"
+            android:layout_height="@dimen/size_25" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/string_get_time"
+                android:textSize="@dimen/sp_14"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:id="@+id/b30DetailHeightBloadDateTv"
+                android:layout_width="wrap_content"
+                android:text="--"
+                android:textColor="#1C1C1C"
+                android:textSize="@dimen/sp_14"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:textSize="@dimen/sp_16"
+        android:text="@string/bloodpressure"
+        android:textColor="#1C1C1C"
+        android:layout_marginLeft="@dimen/size_10"
+        android:padding="@dimen/size_3"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_1"
+        android:layout_marginLeft="@dimen/size_15"
+        android:background="@color/chang_white"/>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/b30DetailBloadRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>

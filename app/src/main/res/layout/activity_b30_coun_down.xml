@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <include layout="@layout/comment_b30_title_layout"/>
+
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/startCounDownBtn"
+            android:layout_width="match_parent"
+            android:visibility="visible"
+            android:background="@drawable/blue_btn_selector"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/showCounDownTv"
+            android:layout_width="match_parent"
+            android:text=""
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textSize="30sp"
+            android:layout_height="wrap_content" />
+
+
+    </FrameLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/chang_white"
+        android:layout_height="1dp"/>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            style="@style/B30DeviceStyle"
+            android:text="@string/show_on_screen" />
+
+
+        <ToggleButton
+            android:id="@+id/showScreentViewTogg"
+            android:layout_width="70dp"
+            android:background="@drawable/toggle_select"
+            android:textOn="@null"
+            android:layout_toLeftOf="@+id/bs1img"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            android:textOff="@null"
+            android:layout_height="40dp" />
+
+
+
+        <ImageView
+            android:id="@+id/bs1img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/fgm_fitness_arrow_left" />
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/chang_white"
+        android:layout_height="1dp"/>
+
+
+    <RelativeLayout
+        android:id="@+id/oftenDateRel"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            style="@style/B30DeviceStyle"
+            android:text="@string/common_time" />
+
+
+        <TextView
+            android:id="@+id/oftenDateTv"
+            android:layout_width="wrap_content"
+            android:text="00:00:00"
+            android:textSize="18sp"
+            android:layout_toLeftOf="@+id/bs2img"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            android:layout_height="wrap_content" />
+
+
+
+        <ImageView
+            android:id="@+id/bs2img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/fgm_fitness_arrow_left" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/chang_white"
+        android:layout_height="1dp"/>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="@string/count_douwn_desc"
+        android:textSize="17sp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:lineSpacingExtra="3dp"
+        android:layout_height="wrap_content" />
+
+
+
+</LinearLayout>

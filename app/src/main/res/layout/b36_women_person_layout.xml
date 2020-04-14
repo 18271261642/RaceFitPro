@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+
+    <include layout="@layout/appbar_toolbar"/>
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_height="match_parent">
+
+       <TextView
+           android:layout_width="match_parent"
+           android:text="@string/b36_choose_status"
+           android:padding="5dp"
+           android:layout_marginTop="25dp"
+           android:textSize="18sp"
+           android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/chang_white"/>
+
+
+
+        <RelativeLayout
+            android:id="@+id/b36JinQiRel"
+            style="@style/B30DeviceRelStyle"
+            android:background="@drawable/square_white_btn_change">
+
+            <ImageView
+                android:id="@+id/womenStatusImg1"
+                android:layout_width="@dimen/size_30"
+                android:layout_height="@dimen/size_30"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/size_10"
+                android:background="@drawable/ic_b36_jingqi_unmenes" />
+
+
+            <TextView
+                style="@style/B30DeviceStyle"
+                android:layout_toRightOf="@+id/womenStatusImg1"
+                android:text="@string/b36_record_menstruation" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/fgm_fitness_arrow_left" />
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/chang_white"/>
+
+
+        <RelativeLayout
+            android:id="@+id/b36ReadyRel"
+            style="@style/B30DeviceRelStyle"
+            android:background="@drawable/square_white_btn_change">
+
+            <ImageView
+                android:id="@+id/womenStatusImg2"
+                android:layout_width="@dimen/size_30"
+                android:layout_height="@dimen/size_30"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/size_10"
+                android:background="@drawable/ic_b36_ready_unselect" />
+
+
+            <TextView
+                style="@style/B30DeviceStyle"
+                android:layout_toRightOf="@+id/womenStatusImg2"
+                android:text="@string/b36_pre_for_pre" />
+
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/fgm_fitness_arrow_left" />
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/chang_white"/>
+
+
+        <RelativeLayout
+            android:id="@+id/b36PreRel"
+            style="@style/B30DeviceRelStyle"
+            android:background="@drawable/square_white_btn_change">
+
+            <ImageView
+                android:id="@+id/womenStatusImg3"
+                android:layout_width="@dimen/size_30"
+                android:layout_height="@dimen/size_30"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/size_10"
+                android:background="@drawable/ic_b36_preing_unselect" />
+
+
+            <TextView
+                style="@style/B30DeviceStyle"
+                android:layout_toRightOf="@+id/womenStatusImg3"
+                android:text="@string/b36_pregnancy" />
+
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/fgm_fitness_arrow_left" />
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/chang_white"/>
+
+
+        <RelativeLayout
+            android:id="@+id/b36BabyRel"
+            style="@style/B30DeviceRelStyle"
+            android:background="@drawable/square_white_btn_change">
+
+            <ImageView
+                android:id="@+id/womenStatusImg4"
+                android:layout_width="@dimen/size_30"
+                android:layout_height="@dimen/size_30"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/size_10"
+                android:background="@drawable/ic_b36_baby_unselect" />
+
+
+            <TextView
+                style="@style/B30DeviceStyle"
+                android:layout_toRightOf="@+id/womenStatusImg4"
+                android:text="@string/b36_monther" />
+
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/fgm_fitness_arrow_left" />
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/chang_white"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

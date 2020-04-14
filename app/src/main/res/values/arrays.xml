@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="titles">
+        <item>@string/data_report_day</item>
+        <item>@string/data_report_week</item>
+        <item>@string/data_report_month</item>
+    </string-array>
+
+    <string-array name="WeekItems">
+        <item>@string/sunday</item>
+        <item>@string/saturday</item>
+        <item>@string/friday</item>
+        <item>@string/thursday</item>
+        <item>@string/wednesday</item>
+        <item>@string/tuesday</item>
+        <item>@string/monday</item>
+    </string-array>
+
+
+    <!--
+      <string name="monday">周一</string>
+    <string name="tuesday">周二</string>
+    <string name="wednesday">周三</string>
+    <string name="thursday">周四</string>
+    <string name="friday">周五</string>
+    <string name="saturday">周六</string>
+    <string name="sunday">周日</string>
+    -->
+    <string-array name="B15PWeekItems">
+        <item>@string/sunday</item>
+        <item>@string/monday</item>
+        <item>@string/tuesday</item>
+        <item>@string/wednesday</item>
+        <item>@string/thursday</item>
+        <item>@string/friday</item>
+        <item>@string/saturday</item>
+    </string-array>
+
+
+    <declare-styleable name="DigitalView">
+        <attr name="digiColor" format="color"/>
+        <attr name="digiTextSize" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="DigitalGroupView">
+
+        <attr name="digiGroupColor" format="color"/>
+        <attr name="digiGroupTextSize" format="dimension"/>
+        <attr name="digiGroupFigureCounts" format="integer"/>
+        <attr name="digiGroupInterval" format="dimension"/>
+    </declare-styleable>
+
+    <string-array name="color">
+        <item>#F44336</item>
+        <item>#E91E63</item>
+        <item>#9C2780</item>
+        <item>#673AB7</item>
+        <item>#3F51B5</item>
+        <item>#03A9F4</item>
+        <item>#00BCD4</item>
+        <item>#0096BB</item>
+        <item>#FFEB3B</item>
+        <item>#FF5722</item>
+        <item>#795548</item>
+        <item>#9E9E9E</item>
+        <item>#607D8B</item>
+    </string-array>
+</resources>

@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.bozhilun.android">
+
+    <!-- com.example.bozhilun.android -->
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="false" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission
+        android:name="android.permission.CHANGE_CONFIGURATION"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <!-- 日历 -->
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission
+        android:name="android.permission.BIND_ACCESSIBILITY_SERVICE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission
+        android:name="android.permission.WRITE_APN_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- 通话权限(危险权限) -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ADD_VOICEMAIL" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+
+    <!-- <uses-permission android:name="android.permission.WRITE_CALL_LOG" /> -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_MMS" />
+    <uses-permission
+        android:name="android.permission.SET_DEBUG_APP"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.USE_SIP" />
+    <!-- <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" /> -->
+    <!-- 短信权限（危险权限） -->
+
+
+    <!-- <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH" /> -->
+
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_CELL_BROADCASTS" />
+    <uses-permission
+        android:name="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <!-- 联系人权限(危险权限) -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+
+    <!-- 相机权限（危险权限） -->
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" /> <!-- 闪光灯 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <!-- android:debuggable="false" -->
+    <!-- android:debuggable="true" -->
+  <!--  tools:replace="label,android:appComponentFactory"
+    android:appComponentFactory="RaceFitPro"-->
+
+    <application
+        android:name=".MyApp"
+        android:allowBackup="true"
+        android:allowClearUserData="true"
+        android:debuggable="false"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/beraceiocn"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:supportsRtl="true"
+        android:theme="@style/BAppTheme"
+        android:vmSafeMode="true"
+        tools:ignore="HardcodedDebugMode">
+
+
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+
+        <!-- android:theme="@style/AppTheme.NoActionBar" -->
+
+
+        <!--高德地图-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="${mapGaodeApiKey}" />
+        <meta-data
+            android:name="design_width"
+            android:value="768" />
+        <meta-data
+            android:name="design_height"
+            android:value="1280" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+
+        <!--阿里云推送-->
+        <meta-data android:name="com.alibaba.app.appkey" android:value="28267270"/> <!-- 请填写你自己的- appKey -->
+        <meta-data android:name="com.alibaba.app.appsecret" android:value="7d16ad0b2fe3ba10658ccf9172a5e1e5"/> <!-- 请填写你自己的appSecret -->
+
+
+
+        <!-- 最新 -->
+        <activity
+            android:name=".bzlmaps.googlemaps.BzlGoogleMapsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <service
+            android:name=".bzlmaps.googlemaps.FetchAddressIntentService"
+            android:exported="false" />
+
+
+
+        <activity
+            android:name=".bzlmaps.gaodemaps.BzlGaoDeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- 高德地图定位服务 -->
+        <service android:name="com.amap.api.location.APSService" />
+
+        <!-- 新的引导页和欢迎页 -->
+        <activity
+            android:name=".activity.LaunchActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|navigation|keyboard"
+            android:theme="@style/BAppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- y运动历史 -->
+        <activity
+            android:name=".b30.GPSSportHisyory"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <activity
+            android:name=".activity.HelpActivity"
+            android:theme="@style/BAppTheme" />
+        <!-- 忘记密码 -->
+        <activity
+            android:name=".activity.ForgetPasswardActivity"
+            android:theme="@style/BAppTheme" />
+        <!-- 地图类 -->
+        <activity
+            android:name=".activity.wylactivity.OutdoorCyclingActivityStar"
+            android:theme="@style/BAppTheme" />
+        <!-- 记录运动数据界面 -->
+        <activity
+            android:name=".activity.wylactivity.SportsHistoryActivity"
+            android:theme="@style/BAppTheme" />
+        <!-- 地图轨迹展示 -->
+        <activity
+            android:name=".activity.wylactivity.MapRecordActivity"
+            android:theme="@style/BAppTheme" />
+
+        <activity
+            android:name=".activity.NewLoginActivity"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!--图片裁剪-->
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Base" />
+
+        <!--
+        如果您的项目集微信或者微信朋友圈，请查看AndroidManifest.xml配置文件里的package路径,
+        需要在package目录下创建wxapi目录再放置WXEntryActivity。
+         没有此activity在微信分享后回调会检查是否有此activity,没有将会报错。
+        -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:theme="@style/BAppTheme" />
+        <!-- 而如果您的项目集易信的两个平台，请查看AndroidManifest.xml配置文件里的package路径需要在package目录下创建yxapi目录在放置回调Activity： -->
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+            <!--
+                AuthorizeAdapter表示一个继承自cn.sharesdk.framework.authorize.AuthorizeAdapter
+                的类，这个类可以监听到页面的生命周期，也可以获取授权页面的各种UI控件。
+                开发者可以通过继承AuthorizeAdapter，重写其方法，并获取各种UI来自定义这个页面的行为。
+            -->
+            <meta-data
+                android:name="AuthorizeAdapter"
+                android:value="${applicationId}.adpter.MyAdapter" />
+
+            <!--
+               QZoneWebShareAdapter表示一个继承自cn.sharesdk.tencent.qzone.QZoneWebShareAdapter
+               的类，这个类可以监听到页面的生命周期，也可以获QQ空间网页分享权页面的各种UI控件。
+               开发者可以通过继承QZoneWebShareAdapter，重写其方法，并获取各种UI来自定义这个页面的行为。
+           <meta-data android:name="QZoneWebShareAdapter" android:value="cn.sharesdk.demo.MyQZoneWebShareAdapter" />
+           <meta-data android:name="QQWebShareAdapter" android:value="cn.sharesdk.demo.MyQQWebShareAdapter" />
+            -->
+
+
+            <!--
+                Dropbox的SSO功能需要在此处添加一个对ACTION_VIEW事件的过滤器，其中的scheme是
+                “db-”前缀再开发者应用的加上appKey。如果此过滤器不设置，则不能完成SSO功能授权
+            -->
+            <intent-filter>
+                <data android:scheme="db-7janx53ilz11gbs" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!--
+          如果集成QQ分享，或者使用QQ客户端来进行QQ空间的分享，须要在此处添加一个对ACTION_VIEW
+          事件的过滤器，其中的scheme是“tencent”前缀再开发者应用的加上appId。如果此过滤器不设置，
+          则分享结束以后不能得到正确的回调
+          ShareSDK3.1.0版本之前才需要在MobUIShell下面注册此意图，3.1.0版本之后（包含3.1.0）不需要注册此intent
+            -->
+
+            <intent-filter>
+                <data android:scheme="tencent100371282" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- 集成line客户端登录授权，需要添如下格式的过滤器 -->
+            <intent-filter>
+                <data android:scheme="line.1477692153" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 填写您从Mob开发者后台中得到的Appkey和AppSecret -->
+        <meta-data
+            android:name="Mob-AppKey"
+            android:value="2516b2da52058" />
+        <meta-data
+            android:name="Mob-AppSecret"
+            android:value="3a2c3bcacf86f85a043e5a3dd6495067" />
+
+
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="59eea72f07fe6503d8000020" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="yyb" />
+
+        <!-- 注册 -->
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:theme="@style/BAppTheme" />
+        <!-- 注册详细信息 -->
+        <activity
+            android:name=".activity.PersonDataActivity"
+            android:theme="@style/BAppTheme" />
+        <!-- 个人信息 -->
+        <activity
+            android:name=".activity.MyPersonalActivity"
+            android:launchMode="standard"
+            android:theme="@style/BAppTheme" />
+        <!-- 信息修改 -->
+        <activity
+            android:name=".activity.ModifyNickNameActivity"
+            android:theme="@style/BAppTheme" />
+        <!-- 修改密码 -->
+        <activity
+            android:name=".activity.ModifyPasswordActivity"
+            android:theme="@style/BAppTheme" />
+        <!-- 意见反馈 -->
+        <activity
+            android:name=".activity.FeedbackActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!-- 关于 -->
+        <activity
+            android:name=".activity.AboutActivity"
+            android:theme="@style/BAppTheme" />
+        <!-- 目标设置 -->
+        <!--  -->
+        <activity
+            android:name=".imagepicker.TempActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Base" />
+
+        <!-- H8的主界面 -->
+        <activity
+            android:name=".siswatch.h8.H8HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- H8闹钟界面 -->
+        <activity
+            android:name=".siswatch.h8.H8AlarmActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- service -->
+        <service android:name=".siswatch.bleus.H8BleService" />
+
+        <!-- 设备页面 -->
+        <activity
+            android:name=".siswatch.WatchDeviceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 闹钟设置页面 -->
+        <activity
+            android:name=".siswatch.WatchAlarmActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 手机消息提醒页面 -->
+        <activity
+            android:name=".siswatch.WatchMessageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".siswatch.WatchBaseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 操作说明 -->
+        <activity
+            android:name=".siswatch.WatchOperationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 编辑闹钟页面 -->
+        <activity
+            android:name=".siswatch.WatchEditAlarmActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 版本更新的weebView -->
+        <activity
+            android:name=".siswatch.utils.UpdateWebViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 新的搜索页面 -->
+        <activity
+            android:name=".siswatch.NewSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!-- 获取手表时间页面 -->
+        <activity
+            android:name=".siswatch.GetWatchTimeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 搜索帮助 -->
+        <activity
+            android:name=".siswatch.SearchExplainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 记录 -->
+        <activity
+            android:name=".siswatch.record.RecordHistoryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 柱状图记录 -->
+        <activity
+            android:name=".siswatch.data.H8DataLinchartActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 分享页面 -->
+        <activity
+            android:name=".siswatch.H8ShareActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 接收时间变化的广播 -->
+        <receiver android:name=".siswatch.DateChanageReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+
+        <activity
+            android:name=".B18I.b18isystemic.B18ITargetSettingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <!-- 智能提醒设置 -->
+        <activity
+            android:name=".B18I.b18isystemic.B18IIntelligentReminderActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <!-- 通知 -->
+        <activity
+            android:name=".B18I.b18isystemic.B18ISettingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- H9 设备界面 -->
+        <activity
+            android:name=".h9.settingactivity.H9SettingsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- H9 消息提醒开关界面 -->
+        <activity
+            android:name=".h9.settingactivity.H9ReminderActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- H9 开关设置界面 -->
+        <activity
+            android:name=".h9.settingactivity.H9SwitchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- H9 闹钟编辑界面 -->
+        <activity
+            android:name=".h9.settingactivity.EditAddAlarmActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- h9  闹钟界面 -->
+        <activity
+            android:name=".h9.settingactivity.H9AlarmClockActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- 震动 -->
+        <activity
+            android:name=".B18I.b18isystemic.ShockActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- 久坐提醒 -->
+        <activity
+            android:name=".B18I.b18isystemic.SedentaryReminder"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- 预设睡眠 -->
+        <activity
+            android:name=".B18I.b18isystemic.SleepGoalActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- 个人资料 -->
+        <activity
+            android:name=".B18I.b18isystemic.MinePersonDataActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 分享跳转 -->
+        <activity
+            android:name=".h9.settingactivity.SharePosterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+
+
+        <!-- 设置 -->
+        <activity
+            android:name=".B18I.b18isystemic.B18IAppSettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 心率数据历史 -->
+        <activity
+            android:name=".h9.settingactivity.H9HearteDataActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 心率测试 -->
+        <activity
+            android:name=".h9.settingactivity.H9HearteTestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 心率 -->
+        <activity
+            android:name=".B18I.b18isystemic.HeartRateActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 关于 -->
+        <activity
+            android:name=".B18I.b18isystemic.SettingAboutActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- H9手表页面 -->
+        <activity
+            android:name=".h9.H9HomeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <!-- H9手表蓝牙服务 -->
+        <service android:name="com.sdk.bluetooth.manage.BluetoothService" />
+        <!-- H9手表血压 -->
+        <activity
+            android:name=".h9.settingactivity.BloodPressureActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <!-- H9手表单位 -->
+        <activity
+            android:name=".h9.settingactivity.IsUnitActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- H9手表校针 -->
+        <activity
+            android:name=".h9.settingactivity.CorrectionTimeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <!-- H9手表校针指南 -->
+        <activity
+            android:name=".h9.settingactivity.H9GuideActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <!-- 心率历史页面 -->
+        <activity
+            android:name=".h9.H9HeartHistoryListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".h9.utils.Device_Time_Activity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!-- W30S  手表 主界面HOME -->
+        <activity
+            android:name=".w30s.W30SHomeActivity"
+            android:configChanges="keyboard"
+            android:hardwareAccelerated="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+
+        <!-- W30S  手表 添加朋友界面 -->
+        <activity
+            android:name=".friend.AddNewFriendActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  手表 朋友   我的二维码展示 -->
+        <activity
+            android:name=".friend.ErCodeActity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  手表 朋友列表 -->
+        <activity
+            android:name=".friend.FriendActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- 赞我的好友 -->
+        <activity
+            android:name=".friend.FrendLoveMineActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- 朋友隐私设置 -->
+        <activity
+            android:name=".friend.FrendSettingActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  手表 新的朋友请求界面 -->
+        <activity
+            android:name=".friend.FriendApplyActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  手表朋友数据界面 -->
+        <activity
+            android:name=".friend.FrendDataActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- &lt;!&ndash; W30S  手表朋友步数数据界面 &ndash;&gt; -->
+        <activity
+            android:name=".friend.FrendStepActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- &lt;!&ndash; W30S  手表朋友睡眠数据界面 &ndash;&gt; -->
+        <activity
+            android:name=".friend.FrendSleepActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  手表朋友心率数据界面 -->
+        <activity
+            android:name=".friend.FrendHeartActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <!-- 手表朋友血压数据界面 -->
+        <activity
+            android:name=".friend.FrendBpActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  手表朋友周月年数据界面 -->
+
+
+        <!-- W30S  手表 更多提醒界面 -->
+        <activity
+            android:name=".w30s.activity.MoreShockActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <!-- B15P  手表 更多提醒界面 -->
+        <activity
+            android:name=".b15p.activity.B15PMoreShockActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  手表 更多提醒详细界面 -->
+        <activity
+            android:name=".w30s.activity.ShockDetailedActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- B15P  就做和喝水 -->
+        <activity
+            android:name=".b15p.activity.B15PShockDetailedActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  手表 更多提醒详细界面 -->
+        <activity
+            android:name=".w30s.activity.W30SReminderActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+
+        <!-- W30S  手表 闹钟界面 -->
+        <activity
+            android:name=".w30s.activity.W30SAlarmClockActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  手表 闹钟新建与修改界面 -->
+        <activity
+            android:name=".w30s.activity.W30STimePicker"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  手表 管理界面 -->
+        <activity
+            android:name=".w30s.activity.W30SSettingActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  手表 拍照界面 -->
+        <activity
+            android:name=".w30s.carema.W30sCameraActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  手表 拍照界面 -->
+        <activity
+            android:name=".w30s.carema.PreviewActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  手表 相册 -->
+        <activity
+            android:name=".w30s.activity.W30sAlbumActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  手表 相册,显示相片 -->
+        <activity
+            android:name=".w30s.activity.ShowAlbumActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  运动历史 -->
+        <activity
+            android:name=".w30s.activity.StepHistoryDataActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  睡眠历史 -->
+        <activity
+            android:name=".w30s.activity.SleepHistoryActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- W30S  当天心率 -->
+        <activity
+            android:name=".w30s.activity.W30SHearteDataActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <activity
+            android:name=".w30s.ota.NewW30sFirmwareUpgrade"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <service android:name=".w30s.ota.W30SDfuService" />
+
+        <!-- OTA 升级 -->
+        <activity
+            android:name=".w30s.ota.W30OTAActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+        <!-- 隐私介绍 -->
+        <activity
+            android:name=".view.PrivacyActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- B30界面 -->
+        <activity
+            android:name=".b30.B30HomeActivity"
+            android:configChanges="keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+
+        <!-- 步数详情页面 -->
+        <activity
+            android:name=".b30.B30StepDetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- b15p 步数详情页面 -->
+        <activity
+            android:name=".b15p.activity.B15PStepDetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- 心率详情界面 -->
+        <activity
+            android:name=".b30.B30HeartDetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- b15p 心率详情界面 -->
+        <activity
+            android:name=".b15p.activity.B15PHeartDetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- 血压详情界面 -->
+        <activity
+            android:name=".b30.B30BloadDetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- 手动测量心率界面 -->
+        <activity
+            android:name=".b30.ManualMeaureHeartActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- 设备界面 -->
+        <activity
+            android:name=".b30.B30DeviceActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- 测量血压界面 -->
+        <activity
+            android:name=".b30.ManualMeaureBloadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- b15p 测量血压界面 -->
+        <activity
+            android:name=".b15p.activity.B15PManualMeaureBloadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- 消息提醒界面 -->
+        <activity
+            android:name=".b30.B30MessAlertActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- B15P消息提醒界面 -->
+        <activity
+            android:name=".b15p.activity.B15PMessAlertActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- 转腕亮品设置页面 -->
+        <activity
+            android:name=".b30.B30TrunWristSetActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- 开关设置 -->
+        <activity
+            android:name=".b30.B30SwitchSetActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- 久坐提醒设置 -->
+        <activity
+            android:name=".b30.B30LongSitSetActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- B15P久坐提醒设置 -->
+        <!-- 界面风格设置 -->
+        <activity
+            android:name=".b30.B30ScreenStyleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- 睡眠详情页面 -->
+        <activity
+            android:name=".b30.B30SleepDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="douyin.callback.action" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- b15P睡眠详情页面 -->
+        <activity
+            android:name=".b15p.activity.B15PSleepDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- 私人血压设置 -->
+        <activity
+            android:name=".b30.PrivateBloadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- 系统设置 -->
+        <activity
+            android:name=".b30.B30SysSettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- 固件升级 -->
+        <activity
+            android:name=".b30.B30DufActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- 重置设备密码 -->
+        <activity
+            android:name=".b30.B30ResetActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- 倒计时 -->
+        <activity
+            android:name=".b30.B30CounDownActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- 注册界面2 -->
+        <activity
+            android:name=".activity.RegisterActivity2"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- B30闹钟界面 -->
+        <activity
+            android:name=".b30.view.B30DeviceAlarmActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- B15P闹钟界面 -->
+        <activity
+            android:name=".b15p.activity.B15PDeviceAlarmActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- B30闹钟界面 -->
+        <activity
+            android:name=".b30.B30SettingAlarmActiivty"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- B15P闹钟界面 -->
+        <activity
+            android:name=".b15p.activity.B15PSettingAlarmActiivty"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- B30手环运动历史记录 -->
+        <activity
+            android:name=".b30.DevicesSportHisyory"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- 微信运动界面 -->
+        <activity
+            android:name=".w30s.wxsport.WXSportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- B36的女性功能个人资料设置 -->
+        <activity
+            android:name=".b30.women.WomenPersonalActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- B36的女性功能详情 -->
+        <activity
+            android:name=".b30.women.WomenDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- B36屏幕亮度设置 -->
+        <activity
+            android:name=".b36.B36LightActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- B36开关设置 -->
+        <activity
+            android:name=".b36.B36SwitchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- B31的主页面 -->
+        <activity
+            android:name=".b31.B31HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- B31的设备页面 -->
+        <activity
+            android:name=".b31.B31DeviceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- B15P 的设备页面 -->
+        <activity
+            android:name=".b15p.activity.B15PDeviceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- B31血氧测试页面 -->
+        <activity
+            android:name=".b31.B31ManSpO2Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- B31呼吸率测量界面 -->
+        <activity
+            android:name=".b31.B31RespiratoryRateActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- 疲劳度测试页面 -->
+        <activity
+            android:name=".b31.B31ManFatigueActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- HRV详细数据页面 -->
+        <activity
+            android:name=".b31.hrv.B31HrvDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- B31的开关设置界面 -->
+        <activity
+            android:name=".b31.B31SwitchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- B15P的开关设置界面 -->
+        <activity
+            android:name=".b15p.activity.B15PSwitchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- B15P 时间和公英制的设置 -->
+        <activity
+            android:name=".b15p.activity.TimesAndUntiSettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- B31血氧详情页面 -->
+        <activity
+            android:name=".b31.bpoxy.B31BpOxyAnysisActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!--展示血氧的详细页面-->
+        <activity
+            android:name=".b31.bpoxy.ShowSpo2DescActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <activity android:name=".b31.hrv.GlossaryActivity" />
+        <activity android:name=".b31.hrv.GlossaryDetailActivity" />
+        <!-- 展示血氧每个图表的详情的页面 -->
+        <activity
+            android:name=".b31.bpoxy.ShowSpo2DetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- 数据界面 -->
+        <activity
+            android:name=".commdbserver.CommentDataActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- B15P  HomeActivity -->
+        <activity
+            android:name=".b15p.B15pHomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- 内部测试界面 -->
+        <activity
+            android:name=".b31.InternalTestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- W30步数详情的界面 -->
+        <activity
+            android:name=".w30s.activity.W30DetailSportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- W30,W31睡醒详细页面 -->
+        <activity
+            android:name=".w30s.activity.W30DetailSleepActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!-- W30,W31心率详情页面 -->
+        <activity
+            android:name=".w30s.activity.W30DetailHeartActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!-- sos -->
+        <activity
+            android:name=".bzlmaps.HellpEditActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <!--消息帮助页面-->
+        <activity android:name=".b31.MessageHelpActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!--查看好友睡眠详细界面-->
+        <activity android:name=".friend.NewFriendSleepActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!--查看好友血压详细数据-->
+        <activity android:name=".friend.NewFriendBpActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!--W30固件升级页面-->
+        <activity android:name=".w30s.ota.NewW30OTAActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!--W31固件升级版本-->
+        <activity android:name=".w30s.ota.NewW31OTAActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!--消息通知获取页面-->
+        <activity android:name=".siswatch.mine.NotiMsgFragment"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!--W37的内部测试页面-->
+        <activity android:name=".w30s.activity.W37IntelDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!--W37的主页面-->
+        <activity android:name=".w30s.ble.W37HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!--查看申请的好友和已经申请的记录-->
+        <activity android:name=".friend.NewFriendApplyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!--W37血压详细页面-->
+        <activity android:name=".w30s.ble.W37BloodDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!--W37固件升级页面-->
+        <activity android:name=".w30s.ota.NewW37OTAActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!--B36自定义主题的页面-->
+        <activity android:name=".b36.CustomHomeThemeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+        <!--查看好友详细血氧页面-->
+        <activity android:name=".friend.FriendSpo2DetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!--查看好友HRV页面-->
+        <activity android:name=".friend.FriendHrvDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!--B31S精准睡眠详细页面-->
+        <activity android:name=".b31.B31sPrecisionSleepActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!--B31S精准睡眠描述界面-->
+        <activity android:name=".b31.B31sPercisionSleepDescActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!--获取配对设备的页面-->
+        <activity android:name=".activity.UnPairDeviceActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!--高德运动页面-->
+        <activity android:name=".bzlmaps.gaodemaps.AmapSportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+        <!--记录-->
+        <activity android:name=".bzlmaps.gaodemaps.AmapHistorySportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BAppTheme" />
+
+
+
+       <!--B18-->
+        <activity android:name=".b18.B18HomeActivity"
+            android:screenOrientation="portrait"/>
+        <!--B18设备页面-->
+        <activity android:name=".b18.B18DeviceActivity"
+            android:screenOrientation="portrait"/>
+        <!--B18睡眠详情页面-->
+        <activity android:name=".b18.B18SleepDetailActivity"
+            android:screenOrientation="portrait"/>
+        <!--B18步数详情页面-->
+        <activity android:name=".b18.B18StepDetailActivity"
+            android:screenOrientation="portrait"/>
+        <!--B18内部页面-->
+        <activity android:name=".b18.B18InternalActivity"/>
+        <!--BMI页面-->
+        <activity android:name=".b18.B16BmiManagerActivity"/>
+        <!--注销账号-->
+        <activity android:name=".activity.LogoutActivity"/>
+        <!--权限说明-->
+        <activity android:name=".view.ShowPermissDialogView"
+            />
+        <!--计算BMI-->
+        <activity android:name=".activity.ComputeBMIActivity"/>
+
+
+        <!--XWatch-->
+        <activity android:name=".xwatch.XWatchHomeActivity"/>
+        <!--内部测试页面-->
+        <activity android:name=".xwatch.XWatchIntelActivity"/>
+        <activity android:name=".xwatch.XWatchDeviceActivity"/>
+        <!--好友女性生理期页面-->
+        <activity android:name=".friend.FriendWomenActivity"/>
+        <!--XWatch步数详情-->
+        <activity android:name=".xwatch.fragment.XWatchSportDetailActivity"/>
+        <!--用户协议-->
+        <activity android:name=".view.UserProtocalActivity"/>
+        <!--详情-->
+        <activity android:name=".recommend.BannerDetailActivity"/>
+
+
+
+
+
+
+
+
+        <!--  provider -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider_racefitpro"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
+
+        <!-- ******************** service  *********************  -->
+        <!--维亿魄系列手环的连接server-->
+        <service
+            android:name=".b30.service.B30ConnStateService"
+            android:exported="false"
+            android:persistent="true"/>
+        <!-- 下载的serveir -->
+        <service android:name=".siswatch.utils.DownloadService" />
+        <!--B31读取血氧 和HRV的service-->
+        <service android:name=".b31.bpoxy.ReadHRVAnSpo2DatatService" />
+        <!--维亿魄系统公共的上传汇总数据的service-->
+        <service android:name=".commdbserver.UploadCommDbServices" />
+        <!--上传详细的数据-->
+        <service android:name=".b30.service.FriendsUploadServices"/>
+        <!--W30,W31的详细数据上传-->
+        <service android:name=".commdbserver.detail.UploadW30DetailService"/>
+
+        <!--W37连接状态的service-->
+        <service android:name=".w30s.ble.W37ConnStatusService"/>
+        <!--上传血氧和HRV的service-->
+        <service android:name=".b31.bpoxy.uploadSpo2.UploadSpo2AndHrvService"/>
+        <!-- B18I服务 -->
+        <service android:name="cn.appscomm.bluetooth.service.BluetoothLeServiceNew" />
+        <!-- B18IOTA升级服务 -->
+        <service android:name="cn.appscomm.ota.OtaService" />
+        <!-- /固件升级 -->
+        <service android:name=".activity.wylactivity.wyl_util.service.DfuService" />
+        <service android:name="com.hplus.bluetooth.dfu.DfuService"/>
+        <activity android:name=".b18.fragment.DfuDetailNotificationActivity"/>
+
+        <!-- 消息通知 -->
+        <service
+            android:name=".activity.wylactivity.wyl_util.service.AlertService"
+            android:enabled="true"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+
+
+
+
+
+
+        <!-- 获取电话广播 -->
+        <receiver android:name=".activity.wylactivity.wyl_util.service.PhoneBroadcastReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.PHONE_STATE" />
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+            </intent-filter>
+        </receiver>
+        <!-- SOS电话的广播 -->
+        <!-- This part is inside the application -->
+        <receiver android:name=".bzlmaps.sos.CallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+            </intent-filter>
+        </receiver>
+        <!--发送短信-->
+        <receiver android:name=".bzlmaps.sos.SendSMSBroadCast">
+            <intent-filter>
+                <action android:name="com.example.bozhilun.android.sos.SENDSMS"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".w30s.ble.W37CommBroadCastReceiver">
+            <intent-filter>
+                <action android:name="com.example.bozhilun.android.w30s.ble.find_phone"/>
+            </intent-filter>
+        </receiver>
+
+
+        <!-- 配置广播接收者:（sms短信） -->
+        <receiver android:name=".activity.wylactivity.wyl_util.service.SMSBroadcastReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="android.provider.Telephony.SMS_DELIVER" />
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+
+        <!-- 阿里云推送消息接收监听器 -->
+        <receiver
+            android:name=".push.AliyunBroadCastReceiver"
+            android:exported="false"> <!-- 为保证receiver安全，建议设置不可导出，如需对其他应用开放可通过android：permission进行限制 -->
+            <intent-filter>
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_OPENED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_REMOVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.sdk.android.push.RECEIVE" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".push.MyMessageIntentService"
+            android:exported="false">
+        <intent-filter>
+            <action android:name="com.alibaba.push2.action.NOTIFICATION_OPENED" />
+        </intent-filter>
+        <intent-filter>
+            <action android:name="com.alibaba.push2.action.NOTIFICATION_REMOVED" />
+        </intent-filter>
+        <intent-filter>
+            <action android:name="com.alibaba.sdk.android.push.RECEIVE" />
+        </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

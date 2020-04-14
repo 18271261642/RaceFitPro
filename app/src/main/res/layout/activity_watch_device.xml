@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/appbar_toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/square_white_btn_change"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textColor="#333333"
+                    android:layout_marginLeft="@dimen/size_15"
+                    android:text="@string/psm"
+                    android:textSize="@dimen/text_size_17" />
+
+                <LinearLayout
+                    android:id="@+id/watch_message_jiedianLin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:layout_toLeftOf="@+id/watch_message_jiedianSwitch"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/watch_jiedian_starttimeTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="00:00"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="-"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <TextView
+                        android:id="@+id/watch_jiedian_endtimeTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="3dp"
+                        android:text="00:00"
+                        android:textSize="@dimen/text_size_16" />
+
+                </LinearLayout>
+
+
+
+                <ToggleButton
+                    android:id="@+id/watch_message_jiedianSwitch"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    style="@style/B30MsgToggleStyle"/>
+
+
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/linear_border" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/square_white_btn_change"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/device_img11"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_phone_notif" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="#333333"
+                    android:layout_toEndOf="@+id/device_img11"
+                    android:gravity="center"
+                    android:text="@string/call_reminder"
+                    android:textSize="@dimen/text_size_17" />
+
+
+                <ToggleButton
+                    android:id="@+id/watch_message_callphoneSwitch"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    style="@style/B30MsgToggleStyle"/>
+
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/linear_border" />
+
+
+            <RelativeLayout
+                android:id="@+id/watch_mymsgRel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/square_white_btn_change"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/device_img3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_zhineng" />
+
+
+                <TextView
+                    android:id="@+id/watch_watchmsg_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#333333"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_15"
+                    android:layout_toEndOf="@+id/device_img3"
+                    android:text="@string/string_information_reminder"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_18"
+                    android:src="@mipmap/lanage" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/linear_border" />
+
+
+            <RelativeLayout
+                android:id="@+id/watch_mynaozhongRel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/square_white_btn_change"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/device_img2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_naozhong"
+                    android:visibility="visible" />
+
+
+                <TextView
+                    android:id="@+id/watch_watchnaozhong_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textColor="#333333"
+                    android:layout_marginLeft="@dimen/size_15"
+                    android:layout_toEndOf="@+id/device_img2"
+                    android:text="@string/alarmclock"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_18"
+                    android:src="@mipmap/lanage" />
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/linear_border" />
+
+            <!--目标设置-->
+            <RelativeLayout
+                android:id="@+id/watch_targetRel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/square_white_btn_change"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/device_img7"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_mubiao" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textColor="#333333"
+                    android:layout_marginLeft="@dimen/size_15"
+                    android:layout_toEndOf="@+id/device_img7"
+                    android:text="@string/Targetsetting"
+                    android:textSize="17sp" />
+
+
+                <TextView
+                    android:id="@+id/watchDeviceTagShowTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/i11"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@+id/i11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_18"
+                    android:src="@mipmap/lanage" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/linear_border" />
+
+
+            <RelativeLayout
+                android:id="@+id/watchUnpairRel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/square_white_btn_change"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/device_img00"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_jiebang" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_15"
+                    android:layout_toEndOf="@+id/device_img00"
+                    android:text="@string/unbind"
+                    android:textColor="#333333"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_18"
+                    android:src="@mipmap/lanage" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/linear_border" />
+
+            <RelativeLayout
+                android:id="@+id/watch_mycaozuoRel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/square_white_btn_change"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/device_img4"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/mine_mydevice_operationguide"
+                    android:visibility="visible" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_15"
+                    android:textColor="#333333"
+                    android:layout_toEndOf="@+id/device_img4"
+                    android:text="@string/operation"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_18"
+                    android:src="@mipmap/lanage" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/linear_border" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

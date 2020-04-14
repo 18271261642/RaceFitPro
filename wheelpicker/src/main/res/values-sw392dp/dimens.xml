@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<dimen name="WheelItemTextSize">26.1333sp</dimen>
+	<dimen name="WheelItemSpace">13.0667dp</dimen>
+	<dimen name="WheelIndicatorSize">2.1778dp</dimen>
+</resources>

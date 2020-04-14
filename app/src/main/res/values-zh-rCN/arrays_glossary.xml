@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name= "glossary_breath_item_1">
+		<item>每分钟呼吸次数的医学术语，胸部的一次起伏就是一次呼吸，即一次吸气一次呼气。</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_2">
+		<item>1.呼吸过缓:呼吸节律整齐但频率小于10次</item>
+	</string-array>
+	<string-array name= "glossary_breath_item_3">
+		<item>针对呼吸困难，家中应急措施如下\n1.保持安静，避免患者情绪紧张以防加重呼吸困难。\n\n2.取半卧位或坐位，减少疲劳及耗氧。\n\n3.保持室内空气新鲜，通风流畅。\n\n4.给予清淡饮食，鼓励患者多吃菜及水果以补充体内水份。\n\n5.适当给予化痰、解痉药物如必嗽平，氨茶碱等，以保持呼吸道通畅。\n\n6.病情危重时及时送附近医院抢救。</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_1">
+		<item>呼吸暂停指口鼻气流完全停止大于等于10秒。</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_2">
+		<item>1.鼾声不规则，高低不等，往往是鼾声-气流停止-喘气-鼾声交替出现，一般气流中断的时间为20-30秒，个别长达2分钟以上，此时患者可出现明显的发绀(嘴唇或指甲呈紫色)。\n\n2.夜间翻身、转动较频繁，常导致睡眠质量低，引起白天嗜睡，头晕乏力。</item>
+	</string-array>
+	<string-array name= "glossary_breathbreak_item_3">
+		<item>对于有睡眠呼吸暂停打鼾的患者，除遵医嘱服用药物、手术和通气治疗外，可以通过以下方式治疗或缓解病情\n1.控制体重。肥胖者由于脂肪囤积，在呼吸的过程中腹内压增加，肺功能下降导致低氧。\n\n2.戒烟限酒。吸烟、饮酒可引起血脂代谢异常，动脉硬化，加重上呼吸道阻塞的情况。\n\n3.适量运动。适量运动能够改善心脑血管的供血情况，改善通气功能，加强身体抵抗力，减少鼻咽部疾病的发生率。\n\n4.侧卧睡眠。患者通过采取适当侧卧位睡姿，保持呼吸道通畅。</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_1">
+		<item>心脏负荷指血流灌注指数，反映了脉动血流情况。</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_2">
+		<item>1.pi值较大。\n\n2.心率和血压较高。\n\n3.呼吸急促，常有乏力感。</item>
+	</string-array>
+	<string-array name= "glossary_heart_item_3">
+		<item>1.保证充足的休息，不要过度劳累和熬夜。\n\n2.放松心态，切忌精神紧张。\n\n3.少吃油腻食物。</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_1">
+		<item>生理性氧量不足或组织需氧量不足的状态所持续的时间。</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_2">
+		<item>1.头晕乏力。\n\n2.感到呼吸困难。</item>
+	</string-array>
+	<string-array name= "glossary_lowoxgen_item_3">
+		<item>1.外供氧除直接吸氧外，还包括各种有氧运动，如散步、慢跑、深呼吸、改善吸氧环境等。\n\n2.必要时就医，药物改善。</item>
+	</string-array>
+	<string-array name= "glossary_lowremain">
+		<item>唤醒机制</item>
+	</string-array>
+	<string-array name= "glossary_lowremain_item_1">
+		<item>如果监测到您的夜间血氧值持续过低，可能会影响到您的身体健康，设备会做出报警通知。</item>
+	</string-array>
+	<string-array name= "glossary_osahs">
+		<item>名词解释</item>
+		<item>典型病症</item>
+		<item>治疗方法</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_1">
+		<item>指在连续7小时睡眠中发生30次以上的呼吸暂停或平均每小时低通气次数超过5次，导致血氧下降而引起慢性低氧血症及高碳酸血症的临床综合症。</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_2">
+		<item>白天临床表现:\n1.嗜睡。\n\n2.头晕乏力。\n\n3.精神状态异常、头痛、烦躁、易激动、焦虑等。\n\n4.性功能减退等。</item>
+		<item>夜间的临床表现:\n1.打鼾：鼾声不规则，鼾声-气流停止-喘气-鼾声交替出现。\n\n2.呼吸暂停：随着喘气、憋醒或响亮的鼾声而终止。\n\n3.憋醒：常伴有翻身，四肢不自主运动甚至抽搐或忽然做起，感觉心慌、胸闷或心前区不适。\n\n4.多动不安：夜间翻身、转动较频繁。\n\n5.多汗，夜尿增多。\n\n6.睡眠行为异常：表现为恐惧、惊叫、呓语、夜游、幻听等。\n\n另外，身体肥胖，鼻甲肥大，打鼾等也容易引发呼吸暂停综合症。</item>
+	</string-array>
+	<string-array name= "glossary_osahs_item_3" formatted="false">
+		<item>除遵医嘱服用药物和手术，可以通过以下方式治疗或缓解病情：\n1.控制体重。\n\n2.戒烟限酒。\n\n3.适量运动。\n\n4.侧卧睡眠。</item>
+		<item>手术、药物以及通气治疗:\n1.手术修复上呼吸道的异常区域。\n\n2.药物治疗。\n\n3.夜间低流量吸氧。\n\n4.吸入2%-3%的二氧化碳。\n\n5.经鼻持续正压通气。\n\n6.体外膈肌起搏。\n\n7.机械通气。</item>
+		<item>健康的生活方式和早期的正确诊断是预防和减少睡眠呼吸暂停发生的关键。临床医疗证明，随着睡眠呼吸暂停综合症的好转，心血管等伴随疾病也逐渐好转。治疗时间越久，症状好转越明显。</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_1">
+		<item>血氧指血液中被氧结合的氧合血红蛋白的容量占全部可结合的血红蛋白容量的百分比，即血液中氧的浓度。</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_2">
+		<item>1.心脑血管疾病(冠心病、高血压、高血脂等)。\n\n2.呼吸系统疾病(哮喘、气管炎、肺心病等)。</item>
+	</string-array>
+	<string-array name= "glossary_oxgen_item_3">
+		<item>1.由于疾病出现在血氧较低的患者，除了积极配合治疗原发病外，可以常备测量血氧和吸氧的设备，一旦检测血氧过低，及时补充氧气。\n\n2.除直接吸氧外，还可以进行各种有氧运动，如散步、慢跑、深呼吸、改善吸氧环境等来缓解病情。</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_1">
+		<item>逐次心跳周期差异的变化情况，即RR间期差值的变化。可以反映近期心血管和精神状态。</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_2">
+		<item>1.脉率变异性不活跃，维持在较低水平。\n\n2.常有头晕、头痛、心悸等现象。</item>
+	</string-array>
+	<string-array name= "glossary_ratevarable_item_3">
+		<item>1.保持良好的生活习惯，休息充足。\n\n2.保持心态良好，多进行有氧运动，饮食少盐少油。\n\n3.如长期数值较低，变化范围不大，很可能是某种心血管疾病的前兆，如感到不适，建议及时就医。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_1">
+		<item>答:连续7小时睡眠中发生30次以上的呼吸暂停（没有呼吸，持续10s或10s以上），或者平均每小时低通气次数（呼吸气流量减少或完全停止）超过5次，可认为患有睡眠呼吸暂停综合症。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_2">
+		<item>答:睡眠呼吸暂停综合症是一种慢性病，病发时难以察觉，早期病症不易受重视，一旦呼吸不畅，轻则引起打鼾，重则使肺部缺氧，血氧下降，导致身体得不到休息和恢复，精神状态和身体状况不佳，生活质量明显下降。\n更严重的是呼吸暂停发生时，缺少外界刺激，患者很难清醒，直到身体器官缺氧甚至受损，才猛然惊醒，而患者往往不以为意，长期如此，不断累加的损伤，最终引起各种心脑血管疾病和精神疾病，甚至猝死。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_3">
+		<item>答:大多数是由于上呼吸道阻塞引起的。包括鼻甲肥大、扁桃体肥大、下颌短、颈围粗以及全身肥胖等原因。\n因此睡眠呼吸暂停综合症大多数是阻塞性的，还有一部分是由于呼吸中枢神经受创，呼吸调节功能障碍引起的，称为中枢性，或者两者皆有的混合型。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_4">
+		<item>答:根据是否具有典型的临床症状和体征可以进行简单的判断，但由于其慢性病的特点，缺少监测设备，患者在睡眠中很难感知自己的夜间症状，仅凭家人描述和自我感知，很容易误判，缺乏科学的依据。\n只有病情严重后，病患才意识到要去医院确诊。\n标准方法是多导睡眠监测（PSG），通过以血氧监测为核心，配合心电、脑电、肌电、眼电等多个生理参数，能准确了解病症的类型及程度。此时病情往往已经进入较为严重的阶段，治疗的难度和成本以及病患的不适感都大幅增高，所以越早确诊越好。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_5">
+		<item>答:目前有关中枢性睡眠呼吸暂停综合症的研究较少，除积极治疗引起呼吸调节功能障碍的病症（原发病）外，仍没有较为有效的治疗手段，但中枢性睡眠呼吸暂停综合症往往不会单独存在，因此采用治疗阻塞性睡眠呼吸暂停综合症的方法也具有一定疗效。治疗阻塞性睡眠呼吸暂停综合症，通常需要根据患病的严重程度来选择治疗方案。\n无论采用哪种方法治疗呼吸暂停综合症，其途径无非两种，一是通过检测机制，在呼吸暂停发生时，通过外界刺激将其打断，例如，出现呼吸暂停伴有严重缺氧时，被震醒或推醒，减少呼吸暂停的持续时间，降低或避免对身体器官造成损伤；二是无需检测机制，一直维持治疗状态，避免呼吸暂停的发生。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip_6">
+		<item>答:针对睡眠呼吸暂停综合症患者，血氧监测有以下优点：\n1.在打鼾发展为呼吸暂停阶段，预警提示患病风险。\n\n2.在病症早期，作为诊断依据，及早就医，减少治疗难度，降低治疗成本，增大治愈几率。\n\n3.在治疗阶段，及时监测夜间病情，反馈治疗效果。\n\n4.能够作为检测呼吸暂停的重要依据，配合唤醒手段，监测病症。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_breath_break_tip">
+		<item>1.问:什么是睡眠呼吸暂停综合症?</item>
+		<item>2.问:睡眠呼吸暂停综合症危害大吗？</item>
+		<item>3.问:这种病是怎么引起的？</item>
+		<item>4.问:怎么知道自己是不是睡眠呼吸暂停综合症患者？</item>
+		<item>5.问:怎样治疗睡眠呼吸暂停综合症？</item>
+		<item>6.问:血氧监测对睡眠呼吸暂停综合症有什么用？</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_1">
+		<item>睡眠活动幅度指睡眠过程中无意识的体动。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_2">
+		<item>1.夜间翻身、转动较频繁，多汗。</item>
+	</string-array>
+	<string-array name= "glossary_sleep_item_3">
+		<item>1.注意饮食，睡前可以适量地喝一杯饮品，如牛奶或者小米粥。\n\n2.做一些睡前准备，如热水泡脚，按摩足心涌泉穴等。\n\n3.侧身入睡能有效减少体动。\n\n4.改善睡眠环境（室内湿度、温度)也有一定的帮助。</item>
+	</string-array>
+</resources>

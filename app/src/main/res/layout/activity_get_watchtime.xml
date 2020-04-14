@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/appbar_toolbar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="当前系统时间:"
+        android:textSize="18sp"
+        android:padding="3dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/showSysTimeTv"
+        android:textSize="17sp"
+        android:padding="3dp"
+        android:gravity="center"
+        android:layout_height="wrap_content" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ccc"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="手表返回原始数据:"
+        android:textSize="18sp"
+        android:padding="3dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/showWatchTimeTv"
+        android:textSize="17sp"
+        android:padding="3dp"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ccc"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:text="解析后的时间数据:"
+        android:textSize="18sp"
+        android:padding="3dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/showAnalysisTimeTv"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:text="查找手表"
+        android:id="@+id/searchWatchBtn"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="match_parent"
+        android:text="手表已连接手表会震动提示,小表针指到TEL位置"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

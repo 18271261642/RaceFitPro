@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <include layout="@layout/comment_b30_title_layout"/>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@+id/commB31TitleLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#eeeeee"
+                android:paddingLeft="@dimen/size_10"
+                android:paddingTop="@dimen/size_5"
+                android:paddingBottom="@dimen/size_5"
+                android:text="@string/menu_settings"
+                android:textSize="@dimen/sp_14" />
+
+
+            <RelativeLayout
+                android:id="@+id/xWatchDeviceSportRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img233"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_mubiao" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img233"
+                    android:text="@string/string_steps_target" />
+
+
+                <TextView
+                    android:id="@+id/xWatchDeviceSportGoalTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/ig1"
+                    android:text="10000" />
+
+
+                <ImageView
+                    android:id="@+id/ig1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/xWatchDeviceSleepRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img33"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_shijian" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img33"
+                    android:text="@string/time_forma" />
+
+
+                <TextView
+                    android:id="@+id/xWatchDeviceSleepGoalTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_10"
+                    android:layout_toLeftOf="@+id/ig2"
+                    android:text="24h" />
+
+
+                <ImageView
+                    android:id="@+id/ig2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/b18DeviceUnitRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img45"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_danwei" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img45"
+                    android:text="@string/string_unit_setting" />
+
+
+                <TextView
+                    android:id="@+id/xWatchDeviceUnitTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_10"
+                    android:text="@string/setkm"
+                    android:layout_toLeftOf="@+id/ig3" />
+
+
+                <ImageView
+                    android:id="@+id/ig3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#eeeeee"
+                android:paddingLeft="@dimen/size_10"
+                android:paddingTop="@dimen/size_5"
+                android:paddingBottom="@dimen/size_5"
+                android:text="@string/string_mores"
+                android:textSize="@dimen/sp_14" />
+
+
+            <RelativeLayout
+                android:id="@+id/xWatchDeviceMsgRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img1"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_zhineng" />
+
+
+                <TextView
+                    android:id="@+id/b30MineDeviceTv"
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img1"
+                    android:text="@string/string_information_reminder" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/xWatchDeviceAlarmRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img2"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_naozhong" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img2"
+                    android:text="@string/string_clock_setting" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/xWatchDevicePhotoRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img1311"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_yaoyiyao" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+
+                    android:layout_toRightOf="@+id/img1311"
+                    android:text="遥控拍照" />
+
+
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+            <RelativeLayout
+                android:id="@+id/sWatchFindWatchRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img131"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_find" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img131"
+                    android:text="@string/string_find_watch" />
+
+
+
+                <TextView
+                    android:layout_toLeftOf="@+id/b18oImg"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""/>
+
+
+
+                <ImageView
+                    android:id="@+id/b18oImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/xWatchWxSportRel"
+                style="@style/B30DeviceRelStyle"
+                android:visibility="gone"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img1131"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/ic_wx_sport" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img1131"
+                    android:text="@string/weixinpaizhao" />
+
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+            <RelativeLayout
+                android:id="@+id/xWatchDeviceunBindRel"
+                style="@style/B30DeviceRelStyle"
+                android:background="@drawable/square_white_btn_change">
+
+                <ImageView
+                    android:id="@+id/img23"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/image_w30s_jiebang" />
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img23"
+                    android:text="@string/string_devices_disconnected" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.constraint.ConstraintLayout>

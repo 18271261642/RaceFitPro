@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cusStepViewLin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+
+    <com.example.bozhilun.android.b30.b30view.CusStepDetailView
+        android:id="@+id/xWatchCusStepDView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_180"
+        android:layout_marginTop="10dp"
+        android:background="#F2F2F2"
+        app:cus_steps_empty_color="#5F6364"
+        app:cus_steps_pillar_color="#85D8C5"
+        app:layout_constraintTop_toTopOf="@+id/xWatchChartTopRel" />
+
+
+    <RelativeLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/xWatchChartTopRel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/size_5"
+        android:paddingTop="@dimen/size_5"
+        android:paddingRight="@dimen/size_5">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@mipmap/icon_x_watch_step_ic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/size_10"
+                android:gravity="center"
+                android:text="@string/move_ment"
+                android:textColor="#5F6364"
+                android:textSize="@dimen/sp_15" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/string_max_steps"
+                android:textColor="#5F6364" />
+
+            <TextView
+                android:id="@+id/xWatchSportMaxNumTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#5F6364" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/xWatchCusStepDView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="00:00"
+            android:textColor="#5F6364"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="03:00"
+            android:textColor="#5F6364"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="06:00"
+            android:textColor="#5F6364"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="09:00"
+            android:textColor="#5F6364"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="12:00"
+            android:textColor="#5F6364"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="15:00"
+            android:textColor="#5F6364"
+            android:textSize="@dimen/sp_10" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="18:00"
+            android:textColor="#5F6364"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="21:00"
+            android:textColor="#5F6364"
+            android:textSize="@dimen/sp_10" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="23:59"
+            android:textColor="#5F6364"
+            android:textSize="@dimen/sp_10" />
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
+
+

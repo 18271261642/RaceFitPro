@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+
+    <include
+        layout="@layout/comment_b30_title_layout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commB31TitleLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/b16BmiDateLeftImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:background="@mipmap/icon_b16_data_left" />
+
+
+                <TextView
+                    android:id="@+id/b16BmiDateTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="2020-01-06"
+                    android:textColor="#FA9850"
+                    android:textSize="18sp" />
+
+
+                <ImageView
+                    android:id="@+id/b16BmiDateRightImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:background="@mipmap/icon_b16_data_right" />
+
+
+            </LinearLayout>
+            <include
+                layout="@layout/include_b16_bmi_layout" />
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFF3F3F3"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/icon_bmi_count_bg"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="汇总"
+                        android:padding="5dp"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"/>
+
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="燃脂时间"
+                        android:textSize="17sp"
+                        android:textColor="@color/white"/>
+
+
+                    <TextView
+                        android:id="@+id/b16BmiSportTimeTv"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="100分钟"
+                        android:gravity="center"
+                        android:textSize="17sp"
+                        android:textColor="@color/white"/>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"/>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="燃脂消耗"
+                        android:textSize="17sp"
+                        android:gravity="center"
+                        android:textColor="@color/white"/>
+
+
+                    <TextView
+                        android:id="@+id/b16BmiSportKgTv"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="100克"
+                        android:textSize="17sp"
+                        android:gravity="center"
+                        android:textColor="@color/white"/>
+
+
+                </LinearLayout>
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/b16BmiViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#FFF3F3F3"
+                    android:layout_height="@dimen/size_110"/>
+
+                <LinearLayout
+                    android:id="@+id/b16linPointLin"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_height="10dp"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/icon_bmi_count_bg"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:background="@mipmap/icon_bmi_kcal_img"/>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="运动步频在120以上才能有效消耗脂肪"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F8F8F8"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="#FB3E3E"
+                    android:layout_marginLeft="15dp"
+                    android:text="什么是BMI"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="@string/string_bmi_desc"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="16sp"
+                    android:layout_marginRight="15dp"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F8F8F8"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="#FB3E3E"
+                    android:layout_marginLeft="15dp"
+                    android:text="计算公式"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="@string/string_bmi_formual"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="16sp"
+                    android:layout_marginRight="15dp"
+                    android:layout_height="wrap_content"/>
+
+
+
+                <include layout="@layout/b16_bmi_formual_layout"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.constraint.ConstraintLayout>

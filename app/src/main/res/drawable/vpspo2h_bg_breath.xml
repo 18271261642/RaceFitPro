@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/block_backgroud_beath" />
+    <!--圆角弧度可自己修改-->
+    <corners android:radius="8dp" />
+    <stroke
+        android:width="0.5dp"
+        android:color="@color/block_backgroud_beath" />
+</shape>

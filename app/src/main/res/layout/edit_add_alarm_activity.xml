@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/new_colorAccent">
+
+        <ImageView
+            android:id="@+id/image_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/size_5"
+            android:padding="@dimen/size_10"
+            android:src="@mipmap/backs" />
+
+
+        <TextView
+            android:id="@+id/bar_titles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="title"
+            android:textColor="#ffffffff"
+            android:textSize="@dimen/size_20" />
+
+
+        <ImageView
+            android:id="@+id/image_right"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/size_5"
+            android:padding="@dimen/size_10"
+            android:src="@mipmap/rtb" />
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_15"
+                android:layout_marginBottom="@dimen/size_10"
+                android:paddingLeft="@dimen/size_15"
+                android:text="@string/string_alarm_week" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkbox_day"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_margin="@dimen/size_6"
+                    android:background="@drawable/b18i_text_unselect"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/day"
+                    android:textSize="@dimen/sp_15"
+                    android:textStyle="normal"/>
+
+                <CheckBox
+                    android:id="@+id/checkbox_one"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_margin="@dimen/size_6"
+                    android:background="@drawable/b18i_text_unselect"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/one_h"
+                    android:textSize="@dimen/sp_15"
+                    android:textStyle="normal" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_two"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_margin="@dimen/size_6"
+                    android:background="@drawable/b18i_text_unselect"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/two_h"
+                    android:textSize="@dimen/sp_15"
+                    android:textStyle="normal" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_three"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_margin="@dimen/size_6"
+                    android:background="@drawable/b18i_text_unselect"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:checked="false"
+                    android:text="@string/three_h"
+                    android:textSize="@dimen/sp_15"
+                    android:textStyle="normal" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_four"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_margin="@dimen/size_6"
+                    android:background="@drawable/b18i_text_unselect"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="@string/four_h"
+                    android:textSize="@dimen/sp_15"
+                    android:textStyle="normal" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_five"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_margin="@dimen/size_6"
+                    android:background="@drawable/b18i_text_unselect"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="@string/five_h"
+                    android:textSize="@dimen/sp_15"
+                    android:textStyle="normal" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_six"
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_margin="@dimen/size_6"
+                    android:background="@drawable/b18i_text_unselect"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:checked="false"
+                    android:text="@string/six_h"
+                    android:textSize="@dimen/sp_15"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_15"
+                android:paddingLeft="@dimen/size_15"
+                android:text="@string/time" />
+
+            <TimePicker
+                android:id="@+id/timer_set"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/ThemePicker"
+                android:timePickerMode="spinner" />
+            <!--android:paddingTop="@dimen/size_15"-->
+            <!--android:background="@color/new_colorAccent"-->
+            <!--android:theme="@style/Theme.picker"-->
+            <!--android:timePickerMode="spinner"-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_15"
+                    android:layout_marginBottom="@dimen/size_15"
+                    android:layout_weight="1"
+                    android:paddingLeft="@dimen/size_15"
+                    android:text="@string/string_alarm_type" />
+
+
+                <ImageView
+                    android:src="@mipmap/eat"
+                    android:id="@+id/img_sleclte_type"
+                    android:layout_width="@dimen/size_35"
+                    android:layout_height="@dimen/size_35"
+                    android:gravity="center"
+                    android:textSize="@dimen/sp_16" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_15"
+                    android:layout_marginBottom="@dimen/size_10"
+                    android:layout_weight="1"
+                    android:paddingLeft="@dimen/size_15" />
+
+            </LinearLayout>
+
+
+            <!--吃饭(00)/吃药(01)/喝水(02)/睡觉(03)/ 清醒(04)/ 运动(05)/会议(06)/自定义(07)-->
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <RadioGroup
+                    android:id="@+id/radioGroup_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="RtlHardcoded">
+
+
+                    <RadioButton
+                        android:id="@+id/radio_T1"
+                        android:layout_width="@dimen/size_55"
+                        android:layout_height="@dimen/size_55"
+                        android:layout_margin="@dimen/size_6"
+                        android:layout_weight="1"
+                        android:background="@drawable/w30s_checkbox_style"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:padding="@dimen/size_3"
+                        android:text="@string/string_alarm_eat"
+                        android:textColor="@drawable/w30s_radiobutton_textcolor"
+                        android:textSize="@dimen/sp_10"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:id="@+id/radio_T2"
+                        android:layout_width="@dimen/size_55"
+                        android:layout_height="@dimen/size_55"
+                        android:layout_margin="@dimen/size_6"
+                        android:layout_weight="1"
+                        android:background="@drawable/w30s_checkbox_style"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="@dimen/size_3"
+                        android:text="@string/string_alarm_medic"
+                        android:textColor="@drawable/w30s_radiobutton_textcolor"
+                        android:textSize="@dimen/sp_10"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:id="@+id/radio_T3"
+                        android:layout_width="@dimen/size_55"
+                        android:layout_height="@dimen/size_55"
+                        android:layout_margin="@dimen/size_6"
+                        android:layout_weight="1"
+                        android:background="@drawable/w30s_checkbox_style"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="@dimen/size_3"
+                        android:text="@string/string_alarm_drink"
+                        android:textColor="@drawable/w30s_radiobutton_textcolor"
+                        android:textSize="@dimen/sp_10"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:id="@+id/radio_T4"
+                        android:layout_width="@dimen/size_55"
+                        android:layout_height="@dimen/size_55"
+                        android:layout_margin="@dimen/size_6"
+                        android:layout_weight="1"
+                        android:background="@drawable/w30s_checkbox_style"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="@dimen/size_3"
+                        android:text="@string/string_alarm_sleep"
+                        android:textColor="@drawable/w30s_radiobutton_textcolor"
+                        android:textSize="@dimen/sp_10"
+                        tools:ignore="HardcodedText" />
+
+
+                    <RadioButton
+                        android:id="@+id/radio_T5"
+                        android:layout_width="@dimen/size_55"
+                        android:layout_height="@dimen/size_55"
+                        android:layout_margin="@dimen/size_6"
+                        android:layout_weight="1"
+                        android:background="@drawable/w30s_checkbox_style"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="@dimen/size_3"
+                        android:text="@string/string_qingxing"
+                        android:textColor="@drawable/w30s_radiobutton_textcolor"
+                        android:textSize="@dimen/sp_10"
+                        tools:ignore="HardcodedText" />
+
+
+                    <RadioButton
+                        android:id="@+id/radio_T6"
+                        android:layout_width="@dimen/size_55"
+                        android:layout_height="@dimen/size_55"
+                        android:layout_margin="@dimen/size_6"
+                        android:layout_weight="1"
+                        android:background="@drawable/w30s_checkbox_style"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="@dimen/size_3"
+                        android:text="@string/move_ment"
+                        android:textColor="@drawable/w30s_radiobutton_textcolor"
+                        android:textSize="@dimen/sp_10"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:id="@+id/radio_T7"
+                        android:layout_width="@dimen/size_55"
+                        android:layout_height="@dimen/size_55"
+                        android:layout_margin="@dimen/size_6"
+                        android:layout_weight="1"
+                        android:background="@drawable/w30s_checkbox_style"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="@dimen/size_3"
+                        android:text="@string/string_alarm_metting"
+                        android:textColor="@drawable/w30s_radiobutton_textcolor"
+                        android:textSize="@dimen/sp_10"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:id="@+id/radio_T8"
+                        android:layout_width="@dimen/size_55"
+                        android:layout_height="@dimen/size_55"
+                        android:layout_margin="@dimen/size_6"
+                        android:layout_weight="1"
+                        android:background="@drawable/w30s_checkbox_style"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="@dimen/size_3"
+                        android:text="@string/other"
+                        android:textColor="@drawable/w30s_radiobutton_textcolor"
+                        android:textSize="@dimen/sp_10"
+                        tools:ignore="HardcodedText" />
+
+                </RadioGroup>
+            </HorizontalScrollView>
+
+
+            <!--<RadioGroup-->
+            <!--android:id="@+id/radio_type"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginRight="@dimen/size_8"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="horizontal"-->
+            <!--tools:ignore="RtlHardcoded">-->
+
+
+            <!--&lt;!&ndash;android:background="@drawable/h9_alarm_eat"&ndash;&gt;-->
+            <!--<RadioButton-->
+            <!--android:id="@+id/checkbox_eat_img"-->
+            <!--android:layout_width="@dimen/size_27"-->
+            <!--android:layout_height="@dimen/size_27"-->
+            <!--android:layout_margin="@dimen/size_8" />-->
+
+            <!--&lt;!&ndash;android:background="@drawable/h9_alarm_dring"&ndash;&gt;-->
+            <!--<RadioButton-->
+            <!--android:id="@+id/checkbox_dring_img"-->
+            <!--android:layout_width="@dimen/size_27"-->
+            <!--android:layout_height="@dimen/size_27"-->
+            <!--android:layout_margin="@dimen/size_8" />-->
+
+            <!--&lt;!&ndash;android:background="@drawable/h9_alarm_medicine"&ndash;&gt;-->
+            <!--<RadioButton-->
+            <!--android:id="@+id/checkbox_medicine_img"-->
+            <!--android:layout_width="@dimen/size_27"-->
+            <!--android:layout_height="@dimen/size_27"-->
+            <!--android:layout_margin="@dimen/size_8" />-->
+
+            <!--&lt;!&ndash;android:background="@drawable/h9_alarm_awakes"&ndash;&gt;-->
+            <!--<RadioButton-->
+            <!--android:id="@+id/checkbox_awakes_img"-->
+            <!--android:layout_width="@dimen/size_27"-->
+            <!--android:layout_height="@dimen/size_27"-->
+            <!--android:layout_margin="@dimen/size_8" />-->
+
+
+            <!--&lt;!&ndash;android:background="@drawable/h9_alarm_sp"&ndash;&gt;-->
+            <!--<RadioButton-->
+            <!--android:id="@+id/checkbox_sp_img"-->
+            <!--android:layout_width="@dimen/size_27"-->
+            <!--android:layout_height="@dimen/size_27"-->
+            <!--android:layout_margin="@dimen/size_8" />-->
+
+            <!--&lt;!&ndash;android:background="@drawable/h9_alarm_spr"&ndash;&gt;-->
+            <!--<RadioButton-->
+            <!--android:id="@+id/checkbox_spr_img"-->
+            <!--android:layout_width="@dimen/size_27"-->
+            <!--android:layout_height="@dimen/size_27"-->
+            <!--android:layout_margin="@dimen/size_8" />-->
+
+            <!--&lt;!&ndash;android:background="@drawable/h9_alarm_metting"&ndash;&gt;-->
+            <!--<RadioButton-->
+            <!--android:id="@+id/checkbox_metting_img"-->
+            <!--android:layout_width="@dimen/size_27"-->
+            <!--android:layout_height="@dimen/size_27"-->
+            <!--android:layout_margin="@dimen/size_8"/>-->
+
+            <!--&lt;!&ndash;android:background="@drawable/h9_alarm_custom"&ndash;&gt;-->
+            <!--<RadioButton-->
+            <!--android:id="@+id/checkbox_custom_img"-->
+            <!--android:layout_width="@dimen/size_27"-->
+            <!--android:layout_height="@dimen/size_27"-->
+            <!--android:layout_margin="@dimen/size_8" />-->
+
+            <!--</RadioGroup>-->
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

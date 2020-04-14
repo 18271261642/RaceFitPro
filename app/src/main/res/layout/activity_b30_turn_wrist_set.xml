@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/comment_b30_title_layout"/>
+
+
+ <android.support.v4.widget.NestedScrollView
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/b30DeviceWristRel"
+            style="@style/B30DeviceRelStyle">
+
+            <TextView
+                style="@style/B30DeviceStyle"
+                android:text="@string/string_turn_wrist_switch" />
+
+
+
+            <ToggleButton
+                android:id="@+id/turnWristToggleBtn"
+                android:layout_width="70dp"
+                android:background="@drawable/toggle_select"
+                android:textOn="@null"
+                android:layout_toLeftOf="@+id/bs2img"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="3dp"
+                android:textOff="@null"
+                android:layout_height="40dp" />
+
+
+            <ImageView
+                android:id="@+id/bs2img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/fgm_fitness_arrow_left" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/chang_white" />
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/b30WristStartRel"
+            style="@style/B30DeviceRelStyle">
+
+
+            <TextView
+                style="@style/B30DeviceStyle"
+                android:text="@string/start_time" />
+
+
+            <TextView
+                android:id="@+id/b30TrunWristStartTv"
+                android:layout_width="wrap_content"
+                android:text=""
+                android:layout_toLeftOf="@+id/ig1"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content" />
+
+
+            <ImageView
+                android:id="@+id/ig1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/fgm_fitness_arrow_left" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/chang_white" />
+
+        <RelativeLayout
+            android:id="@+id/b30WristEndRel"
+            style="@style/B30DeviceRelStyle">
+
+
+
+            <TextView
+                style="@style/B30DeviceStyle"
+                android:text="@string/end_time" />
+
+
+            <TextView
+                android:id="@+id/b30TrunWristendTv"
+                android:layout_width="wrap_content"
+                android:text=""
+                android:layout_toLeftOf="@+id/ig2"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content" />
+
+
+            <ImageView
+                android:id="@+id/ig2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/fgm_fitness_arrow_left" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/chang_white" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/string_wrist_sensitivity"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="18sp"
+                    android:id="@+id/showSeekBarValueTv"
+                    android:gravity="center"
+                    android:text="(5)"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/string_recommend"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_height="wrap_content" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/connect_success_screenlight_left"
+                android:layout_height="25dp" />
+
+
+            <SeekBar
+                android:id="@+id/b30TrunWristSeekBar"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/connect_success_screenlight_left"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/chang_white" />
+
+        <Button
+            android:id="@+id/b30TrunWristSaveBtn"
+            android:layout_width="match_parent"
+            android:background="@drawable/blue_btn_selector"
+            android:text="保存"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content" />
+
+
+
+        <TextView
+            android:layout_marginTop="35dp"
+            android:layout_width="wrap_content"
+            android:text="@string/string_note"
+            android:padding="5dp"
+            android:textSize="20sp"
+            android:textColor="@color/red"
+            android:layout_height="wrap_content"/>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:gravity="left"
+            android:textSize="18sp"
+            android:text="@string/string_wrist_alert"/>
+
+
+    </LinearLayout>
+ </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

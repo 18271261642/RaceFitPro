@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/new_colorAccent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/qixingshu_waipao_bustar"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/size_20"
+                android:layout_height="@dimen/size_20"
+                android:src="@mipmap/backs" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/shuwaipao_buhuwai"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="@string/history_record"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/huwaiq_ixingbubao_fengxiang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal"
+            android:src="@mipmap/fenxiang"
+            android:textSize="16sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <fragment
+            android:id="@+id/test_qixinggoogle_map"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+        <com.amap.api.maps.MapView
+            android:id="@+id/test_qixing_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/qixingfugai_hostory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:scaleType="fitCenter"
+            android:visibility="gone"/>
+
+        <RelativeLayout
+            android:id="@+id/huwaiqi_xingbiaoyu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="10dp"
+            android:background="#00000000"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@mipmap/yuanjiaojuxing"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="2dp"
+                    android:gravity="top|right"
+                    android:src="@mipmap/logohuwai"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/huwaiqixing_years"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="3dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:text="2016-12-24"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/qiche_mypmyy"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/android_pm"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="3dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="PM2.5"
+                        android:textColor="#ffffff"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/qichekong_qizhiliangyy"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="@string/good"
+                        android:textColor="#fff000"
+                        android:textSize="8sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/qichemypm_www"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/android_pm"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:id="@+id/qiche_kongqiyu"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="3dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="PM2.5"
+                        android:textColor="#ffffff"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/qiche_wendu"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|bottom"
+                        android:layout_marginTop="3dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="20℃/15℃"
+                        android:textColor="#fff000"
+                        android:textSize="7sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/test_huwaiqixing_ditut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:background="@drawable/yundong_didu"
+            android:orientation="vertical">
+
+            <Chronometer
+                android:id="@+id/test_chronometer_times"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:format="00:00:00"
+                android:gravity="center|left"
+                android:textColor="#ffffff"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/test_total_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/test_chronometer_times"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="5dp"
+                android:gravity="left"
+                android:text="@string/total_time"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/test_chronometer_times"
+                android:layout_alignBottom="@id/test_total_time"
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/jishile" />
+
+            <TextView
+                android:id="@+id/test_full_kilometer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:gravity="center|right"
+                android:text="00'00'"
+                android:textColor="#ffffff"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/test_full_kilometer_ziti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/test_full_kilometer"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:gravity="right"
+                android:text="@string/distance"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+
+            <View
+                android:id="@+id/test_xian"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/test_full_kilometer_ziti"
+                android:layout_marginTop="5dp"
+                android:background="#6bdcf8"
+                android:orientation="horizontal"></View>
+
+            <TextView
+                android:id="@+id/test_peisu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/test_xian"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:text="@string/Pace"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/test_xiaohao_kclal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/test_xian"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="right"
+                android:text="@string/xiaohao"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

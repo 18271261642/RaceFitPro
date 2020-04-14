@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:layout_margin="10dp"
+    android:background="@drawable/b16_bg_shap"
+    android:layout_height="wrap_content">
+
+
+
+
+
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/itemCurrSportTv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFF923C"
+        android:layout_marginLeft="10dp"
+        android:textSize="16sp"
+        android:text="Period 2"/>
+
+
+
+    <TextView
+        android:id="@+id/itemB16CurrSportTimeTv"
+        app:layout_constraintLeft_toRightOf="@id/itemCurrSportTv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFF923C"
+        android:textSize="16sp"
+        android:text="12:23~13:01"/>
+
+
+    <TextView
+        android:id="@+id/itemB16CurrFatTv"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFF923C"
+        android:textSize="16sp"
+        android:layout_marginRight="15dp"
+        android:text="100克"/>
+
+
+
+    <TextView
+        android:id="@+id/itemB16CurrTmp1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemCurrSportTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="@dimen/size_15"
+        android:text="有效消耗的卡路里"/>
+
+
+
+
+    <TextView
+        android:id="@+id/itemB16CurrSportKcalValueTv"
+        app:layout_constraintLeft_toRightOf="@id/itemB16CurrTmp1"
+        app:layout_constraintTop_toBottomOf="@id/itemCurrSportTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="7700"
+        android:textColor="#FFFF923C"
+        android:padding="3dp"
+        android:textSize="16sp"/>
+
+
+    <TextView
+        android:id="@+id/itemB16CurrTmp2"
+        app:layout_constraintLeft_toRightOf="@id/itemB16CurrSportKcalValueTv"
+        app:layout_constraintTop_toBottomOf="@id/itemCurrSportTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="@dimen/size_15"
+        android:text="卡=燃烧脂肪"/>
+
+
+
+    <TextView
+        android:id="@+id/itemB16CurrSportKgValueTv"
+        app:layout_constraintLeft_toRightOf="@+id/itemB16CurrTmp2"
+        app:layout_constraintTop_toBottomOf="@id/itemCurrSportTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#FFFF923C"
+        android:padding="3dp"
+        android:text="100"/>
+
+
+    <TextView
+        app:layout_constraintLeft_toRightOf="@id/itemB16CurrSportKgValueTv"
+        app:layout_constraintTop_toBottomOf="@id/itemCurrSportTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="@dimen/size_15"
+        android:text="克"/>
+
+
+
+
+    <TextView
+        android:id="@+id/itemCurrTmp3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemB16CurrTmp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="@dimen/size_15"
+        android:text="如此坚持30天相当于燃烧脂肪"/>
+
+
+    <TextView
+        android:id="@+id/itemB16CurrSportCountValue"
+        app:layout_constraintLeft_toRightOf="@+id/itemCurrTmp3"
+        app:layout_constraintTop_toBottomOf="@id/itemB16CurrTmp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#FFFF923C"
+        android:padding="3dp"
+        android:text="100"/>
+
+
+    <TextView
+        app:layout_constraintLeft_toRightOf="@id/itemB16CurrSportCountValue"
+        app:layout_constraintTop_toBottomOf="@id/itemB16CurrTmp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="@dimen/size_16"
+        android:text="克"/>
+
+
+
+</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F7F7"
+    android:orientation="vertical">
+
+    <include layout="@layout/appbar_toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/btn_helps"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_45"
+                android:layout_marginTop="1dp"
+                android:background="#EE3A8C"
+                android:text="@string/string_one_key_help"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:layout_marginBottom="10dp"
+                android:text="@string/string_long_onclick"
+                android:textColor="#807B7B"
+                android:textSize="@dimen/text_size_14" />
+
+
+            <TextView
+                android:hint="@string/string_long_onclick"
+                android:id="@+id/text_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10"
+                android:background="@drawable/hellp_gray_solid"
+                android:maxLines="7"
+                android:minLines="7"
+                android:textSize="@dimen/text_size_14"
+                android:padding="5dp"
+                android:text=""
+                android:textColor="#000"
+                tools:ignore="HardcodedText" />
+
+
+            <!--111111111-->
+            <android.support.v7.widget.CardView
+                android:layout_marginTop="13dp"
+                android:id="@+id/car_person_one"
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="5dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="0.1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/size_5">
+
+
+                    <TextView
+                        android:id="@+id/t_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_5"
+                        android:padding="5dp"
+                        android:text="@string/string_emergency_contact_one"
+                        android:textColor="#807B7B"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:layout_marginTop="@dimen/size_5"
+                        android:layout_marginBottom="@dimen/size_5"
+                        android:id="@+id/text_user_name_one"
+                        android:layout_width="@dimen/size_80"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/t_one"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:text=""
+                        android:textColor="#B8B2B2"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:layout_marginTop="@dimen/size_5"
+                        android:layout_marginBottom="@dimen/size_5"
+                        android:id="@+id/text_user_phone_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/t_one"
+                        android:layout_toRightOf="@+id/text_user_name_one"
+                        android:text=""
+                        android:hint="@string/string_long_onclick"
+                        android:textColor="#B8B2B2"
+                        android:textSize="@dimen/text_size_14" />
+
+
+                    <ImageView
+                        android:id="@+id/image_one"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:src="@mipmap/ic_lianxiren"
+                        android:layout_width="@dimen/size_50"
+                        android:layout_height="@dimen/size_35" />
+
+                </RelativeLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <!--22222222222222222-->
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10"
+                android:layout_marginTop="13dp"
+                android:id="@+id/car_person_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="5dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="0.1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/size_5">
+
+
+                    <TextView
+                        android:id="@+id/t_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_5"
+                        android:padding="5dp"
+                        android:text="@string/string_emergency_contact_two"
+                        android:textColor="#807B7B"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:layout_marginTop="@dimen/size_5"
+                        android:layout_marginBottom="@dimen/size_5"
+                        android:id="@+id/text_user_name_two"
+                        android:layout_width="@dimen/size_80"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/t_two"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:textColor="#B8B2B2"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:layout_marginTop="@dimen/size_5"
+                        android:layout_marginBottom="@dimen/size_5"
+                        android:id="@+id/text_user_phone_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/t_two"
+                        android:layout_toRightOf="@+id/text_user_name_two"
+                        android:text=""
+                        android:hint="@string/string_long_onclick"
+                        android:textColor="#B8B2B2"
+                        android:textSize="@dimen/text_size_14" />
+
+
+                    <ImageView
+                        android:id="@+id/image_two"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:src="@mipmap/ic_lianxiren"
+                        android:layout_width="@dimen/size_50"
+                        android:layout_height="@dimen/size_35" />
+                </RelativeLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <!--33333333-->
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10"
+                android:layout_marginTop="13dp"
+                android:id="@+id/car_person_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="5dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="0.1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/size_5">
+
+
+                    <TextView
+                        android:id="@+id/t_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_5"
+                        android:padding="5dp"
+                        android:text="@string/string_emergency_contact_three"
+                        android:textColor="#807B7B"
+                        android:textSize="@dimen/text_size_12" />
+
+                    <TextView
+                        android:layout_marginTop="@dimen/size_5"
+                        android:layout_marginBottom="@dimen/size_5"
+                        android:id="@+id/text_user_name_three"
+                        android:layout_width="@dimen/size_80"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/t_three"
+                        android:gravity="center"
+                        android:text=""
+                        android:lines="1"
+                        android:textColor="#B8B2B2"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:layout_marginTop="@dimen/size_5"
+                        android:layout_marginBottom="@dimen/size_5"
+                        android:id="@+id/text_user_phone_three"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/t_three"
+                        android:layout_toRightOf="@+id/text_user_name_three"
+                        android:text=""
+                        android:hint="@string/string_long_onclick"
+                        android:textColor="#B8B2B2"
+                        android:textSize="@dimen/text_size_14" />
+
+
+                    <ImageView
+                        android:id="@+id/image_three"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:src="@mipmap/ic_lianxiren"
+                        android:layout_width="@dimen/size_50"
+                        android:layout_height="@dimen/size_35" />
+                </RelativeLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <!--说明-->
+            <android.support.v7.widget.CardView
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="5dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="0.1dp">
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:orientation="vertical"
+                 android:layout_height="wrap_content">
+
+
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:text="@string/notif_explain"
+                     android:textSize="18sp"
+                     android:padding="5dp"
+                     android:layout_height="wrap_content" />
+
+
+
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:text="@string/string_call_phone_alert"
+                     android:textSize="20sp"
+                     android:padding="5dp"
+                     android:layout_marginTop="5dp"
+                     android:textColor="@color/title_background"
+                     android:layout_height="wrap_content" />
+
+
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:orientation="horizontal"
+                     android:layout_height="wrap_content">
+                     <TextView
+                         android:layout_width="0dp"
+                         android:layout_weight="1"
+                         android:textSize="17sp"
+                         android:padding="3dp"
+                         android:layout_gravity="center"
+                         android:text="@string/string_call_phone_cont1"
+                         android:layout_height="wrap_content" />
+
+
+                     <TextView
+                         android:id="@+id/sosContPermissionTv"
+                         android:layout_width="wrap_content"
+                         android:text="去开启"
+                         android:layout_gravity="center"
+                         android:padding="3dp"
+                         android:textColor="@color/blue"
+                         android:layout_height="wrap_content" />
+
+                 </LinearLayout>
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:orientation="horizontal"
+                     android:layout_height="wrap_content">
+                     <TextView
+                         android:layout_width="0dp"
+                         android:layout_weight="1"
+                         android:textSize="17sp"
+                         android:padding="3dp"
+                         android:layout_gravity="center"
+                         android:text="@string/string_call_phone_cont2"
+                         android:layout_height="wrap_content" />
+
+
+                     <TextView
+                         android:id="@+id/sosPhonePermissionTv"
+                         android:layout_width="wrap_content"
+                         android:text="去开启"
+                         android:layout_gravity="center"
+                         android:padding="3dp"
+                         android:textColor="@color/blue"
+                         android:layout_height="wrap_content" />
+
+                 </LinearLayout>
+
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:orientation="horizontal"
+                     android:layout_height="wrap_content">
+                     <TextView
+                         android:layout_width="0dp"
+                         android:layout_weight="1"
+                         android:textSize="17sp"
+                         android:padding="3dp"
+                         android:layout_gravity="center"
+                         android:text="@string/string_call_phone_cont3"
+                         android:layout_height="wrap_content" />
+
+
+                     <TextView
+                         android:id="@+id/sosCallLogPermissionTv"
+                         android:layout_width="wrap_content"
+                         android:text="去开启"
+                         android:layout_gravity="center"
+                         android:padding="3dp"
+                         android:textColor="@color/blue"
+                         android:layout_height="wrap_content" />
+
+                 </LinearLayout>
+
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:text="@string/string_smg_alert_title"
+                     android:textSize="20sp"
+                     android:padding="5dp"
+                     android:layout_marginTop="15dp"
+                     android:textColor="@color/title_background"
+                     android:layout_height="wrap_content" />
+
+
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:orientation="horizontal"
+                     android:layout_height="wrap_content">
+                     <TextView
+                         android:layout_width="0dp"
+                         android:layout_weight="1"
+                         android:textSize="17sp"
+                         android:padding="3dp"
+                         android:layout_gravity="center"
+                         android:text="@string/string_call_phone_cont1"
+                         android:layout_height="wrap_content" />
+
+
+                     <TextView
+                         android:id="@+id/sosContPermission2Tv"
+                         android:layout_width="wrap_content"
+                         android:text="去开启"
+                         android:layout_gravity="center"
+                         android:padding="3dp"
+                         android:textColor="@color/blue"
+                         android:layout_height="wrap_content" />
+
+                 </LinearLayout>
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:orientation="horizontal"
+                     android:layout_height="wrap_content">
+                     <TextView
+                         android:layout_width="0dp"
+                         android:layout_weight="1"
+                         android:textSize="17sp"
+                         android:padding="3dp"
+                         android:layout_gravity="center"
+                         android:text="@string/string_smg_alert_content1"
+                         android:layout_height="wrap_content" />
+
+
+                     <TextView
+                         android:id="@+id/sosSMSPermissionTv"
+                         android:layout_width="wrap_content"
+                         android:text="去开启"
+                         android:layout_gravity="center"
+                         android:padding="3dp"
+                         android:textColor="@color/blue"
+                         android:layout_height="wrap_content" />
+
+                 </LinearLayout>
+
+
+
+
+
+
+             </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

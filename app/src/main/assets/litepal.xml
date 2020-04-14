@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="weack8" />
+
+    <!--2018-09-19 XuBo 增加B30HalfHourDB类,版本号:2-->
+    <!--2018-12-21 新增HRV和血氧的bean,版本号3-->
+    <version value="22" />
+
+    <list>
+        <mapping class="com.example.bozhilun.android.event.AlarmClock" />
+        <mapping class="com.example.bozhilun.android.w30s.bean.W30SAlarmClockBean" />
+        <mapping class="com.suchengkeji.android.w30sblelibrary.bean.W30S_AlarmInfo" />
+        <mapping class="com.example.bozhilun.android.b30.bean.B30Bean"/>
+        <mapping class="com.example.bozhilun.android.b30.bean.B30HalfHourDB"/>
+        <mapping class="com.example.bozhilun.android.b31.model.B31HRVBean"/>
+        <mapping class="com.example.bozhilun.android.b31.model.B31Spo2hBean"/>
+        <mapping class="com.example.bozhilun.android.b31.model.ManfatiBean"/>
+
+        <mapping class="com.example.bozhilun.android.commdbserver.CommSleepDb"/>
+        <mapping class="com.example.bozhilun.android.commdbserver.CommStepCountDb"/>
+        <mapping class="com.example.bozhilun.android.commdbserver.CommBloodDb"/>
+        <mapping class="com.example.bozhilun.android.commdbserver.CommHeartDb"/>
+        <mapping class="com.example.bozhilun.android.commdbserver.CommBloodOxyDb"/>
+        <mapping class="com.example.bozhilun.android.commdbserver.CommDownloadDb"/>
+
+        <mapping class="com.example.bozhilun.android.bean.AmapSportBean"/>
+
+        <!--B18闹钟-->
+        <mapping class="com.example.bozhilun.android.b18.modle.B18AlarmBean"/>
+        <mapping class="com.example.bozhilun.android.b18.modle.B16CadenceResultBean"/>
+
+    </list>
+</litepal>  

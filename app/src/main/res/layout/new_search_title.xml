@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:background="@color/new_colorAccent"
+    android:layout_width="match_parent"
+    android:id="@+id/searchLinearLayout"
+    android:layout_height="?attr/actionBarSize">
+
+    <FrameLayout
+        android:id="@+id/newSearchTitleLeft"
+        android:layout_width="0dp"
+        android:layout_weight="1.5"
+        android:layout_gravity="center|left"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/newShearchImg"
+            android:layout_width="wrap_content"
+            android:src="@mipmap/backs"
+            android:layout_marginLeft="@dimen/size_5"
+            android:padding="@dimen/size_10"
+            android:layout_height="wrap_content" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/newSearchTitleTv"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:text=""
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:padding="@dimen/size_5"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="wrap_content" />
+
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_weight="1.5"
+    android:layout_gravity="center"
+    android:gravity="center|right"
+    android:layout_marginRight="@dimen/size_8"
+    android:layout_height="wrap_content"
+    tools:ignore="RtlHardcoded">
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/newSearchRightImg1"
+        android:layout_width="30dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="@dimen/size_5"
+        android:background="@mipmap/search_help"
+        android:layout_height="@dimen/size_30"
+        tools:ignore="ContentDescription,RtlHardcoded" />
+
+
+</LinearLayout>
+
+</LinearLayout>
