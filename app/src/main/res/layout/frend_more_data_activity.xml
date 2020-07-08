@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_normal"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -14,7 +14,7 @@
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:title=" ">
 
-        <android.support.design.widget.TabLayout
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/m_tablayout"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/size_32"
@@ -29,7 +29,7 @@
             app:tabTextColor="@android:color/white" />
 
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
 
     <ScrollView

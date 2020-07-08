@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="BAppTheme" parent="Theme.AppCompat.DayNight">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="colorPrimary">?android:attr/textColorPrimary</item>
+        <item name="colorPrimaryDark">?android:attr/textColorPrimary</item>
+        <item name="colorAccent">?android:attr/textColorPrimary</item>
+    </style>
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">?android:attr/textColorPrimary</item>
+        <item name="colorPrimaryDark">?android:attr/textColorPrimary</item>
+        <item name="colorAccent">?android:attr/textColorPrimary</item>
+    </style>
+
+</resources>

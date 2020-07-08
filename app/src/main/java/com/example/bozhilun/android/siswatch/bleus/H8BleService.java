@@ -1,5 +1,6 @@
 package com.example.bozhilun.android.siswatch.bleus;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Service;
 import android.bluetooth.BluetoothA2dp;
@@ -11,7 +12,6 @@ import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothManager;
-import android.bluetooth.BluetoothProfile;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -20,7 +20,8 @@ import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import com.example.bozhilun.android.Commont;
@@ -31,14 +32,13 @@ import com.example.bozhilun.android.siswatch.utils.HidUtil;
 import com.example.bozhilun.android.siswatch.utils.PhoneUtils;
 import com.example.bozhilun.android.siswatch.utils.WatchConstants;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
-import com.example.bozhilun.android.util.HangUpTelephonyUtil;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.example.bozhilun.android.util.ToastUtil;
 import com.inuker.bluetooth.library.BluetoothClient;
 import com.inuker.bluetooth.library.search.SearchRequest;
 import com.inuker.bluetooth.library.search.SearchResult;
 import com.inuker.bluetooth.library.search.response.SearchResponse;
-import com.suchengkeji.android.w30sblelibrary.W30SBLEGattAttributes;
+import com.yanzhenjie.permission.AndPermission;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -168,17 +168,26 @@ public class H8BleService extends Service {
                     break;
                 case 0x03:  //挂断电话
                     Log.e(TAG,"-----挂断电话----");
-//                    TelephonyManager tm = (TelephonyManager) MyApp.getContext()
-//                            .getSystemService(Service.TELEPHONY_SERVICE);
-//                   // PhoneUtils.endPhone(MyApp.getContext(),tm);
-//                    PhoneUtils.dPhone();
-//                    PhoneUtils.endCall(MyApp.getContext());
-                    //PhoneUtils.endcall();
+                    try {
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
+                            if(!AndPermission.hasPermissions(MyApp.getContext(), Manifest.permission.ANSWER_PHONE_CALLS))
+                                return;
+                            TelecomManager tm = (TelecomManager) MyApp.getInstance().getApplicationContext().getSystemService(Context.TELECOM_SERVICE);
+                            if (tm != null) {
+                                @SuppressLint("MissingPermission") boolean success = tm.endCall();
+                            }
 
+                        } else {
+                            TelephonyManager tm = (TelephonyManager) MyApp.getContext()
+                                    .getSystemService(Service.TELEPHONY_SERVICE);
+                            PhoneUtils.endPhone(MyApp.getContext(), tm);
+                            PhoneUtils.dPhone();
+                            PhoneUtils.endCall(MyApp.getContext());
+                        }
 
-
-                    HangUpTelephonyUtil.endCall(MyApp.getContext());
-
+                    } catch (NoSuchMethodError e) {
+                        e.printStackTrace();
+                    }
                     break;
 
                 case 0x08:
@@ -801,6 +810,8 @@ public class H8BleService extends Service {
         }
         boolean isWriteTrue = mBluetoothGatt.writeCharacteristic(characteristic);
         Log.e(TAG, "-----isWriteTrue=" + isWriteTrue);
+        if(!isWriteTrue)
+            mBluetoothGatt.writeCharacteristic(characteristic);
     }
 
 
@@ -1043,7 +1054,11 @@ public class H8BleService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (broadcastReceiver != null)
-            unregisterReceiver(broadcastReceiver);
+        try {
+            if (broadcastReceiver != null)
+                unregisterReceiver(broadcastReceiver);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

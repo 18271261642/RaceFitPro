@@ -4,12 +4,10 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+
 import android.view.KeyEvent;
 
 import com.example.bozhilun.android.MyApp;
@@ -20,15 +18,12 @@ import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.mine.WatchMineFragment;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
-import com.example.bozhilun.android.w30s.fragment.W30SMineFragment;
 import com.example.bozhilun.android.widget.NoScrollViewPager;
 import com.example.bozhilun.android.xwatch.fragment.XWatchHomeFragment;
 import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnTabReselectListener;
 import com.roughike.bottombar.OnTabSelectListener;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;

@@ -9,7 +9,7 @@
     <!--API27 BottomNavigationView通过反射控制setShiftingMode，
     升级到API28后出现java.lang.NoSuchFieldException: No field mShiftingMode。
     API28可以在布局文件增加app:labelVisibilityMode="labeled" 进行处理-->
-    <android.support.design.widget.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

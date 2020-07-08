@@ -2,8 +2,8 @@ package com.example.bozhilun.android.w30s.activity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Message;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,11 +17,8 @@ import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
-import com.example.bozhilun.android.h9.utils.H9TimeUtil;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
-import com.example.bozhilun.android.siswatch.bean.WatchDataDatyBean;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
-import com.example.bozhilun.android.w30s.bean.UpHeartBean;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.example.bozhilun.android.w30s.bean.W30SHeartDataS;
 import com.example.bozhilun.android.w30s.utils.W30BasicUtils;
@@ -35,7 +32,6 @@ import com.suchengkeji.android.w30sblelibrary.bean.servicebean.W30SSportData;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;

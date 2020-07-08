@@ -5,7 +5,7 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 
 import com.example.bozhilun.android.Commont;
@@ -13,7 +13,6 @@ import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.b30.bean.B30HalfHourDB;
 import com.example.bozhilun.android.b30.bean.B30HalfHourDao;
 import com.example.bozhilun.android.commdbserver.CommConstant;
-import com.example.bozhilun.android.commdbserver.CommDownloadDb;
 import com.example.bozhilun.android.commdbserver.SyncDbUrls;
 import com.example.bozhilun.android.commdbserver.W30StepDetailBean;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
@@ -23,9 +22,6 @@ import com.example.bozhilun.android.w30s.bean.W30HeartBean;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
-import com.veepoo.protocol.model.datas.HalfHourRateData;
-
-import org.apache.commons.lang.StringUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -54,7 +50,7 @@ public class UploadW30DetailService extends IntentService {
 
 
     @SuppressLint("HandlerLeak")
-    Handler handler = new Handler() {
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);

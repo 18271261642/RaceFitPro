@@ -63,7 +63,7 @@ public class SendSMSBroadCast extends BroadcastReceiver {
     }
 
 
-    Handler mHandler = new Handler(new Handler.Callback() {
+    private Handler mHandler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message message) {
             switch (message.what) {

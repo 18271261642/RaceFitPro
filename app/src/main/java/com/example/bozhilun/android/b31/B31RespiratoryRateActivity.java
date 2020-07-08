@@ -5,15 +5,15 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.util.Log;
+import androidx.annotation.Nullable;
+
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
-import com.example.bozhilun.android.b30.b30view.CustomCircleProgressBar;
+import com.example.bozhilun.android.b30.b30view.TmpCustomCircleProgressBar;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
@@ -42,7 +42,7 @@ public class B31RespiratoryRateActivity extends WatchBaseActivity {
     @BindView(R.id.commentB30ShareImg)
     ImageView commentB30ShareImg;
     @BindView(R.id.b31MeaureRateProgressView)
-    CustomCircleProgressBar b31MeaureRateProgressView;
+    TmpCustomCircleProgressBar b31MeaureRateProgressView;
     @BindView(R.id.showB31RateStateTv)
     TextView showB31RateStateTv;
     @BindView(R.id.b31MeaureRateStartImg)
@@ -53,7 +53,7 @@ public class B31RespiratoryRateActivity extends WatchBaseActivity {
 
 
     @SuppressLint("HandlerLeak")
-    Handler handler = new Handler(){
+    private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -61,6 +61,7 @@ public class B31RespiratoryRateActivity extends WatchBaseActivity {
                 BreathData breathData = (BreathData) msg.obj;
                 if(breathData == null)
                     return;
+                b31MeaureRateProgressView.setProgress(breathData.getProgressValue());
                 if(breathData.getDeviceState() != 0){
                     showB31RateStateTv.setText(WatchUtils.setBusyDesicStr());
                     b31MeaureRateProgressView.stopAnim();
@@ -96,7 +97,8 @@ public class B31RespiratoryRateActivity extends WatchBaseActivity {
         b31MeaureRateProgressView.setInsideColor(Color.parseColor("#EBEBEB"));
         b31MeaureRateProgressView.setOutsideColor(Color.WHITE);
 
-
+        b31MeaureRateProgressView.setMaxProgress(100);
+        b31MeaureRateProgressView.setTmpTxt(null);
     }
 
     @OnClick({R.id.commentB30BackImg, R.id.commentB30ShareImg,
@@ -123,18 +125,18 @@ public class B31RespiratoryRateActivity extends WatchBaseActivity {
         if(!isStart){
             showB31RateStateTv.setText("");
             isStart = true;
-            b31MeaureRateStartImg.setImageResource(R.drawable.detect_breath_stop);
             b31MeaureRateProgressView.setTmpTxt(null);
-            b31MeaureRateProgressView.setScheduleDuring(60 * 1000);
-            b31MeaureRateProgressView.setProgress(100);
+            b31MeaureRateStartImg.setImageResource(R.drawable.detect_breath_stop);
             MyApp.getInstance().getVpOperateManager().startDetectBreath(iBleWriteResponse, new IBreathDataListener() {
                 @Override
                 public void onDataChange(BreathData breathData) {
-                    Log.e(TAG,"-----------breathData="+breathData.toString());
+                    //Log.e(TAG,"-----------breathData="+breathData.toString());
                     Message message = handler.obtainMessage();
                     message.what = 1001;
                     message.obj = breathData;
                     handler.sendMessage(message);
+
+
                 }
             });
 
@@ -168,6 +170,11 @@ public class B31RespiratoryRateActivity extends WatchBaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
         if(isStart){    //还在测量中 停止测量
             stopMan();
             b31MeaureRateProgressView.stopAnim();

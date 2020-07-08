@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:background="@color/new_colorAccent"
         android:layout_height="wrap_content"
+        android:background="@color/new_colorAccent"
         android:orientation="vertical">
 
         <include layout="@layout/b30_home_title_layout" />
@@ -18,7 +18,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/white"/>
+        android:background="@color/white" />
 
     <!--4DDDFF-->
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
@@ -34,14 +34,14 @@
         <!-- srlEnablePreviewInEditMode 可以开启和关闭下拉预览 -->
 
         <!--<com.scwang.smartrefresh.header.StoreHouseHeader-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--app:shhText="loading" />-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:shhText="loading" />-->
 
-        <android.support.v4.widget.NestedScrollView
-            android:scrollbars="none"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -87,24 +87,33 @@
                     </FrameLayout>
 
 
-                    <TextView
-                        android:id="@+id/b30GoalStepTv"
+                    <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center"
-                        android:text=""
-                        android:textColor="@color/white"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="10dp">
+
+                        <com.example.bozhilun.android.siswatch.view.LoginWaveView
+                            android:id="@+id/waterWaveView"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="bottom" />
+
+                        <TextView
+                            android:id="@+id/b30GoalStepTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="11"
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+
+                    </FrameLayout>
+
 
                 </LinearLayout>
 
-                <include layout="@layout/home_fast_menu_layout"/>
-
-
-
+                <include layout="@layout/home_fast_menu_layout" />
 
 
                 <!--日期-->
@@ -136,9 +145,9 @@
                             android:id="@+id/homeTodayImg"
                             android:layout_width="15dp"
                             android:layout_height="15dp"
-                            android:visibility="invisible"
                             android:layout_gravity="center|bottom"
-                            android:background="@drawable/fgm_home_move" />
+                            android:background="@drawable/fgm_home_move"
+                            android:visibility="invisible" />
 
 
                     </LinearLayout>
@@ -208,9 +217,9 @@
                 <!--运动图表-->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:background="#F2F2F2"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15dp">
+                    android:layout_margin="15dp"
+                    android:background="#F2F2F2">
 
                     <include layout="@layout/include_b30_barchart" />
                 </LinearLayout>
@@ -224,9 +233,9 @@
                 <LinearLayout
                     android:id="@+id/b30HomeB30Lin"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone"
-                    android:layout_height="wrap_content">
+                    android:visibility="gone">
 
                     <!--血压图表-->
                     <include layout="@layout/include_b30_bload_chart" />
@@ -236,29 +245,29 @@
 
                 <LinearLayout
                     android:id="@+id/b36WomenStatusLin"
-                    android:visibility="gone"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                    android:visibility="gone">
 
-                    <include layout="@layout/include_b36_women_layout"/>
+                    <include layout="@layout/include_b36_women_layout" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:text="@string/b36_insist_wearing"
-                        android:textSize="20sp"
-                        android:textColor="@color/white"
-                        android:background="@color/colorAccent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:background="@color/colorAccent"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:layout_height="wrap_content" />
+                        android:text="@string/b36_insist_wearing"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
-        </android.support.v4.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 

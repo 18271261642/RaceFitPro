@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.Window;
 import com.example.bozhilun.android.Commont;
@@ -38,19 +38,7 @@ public class LaunchActivity extends WatchBaseActivity {
             super.handleMessage(msg);
             switch (msg.what){
                 case 1001:
-//                    boolean isGuid = (boolean) msg.obj;
-//                    Log.e(TAG,"---isGuid="+isGuid);
-//                    if(isGuid){
-//                        switchLoginUser();
-//                    }else{
-//                        startActivity(NewGuidActivity.class);
-//                        finish();
-//                    }
-
-
                     switchLoginUser();
-                   // finish();
-
                     break;
 
             }
@@ -62,7 +50,7 @@ public class LaunchActivity extends WatchBaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_launch_layout);
+        //setContentView(R.layout.activity_launch_layout);
 
 
         initData();
@@ -78,7 +66,7 @@ public class LaunchActivity extends WatchBaseActivity {
 //                message.obj = isGuide;
 //                handler.sendMessage(message);
             }
-        }, 3 * 1000);
+        }, 2 * 1000);
 
     }
 
@@ -89,6 +77,7 @@ public class LaunchActivity extends WatchBaseActivity {
 
     private void initData() {
 
+        SharedPreferencesUtils.setParam(this, "save_curr_time", System.currentTimeMillis() / 1000 + "");
         SharedPreferencesUtils.setParam(this, "curr_code", 0);
 
         //B30目标步数 默认8000
@@ -136,6 +125,7 @@ public class LaunchActivity extends WatchBaseActivity {
         }
 
 
+        //链接: https://pan.baidu.com/s/11fs6K6RpMSQDU_n4l7-TgA 提取码: wp8m 复制这段内容后打开百度网盘手机App，操作更方便哦
 
     }
 
@@ -160,7 +150,8 @@ public class LaunchActivity extends WatchBaseActivity {
                     startActivity(B30HomeActivity.class);
                 }else if("Ringmii".equals(btooth)){
                     startActivity(B30HomeActivity.class);
-                } else if("B31".equals(btooth)||"B31S".equals(btooth)||"500S".equals(btooth) || btooth.equals("E Watch")){
+                } else if("B31".equals(btooth)||"B31S".equals(btooth)||"500S".equals(btooth)
+                        || btooth.equals("E Watch") || btooth.contains("YWK") || btooth.contains("SpO2")){
                     startActivity(B31HomeActivity.class);
                 }else if ("B15P".equals(btooth)||"B25".equals(btooth)) {
                     startActivity(B15pHomeActivity.class);
@@ -179,7 +170,7 @@ public class LaunchActivity extends WatchBaseActivity {
             }
             finish();
         } else {
-            startActivity(NewLoginActivity.class);
+            startActivity(FastLoginActivity.class);
         }
     }
 }

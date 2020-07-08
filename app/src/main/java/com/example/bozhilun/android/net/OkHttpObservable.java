@@ -39,92 +39,91 @@ public class OkHttpObservable {
     }
 
     public void getData(Subscriber<String> subscriber, final String url, final String jsonParam) {
-         MyLogUtil.i("--url-jsonParam->"+url+jsonParam);
-        Observable observable = Observable.create(new Observable.OnSubscribe<String>() {
-            @Override
-            public void call(final Subscriber<? super String> subscriber) {
-                try {
-                    RequestBody formBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jsonParam);
-                    client.newBuilder().connectTimeout(10, TimeUnit.SECONDS);
-                    Request request = new Request.Builder()
-                            .url(url)
-                            .post(formBody)
-                            .build();
-                    client.newCall(request).enqueue(new Callback() {
-                        @Override
-                        public void onFailure(Call call, IOException e) {
-                            subscriber.onError(e);
-                        }
-
-                        @Override
-                        public void onResponse(Call call, Response response) throws IOException {
-                            String responseUrl = response.body().string();
-                            MyLogUtil.i("msg", "--responseUrl-" + responseUrl);
-                            if (!TextUtils.isEmpty(responseUrl)) {
-                                try {
-                                 //   JSONObject jsonObject = new JSONObject(responseUrl);
-                                    subscriber.onNext(responseUrl);
-                                    subscriber.onCompleted();
-                                  /*  String resultCode = jsonObject.getString("resultCode");
-                                    String resultMsg = jsonObject.getString("resultMsg");*/
-                                  /*  if("001".equals(resultCode)){
-                                    subscriber.onNext(responseUrl);
-                                    subscriber.onCompleted();
-                                    }else  if(responseUrl.contains("502")){
-                                        subscriber.onError(new Exception("链接服务器失败"));
-                                    }else{
-                                        subscriber.onError(new Exception(jsonObject.getString("errorMessage")));
-                                    }*/
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                    //subscriber.onError(new Exception(MyApp.getApplication().getResources().getString(R.string.fuwuqi)));
-                                }
-                            } else {
-                                //subscriber.onError(new Exception(MyApp.getApplication().getResources().getString(R.string.fuwuqi)));
+        try {
+            MyLogUtil.i("--url-jsonParam->"+url+jsonParam);
+            Observable observable = Observable.create(new Observable.OnSubscribe<String>() {
+                @Override
+                public void call(final Subscriber<? super String> subscriber) {
+                    try {
+                        RequestBody formBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jsonParam);
+                        client.newBuilder().connectTimeout(10, TimeUnit.SECONDS);
+                        Request request = new Request.Builder()
+                                .url(url)
+                                .post(formBody)
+                                .build();
+                        client.newCall(request).enqueue(new Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+                                subscriber.onError(e);
                             }
-                        }
-                    });
-                } catch (Exception e) {
-                    subscriber.onError(e);
+
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException {
+                                String responseUrl = response.body().string();
+                                MyLogUtil.i("msg", "--responseUrl-" + responseUrl);
+                                if (!TextUtils.isEmpty(responseUrl)) {
+                                    try {
+                                        //   JSONObject jsonObject = new JSONObject(responseUrl);
+                                        subscriber.onNext(responseUrl);
+                                        subscriber.onCompleted();
+
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                        //subscriber.onError(new Exception(MyApp.getApplication().getResources().getString(R.string.fuwuqi)));
+                                    }
+                                }
+                            }
+                        });
+                    } catch (Exception e) {
+                        subscriber.onError(e);
+                    }
                 }
-            }
-        });
-        toSubscribe(observable, subscriber);
+            });
+            toSubscribe(observable, subscriber);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 
     public void getNoParamData(Subscriber<String> subscriber, final String url) {
-        Observable observable = Observable.create(new Observable.OnSubscribe<String>() {
-            @Override
-            public void call(final Subscriber<? super String> subscriber) {
-                try {
-                    client.newBuilder().connectTimeout(10, TimeUnit.SECONDS);
-                    Request request = new Request.Builder().get()
-                            .url(url)
-                            .build();
-                    client.newCall(request).enqueue(new Callback() {
-                        @Override
-                        public void onFailure(Call call, IOException e) {
-                            subscriber.onError(e);
-                        }
-
-                        @Override
-                        public void onResponse(Call call, Response response) throws IOException {
-                            String responseUrl = response.body().string();
-                            if (!TextUtils.isEmpty(responseUrl)) {
-                                subscriber.onNext(responseUrl);
-                                subscriber.onCompleted();
-                            } else {
-                                subscriber.onError(new Exception(MyApp.getContext().getResources().getString(R.string.fuwuqi)));
+        try {
+            Observable observable = Observable.create(new Observable.OnSubscribe<String>() {
+                @Override
+                public void call(final Subscriber<? super String> subscriber) {
+                    try {
+                        client.newBuilder().connectTimeout(10, TimeUnit.SECONDS);
+                        Request request = new Request.Builder().get()
+                                .url(url)
+                                .build();
+                        client.newCall(request).enqueue(new Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+                                subscriber.onError(e);
                             }
-                        }
-                    });
-                } catch (Exception e) {
-                    subscriber.onError(e);
+
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException {
+                                String responseUrl = response.body().string();
+                                if (!TextUtils.isEmpty(responseUrl)) {
+                                    subscriber.onNext(responseUrl);
+                                    subscriber.onCompleted();
+                                } else {
+                                    subscriber.onError(new Exception(MyApp.getContext().getResources().getString(R.string.fuwuqi)));
+                                }
+                            }
+                        });
+                    } catch (Exception e) {
+                        subscriber.onError(e);
+                    }
                 }
-            }
-        });
-        toSubscribe(observable, subscriber);
+            });
+            toSubscribe(observable, subscriber);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     private <T> void toSubscribe(Observable<T> o, Subscriber<T> s) {

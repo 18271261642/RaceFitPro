@@ -2,7 +2,7 @@ package com.example.bozhilun.android.w30s.ota;
 
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ProgressBar;

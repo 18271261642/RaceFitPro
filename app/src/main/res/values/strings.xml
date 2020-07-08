@@ -1,4 +1,9 @@
 <resources>
+
+    <string name="calibrating">calibrating</string>
+
+
+
     <string name="string_bmi_title">BMI</string>
 
     <string name="string_privacy_str1">我们收集数据是根据您与我们的互动和您所做出的选择,包括您的隐私设置以及您使用的产品和功能。我们收集的数据可能包括 SOK/API/JS 代码版本、浏览器、互联网服务提供商、IP地址、平台、时间戳、应用标识符、 应用程序版本、应用分发渠道、独立设备标识符、IOS广告标识符（IDFA）、安卓广告主标识符、 网卡（MAC）地址、国际移动设备识别码（IMEI）、设备型号、终端制造厂商、终端设备操作系统版本、 会话启动/停止时间、语言所在地、时区和网络状态（WIFi等）、硬盘、CPU和电池使用情况等。</string>
@@ -114,7 +119,7 @@
     <string name="vpspo2h_ratevaraive">脉率变异性</string>
     <string name="vpspo2h_spo2h">Blood oxygen</string>
     <string name="vpspo2h_low_remain">Hypoxia and arousal</string>
-    <string name="ave_value">average value</string>
+    <string name="ave_value">Avg value</string>
     <string name="heart_health_sorce">Heart health index</string>
     <string name="analysis_result">Analytic result(For reference only)</string>
     <string name="spo2_breath_break">Blood oxygen/Apnea</string>

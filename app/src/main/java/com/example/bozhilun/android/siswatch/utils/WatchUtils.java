@@ -15,7 +15,7 @@ import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import com.example.bozhilun.android.Commont;
@@ -23,7 +23,6 @@ import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.activity.wylactivity.wyl_util.ScreenShot;
 import com.example.bozhilun.android.bean.UserInfoBean;
-import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.util.Common;
 import com.example.bozhilun.android.util.MyLogUtil;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
@@ -116,6 +115,9 @@ public class WatchUtils {
     public static final String S500_NAME = "500S";        //B31S手环
     public static final String B50_NAME = "B50";            //维亿魄系列
     public static final String E_WATCH_NAME = "E Watch";    //EWatch，维亿魄系列
+    public static final String YWK_NAME = "YWK-P9"; //YWK
+
+    public static final String SPO2_NAME = "SpO2";
 
     //腾进达方案
     public static final String B15P_BLENAME = "B15P";  //B15P
@@ -167,7 +169,7 @@ public class WatchUtils {
      * @return
      */
     public static boolean isVPBleDevice(String bName) {
-        String[] bleArray = new String[]{B30_NAME, B31_NAME, B36_NAME,B36M_NAME ,RINGMII_NAME, B31S_NAME, S500_NAME,E_WATCH_NAME,B50_NAME};
+        String[] bleArray = new String[]{B30_NAME, B31_NAME, B36_NAME,B36M_NAME ,RINGMII_NAME, B31S_NAME, S500_NAME,E_WATCH_NAME,B50_NAME,YWK_NAME,SPO2_NAME};
         Set<String> set = new HashSet<>(Arrays.asList(bleArray));
         return set.contains(bName);
     }
@@ -1612,39 +1614,52 @@ public class WatchUtils {
      * @return
      */
     public static PersonInfoData getUserPerson(int goalStep) {
-        PersonInfoData personInfoData = null;
-        //同步用户信息
-        String userData = (String) SharedPreferencesUtils.readObject(MyApp.getContext(), "saveuserinfodata");
-        Log.e(TAG, "----userData=" + userData);
-        if (isEmpty(userData))
-            return null;
-        UserInfoBean userInfoBean = new Gson().fromJson(userData, UserInfoBean.class);
-        //体重
-        String tmpWeight = userInfoBean.getWeight();
-        int userWeight;
-        if (tmpWeight.contains("kg")) {
-            userWeight = Integer.valueOf(StringUtils.substringBefore(tmpWeight, "kg").trim());
-        } else {
-            userWeight = Integer.valueOf(tmpWeight.trim());
-        }
+        try {
+            PersonInfoData personInfoData = null;
+            //同步用户信息
+            String userData = (String) SharedPreferencesUtils.readObject(MyApp.getContext(), "saveuserinfodata");
+            Log.e(TAG, "----userData=" + userData);
+            if (isEmpty(userData))
+                return   new PersonInfoData(ESex.MAN, 170, 60, 25, goalStep);;
+            UserInfoBean userInfoBean = new Gson().fromJson(userData, UserInfoBean.class);
+            //体重
+            String tmpWeight = userInfoBean.getWeight();
+            int userWeight = 60;
+            if(!isEmpty(tmpWeight)){
+                if (tmpWeight.contains("kg")) {
+                    userWeight = Integer.valueOf(StringUtils.substringBefore(tmpWeight, "kg").trim());
+                } else {
+                    userWeight = Integer.valueOf(tmpWeight.trim());
+                }
+            }
 
-        //身高
-        String tmpHeight = userInfoBean.getHeight();
-        int userHeight;
-        if (tmpHeight.contains("cm")) {
-            userHeight = Integer.valueOf(StringUtils.substringBefore(tmpHeight, "cm").trim());
-        } else {
-            userHeight = Integer.valueOf(tmpHeight.trim());
+            //身高
+            String tmpHeight = userInfoBean.getHeight();
+            int userHeight = 170;
+            if(!isEmpty(tmpHeight)){
+                if (tmpHeight.contains("cm")) {
+                    userHeight = Integer.valueOf(StringUtils.substringBefore(tmpHeight, "cm").trim());
+                } else {
+                    userHeight = Integer.valueOf(tmpHeight.trim());
+                }
+            }
+            String tmpSex = userInfoBean.getSex();
+            ESex eSex = ESex.MAN;
+            if(!isEmpty(tmpSex)){
+                //性别
+                eSex = tmpSex.equals("M") ? ESex.valueOf("MAN") : ESex.valueOf("WOMEN");
+            }
+            //年龄
+            String userBirthday = userInfoBean.getBirthday();
+            int userAge = 25;
+            if(!isEmpty(userBirthday))
+                userAge = WatchUtils.getAgeFromBirthTime(userBirthday);
+            personInfoData = new PersonInfoData(eSex, userHeight, userWeight, userAge, goalStep);
+            return personInfoData;
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        String tmpSex = userInfoBean.getSex();
-        //性别
-        ESex eSex = tmpSex.equals("M") ? ESex.valueOf("MAN") : ESex.valueOf("WOMEN");
-        //年龄
-        String userBirthday = userInfoBean.getBirthday();
-        int userAge = WatchUtils.getAgeFromBirthTime(userBirthday);
-        personInfoData = new PersonInfoData(eSex, userHeight, userWeight, userAge, goalStep);
-        return personInfoData;
-
+        return null;
     }
 
 
@@ -1812,5 +1827,26 @@ public class WatchUtils {
         return (byte) re;
     }
 
+    /**
+     * 一个整形数转两个byte
+     * @param data
+     * @return
+     */
+    public static byte[] chaiFenDataIntTo2Byte(int data) {
+        byte[] byteArray = new byte[2];
+        byteArray[0] = (byte) data;
+        byteArray[1] = (byte) (data >> 8);
+        return byteArray;
+    }
+
+    //int转4个byte
+    public static byte[] intToByteArray(int data){
+        byte[] byteStr = new byte[4];
+        byteStr[0] = (byte) data;
+        byteStr[1] = (byte) (data >> 8);
+        byteStr[2] = (byte) (data >> 16);
+        byteStr[3] = (byte) (data >> 32);
+        return byteStr;
+    }
 
 }

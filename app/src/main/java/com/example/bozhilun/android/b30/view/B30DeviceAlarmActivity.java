@@ -3,8 +3,8 @@ package com.example.bozhilun.android.b30.view;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,14 +18,11 @@ import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.b30.B30SettingAlarmActiivty;
 import com.example.bozhilun.android.b30.adapter.B30AlarmAdapter;
-import com.example.bozhilun.android.b31.B31DeviceActivity;
+import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
-import com.example.bozhilun.android.util.Constant;
 import com.google.gson.Gson;
 import com.veepoo.protocol.listener.base.IBleWriteResponse;
 import com.veepoo.protocol.listener.data.IAlarm2DataListListener;
-import com.veepoo.protocol.listener.data.IAlarmDataListener;
-import com.veepoo.protocol.model.datas.AlarmData;
 import com.veepoo.protocol.model.datas.AlarmData2;
 import com.veepoo.protocol.model.settings.Alarm2Setting;
 
@@ -151,10 +148,14 @@ public class B30DeviceAlarmActivity extends WatchBaseActivity {
      * 从手环读取闹钟数据
      */
     private void readAlarmFromBleAll() {
-        //MyApp.getInstance().getVpOperateManager().readAlarm2(iBleWriteResponse, alarmDataListener);
-
-        List<Alarm2Setting> readList = MyApp.getInstance().getVpOperateManager().getAlarm2List();
-        showAllAlarm(readList);
+        try {
+            if(MyCommandManager.DEVICENAME == null)
+                return;
+            List<Alarm2Setting> readList = MyApp.getInstance().getVpOperateManager().getAlarm2List();
+            showAllAlarm(readList);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**

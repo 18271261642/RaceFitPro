@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MPChartLib/MPChartLib.iml" filepath="$PROJECT_DIR$/MPChartLib/MPChartLib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/RaceFitPro.iml" filepath="$PROJECT_DIR$/RaceFitPro.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/banner/banner.iml" filepath="$PROJECT_DIR$/banner/banner.iml" />
-      <module fileurl="file://$PROJECT_DIR$/calendarview/calendarview.iml" filepath="$PROJECT_DIR$/calendarview/calendarview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/circleviewprogress/circleviewprogress.iml" filepath="$PROJECT_DIR$/circleviewprogress/circleviewprogress.iml" />
-      <module fileurl="file://$PROJECT_DIR$/w30sblelibrary/w30sblelibrary.iml" filepath="$PROJECT_DIR$/w30sblelibrary/w30sblelibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/wheelpicker/wheelpicker.iml" filepath="$PROJECT_DIR$/wheelpicker/wheelpicker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MPChartLib/MPChartLib.iml" filepath="$PROJECT_DIR$/MPChartLib/MPChartLib.iml" group="RaceFitPro/MPChartLib" />
+      <module fileurl="file://$PROJECT_DIR$/RaceFitPro.iml" filepath="$PROJECT_DIR$/RaceFitPro.iml" group="RaceFitPro" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="RaceFitPro/app" />
+      <module fileurl="file://$PROJECT_DIR$/banner/banner.iml" filepath="$PROJECT_DIR$/banner/banner.iml" group="RaceFitPro/banner" />
+      <module fileurl="file://$PROJECT_DIR$/calendarview/calendarview.iml" filepath="$PROJECT_DIR$/calendarview/calendarview.iml" group="RaceFitPro/calendarview" />
+      <module fileurl="file://$PROJECT_DIR$/circleviewprogress/circleviewprogress.iml" filepath="$PROJECT_DIR$/circleviewprogress/circleviewprogress.iml" group="RaceFitPro/circleviewprogress" />
+      <module fileurl="file://$PROJECT_DIR$/w30sblelibrary/w30sblelibrary.iml" filepath="$PROJECT_DIR$/w30sblelibrary/w30sblelibrary.iml" group="RaceFitPro/w30sblelibrary" />
+      <module fileurl="file://$PROJECT_DIR$/wheelpicker/wheelpicker.iml" filepath="$PROJECT_DIR$/wheelpicker/wheelpicker.iml" group="RaceFitPro/wheelpicker" />
     </modules>
   </component>
 </project>

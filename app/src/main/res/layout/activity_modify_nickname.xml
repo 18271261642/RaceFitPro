@@ -7,7 +7,7 @@
 
     <include layout="@layout/appbar_toolbar" />
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/size_15">
@@ -24,6 +24,6 @@
             android:textColor="@color/new_colorAccent"
             android:textSize="15sp" />
 
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

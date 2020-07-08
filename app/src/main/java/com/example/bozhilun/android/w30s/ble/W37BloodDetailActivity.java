@@ -4,10 +4,10 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +21,7 @@ import com.example.bozhilun.android.b30.bean.B30HalfHourDB;
 import com.example.bozhilun.android.b30.bean.B30HalfHourDao;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
+import com.example.bozhilun.android.view.DateSelectDialogView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -70,9 +71,11 @@ public class W37BloodDetailActivity extends WatchBaseActivity {
 
     private String currDay = WatchUtils.getCurrentDate();
 
+    private DateSelectDialogView dateSelectDialogView;
+
 
     @SuppressLint("HandlerLeak")
-    Handler handler = new Handler() {
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -192,7 +195,7 @@ public class W37BloodDetailActivity extends WatchBaseActivity {
     }
 
     @OnClick({R.id.commentB30BackImg, R.id.bloadCurrDateLeft,
-            R.id.bloadCurrDateRight})
+            R.id.bloadCurrDateRight,R.id.bloadCurrDateTv})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.commentB30BackImg:
@@ -204,7 +207,23 @@ public class W37BloodDetailActivity extends WatchBaseActivity {
             case R.id.bloadCurrDateRight:   //后一天
                 changeDayData(false);
                 break;
+            case R.id.bloadCurrDateTv:
+                chooseDate();
+                break;
         }
+    }
+
+    private void chooseDate() {
+        dateSelectDialogView = new DateSelectDialogView(this);
+        dateSelectDialogView.show();
+        dateSelectDialogView.setOnDateSelectListener(new DateSelectDialogView.OnDateSelectListener() {
+            @Override
+            public void selectDateStr(String str) {
+                dateSelectDialogView.dismiss();
+                currDay = str;
+                initData();
+            }
+        });
     }
 
 

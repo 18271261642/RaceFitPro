@@ -23,7 +23,8 @@
         app:srlEnablePreviewInEditMode="false"
         app:srlPrimaryColor="#ffffff">
 
-        <ScrollView
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="61dp"
@@ -74,24 +75,35 @@
 
                     </FrameLayout>
 
-
-                    <TextView
-                        android:id="@+id/w30GoalStepTv"
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="20dp"
-                        android:gravity="center"
-                        android:text=""
-                        android:textColor="@color/white"
-                        android:textSize="18sp" />
+                        android:layout_height="wrap_content">
+
+                        <com.example.bozhilun.android.siswatch.view.LoginWaveView
+                            android:id="@+id/w31WaterWaveView"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="bottom" />
+
+                        <TextView
+                            android:id="@+id/w30GoalStepTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+
+                    </FrameLayout>
+
+
 
                 </LinearLayout>
 
 
-                <include layout="@layout/home_fast_menu_layout"/>
 
+                <include layout="@layout/home_fast_menu_layout"/>
 
 
                 <!--步数-->
@@ -288,7 +300,7 @@
 
             </LinearLayout>
 
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </LinearLayout>

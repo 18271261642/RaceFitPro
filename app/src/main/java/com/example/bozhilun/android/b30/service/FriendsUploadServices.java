@@ -2,7 +2,7 @@ package com.example.bozhilun.android.b30.service;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
@@ -72,7 +72,7 @@ public class FriendsUploadServices extends IntentService {
         //上传昨天和前天的详细步数数据
         uploadStepDetailByDay(bleMac, B30HalfHourDao.TYPE_SPORT, 1);
         //上传昨天和前天的详细睡眠数据
-        uploadSleepDetailByDay(bleMac, B30HalfHourDao.TYPE_SLEEP, 1);
+        uploadSleepDetailByDay(bleMac, B30HalfHourDao.TYPE_SLEEP, 0);
         //上传心率详细数据
         uploadHeartDetailByDay(bleMac, B30HalfHourDao.TYPE_RATE, 1);
         //上传血压的详细数据
@@ -90,7 +90,7 @@ public class FriendsUploadServices extends IntentService {
 
     //上传当天的步数详细数据
     private void uploadStepDetailToday(final String bleMac) {
-        Log.e(TAG, "----------上传今天的数据---");
+        //Log.e(TAG, "----------上传今天的数据---");
         List<B30HalfHourDB> stepDayList = B30HalfHourDao.getInstance().findNotUpDataByDay(bleMac,
                 B30HalfHourDao.TYPE_SPORT, WatchUtils.getCurrentDate());
         if (stepDayList != null) {
@@ -147,7 +147,7 @@ public class FriendsUploadServices extends IntentService {
             OkHttpTool.getInstance().doRequest(SyncDbUrls.uploadCountStepUrl(), gson.toJson(countList), "55", new OkHttpTool.HttpResult() {
                 @Override
                 public void onResult(String result) {
-                    Log.e(TAG, "-------上传是否达标=" + result);
+                    //Log.e(TAG, "-------上传是否达标=" + result);
                 }
             });
 
@@ -165,7 +165,7 @@ public class FriendsUploadServices extends IntentService {
                     new OkHttpTool.HttpResult() {
                         @Override
                         public void onResult(String result) {
-                            Log.e(TAG, "--------步数当天详细数据上传=" + result);
+                            //Log.e(TAG, "--------步数当天详细数据上传=" + result);
 
 
                         }
@@ -216,7 +216,7 @@ public class FriendsUploadServices extends IntentService {
         OkHttpTool.getInstance().doRequest(SyncDbUrls.uploadDetailHeartUrl(), jsonStr, "33", new OkHttpTool.HttpResult() {
             @Override
             public void onResult(String result) {
-                Log.e(TAG, "-----------上传心率详细数据返回=" + result);
+                //Log.e(TAG, "-----------上传心率详细数据返回=" + result);
 
             }
         });
@@ -292,7 +292,7 @@ public class FriendsUploadServices extends IntentService {
                         new OkHttpTool.HttpResult() {
                             @Override
                             public void onResult(String result) {
-                                Log.e(TAG, "--------睡眠详细数据上传=" + result);
+                               // Log.e(TAG, "--------睡眠详细数据上传=" + result);
 
                             }
                         });
@@ -311,7 +311,7 @@ public class FriendsUploadServices extends IntentService {
         String dayStr = WatchUtils.getCurrentDate();
         List<B30HalfHourDB> heartDayList = B30HalfHourDao.getInstance().findNotUpDataByDay(bleMac, B30HalfHourDao.TYPE_BP, dayStr);
         if (heartDayList == null){
-            Log.e(TAG,"------上传当天血压详细数据为null了--");
+            //Log.e(TAG,"------上传当天血压详细数据为null了--");
             return;
         }
 
@@ -344,7 +344,7 @@ public class FriendsUploadServices extends IntentService {
         OkHttpTool.getInstance().doRequest(SyncDbUrls.uploadDetailBloodUrl(), jsonStr, "44", new OkHttpTool.HttpResult() {
             @Override
             public void onResult(String result) {
-                Log.e(TAG, "-----------上传血压详细数据返回=" + result);
+                //Log.e(TAG, "-----------上传血压详细数据返回=" + result);
 
             }
         });
@@ -361,7 +361,7 @@ public class FriendsUploadServices extends IntentService {
 
         if (stepDayList != null) {
             B30HalfHourDB b30HalfHourDB = stepDayList.get(0);
-            Log.e(TAG, "-------上传的标识=" + b30HalfHourDB.getUpload());
+            //Log.e(TAG, "-------上传的标识=" + b30HalfHourDB.getUpload());
             //未上传的
             if (b30HalfHourDB.getUpload() == 0) { //0是未上传的
                 List<CusVPHalfSportData> halfHourSportDataList = gson.fromJson(b30HalfHourDB.getOriginData(),
@@ -398,7 +398,7 @@ public class FriendsUploadServices extends IntentService {
                         new OkHttpTool.HttpResult() {
                             @Override
                             public void onResult(String result) {
-                                Log.e(TAG, "--------步数详细数据上传=" + position + "----" + result);
+                                //Log.e(TAG, "--------步数详细数据上传=" + position + "----" + result);
                                 if (WatchUtils.isNetRequestSuccess(result)) { //上传成功
                                     updateStepDetailStatus(bleMac, type, position);
                                 }
@@ -420,7 +420,7 @@ public class FriendsUploadServices extends IntentService {
         String day = WatchUtils.obtainFormatDate(posi);
         b30HalfHourDB.setUpload(1);
         boolean isSave = b30HalfHourDB.saveOrUpdate(whereStr, mac, day, type);
-        Log.e(TAG, "-------修改步数返回=" + isSave);
+        //Log.e(TAG, "-------修改步数返回=" + isSave);
 
         //后一天
         int currPosition = posi + 1;
@@ -431,86 +431,74 @@ public class FriendsUploadServices extends IntentService {
 
     //上传睡眠的详细数据
     private void uploadSleepDetailByDay(final String bleMac, final String type, final int position) {
-        if (position == 3)
-            return;
-        String dayStr = WatchUtils.obtainFormatDate(position);
-        //往前推一天
-        String upDayStr = WatchUtils.obtainAroundDate(dayStr, true);
-
-        List<B30HalfHourDB> sleepDayList = B30HalfHourDao.getInstance().findNotUpDataByDay(bleMac, type, dayStr);
-
-        if (sleepDayList != null) {
-            B30HalfHourDB b30HalfHourDB = sleepDayList.get(0);
-            //未上传的
-            if (b30HalfHourDB.getUpload() == 0) { //0是未上传的
-                List<CommSleepDetailDb> commSleepDetailDbList = new ArrayList<>();
-                try {
-                    //睡眠一天只有一条数据
-                    CusVPSleepData sleepData = gson.fromJson(b30HalfHourDB.getOriginData(), CusVPSleepData.class);
-                    //睡眠的表现形式
-                    String sleepStr = sleepData.getSleepLine();
-                    Log.e(TAG, "-------sleepStr=" + sleepStr);
-                    //入睡时间
-                    String startSleepDate = sleepData.getSleepDown().getDateAndClockForSleepSecond();
-                    long longStartDate = sdf.parse(startSleepDate).getTime() / 1000;
-                    /**
-                     * 012 0-浅睡；1-深睡；2-清醒
-                     */
-                    for (int i = 0; i < sleepStr.length(); i++) {
-                        CommSleepDetailDb commSleepDetailDb = new CommSleepDetailDb();
-                        commSleepDetailDb.setDay(upDayStr);
-                        commSleepDetailDb.setDevicecode(bleMac);
-                        commSleepDetailDb.setUserid(userId);
-                        String slType = sleepStr.charAt(i) + "";
-                        int changeType = Integer.valueOf(slType);
-                        int resultType = 0;
-                        switch (changeType) {
-                            case 0:
-                                resultType = 2;
-                                break;
-                            case 1:
-                                resultType = 3;
-                                break;
-                            case 2:
-                                resultType = 1;
-                                break;
-                        }
-                        commSleepDetailDb.setSleepType(resultType + "");
-                        //时间
-                        commSleepDetailDb.setStarttime(WatchUtils.getLongToDate("HH:mm", (longStartDate + (5 * i * 60)) * 1000));
-                        //Log.e(TAG, "---------commSleepDetailDb=" + commSleepDetailDb.toString());
-                        commSleepDetailDbList.add(commSleepDetailDb);
-
-                    }
-
-                    //详细睡眠的上传参数
-                    List<Map<String,Object>> sleepLt = new ArrayList<>();
-                    Map<String, Object> detailSleepMap = new HashMap<>();
-                    detailSleepMap.put("deviceCode", bleMac);
-                    detailSleepMap.put("rtc", upDayStr);
-                    detailSleepMap.put("userId", userId);
-                    detailSleepMap.put("sleepSlotList", commSleepDetailDbList);
-                    sleepLt.add(detailSleepMap);
-
-                    String jsonStr = gson.toJson(sleepLt);
-
-                    //Log.e(TAG, "-----详细睡眠参数=" + jsonStr);
-                    OkHttpTool.getInstance().doRequest(SyncDbUrls.uploadDetailSleepUrl(), jsonStr, "22",
-                            new OkHttpTool.HttpResult() {
-                                @Override
-                                public void onResult(String result) {
-                                    Log.e(TAG, "--------睡眠详细数据上传=" + result);
-                                    //上传成功后修改是否上传的标识
-                                    updateSleepDetailStatus(bleMac, type, position);
-                                }
-                            });
-
-
-                } catch (Exception e) {
-                    e.printStackTrace();
+        try {
+            if (position == 2)
+                return;
+            String dayStr = WatchUtils.obtainFormatDate(position);
+            //往前推一天
+            String upDayStr = WatchUtils.obtainAroundDate(dayStr, true);
+            String  sleepDataStr = B30HalfHourDao.getInstance().findOriginData(bleMac, upDayStr, type);
+            if(sleepDataStr == null)
+                return;
+            CusVPSleepData sleepData = gson.fromJson(sleepDataStr,CusVPSleepData.class);
+            if(sleepData == null)
+                return;
+            List<CommSleepDetailDb> commSleepDetailDbList = new ArrayList<>();
+            //睡眠的表现形式
+            String sleepStr = sleepData.getSleepLine();
+            //入睡时间
+            String startSleepDate = sleepData.getSleepDown().getDateAndClockForSleepSecond();
+            long longStartDate = sdf.parse(startSleepDate).getTime() / 1000;
+            /**
+             * 012 0-浅睡；1-深睡；2-清醒
+             */
+            for (int i = 0; i < sleepStr.length(); i++) {
+                CommSleepDetailDb commSleepDetailDb = new CommSleepDetailDb();
+                commSleepDetailDb.setDay(upDayStr);
+                commSleepDetailDb.setDevicecode(bleMac);
+                commSleepDetailDb.setUserid(userId);
+                String slType = sleepStr.charAt(i) + "";
+                int changeType = Integer.valueOf(slType);
+                int resultType = 0;
+                switch (changeType) {
+                    case 0:
+                        resultType = 2;
+                        break;
+                    case 1:
+                        resultType = 3;
+                        break;
+                    case 2:
+                        resultType = 1;
+                        break;
                 }
+                commSleepDetailDb.setSleepType(resultType + "");
+                //时间
+                commSleepDetailDb.setStarttime(WatchUtils.getLongToDate("HH:mm", (longStartDate + (5 * i * 60)) * 1000));
+                //Log.e(TAG, "---------commSleepDetailDb=" + commSleepDetailDb.toString());
+                commSleepDetailDbList.add(commSleepDetailDb);
 
             }
+
+            //详细睡眠的上传参数
+            List<Map<String,Object>> sleepLt = new ArrayList<>();
+            Map<String, Object> detailSleepMap = new HashMap<>();
+            detailSleepMap.put("deviceCode", bleMac);
+            detailSleepMap.put("rtc", upDayStr);
+            detailSleepMap.put("userId", userId);
+            detailSleepMap.put("sleepSlotList", commSleepDetailDbList);
+            sleepLt.add(detailSleepMap);
+            String jsonStr = gson.toJson(sleepLt);
+            OkHttpTool.getInstance().doRequest(SyncDbUrls.uploadDetailSleepUrl(), jsonStr, "22",
+                    new OkHttpTool.HttpResult() {
+                        @Override
+                        public void onResult(String result) {
+                            Log.e(TAG, "--------睡眠详细数据上传=" + result);
+                            //上传成功后修改是否上传的标识
+                            updateSleepDetailStatus(bleMac, type, position);
+                        }
+                    });
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 
@@ -521,7 +509,7 @@ public class FriendsUploadServices extends IntentService {
         String day = WatchUtils.obtainFormatDate(position);
         b30HalfHourDB.setUpload(1);
         boolean isSave = b30HalfHourDB.saveOrUpdate(whereStr, bleMac, day, type);
-        Log.e(TAG, "-------修改步数返回=" + isSave);
+        //Log.e(TAG, "-------修改步数返回=" + isSave);
 
         int currPosition = position + 1;
         uploadSleepDetailByDay(bleMac, type, currPosition);
@@ -567,7 +555,7 @@ public class FriendsUploadServices extends IntentService {
             OkHttpTool.getInstance().doRequest(SyncDbUrls.uploadDetailHeartUrl(), jsonStr, "33", new OkHttpTool.HttpResult() {
                 @Override
                 public void onResult(String result) {
-                    Log.e(TAG, "-----------上传心率详细数据返回=" + result);
+                    //Log.e(TAG, "-----------上传心率详细数据返回=" + result);
                     if (WatchUtils.isNetRequestSuccess(result))
                         updateHeartDetailStatus(bleMac, type, position);
                 }
@@ -585,7 +573,7 @@ public class FriendsUploadServices extends IntentService {
         String day = WatchUtils.obtainFormatDate(position);
         b30HalfHourDB.setUpload(1);
         boolean isSave = b30HalfHourDB.saveOrUpdate(whereStr, bleMac, day, type);
-        Log.e(TAG, "-------修改心率返回=" + isSave);
+        //Log.e(TAG, "-------修改心率返回=" + isSave);
 
         int currPosition = position + 1;
         uploadHeartDetailByDay(bleMac, type, currPosition);
@@ -633,7 +621,7 @@ public class FriendsUploadServices extends IntentService {
             OkHttpTool.getInstance().doRequest(SyncDbUrls.uploadDetailBloodUrl(), jsonStr, "44", new OkHttpTool.HttpResult() {
                 @Override
                 public void onResult(String result) {
-                    Log.e(TAG, "-----------上传血压详细数据返回=" + result);
+                    //Log.e(TAG, "-----------上传血压详细数据返回=" + result);
                     if (WatchUtils.isNetRequestSuccess(result))
                         updateBloodDetailStatus(bleMac, type, position);
                 }
@@ -649,7 +637,7 @@ public class FriendsUploadServices extends IntentService {
         String day = WatchUtils.obtainFormatDate(position);
         b30HalfHourDB.setUpload(1);
         boolean isSave = b30HalfHourDB.saveOrUpdate(whereStr, bleMac, day, type);
-        Log.e(TAG, "-------修改血压返回=" + isSave);
+        //Log.e(TAG, "-------修改血压返回=" + isSave);
 
         int currPosition = position + 1;
         uploadBloodDetailByDay(bleMac, type, currPosition);

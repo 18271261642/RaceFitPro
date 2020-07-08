@@ -2,7 +2,7 @@ package com.example.bozhilun.android.friend;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -81,7 +81,7 @@ public class NewFriendSleepActivity extends WatchBaseActivity implements Request
 
 
     private RequestPressent requestPressent;
-    private String currDay = WatchUtils.getCurrentDate();
+    private String currDay = WatchUtils.obtainFormatDate(1);
     //好友的id
     private String applicant = "";
     //好友的设备地址
@@ -130,7 +130,7 @@ public class NewFriendSleepActivity extends WatchBaseActivity implements Request
 
             if (!WatchUtils.isEmpty(userId)) sleepJson.put("userId", userId);
             if (!WatchUtils.isEmpty(applicant)) sleepJson.put("applicant", applicant);
-            sleepJson.put("rtc", WatchUtils.obtainAroundDate(rtc, true));
+            sleepJson.put("rtc", rtc);
         } catch (JSONException e1) {
             e1.printStackTrace();
         }
@@ -139,7 +139,7 @@ public class NewFriendSleepActivity extends WatchBaseActivity implements Request
         Map<String, String> map = new HashMap<>();
         map.put("userId", applicant + "");
         map.put("startDate", WatchUtils.obtainAroundDate(rtc, true, 0));
-        map.put("endDate", WatchUtils.obtainAroundDate(rtc, true, 0));
+        map.put("endDate", rtc);
         map.put("deviceCode", friendBleMac + "");
         String commParams = new Gson().toJson(map);
 
@@ -174,7 +174,7 @@ public class NewFriendSleepActivity extends WatchBaseActivity implements Request
      */
     private void changeDayData(boolean left) {
         String date = WatchUtils.obtainAroundDate(currDay, left);
-        if (date.equals(currDay) || date.isEmpty()) {
+        if (date.equals(WatchUtils.getCurrentDate()) || date.isEmpty()) {
             return;// 空数据,或者大于今天的数据就别切了
         }
         currDay = date;

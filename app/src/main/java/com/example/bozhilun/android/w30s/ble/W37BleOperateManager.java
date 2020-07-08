@@ -74,6 +74,15 @@ public class W37BleOperateManager {
     private UUID S_WATCH_UUID_SYSTEM_NOTI = UUID.fromString("d973f2e1-b19e-12e8-9e96-0800200c9a66");
 
 
+    //B11 UUID
+    //server_uuid
+    private UUID B11_SYSTEM_SERVER_UUID = UUID.fromString("C2E6FAB0-E966-1000-8000-BEF9C223DF6A");
+    private UUID B11_SYSTEM_WRITE_UUID = UUID.fromString("C2E6FAB2-E966-1000-8000-BEF9C223DF6A");
+    private UUID B11_SYSTEM_NOTIFY_UUID = UUID.fromString("C2E6FAB1-E966-1000-8000-BEF9C223DF6A");
+    private UUID B11_CONTROL_UUID = UUID.fromString("C2E6FAB3-E966-1000-8000-BEF9C223DF6A");
+
+
+
 
     private static W37BleOperateManager bleOperateManager;
     private static BluetoothClient bluetoothClient;
@@ -138,7 +147,6 @@ public class W37BleOperateManager {
             }
         });
 
-
     }
 
 
@@ -162,7 +170,7 @@ public class W37BleOperateManager {
 
     private synchronized void connBleDevice(final String bleMac, final String bleName, final ConnStatusListener connectResponse){
         //BleSpUtils.put(context,"ble_mac",bleMac);
-        Log.e(TAG,"-------w37ble="+bleMac);
+        Log.e(TAG,"-------w37ble--mac="+bleMac+"--=name="+bleName);
         bluetoothClient.registerConnectStatusListener(bleMac,connectStatusListener);
         BleConnectOptions options = (new com.inuker.bluetooth.library.connect.options.BleConnectOptions.Builder()).setConnectRetry(3).setConnectTimeout(30000).setServiceDiscoverRetry(3).setServiceDiscoverTimeout(20000).build();
         bluetoothClient.connect(bleMac, options, new BleConnectResponse() {
@@ -186,7 +194,10 @@ public class W37BleOperateManager {
                             }
                             else if(bleName.equals("SWatch")){
                                 setNotiData(bleMac,S_WATCH_UUID_SYSTEM_SERVICE,S_WATCH_UUID_SYSTEM_NOTI,connectResponse);
-                            }else{
+                            }else if(bleName.equals("L890")){
+                                setNotiData(bleMac,B11_SYSTEM_SERVER_UUID,B11_CONTROL_UUID,connectResponse);
+                            }
+                            else{
                                 setNotiData(bleMac, UUID_SYSTEM_SERVICE, UUID_SYSTEM_READ,connectResponse);
                             }
 
@@ -216,7 +227,17 @@ public class W37BleOperateManager {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            findPhone();
+            switch (msg.what){
+                case 0x01:
+                    handler.removeMessages(0x01);
+                    findPhone();
+                    break;
+                case 0x05:
+                    handler.removeMessages(0x05);
+                    //W37DataAnalysis.getW37DataAnalysis().disCallPhone();
+                    break;
+            }
+
         }
     };
 
@@ -235,14 +256,14 @@ public class W37BleOperateManager {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        if (value.length > 10 && (value[10] == 6)) {    //拍照的指令
+                        if (value.length > 10 && (value[10] == 6)) {    //舟海拍照的指令
                             Log.e(TAG, "----111---收到手环返回-----");
                             Intent intent = new Intent();
                             intent.setAction(W37_CAMERA_TAKE_PHOTO);
                             mContext.sendBroadcast(intent);
                         }
 
-                       if( value.length > 10 && (value[10] == 7)){   //找手机的指令
+                       if( value.length > 10 && (value[10] == 7)){   //舟海找手机的指令
                             Log.e(TAG, "----22---查找手机返回-----");
                             handler.sendEmptyMessage(0x01);
                         }
@@ -253,11 +274,15 @@ public class W37BleOperateManager {
                            mContext.sendBroadcast(intent);
                        }
 
-                        if(value[0] == 25 && value[1] == 0){ //SWatch查找手机的指令
+                       if(value.length>4 && (value[0] == -85 && value[3] == 5)){    //舟海系列挂断电话的指令
+                           handler.sendEmptyMessage(0x05);
+                       }
+
+                        if(value.length>2 && (value[0] == 25 && value[1] == 0)){ //SWatch查找手机的指令
                             handler.sendEmptyMessage(0x01);
                         }
 
-                        if(value[0] == 20 && value[1] == 1){    //SWatch拍照指令
+                        if(value.length>2 && (value[0] == 20 && value[1] == 1)){    //SWatch拍照指令
                             Intent intent = new Intent();
                             intent.setAction(X_WATCH_TAKE_PHOTO);
                             mContext.sendBroadcast(intent);
@@ -310,6 +335,19 @@ public class W37BleOperateManager {
 
 
 
+    //写入B11体温手环数据
+    public synchronized void writeB11BleDataToDevice(byte[] data,WriteBackDataListener writeBackDataListener){
+        String bleMac = (String) BleSpUtils.get(mContext,SAVE_BLE_MAC_KEY,"");
+        Log.e(TAG,"------写入数据="+bleMac+"-----数据="+Arrays.toString(data));
+        if(WatchUtils.isEmpty(bleMac))
+            return;
+        interfaceManager.setWriteBackDataListener(writeBackDataListener);
+        bluetoothClient.write(bleMac,B11_SYSTEM_SERVER_UUID,B11_SYSTEM_WRITE_UUID,data,bleWriteResponse);
+    }
+
+
+
+
     //写入数据 舟海系列手环
     public synchronized void writeBleDataToDevice(byte[] data,WriteBackDataListener writeBackDataListener){
         String bleMac = (String) BleSpUtils.get(mContext,SAVE_BLE_MAC_KEY,"");
@@ -329,6 +367,8 @@ public class W37BleOperateManager {
         if(WatchUtils.isEmpty(bleMac))
             return;
         String bName = (String) SharedPreferencesUtils.readObject(MyApp.getContext(),Commont.BLENAME);
+        if(WatchUtils.isEmpty(bName))
+            return;
         Log.e(TAG,"------写入的马刺的转="+bName);
         interfaceManager.setWriteBackDataListener(writeBackDataListener);
         if(bName.equals("SWatch")){

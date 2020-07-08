@@ -13,7 +13,7 @@
 
         <include layout="@layout/b18i_titil_bar" />
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/size_15">
@@ -275,7 +275,7 @@
                         android:src="@mipmap/lanage" />
                 </RelativeLayout>
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 
 </LinearLayout>

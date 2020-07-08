@@ -1,5 +1,6 @@
 package com.example.bozhilun.android.activity;
 
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.ContentUris;
@@ -12,11 +13,13 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.support.v4.content.FileProvider;
+import androidx.core.content.FileProvider;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,7 +27,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.aigestudio.wheelpicker.widgets.DatePick;
 import com.aigestudio.wheelpicker.widgets.ProfessionPick;
+import com.amap.api.maps.model.LatLng;
 import com.example.bozhilun.android.Commont;
+import com.example.bozhilun.android.bzlmaps.gaodemaps.AmapLocalUtils;
 import com.example.bozhilun.android.siswatch.NewSearchActivity;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.imagepicker.PickerBuilder;
@@ -45,6 +50,7 @@ import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Rationale;
 import com.yanzhenjie.permission.RequestExecutor;
+import com.yanzhenjie.permission.runtime.Permission;
 import org.json.JSONObject;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -52,6 +58,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -67,6 +74,9 @@ public class PersonDataActivity extends WatchBaseActivity implements RequestView
     private static final String TAG = "PersonDataActivity";
 
     private static final int GET_OPENCAMERA_CODE = 100;
+
+    //拍照后存储图片的路径
+    private String TAKE_PICK_URL = null;
 
     @BindView(R.id.tv_title)
     TextView tvTitle;
@@ -99,6 +109,8 @@ public class PersonDataActivity extends WatchBaseActivity implements RequestView
 
     private RequestPressent requestPressent;
 
+    private AmapLocalUtils amapLocalUtils;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,36 +121,56 @@ public class PersonDataActivity extends WatchBaseActivity implements RequestView
 
         initView();
 
+
+
+        File privatePackFile = this.getExternalFilesDir(null);
+        if(privatePackFile == null)
+            TAKE_PICK_URL = Environment.getExternalStorageDirectory().getPath()+"/";
+        else
+            TAKE_PICK_URL = privatePackFile.getPath()+"/";
+
         requestPermiss();
 
         requestPressent = new RequestPressent();
         requestPressent.attach(this);
 
+        amapLocalUtils = new AmapLocalUtils(this);
+        amapLocalUtils.setAmapLocalMsgListener(new AmapLocalUtils.AmapLocalMsgListener() {
+            @Override
+            public void getLocalData(String cityStr, LatLng latLng) {
+                Log.e(TAG,"------定位返回="+cityStr);
+                uploadToLocal(cityStr,latLng);
+
+            }
+        });
+
+    }
+
+    //上传位置信息
+    private void uploadToLocal(String cityStr, LatLng latLng) {
+        try {
+            String userId = (String) SharedPreferencesUtils.readObject(PersonDataActivity.this,Commont.USER_ID_DATA);
+            String url = Commont.FRIEND_BASE_URL + Commont.UPLOAD_LOCAL_MSG;
+
+            double[] latDouble  = amapLocalUtils.gaoDeToBaidu(latLng.longitude,latLng.latitude);
+
+            Map<String,Object> maps = new HashMap<>();
+            maps.put("userId",Common.customer_id == null ? userId : Common.customer_id);
+            maps.put("lon",latDouble[0]);
+            maps.put("lat",latDouble[1]);
+            maps.put("area",cityStr);
+            if (requestPressent != null) {
+                requestPressent.getRequestJSONObject(0x11, url, PersonDataActivity.this,new Gson().toJson(maps), 2);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private void requestPermiss() {
+        AndPermission.with(this).runtime().permission(new String[]{Permission.CAMERA,Permission.WRITE_EXTERNAL_STORAGE}).start();
         //请求打开相机的权限
-        AndPermission.with(PersonDataActivity.this)
-                .runtime()
-                .permission(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .onDenied(new Action<List<String>>() {
-                    @Override
-                    public void onAction(List<String> data) {
 
-                    }
-                })
-                .onDenied(new Action<List<String>>() {
-                    @Override
-                    public void onAction(List<String> data) {
-
-                    }
-                })
-                .rationale(new Rationale<List<String>>() {
-                    @Override
-                    public void showRationale(Context context, List<String> data, RequestExecutor executor) {
-
-                    }
-                }).start();
     }
 
     @SuppressLint("SetTextI18n")
@@ -179,29 +211,11 @@ public class PersonDataActivity extends WatchBaseActivity implements RequestView
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.head_img: //选择头像
-                if (AndPermission.hasPermissions(PersonDataActivity.this, Manifest.permission.CAMERA,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                if (AndPermission.hasAlwaysDeniedPermission(PersonDataActivity.this, Permission.CAMERA)) {
                     chooseHeadImg();
                 } else {
-                    AndPermission.with(PersonDataActivity.this)
-                            .runtime()
-                            .permission(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                            .onGranted(new Action<List<String>>() {
-                                @Override
-                                public void onAction(List<String> data) {
-                                    chooseHeadImg();
-                                }
-                            })
-                            .onDenied(new Action<List<String>>() {
-                                @Override
-                                public void onAction(List<String> data) {
-
-                                }
-                            })
-                            .start();
+                    requestPermiss();
                 }
-
-
                 break;
             case R.id.selectbirthday_relayout:
                 DatePick pickerPopWin = new DatePick.Builder(PersonDataActivity.this, new DatePick.OnDatePickedListener() {
@@ -307,6 +321,7 @@ public class PersonDataActivity extends WatchBaseActivity implements RequestView
 
     //头像选择
     private void chooseHeadImg() {
+        requestPermiss();
         MenuSheetView menuSheetView =
                 new MenuSheetView(PersonDataActivity.this, MenuSheetView.MenuType.LIST, R.string.select_photo, new MenuSheetView.OnMenuItemClickListener() {
                     @Override
@@ -388,7 +403,9 @@ public class PersonDataActivity extends WatchBaseActivity implements RequestView
                     break;
                 case 1001: //相机返回的 uri
                     //启动裁剪
-                    String path = getExternalCacheDir().getPath();
+                    String path = TAKE_PICK_URL;
+                    if(path == null)
+                        return;
 //                    Log.e(TAG, "----裁剪path=" + path);
                     String name = "output.png";
                     startActivityForResult(CutForCamera(path, name), 111);
@@ -435,34 +452,38 @@ public class PersonDataActivity extends WatchBaseActivity implements RequestView
      * 打开相机
      */
     private void cameraPic() {
-        //创建一个file，用来存储拍照后的照片
-        File outputfile = new File(getExternalCacheDir().getPath(), "output.png");
         try {
-            if (outputfile.exists()) {
-                outputfile.delete();//删除
+            //创建一个file，用来存储拍照后的照片
+            File outputfile = new File(TAKE_PICK_URL, "output.png");
+            try {
+                if (outputfile.exists()) {
+                    outputfile.delete();//删除
+                }
+                outputfile.createNewFile();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            outputfile.createNewFile();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        Uri imageuri;
-        if (Build.VERSION.SDK_INT >= 24) {
-            imageuri = FileProvider.getUriForFile(PersonDataActivity.this,
-                    getPackageName() + ".fileprovider_racefitpro", //可以是任意字符串
-                    outputfile);
+            Uri imageuri;
+            if (Build.VERSION.SDK_INT >= 24) {
+                imageuri = FileProvider.getUriForFile(PersonDataActivity.this,
+                        getPackageName() + ".fileprovider_racefitpro", //可以是任意字符串
+                        outputfile);
 //            imageuri = FileProvider.getUriForFile(PersonDataActivity.this,
 //                    "com.guider.ringmiihx.fileprovider", //可以是任意字符串
 //                    outputfile);
 //            imageuri = FileProvider.getUriForFile(PersonDataActivity.this,
 //                    "com.example.bozhilun.android.fileprovider", //可以是任意字符串
 //                    outputfile);
-        } else {
-            imageuri = Uri.fromFile(outputfile);
+            } else {
+                imageuri = Uri.fromFile(outputfile);
+            }
+            //启动相机程序
+            Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, imageuri);
+            startActivityForResult(intent, 1001);
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        //启动相机程序
-        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageuri);
-        startActivityForResult(intent, 1001);
     }
 
 
@@ -477,7 +498,7 @@ public class PersonDataActivity extends WatchBaseActivity implements RequestView
     private Intent CutForCamera(String camerapath, String imgname) {
         try {
             //设置裁剪之后的图片路径文件
-            File cutfile = new File(getExternalCacheDir().getPath(),
+            File cutfile = new File(TAKE_PICK_URL,
                     "cutcamera.png"); //随便命名一个
             if (cutfile.exists()) { //如果已经存在，则先删除,这里应该是上传到服务器，然后再删除本地的，没服务器，只能这样了
                 cutfile.delete();
@@ -544,7 +565,7 @@ public class PersonDataActivity extends WatchBaseActivity implements RequestView
             //直接裁剪
             Intent intent = new Intent("com.android.camera.action.CROP");
             //设置裁剪之后的图片路径文件
-            File cutfile = new File(getExternalCacheDir().getPath(),
+            File cutfile = new File(TAKE_PICK_URL,
                     "cutcamera.png"); //随便命名一个
             if (cutfile.exists()) { //如果已经存在，则先删除,这里应该是上传到服务器，然后再删除本地的，没服务器，只能这样了
                 cutfile.delete();
@@ -703,5 +724,24 @@ public class PersonDataActivity extends WatchBaseActivity implements RequestView
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            if (event.getAction() == KeyEvent.ACTION_DOWN && event.getRepeatCount() == 0) {
+                startActivity(NewSearchActivity.class);
+            }
+            return true;
+        }
+        return super.dispatchKeyEvent(event);
+    }
+
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        amapLocalUtils.stopLocal();
     }
 }

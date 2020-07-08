@@ -7,12 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,8 +49,8 @@ import com.example.bozhilun.android.siswatch.LazyFragment;
 import com.example.bozhilun.android.siswatch.NewSearchActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchConstants;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
+import com.example.bozhilun.android.siswatch.view.LoginWaveView;
 import com.example.bozhilun.android.util.LocalizeTool;
-import com.github.mikephil.charting.data.Entry;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Legend;
@@ -66,11 +65,7 @@ import com.littlejie.circleprogress.circleprogress.WaveProgress;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
-import com.veepoo.protocol.model.datas.HalfHourBpData;
-import com.veepoo.protocol.model.datas.HalfHourRateData;
-import com.veepoo.protocol.model.datas.HalfHourSportData;
-import com.veepoo.protocol.model.datas.SleepData;
-import com.veepoo.protocol.model.datas.TimeData;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -312,6 +307,9 @@ public class B30HomeFragment extends LazyFragment implements ConnBleHelpService.
     boolean womenPrivacy = false;
 
 
+    @BindView(R.id.waterWaveView)
+    LoginWaveView loginWaveView;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -372,6 +370,7 @@ public class B30HomeFragment extends LazyFragment implements ConnBleHelpService.
 
     private void initViews() {
 
+        loginWaveView.startMove();
         //if (b30TopDateTv != null) b30TopDateTv.setText("    ");
         //判断设置目标步数和当前步数
         if (getActivity() != null && !getActivity().isFinishing() && b30ProgressBar != null) {
@@ -416,6 +415,8 @@ public class B30HomeFragment extends LazyFragment implements ConnBleHelpService.
         try {
             if (WatchUtils.isEmpty(bleName))
                 bleName = (String) SharedPreferencesUtils.readObject(getActivity(), Commont.BLENAME);
+            if(WatchUtils.isEmpty(bleName))
+                return;
             if (bleName.equals("B36") ||bleName.equals("B36M")) {
                 b30HomeB30Lin.setVisibility(View.GONE);
                 if (WatchUtils.isB36SexWomen(getActivity())) {
@@ -577,6 +578,7 @@ public class B30HomeFragment extends LazyFragment implements ConnBleHelpService.
                 if (WatchConstants.isScanConn) {  //是搜索进来的
                     WatchConstants.isScanConn = false;
                     //getBleMsgData();
+                    SharedPreferencesUtils.setParam(getmContext(), "save_curr_time", System.currentTimeMillis() / 1000 -10 + "");
                     if (b30HomeSwipeRefreshLayout != null) b30HomeSwipeRefreshLayout.autoRefresh();
                     Log.d("bobo", "onFragmentVisibleChange: autoRefresh()");
                 } else {  //不是搜索进来的
@@ -632,8 +634,6 @@ public class B30HomeFragment extends LazyFragment implements ConnBleHelpService.
         }
         //判断是否是B36
         verIsTureB36();
-
-
     }
 
     @Override
@@ -720,7 +720,7 @@ public class B30HomeFragment extends LazyFragment implements ConnBleHelpService.
         updateSportData(mac, date);
         updateRateData(mac, date);
         updateBpData(mac, date);
-        updateSleepData(mac, WatchUtils.obtainFormatDate(currDay));
+        updateSleepData(mac,  WatchUtils.obtainAroundDate(date,true));
     }
 
     /**
@@ -752,11 +752,7 @@ public class B30HomeFragment extends LazyFragment implements ConnBleHelpService.
         try {
             String sport = B30HalfHourDao.getInstance().findOriginData(mac, date, B30HalfHourDao
                     .TYPE_SPORT);
-//        List<HalfHourSportData> sportData = gson.fromJson(sport, new TypeToken<List<HalfHourSportData>>() {
-//        }.getType());
-
             List<CusVPHalfSportData> sportData = gson.fromJson(sport,new TypeToken<List<CusVPHalfSportData>>(){}.getType());
-
             Message message = new Message();
             message.what = 1002;
             message.obj = sportData;
@@ -773,9 +769,6 @@ public class B30HomeFragment extends LazyFragment implements ConnBleHelpService.
         try {
             String rate = B30HalfHourDao.getInstance().findOriginData(mac, date, B30HalfHourDao
                     .TYPE_RATE);
-//        List<HalfHourRateData> rateData = gson.fromJson(rate, new TypeToken<List<HalfHourRateData>>() {
-//        }.getType());
-
             List<CusVPHalfRateData> rateData = gson.fromJson(rate,new TypeToken<List<CusVPHalfRateData>>() {
             }.getType());
 
@@ -1068,23 +1061,23 @@ public class B30HomeFragment extends LazyFragment implements ConnBleHelpService.
         switch (view.getId()) {
             case R.id.b30SportChartLin1: // 运动数据详情
             case R.id.b30BarChart: // 运动数据详情
-                B30StepDetailActivity.startAndParams(getActivity(), WatchUtils.obtainFormatDate(currDay));
+                B30StepDetailActivity.startAndParams(getmContext(), WatchUtils.obtainFormatDate(currDay));
                 break;
             case R.id.b30CusHeartLin:   //心率详情
-                B30HeartDetailActivity.startAndParams(getActivity(), WatchUtils.obtainFormatDate(currDay));
+                B30HeartDetailActivity.startAndParams(getmContext(), WatchUtils.obtainFormatDate(currDay));
                 break;
             case R.id.b30CusBloadLin:   //血压详情
-                B30BloadDetailActivity.startAndParams(getActivity(), WatchUtils.obtainFormatDate(currDay));
+                B30BloadDetailActivity.startAndParams(getmContext(), WatchUtils.obtainFormatDate(currDay));
                 break;
             case R.id.b30MeaureHeartImg:    //手动测量心率
-                startActivity(new Intent(getActivity(), ManualMeaureHeartActivity.class));
+                startActivity(new Intent(getmContext(), ManualMeaureHeartActivity.class));
                 break;
             case R.id.b30MeaureBloadImg:    //手动测量血压
-                startActivity(new Intent(getActivity(), ManualMeaureBloadActivity.class));
+                startActivity(new Intent(getmContext(), ManualMeaureBloadActivity.class));
                 break;
-            case R.id.b30SleepLin:      //睡眠详情
-                B30SleepDetailActivity.startAndParams(getActivity(), WatchUtils.obtainFormatDate
-                        (currDay));
+            case R.id.b30SleepLin:
+                String dayStr =  WatchUtils.obtainFormatDate(currDay);
+                B30SleepDetailActivity.startAndParams(getmContext(),WatchUtils.obtainAroundDate(dayStr,true));
                 break;
             case R.id.homeTodayTv:  //今天
                 clearDataStyle(0);
@@ -1101,7 +1094,7 @@ public class B30HomeFragment extends LazyFragment implements ConnBleHelpService.
                 startActivity(new Intent(getmContext(), CommentDataActivity.class));
                 break;
             case R.id.b36WomenStatusLin:    //女性功能
-                startActivity(new Intent(getActivity(), WomenDetailActivity.class));
+                startActivity(new Intent(getmContext(), WomenDetailActivity.class));
                 break;
             case R.id.b36WomenPrivacyImg:       //隐私是否开启
                 if (womenPrivacy) {       //开启了隐私

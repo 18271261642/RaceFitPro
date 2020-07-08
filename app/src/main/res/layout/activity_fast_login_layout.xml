@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/fastCoorLayout"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardBackgroundColor="@color/white"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@color/chang_white"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="手机号注册/登录"
+                        android:textSize="25sp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#0F0F0F"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:id="@+id/fastLoginPhoneAreaLin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:id="@+id/fastLoginPhoneAreCodeTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="18sp"
+                                android:layout_marginLeft="10dp"
+                                android:textColor="@color/contents_text"
+                                android:text="+86"/>
+
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:background="@drawable/analysis_arrow_right"/>
+
+
+                        </LinearLayout>
+
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/fastLoginPhoneNumberEdit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:hint="输入手机号"
+                            android:maxLines="1"
+                            android:inputType="phone"
+                            android:singleLine="true"
+                            android:background="@null"/>
+
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@mipmap/icon_fast_login_lie"/>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/fastLoginPhoneCodeEdit"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:inputType="number"
+                            android:textColorHint="#7E7E7E"
+                            android:hint="输入短信验证码"
+                            android:background="@null"/>
+
+                        <TextView
+                            android:id="@+id/fastLoginGetCodeTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:textSize="18sp"
+                            android:textColor="#737373"
+                            android:layout_marginRight="8dp"
+                            android:text="获取验证码"/>
+
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@mipmap/icon_fast_login_lie"/>
+
+
+
+                    <RelativeLayout
+                        android:layout_marginTop="35dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/fastAccountLoginTv"
+                            android:layout_alignParentLeft="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:padding="5dp"
+                            android:text="用账号密码登录>"/>
+
+
+
+                        <TextView
+                            android:id="@+id/fastLoginVistTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:padding="5dp"
+                            android:layout_marginRight="15dp"
+                            android:text="游客登录>"/>
+
+                    </RelativeLayout>
+
+
+
+
+                    <TextView
+                        android:id="@+id/fastLoginEmailAccTv"
+                        android:layout_alignParentLeft="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:padding="5dp"
+                        android:layout_marginLeft="15dp"
+                        android:text="邮箱注册>"/>
+
+
+                    <Button
+                        android:id="@+id/fastLoginBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="注册/登录"
+                        android:textColor="@color/white"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_marginRight="@dimen/size_15"
+                        android:layout_marginTop="@dimen/size_20"
+                        android:background="#08F7D8"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="left"
+                        android:padding="5dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+
+                        <CheckBox
+                            android:id="@+id/privacyCheckBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="已阅读并同意"/>
+
+
+                        <TextView
+                            android:id="@+id/fastUserProtocalTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/blue"
+                            android:text="《用户协议》"/>
+
+                        <TextView
+                            android:id="@+id/fastPrivacyTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/blue"
+                            android:text="《隐私政策》"/>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/fastQqImg"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:layout_marginRight="20dp"
+                    android:src="@mipmap/icon_fast_qq" />
+
+
+
+                <ImageView
+                    android:id="@+id/fastWxImg"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/icon_fast_wx" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

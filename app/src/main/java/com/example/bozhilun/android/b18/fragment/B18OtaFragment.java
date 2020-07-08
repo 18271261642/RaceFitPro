@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +28,6 @@ import com.example.bozhilun.android.util.URLs;
 import com.google.gson.Gson;
 import com.hplus.bluetooth.BleProfileManager;
 import com.hplus.bluetooth.command.OnResponseListener;
-import com.hplus.bluetooth.dfu.DfuFileStatusCallback;
 
 import org.apache.commons.lang.StringUtils;
 import org.json.JSONObject;

@@ -106,6 +106,9 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
+
+
 
 
     <supports-screens
@@ -179,7 +182,7 @@
 
         <activity
             android:name=".bzlmaps.gaodemaps.BzlGaoDeActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/BAppTheme" />
 
         <!-- 高德地图定位服务 -->
@@ -189,7 +192,7 @@
         <activity
             android:name=".activity.LaunchActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|navigation|keyboard"
-            android:theme="@style/BAppTheme">
+            android:theme="@style/LaunchTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -197,6 +200,8 @@
             </intent-filter>
         </activity>
 
+        <!--手机号快捷登录-->
+        <activity android:name=".activity.FastLoginActivity"/>
         <!-- y运动历史 -->
         <activity
             android:name=".b30.GPSSportHisyory"
@@ -1145,6 +1150,7 @@
         <activity
             android:name=".b31.B31HomeActivity"
             android:screenOrientation="portrait"
+            android:configChanges="uiMode"
             android:theme="@style/BAppTheme" />
         <!-- B31的设备页面 -->
         <activity
@@ -1369,17 +1375,23 @@
         <activity android:name=".view.UserProtocalActivity"/>
         <!--详情-->
         <activity android:name=".recommend.BannerDetailActivity"/>
+        <!--心率报警-维亿魄系列-->
+        <activity android:name=".b31.HeartWaringActivity"/>
+        <!--B31OTA升级-->
+        <activity android:name=".b31.ota.B31OtaActivity"/>
+
+        <activity android:name=".view.SupportDeviceView"/>
+        <activity android:name=".b31.sort.SortActivity"/>
 
 
 
-
-
-
+        <!--B11体温手环-->
+        <activity android:name=".b11.B11HomeActivity"/>
 
 
         <!--  provider -->
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider_racefitpro"
             android:exported="false"
             android:grantUriPermissions="true">

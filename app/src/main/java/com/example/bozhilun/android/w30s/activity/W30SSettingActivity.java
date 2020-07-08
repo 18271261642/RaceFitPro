@@ -8,10 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -33,10 +33,7 @@ import com.example.bozhilun.android.siswatch.NewSearchActivity;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.util.URLs;
-import com.example.bozhilun.android.util.VerifyUtil;
 import com.example.bozhilun.android.w30s.ble.BleDeviceDataListener;
-import com.example.bozhilun.android.w30s.ble.CallDatasBackListenter;
-import com.example.bozhilun.android.w30s.ble.W37BloodBean;
 import com.example.bozhilun.android.w30s.ble.W37DataAnalysis;
 import com.example.bozhilun.android.w30s.ota.NewW30OTAActivity;
 import com.example.bozhilun.android.w30s.ota.NewW31OTAActivity;
@@ -46,22 +43,16 @@ import com.example.bozhilun.android.w30s.utils.httputils.RequestView;
 import com.google.gson.Gson;
 import com.suchengkeji.android.w30sblelibrary.W30SBLEGattAttributes;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
-import com.example.bozhilun.android.util.ToastUtil;
 import com.example.bozhilun.android.w30s.SharePeClear;
 import com.example.bozhilun.android.w30s.carema.W30sCameraActivity;
-import com.example.bozhilun.android.w30s.ota.NewW30sFirmwareUpgrade;
 import com.example.bozhilun.android.w30s.wxsport.WXSportActivity;
-import com.suchengkeji.android.w30sblelibrary.W30SBLEManage;
-import com.suchengkeji.android.w30sblelibrary.W30SBLEServices;
 import com.suchengkeji.android.w30sblelibrary.bean.servicebean.W30SDeviceData;
-import com.suchengkeji.android.w30sblelibrary.bean.servicebean.W30SHeartData;
-import com.suchengkeji.android.w30sblelibrary.bean.servicebean.W30SSleepData;
-import com.suchengkeji.android.w30sblelibrary.bean.servicebean.W30SSportData;
 import com.suchengkeji.android.w30sblelibrary.utils.W30SBleUtils;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Rationale;
 import com.yanzhenjie.permission.RequestExecutor;
+import com.yanzhenjie.permission.runtime.Permission;
 
 import org.json.JSONObject;
 
@@ -125,7 +116,6 @@ public class W30SSettingActivity extends WatchBaseActivity implements RequestVie
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             try {
-                if (msg == null) return;
                 if (msg.what == ResetNUMBER || msg.what == ResetFactory) {
                     handler.removeMessages(ResetFactory);
                     handler.removeMessages(ResetNUMBER);
@@ -281,54 +271,7 @@ public class W30SSettingActivity extends WatchBaseActivity implements RequestVie
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.set_updata://固件升级
-                if (MyCommandManager.DEVICENAME != null) {
-                    showLoadingDialog("Loading...");
-                    //获取固件版本
-                    W37DataAnalysis.getW37DataAnalysis().getDeviceInfo(W30SBLEGattAttributes.syncTime(), new BleDeviceDataListener() {
-                        @Override
-                        public void callBleDeviceData(W30SDeviceData deviceData) {
-                            closeLoadingDialog();
-                            Log.e(TAG,"--------device="+deviceData.toString());
-
-                            if (AndPermission.hasPermissions(W30SSettingActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                                // startActivity(NewW30sFirmwareUpgrade.class);
-                                if(bleName == null)
-                                    return;
-                                if(bleName.equals("W30")){
-                                    SharedPreferencesUtils.setParam(W30SSettingActivity.this, "W30S_V", deviceData.getDeviceVersionNumber() + "");
-                                    startActivity(NewW30OTAActivity.class);
-                                }else if(bleName.equals("W31")){
-                                    SharedPreferencesUtils.setParam(W30SSettingActivity.this, "W31S_V", deviceData.getDeviceVersionNumber() + "");
-                                    startActivity(NewW31OTAActivity.class);
-                                }
-                                else if(bleName.equals("W37")){
-                                    SharedPreferencesUtils.setParam(W30SSettingActivity.this, "W37S_V", deviceData.getDeviceVersionNumber() + "");
-                                    startActivity(NewW37OTAActivity.class);
-                                }
-
-                            } else {
-                                AndPermission.with(W30SSettingActivity.this)
-                                        .runtime()
-                                        .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                                        .onGranted(new Action<List<String>>() {
-                                            @Override
-                                            public void onAction(List<String> data) {
-//
-                                            }
-                                        })
-                                        .onDenied(new Action<List<String>>() {
-                                            @Override
-                                            public void onAction(List<String> data) {
-
-                                            }
-                                        })
-                                        .rationale(rationale)
-                                        .start();
-                            }
-                        }
-                    });
-                }
-
+                setDeviceDfu();
                 break;
             case R.id.image_back:
                 finish();
@@ -349,7 +292,7 @@ public class W30SSettingActivity extends WatchBaseActivity implements RequestVie
                 } else {
                     AndPermission.with(this)
                             .runtime()
-                            .permission(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
+                            .permission(Permission.CAMERA,Permission.RECORD_AUDIO)
                             .rationale(rationale)
                             .onGranted(new Action<List<String>>() {
                                 @Override
@@ -417,20 +360,9 @@ public class W30SSettingActivity extends WatchBaseActivity implements RequestVie
                                     //断开蓝牙
                                     W30SBleUtils.isOtaConn = false;
                                     MyApp.getInstance().getW37BleOperateManager().disBleDeviceByMac(WatchUtils.getSherpBleMac(W30SSettingActivity.this));
-//                                    W30SBLEManage.mW30SBLEServices.disconnectBle();
-//                                    //手动断开清楚mac数据
-//                                    W30SBLEManage.mW30SBLEServices.disClearData();
-                                    //SharePeClear.clearDatas(B18IAppSettingActivity.this);
-                                    //W30SBLEManage.mW30SBLEServices.close();
-
                                     SharedPreferencesUtils.setParam(MyApp.getInstance(), "upSportTime", "2017-11-02 15:00:00");
                                     SharedPreferencesUtils.setParam(MyApp.getInstance(), "upSleepTime", "2015-11-02 15:00:00");
                                     SharedPreferencesUtils.setParam(MyApp.getInstance(), "upHeartTime", "2017-11-02 15:00:00");
-//                                W30SBLEManage.mW30SBLEServices.disconnect();
-//                                MyCommandManager.DEVICENAME = null;
-//                                W30SBLEManage.mW30SBLEServices.disconnect();
-//                                W30SBLEManage.mW30SBLEServices.close();
-//                                SharePeClear.clearDatas(W30SSettingActivity.this);
                                     handler.sendEmptyMessageDelayed(ResetFactory, HandlerTime);
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -440,13 +372,43 @@ public class W30SSettingActivity extends WatchBaseActivity implements RequestVie
                         }).show();
                 break;
             case R.id.w30_wx_sport: //微信运动
-
                 startActivity(WXSportActivity.class,new String[]{"bleName"},new String[]{"W30"});
                 break;
 
         }
     }
 
+    private void setDeviceDfu() {
+        if(MyCommandManager.DEVICENAME == null)
+            return;
+        showLoadingDialog("Loading...");
+        if(!AndPermission.hasPermissions(this,Permission.WRITE_EXTERNAL_STORAGE)){
+            AndPermission.with(this).runtime().permission(Permission.WRITE_EXTERNAL_STORAGE).start();
+            return;
+        }
+        w37DataAnalysis.getDeviceInfo(W30SBLEGattAttributes.syncTime(), new BleDeviceDataListener() {
+            @Override
+            public void callBleDeviceData(W30SDeviceData deviceData) {
+                if(deviceData == null)
+                    return;
+                if(bleName == null)
+                    return;
+                if(bleName.equals("W30")){
+                    SharedPreferencesUtils.setParam(W30SSettingActivity.this, "W30S_V", deviceData.getDeviceVersionNumber() + "");
+                    startActivity(NewW30OTAActivity.class);
+                    return;
+                }if(bleName.equals("W31")){
+                    SharedPreferencesUtils.setParam(W30SSettingActivity.this, "W31S_V", deviceData.getDeviceVersionNumber() + "");
+                    startActivity(NewW31OTAActivity.class);
+                    return;
+                }
+                if(bleName.equals("W37")){
+                    SharedPreferencesUtils.setParam(W30SSettingActivity.this, "W37S_V", deviceData.getDeviceVersionNumber() + "");
+                    startActivity(NewW37OTAActivity.class);
+                }
+            }
+        });
+    }
 
 
     private class CheckedListenter implements CompoundButton.OnCheckedChangeListener {
@@ -563,7 +525,7 @@ public class W30SSettingActivity extends WatchBaseActivity implements RequestVie
     private Rationale rationale = new Rationale() {
         @Override
         public void showRationale(Context context, Object data, RequestExecutor executor) {
-            AndPermission.with(W30SSettingActivity.this).runtime().setting().start();
+            AndPermission.with(W30SSettingActivity.this).runtime().setting().start(1001);
             executor.execute();
         }
     };

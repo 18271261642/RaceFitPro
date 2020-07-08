@@ -19,9 +19,9 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Vibrator;
-import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import android.util.Log;
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
@@ -175,11 +175,16 @@ public class B30ConnStateService extends Service {
 
 
     private void initBlue(){
-        bluetoothClient = new BluetoothClient(MyApp.getContext());
-        BluetoothManager bluetoothManager = (BluetoothManager) MyApp.getContext().getSystemService(Context.BLUETOOTH_SERVICE);
-        if (bluetoothManager != null) {
-            bluetoothAdapter = bluetoothManager.getAdapter();
+        try {
+            bluetoothClient = new BluetoothClient(MyApp.getContext());
+            BluetoothManager bluetoothManager = (BluetoothManager) MyApp.getContext().getSystemService(Context.BLUETOOTH_SERVICE);
+            if (bluetoothManager != null) {
+                bluetoothAdapter = bluetoothManager.getAdapter();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
+
     }
 
     //注册广播
@@ -226,7 +231,9 @@ public class B30ConnStateService extends Service {
                             SharedPreferencesUtils.saveObject(MyApp.getContext(), Commont.BLENAME, nameStr);
                             SharedPreferencesUtils.saveObject(MyApp.getContext(), Commont.BLEMAC, mac);
                             Intent intent = new Intent();
-                            if(nameStr.equals(WatchUtils.B31_NAME)||nameStr.equals(WatchUtils.B31S_NAME)||nameStr.equals(WatchUtils.S500_NAME) || nameStr.equals("E Watch") || nameStr.equals("B50")){  //B31的连接
+                            if(nameStr.equals(WatchUtils.B31_NAME)||nameStr.equals(WatchUtils.B31S_NAME)
+                                    ||nameStr.equals(WatchUtils.S500_NAME) || nameStr.equals("E Watch")
+                                    || nameStr.equals("B50") || nameStr.contains("YWK") || nameStr.contains("SpO2")){  //B31的连接
                                 intent.setAction(WatchUtils.B31_CONNECTED_ACTION);
                             }else{  //B30、B36、盖德
                                 intent.setAction(WatchUtils.B30_CONNECTED_ACTION);
@@ -444,7 +451,5 @@ public class B30ConnStateService extends Service {
         }
 
     };
-
-
 
 }

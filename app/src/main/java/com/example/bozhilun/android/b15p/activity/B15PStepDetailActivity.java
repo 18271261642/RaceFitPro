@@ -5,10 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,15 +16,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.b15p.b15pdb.B15PDBCommont;
 import com.example.bozhilun.android.b15p.b15pdb.B15PStepDB;
 import com.example.bozhilun.android.b30.adapter.B30StepDetailAdapter;
-import com.example.bozhilun.android.b30.bean.B30HalfHourDao;
 import com.example.bozhilun.android.b30.model.CusVPHalfSportData;
 import com.example.bozhilun.android.b30.model.CusVPTimeData;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
@@ -40,14 +37,11 @@ import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.google.gson.Gson;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.tjdL4.tjdmain.ctrls.DisEnergy;
-import com.veepoo.protocol.model.datas.HalfHourSportData;
-import com.veepoo.protocol.model.datas.TimeData;
 
 import org.apache.commons.lang.StringUtils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -99,20 +93,6 @@ public class B15PStepDetailActivity extends WatchBaseActivity {
     @BindView(R.id.stepCurrDateTv)
     TextView stepCurrDateTv;
 
-
-//    @BindView(R.id.detail_step)
-//    LinearLayout detailStep;
-//    @BindView(R.id.detail_dis)
-//    LinearLayout detailDis;
-//    @BindView(R.id.detail_kcl)
-//    LinearLayout detailKcl;
-//
-//    @BindView(R.id.detail_step_img)
-//    ImageView detail_stepIMG;
-//    @BindView(R.id.detail_dis_img)
-//    ImageView detail_disIMG;
-//    @BindView(R.id.detail_kcl_img)
-//    ImageView detail_kclIMG;
     private int st = 0;
 
 
@@ -233,39 +213,6 @@ public class B15PStepDetailActivity extends WatchBaseActivity {
 
         }
 
-
-//        String stringStep =  B30HalfHourDao.getInstance().findOriginData(mac, currDay, B30HalfHourDao.TYPE_SPORT);
-//        Log.e("===获取到的步数 ", (WatchUtils.isEmpty(stringStep) ? "苏数据" : stringStep));
-
-//        halfHourSportData.clear();
-//        step = 0;
-//        if (!WatchUtils.isEmpty(stringStep)) {
-//            List<Integer> sportData = JSON.parseObject(stringStep, new TypeReference<List<Integer>>() {
-//            });// Json 转List
-//            if (sportData != null && !sportData.isEmpty()) {
-//                for (int i = 0; i < sportData.size(); i++) {
-//                    step += sportData.get(i);
-//                    TimeData timeData = new TimeData();
-//                    timeData.setHour(Integer.valueOf(timeString[i]));
-//                    HalfHourSportData halfHourSportData1 = new HalfHourSportData(timeData,
-//                            sportData.get(i), 0, 0, 0);
-//                    halfHourSportData.add(halfHourSportData1);
-//                }
-////        String sport = B30HalfHourDao.getInstance().findOriginData(mac, currDay, B30HalfHourDao
-////                .TYPE_SPORT);
-////        List<HalfHourSportData> sportData = gson.fromJson(sport, new TypeToken<List<HalfHourSportData>>() {
-////        }.getType());
-////        if (sportData == null) sportData = new ArrayList<>();
-////        showBarChart(sportData);
-////        String step = B30HalfHourDao.getInstance().findOriginData(mac, currDay, B30HalfHourDao
-////                .TYPE_STEP);
-////        countStepTv.setText(step == null ? "0" : step);// 本地步数
-//
-//            }
-//
-//        }
-
-
         showBarChart(halfHourSportData);
 
         showListData(halfHourSportData);
@@ -353,23 +300,6 @@ public class B15PStepDetailActivity extends WatchBaseActivity {
     //    private void showListData(List<HalfHourSportData> sportData) {
     @SuppressLint("SetTextI18n")
     private void showListData(List<CusVPHalfSportData> sportData) {
-//        dataList.clear();
-//        if (sportData == null && sportData.isEmpty()) return;
-//        for (int i = 0; i < sportData.size(); i++) {
-//            if (sportData.get(i).stepValue > 0) {
-//                dataList.add(sportData.get(i));
-//            }
-//        }
-//        b30StepDetailAdapter.notifyDataSetChanged();
-//        double calValue = 0;
-//        double disValue = 0;
-//        if (dataList != null && !dataList.isEmpty()) {
-//            for (HalfHourSportData item : dataList) {
-//                calValue += item.getCalValue();
-//                disValue += item.getDisValue();
-//            }
-//        }
-//        calValue = (double) Math.round(calValue * 100) / 100;
         if (dataList != null) dataList.clear();
         else dataList = new ArrayList<>();
         if (sportData != null) dataList.addAll(sportData);
@@ -497,53 +427,9 @@ public class B15PStepDetailActivity extends WatchBaseActivity {
             case R.id.stepCurrDateRight:   //切换下一天数据
                 changeDayData(false);
                 break;
-            //下面是  步数详细中 步数、距离、卡路里切换
-//            case R.id.detail_step:
-//                Commont.TYPE_DATAS = 0;
-//                if (b30StepDetailAdapter != null) b30StepDetailAdapter.notifyDataSetChanged();
-//                SelectType(0);
-//                break;
-//            case R.id.detail_dis:
-//                Commont.TYPE_DATAS = 1;
-//                if (b30StepDetailAdapter != null) b30StepDetailAdapter.notifyDataSetChanged();
-//                SelectType(1);
-//                break;
-//            case R.id.detail_kcl:
-//                Commont.TYPE_DATAS = 2;
-//                if (b30StepDetailAdapter != null) b30StepDetailAdapter.notifyDataSetChanged();
-//                SelectType(2);
-//                break;
+
         }
     }
-
-//    void SelectType(int type){
-//        switch (type){
-//            case 0:
-//                detailStep.setBackgroundColor(Color.parseColor("#207F6F"));
-//                detailDis.setBackgroundColor(Color.parseColor("#6DCB99"));
-//                detailKcl.setBackgroundColor(Color.parseColor("#6DCB99"));
-//                detail_stepIMG.setVisibility(View.VISIBLE);
-//                detail_disIMG.setVisibility(View.GONE);
-//                detail_kclIMG.setVisibility(View.GONE);
-//                break;
-//            case 1:
-//                detailStep.setBackgroundColor(Color.parseColor("#6DCB99"));
-//                detailDis.setBackgroundColor(Color.parseColor("#207F6F"));
-//                detailKcl.setBackgroundColor(Color.parseColor("#6DCB99"));
-//                detail_stepIMG.setVisibility(View.GONE);
-//                detail_disIMG.setVisibility(View.VISIBLE);
-//                detail_kclIMG.setVisibility(View.GONE);
-//                break;
-//            case 2:
-//                detailStep.setBackgroundColor(Color.parseColor("#6DCB99"));
-//                detailDis.setBackgroundColor(Color.parseColor("#6DCB99"));
-//                detailKcl.setBackgroundColor(Color.parseColor("#207F6F"));
-//                detail_stepIMG.setVisibility(View.GONE);
-//                detail_disIMG.setVisibility(View.GONE);
-//                detail_kclIMG.setVisibility(View.VISIBLE);
-//                break;
-//        }
-//    }
 
     /**
      * 根据日期切换数据

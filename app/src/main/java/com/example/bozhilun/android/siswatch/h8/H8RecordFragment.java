@@ -1,7 +1,6 @@
 package com.example.bozhilun.android.siswatch.h8;
 
 import android.annotation.SuppressLint;
-import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -9,10 +8,10 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +33,6 @@ import com.example.bozhilun.android.siswatch.bleus.H8BleConstances;
 import com.example.bozhilun.android.siswatch.bleus.H8BleManagerInstance;
 import com.example.bozhilun.android.siswatch.bleus.H8ConnstateListener;
 import com.example.bozhilun.android.siswatch.bleus.UploadH8StepsService;
-import com.example.bozhilun.android.siswatch.utils.HidUtil;
 import com.example.bozhilun.android.siswatch.utils.WatchConstants;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.util.AnimationUtils;
@@ -43,7 +41,6 @@ import com.littlejie.circleprogress.circleprogress.WaveProgress;
 
 import org.apache.commons.lang.StringUtils;
 
-import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;

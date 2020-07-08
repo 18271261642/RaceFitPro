@@ -4,10 +4,11 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -107,7 +108,8 @@ public class ShowSpo2DetailActivity extends WatchBaseActivity {
         if(WatchUtils.isEmpty(spo2Type)){
             spo2Int = 0;
         }
-        spo2Int = Integer.valueOf(spo2Type);
+        assert spo2Type != null;
+        spo2Int = Integer.parseInt(spo2Type);
         currDay = getIntent().getStringExtra(Constant.DETAIL_DATE);
         setTitleDesc(spo2Int);
 
@@ -127,6 +129,11 @@ public class ShowSpo2DetailActivity extends WatchBaseActivity {
                     //查询保存的数据
                     String whereStr = "bleMac = ? and dateStr = ?";
                     String bleMac = WatchUtils.getSherpBleMac(ShowSpo2DetailActivity.this);
+                    if(bleMac == null){
+                        closeLoadingDialog();
+                        return;
+                    }
+
                     List<B31Spo2hBean> spo2hBeanList = LitePal.where(whereStr, bleMac, currDay).find(B31Spo2hBean.class);
                     //Log.e(TAG,"---22------查询数据="+currDay+spo2hBeanList.size());
                     if (spo2hBeanList == null || spo2hBeanList.isEmpty()) {
@@ -136,6 +143,10 @@ public class ShowSpo2DetailActivity extends WatchBaseActivity {
                         handler.sendMessage(message);
                         return;
                     }
+                    if(spo2hBeanList.size() > 430){
+                        spo2hBeanList = spo2hBeanList.subList(0,420);
+                    }
+
                     for (B31Spo2hBean hBean : spo2hBeanList) {
                         //Log.e(TAG,"---------血氧单条数据="+hBean.toString());
                         list.add(gson.fromJson(hBean.getSpo2hOriginData(), Spo2hOriginData.class));
@@ -148,8 +159,8 @@ public class ShowSpo2DetailActivity extends WatchBaseActivity {
                 }
             };
             thread.start();
-        }catch (Exception e){
-            e.printStackTrace();
+        } catch (Exception ill){
+            ill.printStackTrace();
         }
     }
 
@@ -266,7 +277,8 @@ public class ShowSpo2DetailActivity extends WatchBaseActivity {
             if(spo2SecondDialogView == null){
                 spo2SecondDialogView = new Spo2SecondDialogView(ShowSpo2DetailActivity.this);
             }
-            List<Map<String, Float>> lt = spo2hOriginUtil.getDetailList(getSpo2Type(spo2Int),resultListMap.size()-position-1);
+            float resultPostion = showSpo2DetailAdapter.getItemTime(position);
+            List<Map<String, Float>> lt = spo2hOriginUtil.getDetailList(getSpo2Type(spo2Int), (int) (resultPostion/10));
             if(lt == null || lt.size() == 0)
                 return;
             spo2SecondDialogView.show();

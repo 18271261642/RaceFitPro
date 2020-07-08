@@ -2,34 +2,33 @@ package com.example.bozhilun.android.b30;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.b30.b30view.B30CusSleepView;
 import com.example.bozhilun.android.b30.bean.B30HalfHourDao;
 import com.example.bozhilun.android.b30.model.CusVPSleepData;
-import com.example.bozhilun.android.b30.model.CusVPSleepPrecisionData;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.util.Constant;
+import com.example.bozhilun.android.view.CusScheduleView;
+import com.example.bozhilun.android.view.DateSelectDialogView;
 import com.google.gson.Gson;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 
-import java.text.SimpleDateFormat;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-import androidx.versionedparcelable.CustomVersionedParcelable;
+import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -45,6 +44,16 @@ public class B30SleepDetailActivity extends WatchBaseActivity {
     TextView startSleepTimeTv;
     @BindView(R.id.endSleepTimeTv)
     TextView endSleepTimeTv;
+    @BindView(R.id.sleepScheduleView)
+    CusScheduleView sleepScheduleView;
+    @BindView(R.id.sleepPercentTv)
+    TextView sleepPercentTv;
+    @BindView(R.id.sleepDetailAllTv)
+    TextView sleepDetailAllTv;
+    @BindView(R.id.sleepDetailGoalTv)
+    TextView sleepDetailGoalTv;
+    @BindView(R.id.commDateLin)
+    LinearLayout commDateLin;
 
     /**
      * 跳转到B30SleepDetailActivity,并附带参数
@@ -80,7 +89,8 @@ public class B30SleepDetailActivity extends WatchBaseActivity {
     TextView detailDeepTv;
     @BindView(R.id.detailHightSleepTv)
     TextView detailHightSleepTv;
-    @BindView(R.id.sleepCurrDateTv)
+
+    @BindView(R.id.commArrowDate)
     TextView sleepCurrDateTv;
     @BindView(R.id.sleepSeekBar)
     SeekBar sleepSeekBar;
@@ -96,8 +106,9 @@ public class B30SleepDetailActivity extends WatchBaseActivity {
      */
     private Gson gson;
 
+    private DateSelectDialogView dateSelectDialogView;
 
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm",Locale.CHINA);
+    private DecimalFormat decimalFormat = new DecimalFormat("##");
 
 
     @Override
@@ -113,24 +124,31 @@ public class B30SleepDetailActivity extends WatchBaseActivity {
         commentB30ShareImg.setVisibility(View.VISIBLE);
         commentB30BackImg.setVisibility(View.VISIBLE);
         commentB30TitleTv.setText(getResources().getString(R.string.sleep));
+        commDateLin.setBackgroundColor(Color.parseColor("#6174C0"));
 //        commentB30ShareImg.setVisibility(View.VISIBLE);
         detailSleepQuitRatingBar.setMax(5);
-        // detailSleepQuitRatingBar.setRating(100);
+        detailSleepQuitRatingBar.setNumStars(1);
         listValue = new ArrayList<>();
         gson = new Gson();
         currDay = getIntent().getStringExtra(Constant.DETAIL_DATE);
+
     }
 
     private void initData() {
         try {
             sleepCurrDateTv.setText(currDay);
             String mac = MyApp.getInstance().getMacAddress();
-            if (WatchUtils.isEmpty(mac))
+            if (WatchUtils.isEmpty(mac)){
+                sleepDetailAllTv.setText("--");
+                sleepDetailGoalTv.setText("8h");
+                sleepScheduleView.setAllScheduleValue(8);
+                sleepScheduleView.setCurrScheduleValue(0);
                 return;
+            }
+
             String sleep = B30HalfHourDao.getInstance().findOriginData(mac, currDay, B30HalfHourDao
                     .TYPE_SLEEP);
-            CusVPSleepData sleepData = gson.fromJson(sleep,CusVPSleepData.class);
-            //Log.e(TAG,"---------cusSleep="+sleepData.toString());
+            CusVPSleepData sleepData = gson.fromJson(sleep, CusVPSleepData.class);
             showSleepChartView(sleepData);
             int sleepQulity = sleepData == null ? 0 : sleepData.getSleepQulity();
             detailSleepQuitRatingBar.setMax(5);
@@ -141,6 +159,31 @@ public class B30SleepDetailActivity extends WatchBaseActivity {
             String time = sleepData == null ? "--" : (sleepData.getAllSleepTime() / 60) + "H" +
                     (sleepData.getAllSleepTime() % 60) + "m";
             detailAllSleepTv.setText(time);//睡眠时长
+
+            String b30SleepGoal = (String) SharedPreferencesUtils.getParam(B30SleepDetailActivity.this, "b30SleepGoal", "");
+            if (sleepData == null) {
+                sleepScheduleView.setAllScheduleValue(Float.valueOf(b30SleepGoal));
+                sleepScheduleView.setCurrScheduleValue(0f);
+                sleepPercentTv.setText("0%");
+                sleepDetailAllTv.setText("--");
+                sleepDetailGoalTv.setText(b30SleepGoal + "h");
+            } else {
+                int allCount = sleepData.getAllSleepTime();
+                int timpHour = allCount / 60;
+                float currTime = timpHour + Float.valueOf(String.valueOf(WatchUtils.div(allCount % 60, 60, 2)));
+                sleepScheduleView.setAllScheduleValue(Float.valueOf(b30SleepGoal));
+                sleepScheduleView.setCurrScheduleValue(currTime);
+
+                float tmpGoal = Float.valueOf(b30SleepGoal) * 60;
+                double sleepPre = WatchUtils.div(allCount, tmpGoal, 2);
+                double tmpSleepPre = sleepPre * 100;
+                String formatStr = decimalFormat.format(tmpSleepPre);
+                sleepPercentTv.setText(allCount >= tmpGoal ? "100%" : formatStr + "%");
+
+                sleepDetailAllTv.setText(time);
+                sleepDetailGoalTv.setText(b30SleepGoal + "h");
+            }
+
             String count = sleepData == null ? "--" : "" + sleepData.getWakeCount();
             detailAwakeNumTv.setText(count);//苏醒次数
             String down = sleepData == null ? "--" : sleepData.getSleepDown().getDateForSleepshow();
@@ -155,7 +198,7 @@ public class B30SleepDetailActivity extends WatchBaseActivity {
             String low = sleepData == null ? "--" : sleepData.getLowSleepTime() / 60 + "H" +
                     (sleepData.getLowSleepTime() % 60) + "m";
             detailHightSleepTv.setText(low);// 浅度睡眠
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -200,7 +243,7 @@ public class B30SleepDetailActivity extends WatchBaseActivity {
 
                         detailCusSleepView.setSleepDateTxt((hour == 0 ? "00" : (hour < 10 ? "0" + hour : hour)) + ":" + (mine == 0 ? "00" : (mine < 10 ? "0" + mine : mine)) + "");
                         detailCusSleepView.setSeekBarSchdue(progress);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
 
@@ -221,7 +264,8 @@ public class B30SleepDetailActivity extends WatchBaseActivity {
     }
 
     @OnClick({R.id.commentB30BackImg, R.id.commentB30ShareImg,
-            R.id.sleepCurrDateLeft, R.id.sleepCurrDateRight})
+            R.id.commArrowLeft, R.id.commArrowRight,
+            R.id.commArrowDate})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.commentB30BackImg:    //返回
@@ -230,13 +274,29 @@ public class B30SleepDetailActivity extends WatchBaseActivity {
             case R.id.commentB30ShareImg:   //分享
                 WatchUtils.shareCommData(B30SleepDetailActivity.this);
                 break;
-            case R.id.sleepCurrDateLeft:   //切换上一天数据
+            case R.id.commArrowLeft:   //切换上一天数据
                 changeDayData(true);
                 break;
-            case R.id.sleepCurrDateRight:   //切换下一天数据
+            case R.id.commArrowRight:   //切换下一天数据
                 changeDayData(false);
                 break;
+            case R.id.commArrowDate:
+                chooseDate();
+                break;
         }
+    }
+
+    private void chooseDate() {
+        dateSelectDialogView = new DateSelectDialogView(this);
+        dateSelectDialogView.show();
+        dateSelectDialogView.setOnDateSelectListener(new DateSelectDialogView.OnDateSelectListener() {
+            @Override
+            public void selectDateStr(String str) {
+                dateSelectDialogView.dismiss();
+                currDay = str;
+                initData();
+            }
+        });
     }
 
     /**
@@ -244,7 +304,7 @@ public class B30SleepDetailActivity extends WatchBaseActivity {
      */
     private void changeDayData(boolean left) {
         String date = WatchUtils.obtainAroundDate(currDay, left);
-        if (date.equals(currDay) || date.isEmpty()) {
+        if (date.equals(WatchUtils.getCurrentDate()) || date.isEmpty()) {
             return;// 空数据,或者大于今天的数据就别切了
         }
         currDay = date;

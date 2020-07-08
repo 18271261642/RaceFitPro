@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+   >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <include layout="@layout/comment_b30_title_layout" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
 
 
-    <include layout="@layout/comment_b30_title_layout" />
-
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:fillViewport="true"
         android:scrollbars="none"
         android:layout_width="match_parent"
@@ -185,7 +200,6 @@
 
             <RelativeLayout
                 android:id="@+id/rel_miaobiao"
-                android:visibility="gone"
                 style="@style/B30DeviceRelStyle">
 
                 <ImageView
@@ -260,12 +274,16 @@
 
             </RelativeLayout>
 
+
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/chang_white" />
 
             <RelativeLayout
+                android:id="@+id/deviceDisconnAlertRel"
                 style="@style/B30DeviceRelStyle">
 
                 <ImageView
@@ -427,200 +445,8 @@
 
             </RelativeLayout>
 
-
-
-
-
-
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-    <!--<include layout="@layout/comment_b30_title_layout" />-->
-
-    <!--<RelativeLayout style="@style/B30DeviceRelStyle">-->
-
-        <!--<ImageView-->
-            <!--android:id="@+id/img1"-->
-            <!--android:layout_width="30dp"-->
-            <!--android:layout_height="30dp"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginLeft="10dp"-->
-            <!--android:background="@drawable/connect_success_checkwear" />-->
-
-
-        <!--<TextView-->
-            <!--style="@style/B30DeviceStyle"-->
-            <!--android:layout_toRightOf="@+id/img1"-->
-            <!--android:text="@string/string_wearing_test" />-->
-
-
-        <!--<ToggleButton-->
-            <!--android:id="@+id/b31CheckWearToggleBtn"-->
-            <!--android:layout_width="70dp"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginRight="10dp"-->
-            <!--android:background="@drawable/toggle_select"-->
-            <!--android:textOff="@null"-->
-            <!--android:textOn="@null" />-->
-
-    <!--</RelativeLayout>-->
-
-    <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="1dp"-->
-        <!--android:background="@color/chang_white" />-->
-
-    <!--<RelativeLayout style="@style/B30DeviceRelStyle">-->
-
-        <!--<ImageView-->
-            <!--android:id="@+id/img2"-->
-            <!--android:layout_width="30dp"-->
-            <!--android:layout_height="30dp"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginLeft="10dp"-->
-            <!--android:background="@drawable/pwsetting_fiveheart" />-->
-
-
-        <!--<TextView-->
-            <!--style="@style/B30DeviceStyle"-->
-            <!--android:layout_toRightOf="@+id/img2"-->
-            <!--android:text="@string/string_auto_blood_pressure" />-->
-
-
-        <!--<ToggleButton-->
-            <!--android:id="@+id/b31AutoHeartToggleBtn"-->
-            <!--android:layout_width="70dp"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginRight="10dp"-->
-            <!--android:background="@drawable/toggle_select"-->
-            <!--android:textOff="@null"-->
-            <!--android:textOn="@null" />-->
-
-
-    <!--</RelativeLayout>-->
-
-    <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="1dp"-->
-        <!--android:background="@color/chang_white" />-->
-
-
-    <!--<RelativeLayout-->
-        <!--style="@style/B30DeviceRelStyle">-->
-
-        <!--<ImageView-->
-            <!--android:id="@+id/img15"-->
-            <!--android:layout_width="30dp"-->
-            <!--android:layout_height="30dp"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginLeft="10dp"-->
-            <!--android:background="@drawable/pwsetting_spo2hauto" />-->
-
-
-        <!--<TextView-->
-            <!--style="@style/B30DeviceStyle"-->
-            <!--android:layout_toRightOf="@+id/img15"-->
-            <!--android:text="血氧夜间检测" />-->
-
-
-        <!--<ToggleButton-->
-            <!--android:id="@+id/b31AutoBPOxyToggbleBtn"-->
-            <!--android:layout_width="70dp"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginRight="10dp"-->
-            <!--android:background="@drawable/toggle_select"-->
-            <!--android:textOff="@null"-->
-            <!--android:textOn="@null" />-->
-
-
-    <!--</RelativeLayout>-->
-
-
-
-    <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="1dp"-->
-        <!--android:background="@color/chang_white" />-->
-
-
-
-    <!--<RelativeLayout-->
-        <!--style="@style/B30DeviceRelStyle">-->
-
-        <!--<ImageView-->
-            <!--android:id="@+id/img5"-->
-            <!--android:layout_width="30dp"-->
-            <!--android:layout_height="30dp"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginLeft="10dp"-->
-            <!--android:background="@drawable/pwsetting_stopwatch" />-->
-
-
-        <!--<TextView-->
-            <!--style="@style/B30DeviceStyle"-->
-            <!--android:layout_toRightOf="@+id/img5"-->
-            <!--android:text="@string/string_stopwatch_function" />-->
-
-
-        <!--<ToggleButton-->
-            <!--android:id="@+id/b31SecondToggleBtn"-->
-            <!--android:layout_width="70dp"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginRight="10dp"-->
-            <!--android:background="@drawable/toggle_select"-->
-            <!--android:textOff="@null"-->
-            <!--android:textOn="@null" />-->
-
-
-    <!--</RelativeLayout>-->
-
-    <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="1dp"-->
-        <!--android:background="@color/chang_white" />-->
-
-    <!--<RelativeLayout-->
-        <!--style="@style/B30DeviceRelStyle">-->
-
-        <!--<ImageView-->
-            <!--android:id="@+id/img6"-->
-            <!--android:layout_width="30dp"-->
-            <!--android:layout_height="30dp"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginLeft="10dp"-->
-            <!--android:background="@drawable/pwsetting_disconnect_remind" />-->
-
-
-        <!--<TextView-->
-            <!--style="@style/B30DeviceStyle"-->
-            <!--android:layout_toRightOf="@+id/img6"-->
-            <!--android:text="@string/string_disconnection_reminder" />-->
-
-
-        <!--<ToggleButton-->
-            <!--android:id="@+id/b31SwitchDisAlertTogg"-->
-            <!--android:layout_width="70dp"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginRight="10dp"-->
-            <!--android:background="@drawable/toggle_select"-->
-            <!--android:textOff="@null"-->
-            <!--android:textOn="@null" />-->
-
-
-    <!--</RelativeLayout>-->
-
-
-
-
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

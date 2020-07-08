@@ -3,20 +3,21 @@ package com.example.bozhilun.android.b31;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Rationale;
 import com.yanzhenjie.permission.RequestExecutor;
-import com.yanzhenjie.permission.Setting;
+import com.yanzhenjie.permission.runtime.Permission;
+
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -145,7 +146,7 @@ public class MessageHelpActivity extends WatchBaseActivity {
                 break;
             case R.id.helpContPermission2Tv:    //联系人
                 if(!contactsFlag){
-                    getContactsPermission(Manifest.permission.READ_CONTACTS);
+                    getContactsPermission(Permission.READ_CONTACTS);
                 }else{
                     openPermission();
                 }
@@ -154,7 +155,7 @@ public class MessageHelpActivity extends WatchBaseActivity {
             case R.id.helpContPermissionTv: //联系人
                 //String contPer = helpContPermissionTv.getText().toString().trim();
                 if(!contactsFlag){
-                    getContactsPermission(Manifest.permission.READ_CONTACTS);
+                    getContactsPermission(Permission.READ_CONTACTS);
                 }else{
                     openPermission();
                 }
@@ -162,7 +163,7 @@ public class MessageHelpActivity extends WatchBaseActivity {
             case R.id.helpPhonePermissionTv:    //拨打电话
                 //String callPhoneStr = helpPhonePermissionTv.getText().toString().trim();
                 if(!callPhoneFlag){
-                    getContactsPermission(Manifest.permission.CALL_PHONE);
+                    getContactsPermission(Permission.CALL_PHONE);
                 }else{
                     openPermission();
                 }
@@ -170,7 +171,7 @@ public class MessageHelpActivity extends WatchBaseActivity {
             case R.id.helpCallLogPermissionTv:  //通话记录
                 //String callLogStr = helpCallLogPermissionTv.getText().toString().trim();
                 if(!callLogFlag){
-                    getContactsPermission(Manifest.permission.READ_CALL_LOG);
+                    getContactsPermission(Permission.READ_CALL_LOG);
                 }else{
                     openPermission();
                 }
@@ -179,7 +180,7 @@ public class MessageHelpActivity extends WatchBaseActivity {
             case R.id.helpSMSPermissionTv:  //短信
                 //String smsStr = helpSMSPermissionTv.getText().toString().trim();
                 if(!smsFlag){
-                    getContactsPermission(Manifest.permission.READ_SMS,Manifest.permission.RECEIVE_MMS,Manifest.permission.SEND_SMS);
+                    getContactsPermission(Permission.READ_SMS,Permission.RECEIVE_MMS,Permission.SEND_SMS);
                 }else{
                     openPermission();
                 }
@@ -190,33 +191,46 @@ public class MessageHelpActivity extends WatchBaseActivity {
 
     //获取相关权限
     private void getContactsPermission(String...permission){
-        AndPermission.with(this)
-                .runtime()
-                .permission(permission)
-                .rationale(new Rationale<List<String>>() {
-                    @Override
-                    public void showRationale(Context context, List<String> data, RequestExecutor executor) {
-                        executor.execute();
-                    }
+        try {
+            AndPermission.with(this)
+                    .runtime()
+                    .permission(permission)
+                    .rationale(new Rationale<List<String>>() {
+                        @Override
+                        public void showRationale(Context context, List<String> data, RequestExecutor executor) {
+                            executor.execute();
+                        }
 
-                }).onGranted(new Action<List<String>>() {
-            @Override
-            public void onAction(List<String> data) {
-                readPermissions();
+                    }).onGranted(new Action<List<String>>() {
+                @Override
+                public void onAction(List<String> data) {
+                    readPermissions();
+                }
+            }).start();
+
+            if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                AndPermission.with(MessageHelpActivity.this)
+                        .runtime()
+                        .permission(Permission.ANSWER_PHONE_CALLS)
+//                            ,Manifest.permission.WRITE_CALL_LOG)
+                        .rationale(new Rationale<List<String>>() {
+                            @Override
+                            public void showRationale(Context context, List<String> data, RequestExecutor executor) {
+                                executor.execute();
+                            }
+                        })
+                        .start();
             }
-        }).start();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
     //打开权限设置页面
     private void openPermission(){
         AndPermission.with(MessageHelpActivity.this)
-                .runtime().setting().onComeback(new Setting.Action() {
-            @Override
-            public void onAction() {
-
-            }
-        }).start();
+                .runtime().setting().start(1001);
     }
 
 

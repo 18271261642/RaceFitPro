@@ -6,9 +6,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.SparseIntArray;
 import android.util.TypedValue;
 import android.view.MotionEvent;
@@ -174,31 +173,6 @@ public class B30BloadDataView extends View {
 
     }
 
-//
-//    @Override
-//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-//        int height = measureSize(300, heightMeasureSpec);
-//        int width = measureSize(600, widthMeasureSpec);
-//        setMeasuredDimension(width, height);
-//
-//        this.height = height;
-//        this.width = width;
-//    }
-//
-//    private int measureSize(int defaultSize, int measureSpec) {
-//        int result = defaultSize;
-//        int specMode = View.MeasureSpec.getMode(measureSpec);
-//        int specSize = View.MeasureSpec.getSize(measureSpec);
-//
-//        if (specMode == View.MeasureSpec.EXACTLY) {
-//            result = specSize;
-//        } else if (specMode == View.MeasureSpec.AT_MOST) {
-//            result = Math.min(result, specSize);
-//        }
-//        return result;
-//    }
-
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
@@ -243,14 +217,6 @@ public class B30BloadDataView extends View {
 
     //绘制显示的数字
     private void drawDataTxt(Canvas canvas) {
-
-//        float start = getWidth() / mapList.size() / 2;
-//        for (int i = 0; i < mapList.size(); i++) {
-//            float xPoint = i * getWidth() / mapList.size() + start;
-//            if (startX > xPoint - start && startX < xPoint + start) {
-//                Log.d("---------", "点击啦");
-//            }
-//        }
         canvas.drawText(getTxtStr(), getTxtX(), getTxtY(), txtPaint);
     }
 
@@ -260,39 +226,6 @@ public class B30BloadDataView extends View {
         }
     }
 
-    //绘制横线
-    private void drawHorizonLin(Canvas canvas) {
-        if (isScal) {
-            for (int j = 0; j < timeStr.length; j++) {
-                canvas.drawText(timeStr[j], mTxtCurrentWidth * j + 40, -10, timePaint);
-            }
-            for (int i = 1; i <= 5; i++) {
-
-                //绘制4条横线
-                //canvas.drawLine(40,-i*getHeight()/5,getWidth(),-i*getHeight()/5,horiPaint);
-
-                switch (i) {
-                    case 1:
-                        //canvas.drawText(30 +"",10,-i*getHeight()/5+5,scalePaint);
-                        break;
-                    case 2:
-                        //canvas.drawText(80 +"",10,-i*getHeight()/5+5,scalePaint);
-                        break;
-                    case 3:
-                        //canvas.drawText(130 +"",10,-i*getHeight()/5+5,scalePaint);
-                        break;
-                    case 4:
-                        //canvas.drawText(180 +"",10,-i*getHeight()/5+5,scalePaint);
-                        break;
-                    case 5:
-                        //canvas.drawText(230+"",10,-i*getHeight()/5+20,scalePaint);
-                        break;
-                }
-
-            }
-        }
-
-    }
 
     private void drawEmptyTxt(Canvas canvas) {
         if (mapList == null || mapList.size() == 0) {

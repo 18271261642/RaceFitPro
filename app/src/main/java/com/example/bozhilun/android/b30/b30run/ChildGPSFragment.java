@@ -7,10 +7,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,33 +19,27 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.afa.tourism.greendao.gen.DaoSession;
-import com.afa.tourism.greendao.gen.SportMapsDao;
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
-import com.example.bozhilun.android.activity.wylactivity.MapRecordActivity;
 import com.example.bozhilun.android.b30.GPSSportHisyory;
 import com.example.bozhilun.android.bean.AmapSportBean;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.bzlmaps.gaodemaps.AmapHistorySportActivity;
 import com.example.bozhilun.android.bzlmaps.gaodemaps.AmapSportActivity;
-import com.example.bozhilun.android.bzlmaps.gaodemaps.BzlGaoDeActivity;
-import com.example.bozhilun.android.bzlmaps.mapdb.SportMaps;
 import com.example.bozhilun.android.siswatch.LazyFragment;
 import com.example.bozhilun.android.siswatch.adapter.OutDoorSportAdapterNew;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.google.gson.Gson;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.runtime.Permission;
 
-import org.apache.commons.lang.StringUtils;
 import org.litepal.LitePal;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -320,12 +314,13 @@ public class ChildGPSFragment extends LazyFragment implements OutDoorSportAdapte
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.gpsSportRunImg:   //开始跑步
+                requestPermission();
                 Intent intent1 = new Intent(getContext(),AmapSportActivity.class);
                 intent1.putExtra("sport_type",0);
                 startActivity(intent1);
-
                 break;
             case R.id.gpsSportCycleImg: //开始骑行
+                requestPermission();
                 Intent intent2 = new Intent(getContext(),AmapSportActivity.class);
                 intent2.putExtra("sport_type",1);
                 startActivity(intent2);
@@ -342,6 +337,14 @@ public class ChildGPSFragment extends LazyFragment implements OutDoorSportAdapte
             case R.id.childGpsHisImg:   //历史记录
                 startActivity(new Intent(getmContext(), GPSSportHisyory.class));
                 break;
+        }
+    }
+
+
+    private void requestPermission(){
+        if(!AndPermission.hasPermissions(getmContext(), Permission.ACCESS_FINE_LOCATION)){
+            AndPermission.with(getmContext()).runtime().permission(Permission.ACCESS_FINE_LOCATION).start();
+            return;
         }
     }
 

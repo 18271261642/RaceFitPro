@@ -5,10 +5,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -39,24 +38,21 @@ import com.veepoo.protocol.listener.data.IBPSettingDataListener;
 import com.veepoo.protocol.listener.data.ICustomSettingDataListener;
 import com.veepoo.protocol.listener.data.ILongSeatDataListener;
 import com.veepoo.protocol.listener.data.INightTurnWristeDataListener;
-import com.veepoo.protocol.listener.data.IScreenLightListener;
 import com.veepoo.protocol.model.datas.BpSettingData;
 import com.veepoo.protocol.model.datas.LongSeatData;
 import com.veepoo.protocol.model.datas.NightTurnWristeData;
-import com.veepoo.protocol.model.datas.ScreenLightData;
 import com.veepoo.protocol.model.enums.EBPDetectModel;
 import com.veepoo.protocol.model.enums.EFunctionStatus;
 import com.veepoo.protocol.model.settings.BpSetting;
 import com.veepoo.protocol.model.settings.CustomSetting;
 import com.veepoo.protocol.model.settings.CustomSettingData;
 import com.veepoo.protocol.model.settings.LongSeatSetting;
-import com.veepoo.protocol.model.settings.ScreenSetting;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.Permission;
 import com.yanzhenjie.permission.Rationale;
 import com.yanzhenjie.permission.RequestExecutor;
-import com.yanzhenjie.permission.Setting;
+import com.yanzhenjie.permission.runtime.Permission;
+
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
@@ -103,6 +99,10 @@ public class B30DeviceActivity extends WatchBaseActivity implements Rationale<Li
     @BindView(R.id.wxSportRel)
     RelativeLayout wxSportRel;
 
+    //主界面风格
+    @BindView(R.id.b30DeviceStyleRel)
+    RelativeLayout b30DeviceStyleRel;
+
     //倒计时B36无此功能
     @BindView(R.id.b30DeviceCounDownRel)
     RelativeLayout b30DeviceCounDownRel;
@@ -139,7 +139,6 @@ public class B30DeviceActivity extends WatchBaseActivity implements Rationale<Li
 
         initData();
 
-        //  Log.e(TAG,"-----111----b333="+(WatchUtils.isB36Device(B30DeviceActivity.this)));
     }
 
     private void initData() {
@@ -174,15 +173,6 @@ public class B30DeviceActivity extends WatchBaseActivity implements Rationale<Li
                         readDetectBp(bpSettingData);
                     }
                 });
-
-//                ScreenSetting screenSetting = new ScreenSetting(22,0,
-//                        0,7,2,4);
-//                MyApp.getInstance().getVpOperateManager().settingScreenLight(iBleWriteResponse, new IScreenLightListener() {
-//                    @Override
-//                    public void onScreenLightDataChange(ScreenLightData screenLightData) {
-//
-//                    }
-//                },screenSetting );
             }
 
         }
@@ -191,21 +181,28 @@ public class B30DeviceActivity extends WatchBaseActivity implements Rationale<Li
     private void initViews() {
         commentB30TitleTv.setText(getResources().getString(R.string.device));
         commentB30BackImg.setVisibility(View.VISIBLE);
-        Log.e(TAG,"---------b333="+(WatchUtils.isB36Device(B30DeviceActivity.this)));
-        if (!WatchUtils.isB36Device(B30DeviceActivity.this)) {
-            b30DevicePrivateBloadRel.setVisibility(View.VISIBLE);
-            b30DeviceLightRel.setVisibility(View.GONE);
-           // wxSportRel.setVisibility(View.VISIBLE);
-        } else {
-            b30DevicePrivateBloadRel.setVisibility(View.GONE);
-            b30DeviceLightRel.setVisibility(View.VISIBLE);
-            //wxSportRel.setVisibility(View.GONE);
-            b30DeviceCounDownRel.setVisibility(View.GONE);
-        }
+
+        //是否支持主题风格
+        boolean isScreenStyle = (boolean) SharedPreferencesUtils.getParam(B30DeviceActivity.this,Commont.IS_SUPPORT_SCREEN_STYLE,false);
+        b30DeviceStyleRel.setVisibility(isScreenStyle ? View.VISIBLE :View.GONE);
+
+        //是否支持倒计时
+        boolean isCountDowm = (boolean) SharedPreferencesUtils.getParam(B30DeviceActivity.this,Commont.IS_SUPPORT_COUNTDOWN,false);
+        b30DeviceCounDownRel.setVisibility(isCountDowm ? View.VISIBLE : View.GONE);
+
+        //是否支持血压功能
+        boolean isSupportBp = (boolean) SharedPreferencesUtils.getParam(B30DeviceActivity.this,Commont.IS_B31_HAS_BP_KEY,false);
+        b30DevicePrivateBloadRel.setVisibility(isSupportBp ? View.VISIBLE : View.GONE);
+
+        //是否支持亮度调节
+        //B31S支持亮度调节功能
+        boolean isLight = (boolean) SharedPreferencesUtils.getParam(B30DeviceActivity.this,Commont.IS_B31S_LIGHT_KEY,false);
+        b30DeviceLightRel.setVisibility(isLight ? View.VISIBLE : View.GONE);
+
+
         longSitToggleBtn.setOnCheckedChangeListener(new ToggleClickListener());
         turnWristToggleBtn.setOnCheckedChangeListener(new ToggleClickListener());
         privateBloadToggleBtn.setOnCheckedChangeListener(new ToggleClickListener());
-
 
         String deviceVersion = (String) SharedPreferencesUtils.getParam(B30DeviceActivity.this,Commont.DEVICE_VERSION_CODE_KEY,"0-0");
         if(WatchUtils.isEmpty(deviceVersion))
@@ -226,17 +223,8 @@ public class B30DeviceActivity extends WatchBaseActivity implements Rationale<Li
     @Override
     protected void onResume() {
         super.onResume();
-        if (isSystem) {
-            SharedPreferencesUtils.setParam(MyApp.getContext(), Commont.ISSystem, true);//是否为公制
-            if (b30DeviceUnitTv != null) b30DeviceUnitTv.setText(R.string.setkm);
-            if (mLocalTool != null) mLocalTool.putMetricSystem(true);
-        } else {
-            SharedPreferencesUtils.setParam(MyApp.getContext(), Commont.ISSystem, false);//是否为公制
-            if (b30DeviceUnitTv != null) b30DeviceUnitTv.setText(R.string.setmi);
-            if (mLocalTool != null) mLocalTool.putMetricSystem(false);
-        }
-
-
+        boolean isSystem = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISSystem, true);//是否为公制;
+        b30DeviceUnitTv.setText(isSystem ? R.string.setkm : R.string.setmi);
     }
 
     @OnClick({R.id.commentB30BackImg, R.id.b30DeviceMsgRel, R.id.b30DeviceAlarmRel,
@@ -276,15 +264,12 @@ public class B30DeviceActivity extends WatchBaseActivity implements Rationale<Li
             case R.id.b30DevicePtoRel:  //拍照
                 AndPermission.with(this)
                         .runtime()
-                        .permission(Permission.Group.CAMERA, Permission.Group.STORAGE)
+                        .permission(Permission.CAMERA, Permission.WRITE_EXTERNAL_STORAGE)
                         .rationale(this)//添加拒绝权限回调
                         .onGranted(new Action<List<String>>() {
                             @Override
                             public void onAction(List<String> data) {
-                                // data.get(0);
-//                                startActivity(CameraActivity.class);
                                 startActivity(W30sCameraActivity.class);
-//                                startActivity(new Intent(getActivity(),W30sCameraActivity.class));
                             }
                         })
                         .onDenied(new Action<List<String>>() {
@@ -305,9 +290,6 @@ public class B30DeviceActivity extends WatchBaseActivity implements Rationale<Li
                         }).start();
 
                 break;
-//            case R.id.b30DeviceCounDownRel: //倒计时
-//                startActivity(B30CounDownActivity.class);
-//                break;
             case R.id.b30DeviceResetRel:    //重置设备密码
                 startActivity(B30ResetActivity.class);
                 break;
@@ -369,12 +351,7 @@ public class B30DeviceActivity extends WatchBaseActivity implements Rationale<Li
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
-                        if (i == 0) {
-                            changeCustomSetting(true);
-                        } else {
-                            changeCustomSetting(false);
-                        }
-//                        changeCustomSetting(i == 0);
+                        changeCustomSetting(i==0);
                     }
                 }).setNegativeButton(R.string.cancle, new DialogInterface.OnClickListener() {
             @Override
@@ -454,6 +431,8 @@ public class B30DeviceActivity extends WatchBaseActivity implements Rationale<Li
                                         SharedPreferencesUtils.setParam(MyApp.getContext(), Commont.DEVICESCODE, "0000");
                                         MyApp.getInstance().setMacAddress(null);// 清空全局
                                         MyApp.getInstance().getB30ConnStateService().stopAutoConn();
+                                        new LocalizeTool(MyApp.getContext()).putUpdateDate(WatchUtils
+                                                .obtainFormatDate(1));// 同时把数据更新时间清楚更新最后更新数据的时间
                                         startActivity(NewSearchActivity.class);
                                         finish();
 
@@ -463,6 +442,8 @@ public class B30DeviceActivity extends WatchBaseActivity implements Rationale<Li
                         } else {
                             MyCommandManager.DEVICENAME = null;
                             MyCommandManager.ADDRESS = null;
+                            new LocalizeTool(MyApp.getContext()).putUpdateDate(WatchUtils
+                                    .obtainFormatDate(1));// 同时把数据更新时间清楚更新最后更新数据的时间
                             SharedPreferencesUtils.saveObject(B30DeviceActivity.this, Commont.BLENAME, null);
                             SharedPreferencesUtils.saveObject(B30DeviceActivity.this, Commont.BLEMAC, null);
                             SharedPreferencesUtils.setParam(MyApp.getContext(), Commont.DEVICESCODE, "0000");
@@ -471,16 +452,7 @@ public class B30DeviceActivity extends WatchBaseActivity implements Rationale<Li
                             startActivity(NewSearchActivity.class);
                             finish();
                         }
-                        new LocalizeTool(MyApp.getContext()).putUpdateDate(WatchUtils
-                                .obtainFormatDate(1));// 同时把数据更新时间清楚更新最后更新数据的时间
-//                        MyCommandManager.DEVICENAME = null;
-//                        MyCommandManager.ADDRESS = null;
-//                        SharedPreferencesUtils.saveObject(B30DeviceActivity.this, Commont.BLENAME, null);
-//                        SharedPreferencesUtils.saveObject(B30DeviceActivity.this, Commont.BLEMAC, null);
-//                        SharedPreferencesUtils.setParam(MyApp.getContext(), Commont.DEVICESCODE, "0000");
-//                        MyApp.getInstance().setMacAddress(null);// 清空全局
-//                        startActivity(NewSearchActivity.class);
-//                        finish();
+
 
                     }
                 }).show();
@@ -520,13 +492,7 @@ public class B30DeviceActivity extends WatchBaseActivity implements Rationale<Li
         AndPermission.with(this)
                 .runtime()
                 .setting()
-                .onComeback(new Setting.Action() {
-                    @Override
-                    public void onAction() {
-                        //Toast.makeText(MyApp.getContext(),"用户从设置页面返回。", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .start();
+                .start(1001);
     }
 
 
@@ -619,136 +585,77 @@ public class B30DeviceActivity extends WatchBaseActivity implements Rationale<Li
     };
 
 
-    EFunctionStatus isFindePhone = EFunctionStatus.SUPPORT_CLOSE;//控制查找手机UI
-    EFunctionStatus isStopwatch = EFunctionStatus.SUPPORT_CLOSE;////秒表
-    EFunctionStatus isWear = EFunctionStatus.SUPPORT_CLOSE;//佩戴检测
-    EFunctionStatus isCallPhone = EFunctionStatus.SUPPORT_CLOSE;//来电
-    EFunctionStatus isHelper = EFunctionStatus.SUPPORT_CLOSE;//SOS 求救
-    EFunctionStatus isDisAlert = EFunctionStatus.SUPPORT_CLOSE;//断开
-    boolean isSystem = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISSystem, true);//是否为公制
-    boolean is24Hour = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.IS24Hour, true);//是否为24小时制
-    boolean isAutomaticHeart = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISAutoHeart, true);//自动测量心率
-    boolean isAutomaticBoold = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISAutoBp, true);//自动测量血压
-    boolean isSecondwatch = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISSecondwatch, true);//秒表
-    boolean isWearCheck = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISWearcheck, true);//佩戴
-    boolean isFindPhone = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISFindPhone, true);//查找手机
-    boolean CallPhone = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISCallPhone, true);//来电
-    boolean isDisconn = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISDisAlert, true);//断开连接提醒
-    boolean isSos = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISHelpe, false);//sos
-
-
+    //设置开关状态
     private void changeCustomSetting(final boolean isMetric) {
-        SharedPreferencesUtils.setParam(MyApp.getContext(), "isSystem", isMetric);//是否为公制
-        stuteCheck();
+        //运动过量提醒 B30不支持
+        EFunctionStatus isOpenSportRemain = EFunctionStatus.UNSUPPORT;
+        //血压/心率播报 B30不支持
+        EFunctionStatus isOpenVoiceBpHeart = EFunctionStatus.UNSUPPORT;
+        //查找手表  B30支持
+        EFunctionStatus isOpenFindPhoneUI;
+        //秒表功能  支持
+        EFunctionStatus isOpenStopWatch;
+        //低压报警 支持
+        EFunctionStatus isOpenSpo2hLowRemind = EFunctionStatus.SUPPORT_OPEN;
+        //肤色功能 支持
+        EFunctionStatus isOpenWearDetectSkin = EFunctionStatus.SUPPORT_OPEN;
 
-        showLoadingDialog(getResources().getString(R.string.dlog));
-        new Handler().postDelayed(new Runnable() {
+        //自动接听来电 不支持
+        EFunctionStatus isOpenAutoInCall = EFunctionStatus.UNSUPPORT;
+        //自动检测HRV 支持
+        EFunctionStatus isOpenAutoHRV = EFunctionStatus.SUPPORT_CLOSE;
+        //断连提醒 支持
+        EFunctionStatus isOpenDisconnectRemind;
+        //SOS  不支持
+        EFunctionStatus isOpenSOS = EFunctionStatus.UNSUPPORT;
+
+
+        //保存的状态
+        boolean isSystem = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISSystem, true);//是否为公制
+        boolean is24Hour = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.IS24Hour, true);//是否为24小时制
+        boolean isAutomaticHeart = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISAutoHeart, true);//自动测量心率
+        boolean isAutomaticBoold = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISAutoBp, true);//自动测量血压
+        boolean isSecondwatch = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISSecondwatch, false);//秒表
+        boolean isWearCheck = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISWearcheck, true);//佩戴
+        boolean isFindPhone = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISFindPhone, false);//查找手机
+        boolean CallPhone = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISCallPhone, false);//来电
+        boolean isDisconn = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISDisAlert, false);//断开连接提醒
+        boolean isSos = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISHelpe, false);//sos
+
+
+        isOpenFindPhoneUI = isFindPhone ? EFunctionStatus.SUPPORT_OPEN : EFunctionStatus.SUPPORT_CLOSE;
+
+
+        //秒表功能
+        if (isSecondwatch) {
+            isOpenStopWatch = EFunctionStatus.SUPPORT_OPEN;
+        } else {
+            isOpenStopWatch = EFunctionStatus.SUPPORT_CLOSE;
+        }
+        //断连提醒
+        if (isDisconn) {
+            isOpenDisconnectRemind = EFunctionStatus.SUPPORT_OPEN;
+        } else {
+            isOpenDisconnectRemind = EFunctionStatus.SUPPORT_CLOSE;
+        }
+
+
+        CustomSetting customSetting = new CustomSetting(true, isSystem, is24Hour, isAutomaticHeart,
+                isAutomaticBoold, isOpenSportRemain, isOpenVoiceBpHeart, isOpenFindPhoneUI, isOpenStopWatch, isOpenSpo2hLowRemind,
+                isOpenWearDetectSkin, isOpenAutoInCall, isOpenAutoHRV, isOpenDisconnectRemind, isOpenSOS);
+
+        MyApp.getInstance().getVpOperateManager().changeCustomSetting(new IBleWriteResponse() {
             @Override
-            public void run() {
-                SharedPreferencesUtils.setParam(MyApp.getContext(), "isSystem", true);//是否为公制
-                MyApp.getInstance().getVpOperateManager().changeCustomSetting(new IBleWriteResponse() {
-                    @Override
-                    public void onResponse(int i) {
-                        closeLoadingDialog();
-                    }
-                }, new ICustomSettingDataListener() {
-                    @Override
-                    public void OnSettingDataChange(CustomSettingData customSettingData) {
-                    }
-                }, new CustomSetting(true,//isHaveMetricSystem
-                        isMetric, //isMetric
-                        is24Hour,//is24Hour
-                        isAutomaticHeart, //isOpenAutoHeartDetect
-                        isAutomaticBoold,//isOpenAutoBpDetect
-                        EFunctionStatus.UNSUPPORT,//isOpenSportRemain
-                        EFunctionStatus.UNSUPPORT,//isOpenVoiceBpHeart
-                        isFindePhone,//isOpenFindPhoneUI
-                        isStopwatch,//isOpenStopWatch
-                        EFunctionStatus.UNSUPPORT,//isOpenSpo2hLowRemind
-                        isWear,//isOpenWearDetectSkin
-                        isCallPhone,//isOpenAutoInCall
-                        EFunctionStatus.UNKONW,//isOpenAutoHRV
-                        isDisAlert,//isOpenDisconnectRemind
-                        isHelper));//isOpenSOS
-
+            public void onResponse(int i) {
 
             }
-        }, 1000);
+        }, new ICustomSettingDataListener() {
+            @Override
+            public void OnSettingDataChange(CustomSettingData customSettingData) {
+                // Log.e(TAG, "----customSettingData=" + customSettingData.toString());
+            }
+        }, customSetting);
 
-        SharedPreferencesUtils.setParam(B30DeviceActivity.this, "utilsSP", isMetric);
-
-        boolean isSystem = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISSystem, true);//是否为公制
-        if (isSystem) {
-            SharedPreferencesUtils.setParam(MyApp.getContext(), Commont.ISSystem, true);//是否为公制
-            b30DeviceUnitTv.setText(R.string.setkm);
-            mLocalTool.putMetricSystem(true);
-        } else {
-            SharedPreferencesUtils.setParam(MyApp.getContext(), Commont.ISSystem, false);//是否为公制
-            b30DeviceUnitTv.setText(R.string.setmi);
-            mLocalTool.putMetricSystem(false);
-        }
-
-        //readCustomSetting();// 读取手环的自定义配置(是否打开公制)
-//        MyApp.getVpOperateManager().changeCustomSetting(new CustomSettingResponse(), new CustomSettingListener(),
-//                new CustomSetting(
-//                        true,
-//                        isMetric,
-//                        true,
-//                        true,
-//                        true));
-    }
-
-
-    void stuteCheck() {
-        isSystem = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISSystem, true);//是否为公制
-        is24Hour = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.IS24Hour, true);//是否为24小时制
-        isAutomaticHeart = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISAutoHeart, true);//自动测量心率
-        isAutomaticBoold = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISAutoBp, true);//自动测量血压
-        isSecondwatch = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISSecondwatch, true);
-        isWearCheck = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISWearcheck, true);
-        isFindPhone = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISFindPhone, true);
-        CallPhone = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISCallPhone, true);
-        isDisconn = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISDisAlert, true);
-        isSos = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISHelpe, false);//sos
-
-        //查找手机
-        if (isFindPhone) {
-            isFindePhone = EFunctionStatus.SUPPORT_OPEN;
-        } else {
-            isFindePhone = EFunctionStatus.SUPPORT_CLOSE;
-        }
-
-        //秒表
-        if (isSecondwatch) {
-            isStopwatch = EFunctionStatus.SUPPORT_OPEN;
-        } else {
-            isStopwatch = EFunctionStatus.SUPPORT_CLOSE;
-        }
-
-        //佩戴检测
-        if (isWearCheck) {
-            isWear = EFunctionStatus.SUPPORT_OPEN;
-        } else {
-            isWear = EFunctionStatus.SUPPORT_CLOSE;
-        }
-        //来电
-        if (CallPhone) {
-            isCallPhone = EFunctionStatus.SUPPORT_OPEN;
-        } else {
-            isCallPhone = EFunctionStatus.SUPPORT_CLOSE;
-        }
-        //断开
-        if (isDisconn) {
-            isDisAlert = EFunctionStatus.SUPPORT_OPEN;
-        } else {
-            isDisAlert = EFunctionStatus.SUPPORT_CLOSE;
-        }
-        //sos
-        if (isSos) {
-            isHelper = EFunctionStatus.SUPPORT_CLOSE;
-        } else {
-            isHelper = EFunctionStatus.SUPPORT_CLOSE;
-        }
     }
 
 

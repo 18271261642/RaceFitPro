@@ -10,13 +10,13 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +37,7 @@ import com.example.bozhilun.android.b31.model.B31HRVBean;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.util.Constant;
+import com.example.bozhilun.android.view.DateSelectDialogView;
 import com.github.mikephil.charting.charts.LineChart;
 import com.google.gson.Gson;
 import com.veepoo.protocol.model.datas.HRVOriginData;
@@ -81,6 +82,8 @@ public class B31HrvDetailActivity extends WatchBaseActivity {
     ImageView hrvReferBackImg;
     @BindView(R.id.hrvNoLeroDescTv)
     TextView hrvNoLeroDescTv;
+
+    private DateSelectDialogView dateSelectDialogView;
 
 
     public static void startAndParams(Context context, String date) {
@@ -150,6 +153,7 @@ public class B31HrvDetailActivity extends WatchBaseActivity {
                     showResult(resultHrv);
                     break;
                 case 1002:
+                    tmpHRVlist.clear();
                     initLinChartData(tmpHRVlist);
                     lorezChartView.updateData(tmpHRVlist);
                     listMap.clear();
@@ -182,33 +186,38 @@ public class B31HrvDetailActivity extends WatchBaseActivity {
 
 
     private void showResult(List<HRVOriginData> originHRVList) {
-        if (originHRVList == null || originHRVList.isEmpty()) {
-            lorenzListDescripe.setVisibility(View.GONE);
-            hrvNoLeroDescTv.setVisibility(View.VISIBLE);
-            return;
-        }
-        lorenzListDescripe.setVisibility(View.VISIBLE);
-        hrvNoLeroDescTv.setVisibility(View.GONE);
-
-        HrvScoreUtil hrvScoreUtil = new HrvScoreUtil();
-        double[] lorenData = hrvScoreUtil.getLorenData(originHRVList);
-        if (lorenData == null || lorenData.length < 1500) {
-            return;
-        }
-        int[] bufferdata = new int[lorenData.length];
-        for (int i = 0; i < bufferdata.length; i++) {
-            bufferdata[i] = (int) lorenData[i];
-        }
-        int[] result = null;
         try {
-            result = mJNIChange.hrvAnalysisReport(bufferdata, bufferdata.length);
-        } catch (Exception e) {
+            if (originHRVList == null || originHRVList.isEmpty()) {
+                lorenzListDescripe.setVisibility(View.GONE);
+                hrvNoLeroDescTv.setVisibility(View.VISIBLE);
+                return;
+            }
+            lorenzListDescripe.setVisibility(View.VISIBLE);
+            hrvNoLeroDescTv.setVisibility(View.GONE);
+
+            HrvScoreUtil hrvScoreUtil = new HrvScoreUtil();
+            double[] lorenData = hrvScoreUtil.getLorenData(originHRVList);
+            if (lorenData == null || lorenData.length < 1500) {
+                return;
+            }
+            int[] bufferdata = new int[lorenData.length];
+            for (int i = 0; i < bufferdata.length; i++) {
+                bufferdata[i] = (int) lorenData[i];
+            }
+            int[] result = null;
+            try {
+                result = mJNIChange.hrvAnalysisReport(bufferdata, bufferdata.length);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (result == null) {
+                return;
+            }
+            updateList(result);
+        }catch (Exception e){
             e.printStackTrace();
         }
-        if (result == null) {
-            return;
-        }
-        updateList(result);
+
     }
 
 
@@ -270,9 +279,9 @@ public class B31HrvDetailActivity extends WatchBaseActivity {
         commArrowDate.setText(currDay);
         commentB30BackImg.setVisibility(View.VISIBLE);
         commentB30TitleTv.setText("HRV");
-        relaLayoutTitle.setBackgroundColor(Color.parseColor("#ECA83D"));
+        //relaLayoutTitle.setBackgroundColor(Color.parseColor("#ECA83D"));
 
-        mMarkviewHrv = new SPMarkerView(getApplicationContext(), R.layout.vpspo2h_markerview,
+        mMarkviewHrv = new SPMarkerView(B31HrvDetailActivity.this, R.layout.vpspo2h_markerview,
                 true, CHART_MIDDLE_HRV, TYPE_HRV);
         clearHrvStyle(0);
         initLorezView();
@@ -318,33 +327,41 @@ public class B31HrvDetailActivity extends WatchBaseActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
+            try {
+                tmpHRVlist.clear();
+                final String bleMac = WatchUtils.getSherpBleMac(B31HrvDetailActivity.this);
+                if (WatchUtils.isEmpty(bleMac))
+                    return null;
+                String where = "bleMac = ? and dateStr = ?";
 
-            final String bleMac = WatchUtils.getSherpBleMac(B31HrvDetailActivity.this);
-            if (WatchUtils.isEmpty(bleMac))
-                return null;
-            String where = "bleMac = ? and dateStr = ?";
+                List<B31HRVBean> hrvBeanList = LitePal.where(where, bleMac,
+                        currDay).find(B31HRVBean.class);
+                if (hrvBeanList == null || hrvBeanList.isEmpty()) {
+                    Message message = handler.obtainMessage();
+                    message.what = 1002;
+                    message.obj = tmpHRVlist;
+                    handler.sendMessage(message);
+                    return null;
+                }
 
-            List<B31HRVBean> hrvBeanList = LitePal.where(where, bleMac,
-                    currDay).find(B31HRVBean.class);
-           // Log.e(TAG,"--------hrv="+hrvBeanList.size());
-            if (hrvBeanList == null || hrvBeanList.isEmpty()) {
+                if(hrvBeanList.size()>430){
+                    hrvBeanList = hrvBeanList.subList(0,420);
+                }
+                for (B31HRVBean hrvBean : hrvBeanList) {
+                    HRVOriginData hrvOriginData = gson.fromJson(hrvBean.getHrvDataStr(), HRVOriginData.class);
+                    //Log.e(TAG,"--------hrvOriginData="+hrvOriginData.toString());
+                    tmpHRVlist.add(hrvOriginData);
+                }
+
                 Message message = handler.obtainMessage();
-                message.what = 1002;
+                message.what = 1001;
                 message.obj = tmpHRVlist;
                 handler.sendMessage(message);
-                return null;
+            }catch (IllegalArgumentException i){
+                i.printStackTrace();
+            }catch (Exception e){
+                e.printStackTrace();
             }
-
-            for (B31HRVBean hrvBean : hrvBeanList) {
-                HRVOriginData hrvOriginData = gson.fromJson(hrvBean.getHrvDataStr(), HRVOriginData.class);
-                tmpHRVlist.add(hrvOriginData);
-            }
-
-            Message message = handler.obtainMessage();
-            message.what = 1001;
-            message.obj = tmpHRVlist;
-            handler.sendMessage(message);
-
             return null;
         }
 
@@ -371,91 +388,31 @@ public class B31HrvDetailActivity extends WatchBaseActivity {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //保存文件到sd卡
-    public void saveToFile(String content) {
-        BufferedWriter out = null;
-
-        //获取SD卡状态
-        String state = Environment.getExternalStorageState();
-        //判断SD卡是否就绪
-        if (!state.equals(Environment.MEDIA_MOUNTED)) {
-//            Toast.makeText(this, "请检查SD卡", Toast.LENGTH_SHORT).show();
-            Log.e(TAG, "======请检查SD卡" );
-            return;
-        }
-        //取得SD卡根目录
-        File file = Environment.getExternalStorageDirectory();
-        try {
-            Log.e(TAG, "======SD卡根目录：" + file.getCanonicalPath());
-            if (file.exists()) {
-                Log.e(TAG, "file.getCanonicalPath() == " + file.getCanonicalPath());
-            }
-            /*
-            输出流的构造参数1：可以是File对象  也可以是文件路径
-            输出流的构造参数2：默认为False=>覆盖内容； true=>追加内容
-             */
-            out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file.getCanonicalPath() + "/readMsg.txt", true)));
-            out.newLine();
-            out.write(content);
-//            Toast.makeText(this, "保存成功", Toast.LENGTH_SHORT).show();
-            Log.e(TAG, "======保存成功" );
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (out != null) {
-                try {
-                    out.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-
     private void initLinChartData(List<HRVOriginData> originHRVList) {
         closeLoadingDialog();
         listMap.clear();
+        try {
+            if(originHRVList.size() >500)
+                return;
+            //心脏健康指数
+            HrvScoreUtil hrvScoreUtil = new HrvScoreUtil();
+            int heartSocre = hrvScoreUtil.getSocre(originHRVList);
+            transHrvMarkImg(heartSocre);
+            hrvDetailHeartSocreTv.setText(heartSocre + "");
+            //折线图的
+            List<HRVOriginData> data0to8 = getMoringData(originHRVList);
+            mHrvOriginUtil = new HRVOriginUtil(data0to8);
+            List<Map<String, Float>> tenMinuteData = mHrvOriginUtil.getTenMinuteData();
+            ChartViewUtil chartViewUtil = new ChartViewUtil(b31HrvDetailTopChart, mMarkviewHrv, true,
+                    CHART_MAX_HRV, CHART_MIN_HRV, "No Data", TYPE_HRV);
+            chartViewUtil.updateChartView(tenMinuteData);
+            mMarkviewHrv.setData(tenMinuteData);
 
-        //心脏健康指数
-        HrvScoreUtil hrvScoreUtil = new HrvScoreUtil();
-        int heartSocre = hrvScoreUtil.getSocre(originHRVList);
-        transHrvMarkImg(heartSocre);
-        hrvDetailHeartSocreTv.setText(heartSocre + "");
-        //折线图的
-        List<HRVOriginData> data0to8 = getMoringData(originHRVList);
-        mHrvOriginUtil = new HRVOriginUtil(data0to8);
-
-        List<Map<String, Float>> tenMinuteData = mHrvOriginUtil.getTenMinuteData();
-        ChartViewUtil chartViewUtil = new ChartViewUtil(b31HrvDetailTopChart, mMarkviewHrv, true,
-                CHART_MAX_HRV, CHART_MIN_HRV, "No Data", TYPE_HRV);
-        chartViewUtil.updateChartView(tenMinuteData);
-        mMarkviewHrv.setData(tenMinuteData);
-
-        listMap.addAll(tenMinuteData);
-        hrvListDataAdapter.notifyDataSetChanged();
-
+            listMap.addAll(tenMinuteData);
+            hrvListDataAdapter.notifyDataSetChanged();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
@@ -468,14 +425,20 @@ public class B31HrvDetailActivity extends WatchBaseActivity {
     @NonNull
     private List<HRVOriginData> getMoringData(List<HRVOriginData> originSpo2hList) {
         List<HRVOriginData> moringData = new ArrayList<>();
-        if (originSpo2hList == null || originSpo2hList.isEmpty())
-            return moringData;
-        for (HRVOriginData HRVOriginData : originSpo2hList) {
-            if (HRVOriginData.getmTime().getHMValue() < 8 * 60) {
-                moringData.add(HRVOriginData);
+        try {
+            if (originSpo2hList == null || originSpo2hList.isEmpty())
+                return moringData;
+            for (HRVOriginData hRVOriginData : originSpo2hList) {
+                if (hRVOriginData.getmTime().getHMValue() < 8 * 60) {
+                    moringData.add(hRVOriginData);
+                }
             }
+            return moringData;
+        } catch (Exception e) {
+            e.printStackTrace();
+            moringData.clear();
+            return moringData;
         }
-        return moringData;
     }
 
     @OnClick({R.id.commArrowLeft, R.id.commArrowRight,
@@ -483,7 +446,7 @@ public class B31HrvDetailActivity extends WatchBaseActivity {
             R.id.herDataTv, R.id.hrvType1, R.id.hrvType2,
             R.id.hrvType3, R.id.hrvType4, R.id.hrvType5,
             R.id.hrvType6, R.id.hrvType7, R.id.hrvType8,
-            R.id.hrvType9})
+            R.id.hrvType9,R.id.commArrowDate})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.commentB30BackImg:    //返回
@@ -494,6 +457,9 @@ public class B31HrvDetailActivity extends WatchBaseActivity {
                 break;
             case R.id.commArrowRight:   //后一天
                 changeCurrDay(false);
+                break;
+            case R.id.commArrowDate:
+                chooseDate();
                 break;
             case R.id.herLerzeoTv:  //图表展示
                 clearHrvStyle(0);
@@ -538,6 +504,19 @@ public class B31HrvDetailActivity extends WatchBaseActivity {
                         getResources().getString(R.string.vphrv_lorentz_chart_des_9), R.drawable.hrv_gradivew_9_big);
                 break;
         }
+    }
+
+    private void chooseDate() {
+        dateSelectDialogView = new DateSelectDialogView(this);
+        dateSelectDialogView.show();
+        dateSelectDialogView.setOnDateSelectListener(new DateSelectDialogView.OnDateSelectListener() {
+            @Override
+            public void selectDateStr(String str) {
+                dateSelectDialogView.dismiss();
+                currDay = str;
+                findDataFromDb(str);
+            }
+        });
     }
 
     private void showHrvDescDialog(String titleId, String descTxt, int drawable) {
@@ -647,13 +626,13 @@ public class B31HrvDetailActivity extends WatchBaseActivity {
             if (spo2SecondDialogView == null) {
                 spo2SecondDialogView = new Spo2SecondDialogView(B31HrvDetailActivity.this);
             }
-            List<Map<String, Float>> lt = mHrvOriginUtil.getDetailList(listMap.size() - position - 1);
+            float itemTime = hrvListDataAdapter.getItemTime(position);
+            List<Map<String, Float>> lt = mHrvOriginUtil.getDetailList((int) (itemTime/10));
             if (lt == null || lt.size() == 0)
                 return;
             spo2SecondDialogView.show();
             spo2SecondDialogView.setSpo2Type(555);
             spo2SecondDialogView.setMapList(lt);
-            //spo2SecondDialogView.setHRVUtils(mHrvOriginUtil,listMap.size()-position-1);
         }
     };
 

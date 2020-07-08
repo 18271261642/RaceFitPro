@@ -8,8 +8,10 @@ import android.util.Log;
 import android.view.KeyEvent;
 
 import com.android.internal.telephony.ITelephony;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 import static android.content.Context.TELEPHONY_SERVICE;
 
@@ -120,10 +122,13 @@ public class PhoneUtils {
             ITelephony telephony = ITelephony.Stub.asInterface(binder);
             telephony.endCall();
         } catch (NoSuchMethodException e) {
+            e.printStackTrace();
             Log.d(TAG, "", e);
         } catch (ClassNotFoundException e) {
+            e.printStackTrace();
             Log.d(TAG, "", e);
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
@@ -150,17 +155,25 @@ public class PhoneUtils {
     //自动挂断
     public static void endPhone(Context c,TelephonyManager tm) {
         try {
-            Log.i(TAG, "endPhone");
-            ITelephony iTelephony = null;
-            Method getITelephonyMethod = TelephonyManager.class
-                    .getDeclaredMethod("getITelephony", (Class[]) null);
-            getITelephonyMethod.setAccessible(true);
-            iTelephony = (ITelephony) getITelephonyMethod.invoke(tm,
-                    (Object[]) null);
-            if(iTelephony != null){
-                // 挂断电话
-                iTelephony.endCall();
-            }
+            Method m1 = tm.getClass().getDeclaredMethod("getITelephony",(Class[]) null);
+            m1.setAccessible(true);
+            Object iTelephony = m1.invoke(tm);
+
+            Method m3 = iTelephony.getClass().getDeclaredMethod("endCall");
+            //m2.invoke(iTelephony);
+            m3.invoke(iTelephony);
+
+//            Log.i(TAG, "endPhone");
+//            ITelephony iTelephony = null;
+//            Method getITelephonyMethod = TelephonyManager.class
+//                    .getDeclaredMethod("getITelephony", (Class[]) null);
+//            getITelephonyMethod.setAccessible(true);
+//            iTelephony = (ITelephony) getITelephonyMethod.invoke(tm,
+//                    (Object[]) null);
+//            if(iTelephony != null){
+//                // 挂断电话
+//                iTelephony.endCall();
+//            }
 
         } catch (Exception e) {
             e.printStackTrace();

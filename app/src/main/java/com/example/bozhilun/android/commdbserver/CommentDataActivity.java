@@ -1,12 +1,11 @@
 package com.example.bozhilun.android.commdbserver;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.bozhilun.android.R;
-import com.example.bozhilun.android.b30.b30datafragment.B30DataFragment;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 
 /**

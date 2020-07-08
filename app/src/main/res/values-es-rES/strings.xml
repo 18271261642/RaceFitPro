@@ -1,6 +1,7 @@
 <resources>
     <!--头尾内部m部分翻译为英文,后期根据提供文档更改-->
     <!--西班牙语-->
+    <string name="calibrating">calibrating</string>
     <string name="string_bmi_title">BMI</string>
     <string name="string_note">Atencion:</string>
     <string name="string_light_alert">La configuración de brillo más alta da como resultado un consumo de energía más rápido y una vida útil de la batería más corta.</string>

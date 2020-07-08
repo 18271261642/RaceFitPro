@@ -1,8 +1,8 @@
 package com.example.bozhilun.android.friend.mutilbind;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.friend.bean.TodayRankBean;
 import com.bumptech.glide.Glide;
@@ -47,12 +46,9 @@ public class TodayRankAdapter extends RecyclerView.Adapter<TodayRankAdapter.View
                     holder.userNames.setText(nickName);
                 }
                 //头像
-                if (!TextUtils.isEmpty((String) myfriendsBean.getImg()) && holder.circleImageView != null) {
-                    Glide.with(MyApp.getInstance()).load((String) myfriendsBean.getImg())
-                            .into(holder.circleImageView);
-                } else {
-                    Glide.with(MyApp.getInstance()).load(R.mipmap.bg_img).into(holder.circleImageView);
-                }
+                Glide.with(context).load(myfriendsBean.getImg())
+                        .error(R.mipmap.bg_img)
+                        .into(holder.circleImageView);
                 holder.frendSteps.setText(context.getResources().getString(R.string.step) + ":" + String.valueOf(myfriendsBean.getStepNumber()));//步数
                 holder.rankNuber.setText(String.valueOf(position + 1));//排名
                 holder.zanOclick.setVisibility(View.GONE);

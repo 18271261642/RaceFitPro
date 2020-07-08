@@ -7,7 +7,7 @@
     android:background="#efefef"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_normal"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -24,7 +24,7 @@
             android:textColor="#ffffffff"
             android:textSize="@dimen/sp_17" />
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <include layout="@layout/seach_frend_item" />
 

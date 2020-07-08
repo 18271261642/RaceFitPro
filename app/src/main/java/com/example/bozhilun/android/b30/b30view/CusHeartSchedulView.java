@@ -3,10 +3,10 @@ package com.example.bozhilun.android.b30.b30view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.example.bozhilun.android.R;
@@ -27,8 +27,9 @@ public class CusHeartSchedulView extends View {
 
     private Paint currPaint;
 
-    private int height;
-    private int width;
+    private float width;
+
+    String colors[] = new String[]{"#50E9F7", "#4FC2F8" ,"#039BE6", "#FF669F", "#FF307E"};
 
     public CusHeartSchedulView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -45,7 +46,7 @@ public class CusHeartSchedulView extends View {
         if(typedArray != null){
             countColor = typedArray.getColor(R.styleable.CusHeartSchedulView_countColor,0);
             currentColor = typedArray.getColor(R.styleable.CusHeartSchedulView_currentColor,0);
-            heartViewHeight = typedArray.getDimension(R.styleable.CusHeartSchedulView_heartViewHeight,DimenUtil.dp2px(context,40));
+            heartViewHeight = typedArray.getDimension(R.styleable.CusHeartSchedulView_heartViewHeight,DimenUtil.dp2px(context,45));
             typedArray.recycle();
         }
         initPaint();
@@ -68,26 +69,40 @@ public class CusHeartSchedulView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        height = getHeight();
-        width = getWidth();
-        Log.e("11111","-----111="+height+"--w="+width+"---h="+getMeasuredHeight()+"--w="+getMeasuredWidth());
+        width = getMeasuredWidth();
+
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        height = getHeight();
-        width = getWidth();
-        Log.e("111","-----heartViewHeight="+heartViewHeight+"--height="+height);
+        width = getMeasuredWidth();
 
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        //绘制总的进度
-        canvas.drawLine(0,heartViewHeight,getWidth(),heartViewHeight,paint);
-        //绘制当前进度
-        canvas.drawLine(0,heartViewHeight,getWidth()-80,heartViewHeight,currPaint);
+        float avgWidth = width / 5;
+        paint.setColor(Color.parseColor(colors[0]));
+        canvas.drawLine(0,heartViewHeight,avgWidth,heartViewHeight,paint);
+        //paint.reset();
+
+        paint.setColor(Color.parseColor(colors[1]));
+        canvas.drawLine(avgWidth,heartViewHeight,avgWidth*2,heartViewHeight,paint);
+        //paint.reset();
+
+        paint.setColor(Color.parseColor(colors[2]));
+        canvas.drawLine(avgWidth*2,heartViewHeight,avgWidth*3,heartViewHeight,paint);
+        //paint.reset();
+
+        paint.setColor(Color.parseColor(colors[3]));
+        canvas.drawLine(avgWidth*3,heartViewHeight,avgWidth*4,heartViewHeight,paint);
+        //paint.reset();
+
+        paint.setColor(Color.parseColor(colors[4]));
+        canvas.drawLine(avgWidth*4,heartViewHeight,avgWidth*5,heartViewHeight,paint);
+       // paint.reset();
+
     }
 }

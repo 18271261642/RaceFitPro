@@ -2,7 +2,7 @@ package com.example.bozhilun.android.friend;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.R;
-import com.example.bozhilun.android.b30.women.WomenDetailActivity;
 import com.example.bozhilun.android.b36.calview.WomenMenBean;
 import com.example.bozhilun.android.friend.bean.MenstrualCycle;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;

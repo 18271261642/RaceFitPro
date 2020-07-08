@@ -8,19 +8,14 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
-
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
-import com.example.bozhilun.android.b31.bpoxy.uploadSpo2.UploadSpo2Bean;
 import com.example.bozhilun.android.b31.model.B31HRVBean;
 import com.example.bozhilun.android.b31.model.B31Spo2hBean;
-import com.example.bozhilun.android.commdbserver.SyncDbUrls;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.util.LocalizeTool;
-import com.example.bozhilun.android.w30s.utils.httputils.RequestPressent;
-import com.example.bozhilun.android.w30s.utils.httputils.RequestView;
 import com.google.gson.Gson;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.veepoo.protocol.listener.base.IBleWriteResponse;
@@ -28,9 +23,7 @@ import com.veepoo.protocol.listener.data.IHRVOriginDataListener;
 import com.veepoo.protocol.listener.data.ISpo2hOriginDataListener;
 import com.veepoo.protocol.model.datas.HRVOriginData;
 import com.veepoo.protocol.model.datas.Spo2hOriginData;
-
 import org.litepal.LitePal;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -57,14 +50,12 @@ public class ReadHRVAnSpo2DatatService extends IntentService  {
     float hrvDataProgress = -1;
 
 
-
-
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-
+            Log.e(TAG,"-------msg-what="+msg.what);
             switch (msg.what) {
                 case 888:   //HRV读取 完了
                     final Map<String, List<B31HRVBean>> resultHrvMap = (Map<String, List<B31HRVBean>>) msg.obj;
@@ -91,16 +82,18 @@ public class ReadHRVAnSpo2DatatService extends IntentService  {
                 case 0x01:  //显示HRV，开始获取血氧数据
                     //发送广播，通知更新UI
                     Intent intent = new Intent();
+                    intent.putExtra("isUpdate",false);
                     intent.setAction(WatchUtils.B31_HRV_COMPLETE);
                     sendBroadcast(intent);
-                    Thread thread2 = new MyThread2();
-                    thread2.start();
                     break;
                 case 0x02:  //显示血氧
                     Intent intentStr = new Intent();
+                    intentStr.putExtra("isUpdate",false);
                     intentStr.setAction(WatchUtils.B31_SPO2_COMPLETE);
                     sendBroadcast(intentStr);
 
+                    Thread thread2 = new ReadHrvThread();
+                    thread2.start();
                     break;
             }
 
@@ -110,89 +103,51 @@ public class ReadHRVAnSpo2DatatService extends IntentService  {
 
     //保存HRV的数据
     private void saveHRVToDBServer(Map<String, List<B31HRVBean>> resultHrvMap) {
-        String where = "bleMac = ? and dateStr = ?";
-        String bleMac = WatchUtils.getSherpBleMac(MyApp.getContext());
-        String currDayStr = WatchUtils.getCurrentDate();
-        if (isToday) {
-            List<B31HRVBean> todayHrvList = resultHrvMap.get("today");
-            List<B31HRVBean> currHrvLt = LitePal.where(where,
-                    bleMac, currDayStr).find(B31HRVBean.class);
-            //Log.e(TAG,"-------今天currHrvLtsez="+currHrvLt.size());
-            if (currHrvLt == null || currHrvLt.isEmpty()) {
-                LitePal.saveAll(todayHrvList);
-            } else {
-                if (currHrvLt.size() != 420) {
-                    int delCode = LitePal.deleteAll(B31HRVBean.class, "dateStr=? and bleMac=?", currDayStr
-                            , bleMac);
-                    //Log.e(TAG,"----hrv--111--delCode="+delCode);
-                    LitePal.saveAll(todayHrvList);
-                }
-            }
+        try {
+            String where = "bleMac = ? and dateStr = ?";
+            String bleMac = WatchUtils.getSherpBleMac(MyApp.getContext());
+            String currDayStr = WatchUtils.getCurrentDate();
 
-        } else {
             //今天的 直接保存
             List<B31HRVBean> todayHrvList = resultHrvMap.get("today");
-
-            if (todayHrvList != null && !todayHrvList.isEmpty())
+            if (todayHrvList != null && !todayHrvList.isEmpty()){
+                LitePal.deleteAll(B31HRVBean.class, "dateStr=? and bleMac=?", currDayStr
+                        , bleMac);
                 LitePal.saveAll(todayHrvList);
+            }
 
             //昨天的
             List<B31HRVBean> yesDayResultHrvLt = resultHrvMap.get("yesDay");
             //保存的 是否存在
-            List<B31HRVBean> yesDayHrvLt = LitePal.where(where,
-                    WatchUtils.getSherpBleMac(MyApp.getContext()), WatchUtils.obtainFormatDate(1)).find(B31HRVBean.class);
-            if (yesDayHrvLt == null || yesDayHrvLt.isEmpty())
+            if(yesDayResultHrvLt != null && yesDayResultHrvLt.size()>0){
+                LitePal.deleteAll(B31HRVBean.class, "dateStr=? and bleMac=?", WatchUtils.obtainFormatDate(1)
+                        , bleMac);
                 LitePal.saveAll(yesDayResultHrvLt);
+            }
 
-            //前天的
-            List<B31HRVBean> threeDayResultHrvLt = resultHrvMap.get("threeDay");
-            List<B31HRVBean> threeDayHrvLt = LitePal.where(where,
-                    WatchUtils.getSherpBleMac(MyApp.getContext()), WatchUtils.obtainFormatDate(2)).find(B31HRVBean.class);
-            if (threeDayHrvLt == null || threeDayHrvLt.isEmpty())
-                LitePal.saveAll(threeDayResultHrvLt);
-
+            //发送广播，通知更新UI
+            Intent intent = new Intent();
+            intent.putExtra("isUpdate",true);
+            intent.setAction(WatchUtils.B31_HRV_COMPLETE);
+            sendBroadcast(intent);
+        }catch (Exception e){
+            e.printStackTrace();
         }
-
-        //发送广播，通知更新UI
-        Intent intent = new Intent();
-        intent.setAction(WatchUtils.B31_HRV_COMPLETE);
-        sendBroadcast(intent);
-
-
-        Thread thread2 = new MyThread2();
-        thread2.start();
-
     }
 
     //保存spo2数据
     private void saveSpo2Data(Map<String, List<B31Spo2hBean>> resultMap) {
-        if (resultMap != null && !resultMap.isEmpty()) {
-            String where = "bleMac = ? and dateStr = ?";
-            String bleMac = WatchUtils.getSherpBleMac(MyApp.getContext());
-            String currDayStr = WatchUtils.getCurrentDate();
-            if (isToday) {    //今天
-                List<B31Spo2hBean> todayLt = resultMap.get("today");
-//            Log.e(TAG, "---todayLt=" + todayLt.size());
-                //查询一下是否存在
-                List<B31Spo2hBean> currList = LitePal.where(where, WatchUtils.getSherpBleMac(MyApp.getContext()),
-                        WatchUtils.getCurrentDate()).find(B31Spo2hBean.class);
-                //Log.e(TAG,"-----------11今天="+currList.size());
-                if (currList == null || currList.isEmpty()) {
-                    LitePal.saveAll(todayLt);
-                } else {
-                    if (currList.size() != 420) {
-                        int delCode = LitePal.deleteAll(B31Spo2hBean.class, "dateStr=? and bleMac=?", currDayStr
-                                , bleMac);
-//                    Log.e(TAG, "--------delCode=" + delCode);
-
-                        LitePal.saveAll(todayLt);
-
-                    }
-                }
-            } else {
+        try {
+            if (resultMap != null && !resultMap.isEmpty()) {
+                String where = "bleMac = ? and dateStr = ?";
+                String bleMac = WatchUtils.getSherpBleMac(MyApp.getContext());
+                String currDayStr = WatchUtils.getCurrentDate();
+                if(bleMac == null)return;
                 //今天
                 List<B31Spo2hBean> todayLt = resultMap.get("today");
                 if (todayLt != null && !todayLt.isEmpty()) {
+                    LitePal.deleteAll(B31Spo2hBean.class, "dateStr=? and bleMac=?", currDayStr
+                            , bleMac);
                     LitePal.saveAll(todayLt);
                 }
 
@@ -200,33 +155,23 @@ public class ReadHRVAnSpo2DatatService extends IntentService  {
                 List<B31Spo2hBean> yesDayResult = resultMap.get("yesToday");
                 if (yesDayResult != null && !yesDayResult.isEmpty()) {
                     //查询一下是否存在
-                    List<B31Spo2hBean> yesDayList = LitePal.where(where, WatchUtils.getSherpBleMac(MyApp.getContext()),
-                            WatchUtils.obtainFormatDate(1)).find(B31Spo2hBean.class);
-                    //Log.e(TAG,"-----------22昨天="+todayLt.size());
-                    if (yesDayList == null || yesDayList.isEmpty()) {
-                        LitePal.saveAll(yesDayResult);
-                    }
+                    LitePal.deleteAll(B31Spo2hBean.class, "dateStr=? and bleMac=?", WatchUtils.obtainFormatDate(1)
+                            , bleMac);
+                    LitePal.saveAll(yesDayResult);
                 }
 
+                Intent intent = new Intent();
+                intent.putExtra("isUpdate",true);
+                intent.setAction(WatchUtils.B31_SPO2_COMPLETE);
+                sendBroadcast(intent);
 
-                //前天
-                List<B31Spo2hBean> threeDayResult = resultMap.get("threeDay");
-                if (threeDayResult != null && !threeDayResult.isEmpty()) {
-                    //查询一下是否存在
-                    List<B31Spo2hBean> threeDayList = LitePal.where(where, WatchUtils.getSherpBleMac(MyApp.getContext()),
-                            WatchUtils.obtainFormatDate(2)).find(B31Spo2hBean.class);
-                    //Log.e(TAG,"--------333-threeDayList="+threeDayList.size());
-                    if (threeDayList == null || threeDayList.isEmpty()) {
-                        LitePal.saveAll(threeDayResult);
-                    }
-                }
-
+                Thread thread2 = new ReadHrvThread();
+                thread2.start();
             }
-        }
 
-        Intent intent = new Intent();
-        intent.setAction(WatchUtils.B31_SPO2_COMPLETE);
-        sendBroadcast(intent);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
@@ -262,19 +207,11 @@ public class ReadHRVAnSpo2DatatService extends IntentService  {
     @Override
     public void onCreate() {
         super.onCreate();
-        //Log.e(TAG,"----------启动服务了======");
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(WatchUtils.B31_HRV_COMPLETE);
         intentFilter.addAction(WatchUtils.B31_SPO2_COMPLETE);
         registerReceiver(broadcastReceiver, intentFilter);
         mLocalTool = new LocalizeTool(MyApp.getContext());
-        String date = mLocalTool.getSpo2AdHRVUpdateDate();// 血氧和HRV最后更新总数据的日期
-        if (WatchUtils.isEmpty(date))
-            date = WatchUtils.obtainFormatDate(1);
-        /**
-         * true 今天，false三天
-         */
-        isToday = date.equals(WatchUtils.getCurrentDate());
 
     }
 
@@ -282,28 +219,33 @@ public class ReadHRVAnSpo2DatatService extends IntentService  {
     @Override
     public void onStart(@Nullable Intent intent, int startId) {
         super.onStart(intent, startId);
-        //isToday = intent != null && intent.getBooleanExtra("isToday",false);
 
     }
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
-        Thread thread1 = new MyThread();
+        String bleMac = WatchUtils.getSherpBleMac(MyApp.getContext());
+        if(bleMac == null)return;
+        boolean isSupportSpo2 = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(),Commont.IS_SUPPORT_SPO2,false);
+        if(!isSupportSpo2)
+            return;
+        //读取血氧
+        Thread thread1 = new ReadSpo2Thread();
         thread1.start();
 
     }
 
 
-    class MyThread extends Thread {
+    class ReadHrvThread extends Thread {
         @Override
         public void run() {
             super.run();
-            readDeviceData();
+            readDeviceHrvData();
         }
     }
 
 
-    class MyThread2 extends Thread {
+    class ReadSpo2Thread extends Thread {
         @Override
         public void run() {
             super.run();
@@ -313,33 +255,33 @@ public class ReadHRVAnSpo2DatatService extends IntentService  {
 
     //读取血氧的数据
     private void readSpo2Data() {
-//        Log.e(TAG, "-------isToday=" + isToday);
-
         //判断当天是否已经获取过血氧了，
-        if(isToday){
-            List<B31Spo2hBean> currList = LitePal.where(where,bleMac,
-                    currDayStr).find(B31Spo2hBean.class);
-            if(currList != null && currList.size() == 420){
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                       handler.sendEmptyMessage(0x02);
-                    }
-                }, 2 * 1000);
-
-                return;
-
-            }
-            return;
-        }
 
         if (b31Spo2hBeanList == null)
             b31Spo2hBeanList = new ArrayList<>();
         b31Spo2hBeanList.clear();
 
+
+        //查询一下是否存在
+        List<B31Spo2hBean> currList = LitePal.where(where, WatchUtils.getSherpBleMac(MyApp.getContext()),
+                WatchUtils.getCurrentDate()).find(B31Spo2hBean.class);
+        if(currList != null && currList.size() == 420){
+            handler.sendEmptyMessageAtTime(0x02,2 * 1000);
+            return;
+        }
+
+
         final List<B31Spo2hBean> yesSpo2List = new ArrayList<>();
         final List<B31Spo2hBean> threeSpo2List = new ArrayList<>();
         final Map<String, List<B31Spo2hBean>> spo2Map = new HashMap<>();
+
+
+        //查询一下是否存在
+        List<B31Spo2hBean> yestDaySpo2List = LitePal.where(where,bleMac,
+                WatchUtils.obtainFormatDate(1)).find(B31Spo2hBean.class);
+        boolean isSavedSpo2 = yestDaySpo2List != null && yestDaySpo2List.size() == 420;
+
+
         //读取血氧的数据
         MyApp.getInstance().getVpOperateManager().readSpo2hOrigin(bleWriteResponse, new ISpo2hOriginDataListener() {
             @Override
@@ -408,35 +350,33 @@ public class ReadHRVAnSpo2DatatService extends IntentService  {
             public void onReadOriginComplete() {
 
             }
-        }, isToday ? 1 : 3);
+        }, isSavedSpo2 ? 1 : 2);
     }
 
     //读取HRV数据
-    private void readDeviceData() {
-//        Log.e(TAG, "--11----isToday=" + isToday);
+    private void readDeviceHrvData() {
+
+        Log.e(TAG, "--11----isToday=" + isToday);
         if (b31HRVBeanList == null)
             b31HRVBeanList = new ArrayList<>();
         b31HRVBeanList.clear();
-        final List<B31HRVBean> yesHrvList = new ArrayList<>();
-        final List<B31HRVBean> threeDayHrvList = new ArrayList<>();
-        final Map<String, List<B31HRVBean>> hrvMap = new HashMap<>();
+        List<B31HRVBean> yesHrvList = new ArrayList<>();
+        List<B31HRVBean> threeDayHrvList = new ArrayList<>();
+        Map<String, List<B31HRVBean>> hrvMap = new HashMap<>();
 
-        //判断当天是否已经获取过HRV了
-        if(isToday){
-            List<B31HRVBean> currHrvLt = LitePal.where(where, bleMac, currDayStr).find(B31HRVBean.class);
-            if(currHrvLt != null && currHrvLt.size() == 420){
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        handler.sendEmptyMessage(0x01);
-                    }
-                }, 2 * 1000);
 
-                return;
-            }
 
+        //当天是否已经保存过了
+        List<B31HRVBean> currHrvLt = LitePal.where(where, bleMac, currDayStr).find(B31HRVBean.class);
+        if(currHrvLt != null && currHrvLt.size() == 420){
+            handler.sendEmptyMessageAtTime(0x01,2* 1000);
             return;
         }
+
+
+        //判断昨天的数据是否已经读取过，读取过就不读取了
+        List<B31HRVBean> yestDayHrvLt = LitePal.where(where, bleMac, WatchUtils.obtainAroundDate(currDayStr,true)).find(B31HRVBean.class);
+        boolean isSaved = yestDayHrvLt != null && yestDayHrvLt.size()== 420;
 
 
         MyApp.getInstance().getVpOperateManager().readHRVOrigin(bleWriteResponse, new IHRVOriginDataListener() {
@@ -505,7 +445,7 @@ public class ReadHRVAnSpo2DatatService extends IntentService  {
             public void onReadOriginComplete() {
 
             }
-        }, isToday ? 1 : 2);
+        }, isSaved ? 1 : 2);
 
     }
 
@@ -525,69 +465,15 @@ public class ReadHRVAnSpo2DatatService extends IntentService  {
 
 
 
-
-    //上传血氧和HRV数据
-    private void uploadHealSpo2Data() {
-        //当天的血氧数据
-        String where = "bleMac = ? and dateStr = ?";
-        final String bleMac = WatchUtils.getSherpBleMac(MyApp.getContext());
-        final String currDayStr = WatchUtils.getCurrentDate();
-        final String userId = (String) SharedPreferencesUtils.readObject(MyApp.getContext(),Commont.USER_ID_DATA);
-        final List<B31Spo2hBean> currList = LitePal.where(where,bleMac,
-                currDayStr).find(B31Spo2hBean.class);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                List<UploadSpo2Bean>  upList = new ArrayList<>();
-
-                for(B31Spo2hBean b31Spo2hBean : currList){
-                    Spo2hOriginData spo2hOriginData = gson.fromJson(b31Spo2hBean.getSpo2hOriginData(),Spo2hOriginData.class);
-                    UploadSpo2Bean uploadSpo2Bean = new UploadSpo2Bean();
-                    uploadSpo2Bean.setUserId(userId);
-                    uploadSpo2Bean.setMac(bleMac);
-                    uploadSpo2Bean.setDate(currDayStr);
-                    uploadSpo2Bean.setMTime(spo2hOriginData.getmTime().getDateAndClockForSleepSecond());
-                    uploadSpo2Bean.setWeekday(0);
-                    uploadSpo2Bean.setHeartValue(spo2hOriginData.getHeartValue());
-                    uploadSpo2Bean.setSportValue(spo2hOriginData.getSportValue());
-                    uploadSpo2Bean.setOxygenValue(spo2hOriginData.getOxygenValue());
-                    uploadSpo2Bean.setApneaResult(spo2hOriginData.getApneaResult());
-                    uploadSpo2Bean.setIsHypoxia(spo2hOriginData.getIsHypoxia());
-                    uploadSpo2Bean.setHypopnea(spo2hOriginData.getHypopnea());
-                    uploadSpo2Bean.setHypoxiaTime(spo2hOriginData.getHypoxiaTime());
-                    uploadSpo2Bean.setCardiacLoad(spo2hOriginData.getCardiacLoad());
-                    uploadSpo2Bean.setHrVariation(spo2hOriginData.gethRVariation());
-                    uploadSpo2Bean.setStepValue(spo2hOriginData.getStepValue());
-                    uploadSpo2Bean.setRespirationRate(spo2hOriginData.getRespirationRate());
-                    uploadSpo2Bean.setTemp1(spo2hOriginData.getTemp1());
-                    uploadSpo2Bean.setAllPackNumner(spo2hOriginData.getAllPackNumner());
-                    uploadSpo2Bean.setCurrentPackNumber(spo2hOriginData.getCurrentPackNumber());
-                    uploadSpo2Bean.setHrv(spo2hOriginData.gethRVariation());
-                    uploadSpo2Bean.setTime(spo2hOriginData.getmTime().getColck());
-
-                    upList.add(uploadSpo2Bean);
-
-                }
-
-                Message message = handler.obtainMessage();
-                message.obj = upList;
-                message.what = 0x11;
-                handler.sendMessage(message);
-
-            }
-        }).start();
-
-
-
-    }
-
-
-
     @Override
     public void onDestroy() {
         super.onDestroy();
 //        Log.e(TAG,"-----------销毁了---------");
-        if (broadcastReceiver != null)
-            unregisterReceiver(broadcastReceiver);
+        try {
+            if (broadcastReceiver != null)
+                unregisterReceiver(broadcastReceiver);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

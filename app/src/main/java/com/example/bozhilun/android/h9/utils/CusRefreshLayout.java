@@ -1,8 +1,8 @@
 package com.example.bozhilun.android.h9.utils;
 
 import android.content.Context;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
+import androidx.core.view.MotionEventCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;

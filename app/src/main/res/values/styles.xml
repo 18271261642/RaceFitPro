@@ -20,6 +20,19 @@
     </style>
 
 
+
+    <!--启动页style-->
+    <style name="LaunchTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/ic_launch_guid</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+
+
+    </style>
+
+
     <style name="divider_line_blank">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">5dp</item>

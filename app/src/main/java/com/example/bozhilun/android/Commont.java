@@ -35,7 +35,14 @@ public class Commont {
     public static final String SP_DEVICE_STYLE_COUNT = "sp_device_style_count";
     //B31是否支持呼吸率
     public static final String IS_B31_HEART = "is_b31_heart";
-
+    //是否支持界面主题风格
+    public static final String IS_SUPPORT_SCREEN_STYLE = "is_support_screen_style";
+    //是否支持倒计时功能
+    public static final String IS_SUPPORT_COUNTDOWN = "is_support_count";
+    //是否支持心率警报
+    public static final String IS_SUPPORT_HEART_WARING ="is_support_heart_waring";
+    //是否支持血氧
+    public static final String IS_SUPPORT_SPO2 = "is_support_spo2";
 
 
 
@@ -95,7 +102,7 @@ public class Commont {
 
     public static final String ISSecondwatch = "isSecondwatch";//是否开启秒表
 
-    public static final String ISWearcheck = "isWearcheck";//肤色 --- -- 是否开启佩戴检测
+    public static final String ISWearcheck = "isWearcheck";//是否开启佩戴检测
 
     public static final String ISCheckWear = "isCheckWear";//是否开启佩戴检测
 
@@ -215,9 +222,14 @@ public class Commont {
     //修改生理期数据
     public static final String UPDATE_WOMEN_MENSTRUAL = "/menstrualCycle/changeRemindSet";
 
-
     //注销账号
     public static final String CANCEL_ACCOUNT = "/user/cancellationAccount";
+
+
+    //上传手动测量的血氧和心率
+    public static final String UPLOAD_HAND_HEART_AD_SPO2 = "/user/uploadRealTimeData";
+    //上传位置
+    public static final String UPLOAD_LOCAL_MSG = "/user/uploadLocation";
 
 
     /**

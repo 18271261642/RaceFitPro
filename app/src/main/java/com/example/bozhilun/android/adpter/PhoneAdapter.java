@@ -14,6 +14,7 @@ import com.example.bozhilun.android.bean.AreCodeBean;
 import java.util.List;
 
 /**
+ * 手机号区号选择adapter
  * Created by An on 2018/9/11.
  */
 

@@ -1,6 +1,7 @@
 package com.example.bozhilun.android.bzlmaps;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -9,8 +10,9 @@ import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -24,13 +26,15 @@ import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.util.ToastUtil;
 import com.example.bozhilun.android.util.VerifyUtil;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
-import com.veepoo.protocol.listener.data.IDeviceControlPhone;
+//import com.veepoo.protocol.listener.data.IDeviceControlPhone;
+import com.veepoo.protocol.listener.data.IDeviceControlPhoneModelState;
+import com.yanzhenjie.permission.AndPermission;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PhoneSosOrDisPhone implements IDeviceControlPhone {
+public class PhoneSosOrDisPhone implements IDeviceControlPhoneModelState {
 
     private Handler handler = new Handler(new Handler.Callback() {
         @Override
@@ -62,17 +66,32 @@ public class PhoneSosOrDisPhone implements IDeviceControlPhone {
     @Override
     public void rejectPhone() {
         try {
-            TelephonyManager tm = (TelephonyManager) MyApp.getContext()
-                    .getSystemService(Service.TELEPHONY_SERVICE);
-            PhoneUtils.endPhone(MyApp.getContext(), tm);
-            PhoneUtils.dPhone();
-            PhoneUtils.endCall(MyApp.getContext());
-            Log.d("call---", "rejectPhone: " + "电话被挂断了");
-        } catch (Exception e) {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
+                if(!AndPermission.hasPermissions(MyApp.getContext(), Manifest.permission.ANSWER_PHONE_CALLS))
+                    return;
+                TelecomManager tm = (TelecomManager) MyApp.getInstance().getApplicationContext().getSystemService(Context.TELECOM_SERVICE);
+                if (tm != null) {
+                    @SuppressLint("MissingPermission") boolean success = tm.endCall();
+                }
+
+            } else {
+                TelephonyManager tm = (TelephonyManager) MyApp.getContext()
+                        .getSystemService(Service.TELEPHONY_SERVICE);
+                PhoneUtils.endPhone(MyApp.getContext(), tm);
+                PhoneUtils.dPhone();
+                PhoneUtils.endCall(MyApp.getContext());
+            }
+
+        }catch (Exception e){
             e.printStackTrace();
         }
+        catch (NoSuchMethodError e) {
+            e.printStackTrace();
+        }
+
     }
 
+    //静音回调
     @Override
     public void cliencePhone() {
         Log.e("PhoneSOS","------cliencePhone-----");
@@ -94,6 +113,7 @@ public class PhoneSosOrDisPhone implements IDeviceControlPhone {
 
     @Override
     public void sos() {
+        Log.e("SOS","---------启动sos了-----"+Commont.IS_RING_SOS);
         //判断当前是否处于SOS当中
         if (!Commont.IS_RING_SOS) {
             Commont.IS_RING_SOS = true;
@@ -245,4 +265,13 @@ public class PhoneSosOrDisPhone implements IDeviceControlPhone {
     }
 
 
+    @Override
+    public void inPttModel() {
+
+    }
+
+    @Override
+    public void outPttModel() {
+
+    }
 }

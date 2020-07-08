@@ -13,17 +13,25 @@ import com.example.bozhilun.android.rxandroid.SubscriberOnNextListener;
 public class RequestModel{
 
     public void getJSONObjectModelData(String url, Context mContext, String jsonObject, final SubscriberOnNextListener<String> subscriberOnNextListener,CustumListener custumListener){
-        CommonSubscriber subscriber = new CommonSubscriber(subscriberOnNextListener,mContext);
-        subscriber.setCustumListener(custumListener);
-        OkHttpObservable.getInstance().getData(subscriber,url,jsonObject);
+        try {
+            CommonSubscriber subscriber = new CommonSubscriber(subscriberOnNextListener,mContext);
+            subscriber.setCustumListener(custumListener);
+            OkHttpObservable.getInstance().getData(subscriber,url,jsonObject);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 
     public void getJSONObjectModelData(String url, Context mContext, final SubscriberOnNextListener<String> subscriberOnNextListener,CustumListener custumListener){
-        CommonSubscriber subscriber = new CommonSubscriber(subscriberOnNextListener,mContext);
-        subscriber.setCustumListener(custumListener);
-        OkHttpObservable.getInstance().getNoParamData(subscriber,url);
+       try {
+           CommonSubscriber subscriber = new CommonSubscriber(subscriberOnNextListener,mContext);
+           subscriber.setCustumListener(custumListener);
+           OkHttpObservable.getInstance().getNoParamData(subscriber,url);
+       }catch (Exception e){
+           e.printStackTrace();
+       }
     }
-
 
 }

@@ -116,6 +116,9 @@ public class URLs {
     //提交找回密码的信息
     public static final String SUB_GET_BACK_PWD_URL = "/user/applyUpdatePwd";
 
-
+    //快捷登录获取验证码
+    public static final String FAST_GET_PHONE_CODE = "/user/applyLoginCode";
+    //快捷登录
+    public static final String FAST_LOGIN = "/user/submitLogin";
 
 }

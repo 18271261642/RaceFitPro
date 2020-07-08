@@ -10,14 +10,14 @@
     <include
         layout="@layout/comment_b30_title_layout"/>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         app:layout_constraintTop_toBottomOf="@+id/commB31TitleLayout"
         android:id="@+id/notiMsgRecyclerView"
         android:layout_width="match_parent"
         android:paddingBottom="20dp"
         android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 

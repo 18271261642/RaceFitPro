@@ -2,14 +2,13 @@ package com.example.bozhilun.android.b15p.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.aigestudio.wheelpicker.widgets.ProfessionPick;
 import com.example.bozhilun.android.Commont;
-import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
@@ -18,7 +17,6 @@ import com.tjdL4.tjdmain.L4M;
 import com.tjdL4.tjdmain.contr.L4Command;
 import com.tjdL4.tjdmain.contr.TimeUnitSet;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import butterknife.BindView;

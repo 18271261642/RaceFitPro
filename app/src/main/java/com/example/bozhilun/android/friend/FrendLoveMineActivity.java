@@ -2,14 +2,12 @@ package com.example.bozhilun.android.friend;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -19,7 +17,6 @@ import com.example.bozhilun.android.friend.bean.LoveMeBean;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.util.ToastUtil;
-import com.example.bozhilun.android.util.URLs;
 import com.example.bozhilun.android.w30s.adapters.CommonRecyclerAdapter;
 import com.example.bozhilun.android.w30s.adapters.MyViewHolder;
 import com.example.bozhilun.android.w30s.utils.httputils.RequestPressent;

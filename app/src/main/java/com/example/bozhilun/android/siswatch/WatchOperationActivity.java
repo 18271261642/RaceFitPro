@@ -1,8 +1,8 @@
 package com.example.bozhilun.android.siswatch;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebResourceRequest;
@@ -12,6 +12,7 @@ import android.webkit.WebViewClient;
 import android.widget.TextView;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
+import com.example.bozhilun.android.view.CustomerWebView;
 
 import java.util.Locale;
 
@@ -28,7 +29,7 @@ import butterknife.ButterKnife;
 public class WatchOperationActivity extends WatchBaseActivity {
 
     @BindView(R.id.watch_operationWebView)
-    WebView watchOperationWebView;
+    CustomerWebView watchOperationWebView;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.tv_title)

@@ -3,9 +3,9 @@ package com.example.bozhilun.android.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.bozhilun.android.Commont;
@@ -52,28 +53,28 @@ import butterknife.OnClick;
 
 public class RegisterActivity extends WatchBaseActivity implements RequestView {
 
-    @BindView(R.id.tv_title)
-    TextView tvTitle;
+
     @BindView(R.id.register_agreement_my)
     TextView registerAgreement;
     @BindView(R.id.username_input)
     TextInputLayout usernameInput;
+
     @BindView(R.id.textinput_password_regster)
     TextInputLayout textinputPassword;
-    @BindView(R.id.code_et_regieg)
-    EditText codeEt;
+
     @BindView(R.id.username_regsiter)
     EditText usernameEdit;
+
     @BindView(R.id.password_logonregigter)
     EditText passwordEdit;
-    @BindView(R.id.send_btn)
-    Button sendBtn;
-    @BindView(R.id.textinput_code)
-    TextInputLayout textinput_code;
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
+
     @BindView(R.id.login_btn_reger)
     Button loginBtnReger;
+
+    @BindView(R.id.commentB30BackImg)
+    ImageView commentB30BackImg;
+    @BindView(R.id.commentB30TitleTv)
+    TextView commentB30TitleTv;
 
 
     ///user/register
@@ -86,7 +87,6 @@ public class RegisterActivity extends WatchBaseActivity implements RequestView {
         setContentView(R.layout.activity_regsiter);
         ButterKnife.bind(this);
 
-
         initViews();
         requestPressent = new RequestPressent();
         requestPressent.attach(this);
@@ -94,17 +94,10 @@ public class RegisterActivity extends WatchBaseActivity implements RequestView {
     }
 
     private void initViews() {
-        tvTitle.setText(R.string.user_regsiter);
+        commentB30TitleTv.setText(R.string.user_emil_regsiter);
+        commentB30BackImg.setVisibility(View.VISIBLE);
         usernameInput.setHint(getResources().getString(R.string.input_email));
-        sendBtn.setVisibility(View.GONE);
-        textinput_code.setVisibility(View.GONE);
-        toolbar.setNavigationIcon(R.mipmap.backs);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+
         //初始化底部声明
         String INSURANCE_STATEMENT = getResources().getString(R.string.register_agreement);
         SpannableString spanStatement = new SpannableString(INSURANCE_STATEMENT);
@@ -132,21 +125,27 @@ public class RegisterActivity extends WatchBaseActivity implements RequestView {
     }
 
 
-    @OnClick({R.id.login_btn_reger, R.id.send_btn})
+    @OnClick({R.id.login_btn_reger,
+            R.id.commentB30BackImg})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.login_btn_reger:
                 String eMailTxt = usernameEdit.getText().toString();
                 String pwdTxt = passwordEdit.getText().toString();
                 if (WatchUtils.isEmpty(eMailTxt) || WatchUtils.isEmpty(pwdTxt)) {
-                    ToastUtil.showToast(RegisterActivity.this, getResources().getString(R.string.input_user));
+                    Snackbar.make(view,getResources().getString(R.string.input_user),Snackbar.LENGTH_SHORT).show();
+                    //ToastUtil.showToast(RegisterActivity.this, getResources().getString(R.string.input_user));
                     return;
                 }
-                if(pwdTxt.length()<6){
-                    ToastUtil.showToast(this,getResources().getString(R.string.not_b_less));
+                if (pwdTxt.length() < 6) {
+                    Snackbar.make(view,getResources().getString(R.string.not_b_less),Snackbar.LENGTH_SHORT).show();
+                    //ToastUtil.showToast(this, getResources().getString(R.string.not_b_less));
                     return;
                 }
                 registerForEmail(eMailTxt, pwdTxt); //邮箱注册
+                break;
+            case R.id.commentB30BackImg:
+                finish();
                 break;
         }
     }
@@ -174,18 +173,18 @@ public class RegisterActivity extends WatchBaseActivity implements RequestView {
 
     @Override
     public void successData(int what, Object object, int daystag) {
-        Log.e("TAG","----------obj="+object.toString());
+        Log.e("TAG", "----------obj=" + object.toString());
         closeLoadingDialog();
         if (object == null)
             return;
         try {
             JSONObject jsonObject = new JSONObject(object.toString());
-            if(!jsonObject.has("code"))
+            if (!jsonObject.has("code"))
                 return;
             if (jsonObject.getInt("code") == 200) {
                 String data = jsonObject.getString("data");
-                UserInfoBean userInfoBean = new Gson().fromJson(data,UserInfoBean.class);
-                if(userInfoBean != null){
+                UserInfoBean userInfoBean = new Gson().fromJson(data, UserInfoBean.class);
+                if (userInfoBean != null) {
                     Common.customer_id = userInfoBean.getUserid();
                     MobclickAgent.onProfileSignIn(Common.customer_id);
                     SharedPreferencesUtils.saveObject(RegisterActivity.this, Commont.USER_ID_DATA, userInfoBean.getUserid());

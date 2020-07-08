@@ -1,34 +1,20 @@
 package com.example.bozhilun.android.xwatch;
 
-import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.util.Log;
+import androidx.annotation.Nullable;
+
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
-import com.example.bozhilun.android.b18.modle.B18AlarmBean;
-import com.example.bozhilun.android.b30.bean.B30HalfHourDB;
-import com.example.bozhilun.android.b30.bean.B30HalfHourDao;
 import com.example.bozhilun.android.bleutil.Customdata;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
-import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.w30s.ble.WriteBackDataListener;
-import com.example.bozhilun.android.xwatch.ble.XWatchAlarmBackListener;
-import com.example.bozhilun.android.xwatch.ble.XWatchAlarmListener;
 import com.example.bozhilun.android.xwatch.ble.XWatchBleAnalysis;
-import com.example.bozhilun.android.xwatch.ble.XWatchCountStepListener;
-import com.example.bozhilun.android.xwatch.ble.XWatchSportDetailListener;
 import com.example.bozhilun.android.xwatch.ble.XWatchSyncSuccListener;
 
-import org.litepal.LitePal;
-
 import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

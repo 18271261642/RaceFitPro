@@ -3,8 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="horizontal"
+    android:padding="3dp"
+    android:background="@drawable/layout_click"
     android:layout_height="wrap_content">
-
 
 
 

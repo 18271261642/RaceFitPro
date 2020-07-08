@@ -4,11 +4,11 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +19,7 @@ import com.example.bozhilun.android.b30.bean.B30HalfHourDB;
 import com.example.bozhilun.android.b30.bean.B30HalfHourDao;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
+import com.example.bozhilun.android.view.DateSelectDialogView;
 import com.example.bozhilun.android.w30s.bean.W30HeartBean;
 import com.example.bozhilun.android.w30s.views.W30CusHeartView;
 import com.google.gson.Gson;
@@ -58,10 +59,11 @@ public class W30DetailHeartActivity extends WatchBaseActivity {
 
     private String currDay = WatchUtils.getCurrentDate();
 
+    private DateSelectDialogView dateSelectDialogView;
 
 
     @SuppressLint("HandlerLeak")
-    Handler handler = new Handler(){
+    private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -172,7 +174,7 @@ public class W30DetailHeartActivity extends WatchBaseActivity {
 
 
     @OnClick({R.id.rateCurrDateLeft, R.id.rateCurrDateRight,
-            R.id.commentB30BackImg})
+            R.id.commentB30BackImg,R.id.rateCurrdateTv})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.commentB30BackImg:    //返回
@@ -184,8 +186,24 @@ public class W30DetailHeartActivity extends WatchBaseActivity {
             case R.id.rateCurrDateRight:    //下一天
                 changeDayData(false);
                 break;
+            case R.id.rateCurrdateTv:
+                chooseDate();
+                break;
         }
     }
+    private void chooseDate() {
+        dateSelectDialogView = new DateSelectDialogView(this);
+        dateSelectDialogView.show();
+        dateSelectDialogView.setOnDateSelectListener(new DateSelectDialogView.OnDateSelectListener() {
+            @Override
+            public void selectDateStr(String str) {
+                dateSelectDialogView.dismiss();
+                currDay = str;
+                findHeartDetailFromDb(str);
+            }
+        });
+    }
+
 
     /**
      * 根据日期切换数据

@@ -2,8 +2,8 @@ package com.example.bozhilun.android.w30s.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.CardView;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +24,6 @@ import com.example.bozhilun.android.w30s.BaseFragment;
 import com.example.bozhilun.android.w30s.SharePeClear;
 import com.example.bozhilun.android.w30s.activity.W30SSettingActivity;
 import com.bumptech.glide.Glide;
-import com.example.bozhilun.android.B18I.b18isystemic.B18IAppSettingActivity;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.activity.MyPersonalActivity;
 import com.example.bozhilun.android.bleutil.MyCommandManager;

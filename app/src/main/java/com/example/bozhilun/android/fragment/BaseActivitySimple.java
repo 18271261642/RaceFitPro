@@ -17,7 +17,7 @@
 package com.example.bozhilun.android.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import com.example.bozhilun.android.alock.LogUtil;
 

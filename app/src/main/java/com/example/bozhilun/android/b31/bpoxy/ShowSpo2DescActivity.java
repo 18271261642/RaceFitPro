@@ -1,7 +1,7 @@
 package com.example.bozhilun.android.b31.bpoxy;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
+import com.example.bozhilun.android.view.CustomerWebView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -27,7 +29,7 @@ public class ShowSpo2DescActivity extends WatchBaseActivity {
     @BindView(R.id.commentB30TitleTv)
     TextView commentB30TitleTv;
     @BindView(R.id.showSpo2DescWebView)
-    WebView showSpo2DescWebView;
+    CustomerWebView showSpo2DescWebView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

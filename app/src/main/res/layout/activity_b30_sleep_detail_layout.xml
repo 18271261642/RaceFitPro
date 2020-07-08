@@ -7,414 +7,438 @@
 
     <include layout="@layout/comment_b30_title_layout" />
 
-    <RelativeLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <include
+
+                layout="@layout/comment_date_arrow_layout" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#6174C0"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <RatingBar
+                    android:id="@+id/detailSleepQuitRatingBar"
+                    style="@style/CusSleepRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/size_10"
+                    android:isIndicator="true"
+                    android:max="5" />
+
+
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#6174C0"
-                    android:orientation="vertical">
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/size_10">
 
-                    <RatingBar
-                        android:id="@+id/detailSleepQuitRatingBar"
-                        style="@style/CusSleepRatingBar"
+                    <com.example.bozhilun.android.b30.b30view.B30CusSleepView
+                        android:id="@+id/detailCusSleepView"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_180"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_marginRight="@dimen/size_15"
+                        app:awakeSleepColor="#fcd647"
+                        app:b30SleepNoDataColor="#FFFFFF"
+                        app:deepSleepColor="#2D468A"
+                        app:lightSleepColor="#8898E6"
+                        app:sleepEmptyData="@dimen/sp_15" />
+
+
+                    <SeekBar
+                        android:id="@+id/sleepSeekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_180"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:layout_marginRight="@dimen/size_15"
+                        android:background="@null"
+                        android:progressDrawable="@drawable/seekbar_bg"
+                        android:thumb="@null" />
+
+
+                </FrameLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp">
+
+                    <TextView
+                        android:id="@+id/startSleepTimeTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/size_40"
-                        android:isIndicator="true"
-                        android:max="5" />
-
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/size_10"
-                        android:layout_height="wrap_content">
-
-                        <com.example.bozhilun.android.b30.b30view.B30CusSleepView
-                            android:id="@+id/detailCusSleepView"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/size_180"
-                            android:layout_marginRight="@dimen/size_15"
-                            android:layout_marginLeft="@dimen/size_15"
-                            app:awakeSleepColor="#fcd647"
-                            app:deepSleepColor="#2D468A"
-                            app:b30SleepNoDataColor="#FFFFFF"
-                            android:layout_gravity="center"
-                            app:lightSleepColor="#8898E6"
-                            app:sleepEmptyData="@dimen/sp_15" />
-
-
-                        <SeekBar
-                            android:id="@+id/sleepSeekBar"
-                            android:layout_width="match_parent"
-                            android:layout_gravity="center"
-                            android:background="@null"
-                            android:progressDrawable="@drawable/seekbar_bg"
-                            android:thumb="@null"
-                            android:layout_marginRight="@dimen/size_15"
-                            android:layout_marginLeft="@dimen/size_15"
-                            android:layout_height="@dimen/size_180" />
-
-
-
-                    </FrameLayout>
-
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:padding="3dp"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/startSleepTimeTv"
-                            android:layout_width="wrap_content"
-                            android:textColor="@color/white"
-                            android:layout_marginLeft="@dimen/size_10"
-                            android:layout_height="wrap_content" />
-
-
-
-                        <TextView
-                            android:id="@+id/endSleepTimeTv"
-                            android:layout_width="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:textColor="@color/white"
-                            android:layout_marginRight="@dimen/size_10"
-                            android:layout_height="wrap_content" />
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/history_sleep_grid_one" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
-                            android:padding="3dp"
-                            android:text="@string/string_sleep_time"
-                            android:textSize="@dimen/sp_18" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/history_sleep_grid_two" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
-                            android:padding="3dp"
-                            android:text="@string/recovery_count"
-                            android:textSize="@dimen/sp_18" />
-
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="horizontal">
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:textColor="@color/white" />
 
 
                     <TextView
-                        android:id="@+id/detailAllSleepTv"
-                        android:layout_width="0dp"
+                        android:id="@+id/endSleepTimeTv"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="--"
-                        android:textColor="#1C1C1C"
-                        android:textSize="@dimen/sp_18" />
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:textColor="@color/white" />
 
-                    <TextView
-                        android:id="@+id/detailAwakeNumTv"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="--"
-                        android:textColor="#1C1C1C"
-                        android:textSize="@dimen/sp_18" />
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/chang_white" />
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/history_sleep_grid_three" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
-                            android:padding="3dp"
-                            android:text="@string/sleep_asleep"
-                            android:textSize="@dimen/sp_18" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/history_sleep_grid_four" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
-                            android:padding="3dp"
-                            android:text="@string/recovery_time"
-                            android:textSize="@dimen/sp_18" />
-
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="horizontal">
-
-
-                    <TextView
-                        android:id="@+id/detailStartSleepTv"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="--"
-                        android:textColor="#1C1C1C"
-                        android:textSize="@dimen/sp_18" />
-
-                    <TextView
-                        android:id="@+id/detailAwakeTimeTv"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="--"
-                        android:textColor="#1C1C1C"
-                        android:textSize="@dimen/sp_18" />
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/chang_white" />
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/history_sleep_grid_five" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
-                            android:padding="3dp"
-                            android:text="@string/deep_sleep"
-                            android:textSize="@dimen/sp_18" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/history_sleep_grid_six" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
-                            android:padding="3dp"
-                            android:text="@string/shallow_sleep"
-                            android:textSize="@dimen/sp_18" />
-
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="horizontal">
-
-
-                    <TextView
-                        android:id="@+id/detailDeepTv"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="--"
-                        android:textColor="#1C1C1C"
-                        android:textSize="@dimen/sp_18" />
-
-                    <TextView
-                        android:id="@+id/detailHightSleepTv"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="3dp"
-                        android:text="--"
-                        android:textColor="#1C1C1C"
-                        android:textSize="@dimen/sp_18" />
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/chang_white" />
+                </RelativeLayout>
 
             </LinearLayout>
 
-        </ScrollView>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:gravity="center">
-
-            <ImageView
-                android:id="@+id/sleepCurrDateLeft"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:src="@drawable/arrow_white_left" />
+                android:layout_marginTop="@dimen/size_15"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/sleepCurrDateTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2018-8-16"
-                android:textColor="@color/white"
-                android:textSize="@dimen/sp_16" />
 
-            <ImageView
-                android:id="@+id/sleepCurrDateRight"
-                android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/sleepDetailAllTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:padding="3dp"
+                        android:textSize="@dimen/sp_18" />
+
+
+                    <TextView
+                        android:id="@+id/sleepPercentTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:textSize="@dimen/size_18" />
+
+
+                    <TextView
+                        android:id="@+id/sleepDetailGoalTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/size_15"
+                        android:padding="3dp"
+                        android:textSize="@dimen/sp_18" />
+
+                </RelativeLayout>
+
+
+                <com.example.bozhilun.android.view.CusScheduleView
+                    android:id="@+id/sleepScheduleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_15"
+                    android:layout_margin="10dp"
+                    app:cus_all_schedule_color="@color/chang_white"
+                    app:cus_curr_schedule_color="#8898E6" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:src="@drawable/arrow_white_right" />
+                android:layout_marginTop="@dimen/size_10"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/history_sleep_grid_one" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:padding="3dp"
+                        android:text="@string/string_sleep_time"
+                        android:textSize="@dimen/sp_18" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/history_sleep_grid_two" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:padding="3dp"
+                        android:text="@string/recovery_count"
+                        android:textSize="@dimen/sp_18" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/detailAllSleepTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="--"
+                    android:textColor="#1C1C1C"
+                    android:textSize="@dimen/sp_18" />
+
+                <TextView
+                    android:id="@+id/detailAwakeNumTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="--"
+                    android:textColor="#1C1C1C"
+                    android:textSize="@dimen/sp_18" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/chang_white" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/history_sleep_grid_three" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:padding="3dp"
+                        android:text="@string/sleep_asleep"
+                        android:textSize="@dimen/sp_18" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/history_sleep_grid_four" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:padding="3dp"
+                        android:text="@string/recovery_time"
+                        android:textSize="@dimen/sp_18" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/detailStartSleepTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="--"
+                    android:textColor="#1C1C1C"
+                    android:textSize="@dimen/sp_18" />
+
+                <TextView
+                    android:id="@+id/detailAwakeTimeTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="--"
+                    android:textColor="#1C1C1C"
+                    android:textSize="@dimen/sp_18" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/chang_white" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/history_sleep_grid_five" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:padding="3dp"
+                        android:text="@string/deep_sleep"
+                        android:textSize="@dimen/sp_18" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/history_sleep_grid_six" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:padding="3dp"
+                        android:text="@string/shallow_sleep"
+                        android:textSize="@dimen/sp_18" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/detailDeepTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="--"
+                    android:textColor="#1C1C1C"
+                    android:textSize="@dimen/sp_18" />
+
+                <TextView
+                    android:id="@+id/detailHightSleepTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="3dp"
+                    android:text="--"
+                    android:textColor="#1C1C1C"
+                    android:textSize="@dimen/sp_18" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/chang_white" />
+
         </LinearLayout>
 
-    </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
 </LinearLayout>

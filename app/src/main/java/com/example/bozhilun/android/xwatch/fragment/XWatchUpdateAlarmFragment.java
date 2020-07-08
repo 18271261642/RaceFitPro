@@ -1,11 +1,9 @@
 package com.example.bozhilun.android.xwatch.fragment;
 
-import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.SwitchCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +16,9 @@ import android.widget.TimePicker;
 
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.b18.modle.B18AlarmBean;
-import com.example.bozhilun.android.b18.modle.B18AlarmDbManager;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.siswatch.LazyFragment;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
-import com.example.bozhilun.android.util.ToastUtil;
 import com.example.bozhilun.android.w30s.ble.WriteBackDataListener;
 import com.example.bozhilun.android.xwatch.ble.XWatchBleAnalysis;
 import com.google.gson.Gson;
@@ -233,7 +229,8 @@ public class XWatchUpdateAlarmFragment extends LazyFragment {
         }
 
         Log.e("TAG","-------修改闹钟="+b18AlarmBean.toString());
-
+        if(MyCommandManager.DEVICENAME == null)
+            return;
         if(MyCommandManager.DEVICENAME.equals("SWatch")){
             b18AlarmBean.setOpen(true);
             SharedPreferencesUtils.setParam(getActivity(),"s_watch_alarm",new Gson().toJson(b18AlarmBean));

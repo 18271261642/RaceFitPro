@@ -13,6 +13,8 @@ import java.util.Date;
 
 public abstract class PhonecallReceiver extends BroadcastReceiver {
 
+    private static final String TAG = "PhonecallReceiver";
+
     //The receiver will be recreated whenever android feels like it.  We need a static variable to remember data between instantiations
 
     private static int lastState = TelephonyManager.CALL_STATE_IDLE;
@@ -32,7 +34,7 @@ public abstract class PhonecallReceiver extends BroadcastReceiver {
         //We listen to two intents.  The new outgoing call only tells us of an outgoing call.  We use it to get the number.
         if (action.equals("android.intent.action.NEW_OUTGOING_CALL")) {
             savedNumber = bundle.getString("android.intent.extra.PHONE_NUMBER");
-            Log.e("TAG", "===savedNumber===" + savedNumber);
+            Log.e(TAG, "===savedNumber===" + savedNumber);
         } else {
             String stateStr = bundle.getString(TelephonyManager.EXTRA_STATE);
             String number = intent.getExtras().getString(TelephonyManager.EXTRA_INCOMING_NUMBER);
@@ -73,7 +75,9 @@ public abstract class PhonecallReceiver extends BroadcastReceiver {
             //No change, debounce extras
             return;
         }
+        Log.e(TAG,"----state="+state);
         switch (state) {
+
             case TelephonyManager.CALL_STATE_RINGING://响铃状态
                 isIncoming = true;
                 callStartTime = new Date();

@@ -26,6 +26,7 @@ import static com.example.bozhilun.android.b31.bpoxy.enums.Constants.CHART_MAX_H
 import static com.example.bozhilun.android.b31.bpoxy.enums.Constants.CHART_MAX_LOWSPO2H;
 import static com.example.bozhilun.android.b31.bpoxy.enums.Constants.CHART_MAX_SLEEP;
 import static com.example.bozhilun.android.b31.bpoxy.enums.Constants.CHART_MAX_SPO2H;
+import static com.example.bozhilun.android.b31.bpoxy.enums.Constants.CHART_MIN_SPO2H;
 import static com.veepoo.protocol.model.enums.ESpo2hDataType.TYPE_BREATH;
 import static com.veepoo.protocol.model.enums.ESpo2hDataType.TYPE_HEART;
 import static com.veepoo.protocol.model.enums.ESpo2hDataType.TYPE_HRV;
@@ -170,7 +171,7 @@ public class ChartViewUtil {
 
     private void addLimmitLines(ESpo2hDataType tag) {
         switch (tag) {
-            case TYPE_SPO2H:
+            case TYPE_SPO2H:    //CHART_MAX_SPO2H
                 addLimmitLine(new int[]{88, 91, 94, 97, (int) CHART_MAX_SPO2H}, TYPE_SPO2H, 5);
                 break;
             case TYPE_HEART:

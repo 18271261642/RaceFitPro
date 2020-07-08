@@ -13,11 +13,12 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.support.v4.content.FileProvider;
-import android.support.v7.app.AlertDialog;
+import androidx.core.content.FileProvider;
+import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
@@ -35,7 +36,6 @@ import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.b30.view.B30SkinColorView;
-import com.example.bozhilun.android.b36.CustomHomeThemeActivity;
 import com.example.bozhilun.android.bean.UserInfoBean;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.imagepicker.PickerBuilder;
@@ -64,10 +64,9 @@ import com.veepoo.protocol.model.enums.EFunctionStatus;
 import com.veepoo.protocol.model.enums.EOprateStauts;
 import com.veepoo.protocol.model.settings.CustomSetting;
 import com.veepoo.protocol.model.settings.CustomSettingData;
-import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.runtime.Permission;
 import org.apache.commons.lang.StringUtils;
-import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -76,7 +75,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -97,9 +95,6 @@ public class MyPersonalActivity extends WatchBaseActivity implements RequestView
 
     private final static String SKIN_COLOR_KEY = "skin_position";
 
-
-    //    @BindView(R.id.tv_title)
-//    TextView tvTitle;
     @BindView(R.id.mine_logo_iv_personal)
     CircleImageView mineLogoIv;
     @BindView(R.id.nickname_tv)
@@ -172,6 +167,9 @@ public class MyPersonalActivity extends WatchBaseActivity implements RequestView
     //我的二维码view
     private MineQrcodeView mineQrcodeView;
 
+    //拍照后存储图片的路径
+    private String TAKE_PICK_URL = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,6 +180,12 @@ public class MyPersonalActivity extends WatchBaseActivity implements RequestView
         initViews();
 
         requestPermiss();
+
+        File privatePackFile = this.getExternalFilesDir(null);
+        if(privatePackFile == null)
+            TAKE_PICK_URL = Environment.getExternalStorageDirectory().getPath()+"/";
+        else
+            TAKE_PICK_URL = privatePackFile.getPath()+"/";
 
         requestPressent = new RequestPressent();
         requestPressent.attach(this);
@@ -194,19 +198,8 @@ public class MyPersonalActivity extends WatchBaseActivity implements RequestView
     private void requestPermiss() {
         AndPermission.with(MyPersonalActivity.this)
                 .runtime()
-                .permission(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .onGranted(new Action<List<String>>() {
-                    @Override
-                    public void onAction(List<String> data) {
-
-                    }
-                })
-                .onDenied(new Action<List<String>>() {
-                    @Override
-                    public void onAction(List<String> data) {
-
-                    }
-                }).start();
+                .permission(new String[]{Permission.CAMERA,Permission.WRITE_EXTERNAL_STORAGE})
+                .start();
 
     }
 
@@ -613,49 +606,7 @@ public class MyPersonalActivity extends WatchBaseActivity implements RequestView
                     @Override
                     public void OnSettingDataChange(CustomSettingData customSettingData) {
                         closeLoadingDialog();
-//                        Log.d("TAG", "----修改状态" + customSettingData.toString());
-                        if (is24Hour) {
-                            customSettingData.setIs24Hour(true);
-                        } else {
-                            customSettingData.setIs24Hour(false);
-                        }
-                        if (isSystem) {
-                            customSettingData.setMetricSystem(EFunctionStatus.SUPPORT_OPEN);
-                        } else {
-                            customSettingData.setMetricSystem(EFunctionStatus.SUPPORT_CLOSE);
-                        }
-                        if (isAutomaticHeart) {
-                            customSettingData.setAutoHeartDetect(EFunctionStatus.SUPPORT_OPEN);
-                        } else {
-                            customSettingData.setAutoHeartDetect(EFunctionStatus.SUPPORT_CLOSE);
-                        }
-                        if (isAutomaticBoold) {
-                            customSettingData.setAutoBpDetect(EFunctionStatus.SUPPORT_OPEN);
-                        } else {
-                            customSettingData.setAutoBpDetect(EFunctionStatus.SUPPORT_CLOSE);
-                        }
-                        if (isFindPhone) {
-                            customSettingData.setFindPhoneUi(EFunctionStatus.SUPPORT_OPEN);
-                        } else {
-                            customSettingData.setFindPhoneUi(EFunctionStatus.SUPPORT_CLOSE);
-                        }
-                        if (isSystem) {
-                            customSettingData.setMetricSystem(EFunctionStatus.SUPPORT_OPEN);
-                            SharedPreferencesUtils.setParam(MyApp.getContext(), Commont.ISSystem, true);//是否为公制
-                        } else {
-                            customSettingData.setMetricSystem(EFunctionStatus.SUPPORT_CLOSE);
-                            SharedPreferencesUtils.setParam(MyApp.getContext(), Commont.ISSystem, false);//是否为公制
-                        }
-                        if (isSos) {
-                            customSettingData.setSOS(EFunctionStatus.SUPPORT_CLOSE);
-                        } else {
-                            customSettingData.setSOS(EFunctionStatus.SUPPORT_CLOSE);
-                        }
-                        if (isDisconn) {
-                            customSettingData.setDisconnectRemind(EFunctionStatus.SUPPORT_OPEN);
-                        } else {
-                            customSettingData.setDisconnectRemind(EFunctionStatus.SUPPORT_CLOSE);
-                        }
+//
 
                     }
                 }, new CustomSetting(true,//isHaveMetricSystem
@@ -1000,7 +951,7 @@ public class MyPersonalActivity extends WatchBaseActivity implements RequestView
                     break;
                 case 1001: //相机返回的 uri
                     //启动裁剪
-                    String path = getExternalCacheDir().getPath();
+                    String path = TAKE_PICK_URL;
                     Log.e(TAG, "----裁剪path=" + path);
                     String name = "output.png";
                     startActivityForResult(CutForCamera(path, name), 111);
@@ -1027,7 +978,7 @@ public class MyPersonalActivity extends WatchBaseActivity implements RequestView
      */
     private void cameraPic() {
         //创建一个file，用来存储拍照后的照片
-        File outputfile = new File(getExternalCacheDir().getPath(), "output.png");
+        File outputfile = new File(TAKE_PICK_URL, "output.png");
         try {
             if (outputfile.exists()) {
                 outputfile.delete();//删除
@@ -1062,7 +1013,7 @@ public class MyPersonalActivity extends WatchBaseActivity implements RequestView
     private Intent CutForCamera(String camerapath, String imgname) {
         try {
             //设置裁剪之后的图片路径文件
-            File cutfile = new File(getExternalCacheDir().getPath(),
+            File cutfile = new File(TAKE_PICK_URL,
                     "cutcamera.png"); //随便命名一个
             if (cutfile.exists()) { //如果已经存在，则先删除,这里应该是上传到服务器，然后再删除本地的，没服务器，只能这样了
                 cutfile.delete();
@@ -1130,7 +1081,7 @@ public class MyPersonalActivity extends WatchBaseActivity implements RequestView
             //直接裁剪
             Intent intent = new Intent("com.android.camera.action.CROP");
             //设置裁剪之后的图片路径文件
-            File cutfile = new File(getExternalCacheDir().getPath(),
+            File cutfile = new File(TAKE_PICK_URL,
                     "cutcamera.png"); //随便命名一个
             if (cutfile.exists()) { //如果已经存在，则先删除,这里应该是上传到服务器，然后再删除本地的，没服务器，只能这样了
                 cutfile.delete();
@@ -1224,58 +1175,6 @@ public class MyPersonalActivity extends WatchBaseActivity implements RequestView
 
         //syncUserInfoData();
     }
-
-
-    //同步用户信息
-    private void syncUserInfoData() {
-        String userData = (String) SharedPreferencesUtils.readObject(MyPersonalActivity.this, "saveuserinfodata");
-        if (!WatchUtils.isEmpty(userData)) {
-            try {
-                int weight;
-                JSONObject jsonO = new JSONObject(userData);
-                String userSex = jsonO.getString("sex");    //性别 男 M ; 女 F
-                String userAge = jsonO.getString("birthday");   //生日
-                String userWeight = jsonO.getString("weight");  //体重
-                String tempWeight = StringUtils.substringBefore(userWeight, "kg").trim();
-                if (tempWeight.contains(".")) {
-                    weight = Integer.valueOf(StringUtils.substringBefore(tempWeight, ".").trim() + "0");
-                } else {
-                    weight = Integer.valueOf(tempWeight + "0");
-                }
-                String userHeight = ((String) SharedPreferencesUtils.getParam(MyPersonalActivity.this, "userheight", "")).trim();
-                int sex;
-                if (userSex.equals("M")) {    //男
-                    sex = 0;
-                } else {
-                    sex = 1;
-                }
-                int age = WatchUtils.getAgeFromBirthTime(userAge);  //年龄
-                int height = Integer.valueOf(userHeight);
-
-                Log.e(TAG, "---------H9--①设置用户信息 " + "性别：" + sex + "年龄：" + age + "身高：" + height + "体重：" + weight);
-                //同步用户信息
-//                AppsBluetoothManager.getInstance(MyApp.getInstance()).sendCommand(new com.sdk.bluetooth.protocol.command.user.UserInfo(commandResultCallbackAll,
-//                        5, sex, age, height, weight));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-        }
-
-    }
-
-
-    BaseCommand.CommandResultCallback commandResultCallbackAll = new BaseCommand.CommandResultCallback() {
-        @Override
-        public void onSuccess(BaseCommand baseCommand) {
-            Log.d(TAG, "--------同步用户信息给设备成功");
-        }
-
-        @Override
-        public void onFail(BaseCommand baseCommand) {
-            Log.d(TAG, "--------同步用户信息给设备失败");
-        }
-    };
 
 
     private void setUserData(int mGender, int mHeight, int mWeight, int mAge) {

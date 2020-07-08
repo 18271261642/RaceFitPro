@@ -7,7 +7,7 @@
 
     <include layout="@layout/appbar_toolbar" />
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -270,5 +270,5 @@
                 android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

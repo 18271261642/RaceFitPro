@@ -1,6 +1,7 @@
 <resources>
     <!--头尾内部m部分翻译为英文,后期根据提供文档更改-->
     <!--法语-->
+    <string name="calibrating">calibrating</string>
     <string name="string_bmi_title">BMI</string>
     <string name="string_note">Attention:</string>
     <string name="string_light_alert">Le réglage de luminosité le plus élevé entraîne une consommation d\'énergie plus rapide et une durée de vie de la batterie plus courte.</string>

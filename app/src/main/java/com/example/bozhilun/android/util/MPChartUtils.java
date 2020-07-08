@@ -2,7 +2,7 @@ package com.example.bozhilun.android.util;
 
 import android.graphics.Color;
 import android.graphics.Matrix;
-import android.support.annotation.ColorInt;
+import androidx.annotation.ColorInt;
 
 import com.example.bozhilun.android.R;
 import com.github.mikephil.charting.charts.BarChart;

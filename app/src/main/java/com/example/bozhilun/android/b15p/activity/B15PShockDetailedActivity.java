@@ -6,7 +6,7 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
@@ -14,11 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import com.aigestudio.wheelpicker.widgets.ProfessionPick;
 import com.aigestudio.wheelpicker.widgets.ProvincePick;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
-import com.example.bozhilun.android.w30s.utils.W30BasicUtils;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 
 import java.util.ArrayList;

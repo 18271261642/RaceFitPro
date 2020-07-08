@@ -6,10 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.telephony.SmsMessage;
 import android.text.TextUtils;
 import android.util.Log;
@@ -18,7 +17,7 @@ import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
-import com.example.bozhilun.android.util.GetJsonDataUtil;
+import com.example.bozhilun.android.w30s.ble.W37Constance;
 import com.example.bozhilun.android.w30s.ble.W37DataAnalysis;
 import com.example.bozhilun.android.xwatch.ble.XWatchBleAnalysis;
 import com.hplus.bluetooth.BleProfileManager;
@@ -26,7 +25,6 @@ import com.sdk.bluetooth.manage.AppsBluetoothManager;
 import com.sdk.bluetooth.protocol.command.base.BaseCommand;
 import com.sdk.bluetooth.protocol.command.push.MsgCountPush;
 import com.sdk.bluetooth.protocol.command.push.SmsPush;
-import com.suchengkeji.android.w30sblelibrary.W30SBLEManage;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.tjdL4.tjdmain.AppIC;
 import com.tjdL4.tjdmain.contr.L4Command;
@@ -79,7 +77,7 @@ public class NewSmsBroadCastReceiver extends BroadcastReceiver {
             }
             //舟海
             if (saveBleName.equals("W30") || saveBleName.equals("W31") || saveBleName.equals("W37")) {  //W30
-                sendMsgW30S(msgStr, W30SBLEManage.NotifaceMsgMsg);
+                sendMsgW30S(msgStr, W37Constance.NotifaceMsgMsg);
             }
             //维亿魄
             if (WatchUtils.isVPBleDevice(saveBleName)) {  //B30,B31,B36
@@ -98,7 +96,7 @@ public class NewSmsBroadCastReceiver extends BroadcastReceiver {
                         B18iUtils.H9TimeData(), MsgCountPush.SMS_MSG_TYPE, 1);
             }
 
-            if(saveBleName.equals("B50") || saveBleName.equals("B18") || saveBleName.equals("B16")){  //B18
+            if( saveBleName.equals("B18") || saveBleName.equals("B16")){  //B18
                 BleProfileManager.getInstance().getCommandController().sendSMSText(msgStr);
             }
 
@@ -110,7 +108,6 @@ public class NewSmsBroadCastReceiver extends BroadcastReceiver {
                 }else{
                     XWatchBleAnalysis.getW37DataAnalysis().setDeviceNoti(1);
                 }
-
             }
         }
 
@@ -166,28 +163,28 @@ public class NewSmsBroadCastReceiver extends BroadcastReceiver {
             boolean w30sswitch_Phone = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), "w30sswitch_Phone", false);
 
             switch (type) {
-                case W30SBLEManage.NotifaceMsgQq:
+                case W37Constance.NotifaceMsgQq:
                     if (w30sswitch_qq) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgWx:
+                case W37Constance.NotifaceMsgWx:
                     if (w30sswitch_weChat) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgFacebook:
+                case W37Constance.NotifaceMsgFacebook:
                     if (w30sswitch_facebook) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgTwitter:
+                case W37Constance.NotifaceMsgTwitter:
                     if (w30sswitch_twitter) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgWhatsapp:
+                case W37Constance.NotifaceMsgWhatsapp:
                     if (w30sswitch_whatsApp) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgViber:
+                case W37Constance.NotifaceMsgViber:
                     if (w30sswitch_viber) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgSkype:
+                case W37Constance.NotifaceMsgSkype:
                     if (w30sswitch_skype) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgMsg:  //短信
+                case W37Constance.NotifaceMsgMsg:  //短信
                     if (w30sswitch_msg) sendW30SApplicationMsg(h9Msg, type);
                     break;
             }

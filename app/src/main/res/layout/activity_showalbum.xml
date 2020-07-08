@@ -6,12 +6,12 @@
     android:background="#282828"
     android:layout_height="match_parent">
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/my_viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </android.support.v4.view.ViewPager>
+    </androidx.viewpager.widget.ViewPager>
 
 
     <!--
@@ -42,7 +42,7 @@
          android:scaleType="centerInside"
          android:layout_height="match_parent" />
  -->
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/albumDeleteFloat"
         android:layout_width="wrap_content"
         android:src="@mipmap/icon_delete_pick"

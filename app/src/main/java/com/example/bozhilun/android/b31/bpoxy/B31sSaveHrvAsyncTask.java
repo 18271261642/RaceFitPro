@@ -91,8 +91,12 @@ public class B31sSaveHrvAsyncTask extends AsyncTask<List<HRVOriginData>,Void,Voi
     @Override
     protected void onCancelled() {
         super.onCancelled();
-        if(broadcastReceiver != null)
-            MyApp.getContext().unregisterReceiver(broadcastReceiver);
+        try {
+            if(broadcastReceiver != null)
+                MyApp.getContext().unregisterReceiver(broadcastReceiver);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 

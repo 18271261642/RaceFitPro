@@ -7,18 +7,18 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <android.support.design.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:background="@color/chang_white"
         android:layout_height="wrap_content">
 
-        <android.support.design.widget.CollapsingToolbarLayout
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="#EBEBEB"
@@ -132,7 +132,7 @@
 
             </LinearLayout>
 
-        </android.support.design.widget.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -203,10 +203,10 @@
 
         </LinearLayout>
 
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:id="@+id/guidSwi"
         android:layout_marginTop="5dp"
@@ -214,7 +214,7 @@
         android:layout_height="wrap_content">
 
         <!-- 第三部分:Your Scroll View-->
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/myMainScrollView"
             android:layout_width="match_parent"
             android:focusableInTouchMode="true"
@@ -247,7 +247,7 @@
                         android:layout_gravity="center"
                         android:src="@mipmap/image_nomal_today" />
 
-                    <android.support.v7.widget.RecyclerView
+                    <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/commentRunRecyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -258,9 +258,9 @@
             </LinearLayout>
 
 
-        </android.support.v4.widget.NestedScrollView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </LinearLayout>

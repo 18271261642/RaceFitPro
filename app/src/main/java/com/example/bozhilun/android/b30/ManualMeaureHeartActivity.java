@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -14,18 +14,25 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
+import com.example.bozhilun.android.b31.km.NohttpUtils;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
+import com.google.gson.Gson;
+import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.tjdL4.tjdmain.contr.Health_HeartBldPrs;
 import com.veepoo.protocol.listener.base.IBleWriteResponse;
 import com.veepoo.protocol.listener.data.IHeartDataListener;
 import com.veepoo.protocol.model.datas.HeartData;
 import com.veepoo.protocol.model.enums.EHeartStatus;
-
+import com.yanzhenjie.nohttp.rest.OnResponseListener;
+import com.yanzhenjie.nohttp.rest.Response;
+import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -62,11 +69,16 @@ public class ManualMeaureHeartActivity extends WatchBaseActivity {
     private boolean isMeaure = false;
     //缩放动画
     Animation animationRoate;
-    ScaleAnimation animation_suofang;
+
     String devicesType;
 
+    NohttpUtils nohttpUtils;
+
+    //是否是第一次上传
+    private boolean isFirstMan = true;
+
     @SuppressLint("HandlerLeak")
-    Handler handler = new Handler() {
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -80,6 +92,7 @@ public class ManualMeaureHeartActivity extends WatchBaseActivity {
                             return;
                         }
                         b30MeaureHeartValueTv.setText(heartData.getData()+"");
+                        uploadHeart(heartData.getData());
                     }
 
 
@@ -101,6 +114,40 @@ public class ManualMeaureHeartActivity extends WatchBaseActivity {
         }
     };
 
+    private void uploadHeart(int data) {
+        if (data == 0)
+            return;
+        String userId = (String) SharedPreferencesUtils.readObject(ManualMeaureHeartActivity.this, Commont.USER_ID_DATA);
+        String deviceCode = MyApp.getInstance().getMacAddress();
+        if (userId == null || deviceCode == null)
+            return;
+
+        //第一次上传
+        if (isFirstMan) {
+            uploadHeartData(userId,data);
+        } else {
+            long currTime = System.currentTimeMillis();
+            //保存的时间
+            long savedTime = (long) SharedPreferencesUtils.getParam(ManualMeaureHeartActivity.this, "heart_time", System.currentTimeMillis());
+            //差值
+            long differenceTime = currTime - savedTime;
+            if (differenceTime / 1000 < 5)
+                return;
+            uploadHeartData(userId,data);
+        }
+    }
+
+    private void uploadHeartData(String userId,int data) {
+        String url = Commont.FRIEND_BASE_URL + Commont.UPLOAD_HAND_HEART_AD_SPO2;
+        Map<String,Object> spo2Map = new HashMap<>();
+        spo2Map.put("userId",userId);
+        spo2Map.put("pulse",data);
+        spo2Map.put("bloodOxygen","0%");
+        String parms = new Gson().toJson(spo2Map);
+        Log.e(TAG,"----parms="+parms);
+        nohttpUtils.getModelRequestJSONObject(0x01,url,new Gson().toJson(spo2Map),onResponseListener);
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,8 +156,9 @@ public class ManualMeaureHeartActivity extends WatchBaseActivity {
 
         devicesType = getIntent().getStringExtra("what");
 
-
         initViews();
+        isFirstMan = true;
+        nohttpUtils = NohttpUtils.getNoHttpUtils();
     }
 
     private void initViews() {
@@ -119,7 +167,8 @@ public class ManualMeaureHeartActivity extends WatchBaseActivity {
         commentB30BackImg.setVisibility(View.VISIBLE);
     }
 
-    @OnClick({R.id.commentB30BackImg, R.id.commentB30ShareImg, R.id.b30MeaureHeartStartBtn})
+    @OnClick({R.id.commentB30BackImg, R.id.commentB30ShareImg,
+            R.id.b30MeaureHeartStartBtn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.commentB30BackImg:    //返回
@@ -130,7 +179,6 @@ public class ManualMeaureHeartActivity extends WatchBaseActivity {
                 break;
             case R.id.b30MeaureHeartStartBtn:   //开始和结束
                 if (MyCommandManager.DEVICENAME != null) {
-
                     if (!isMeaure) {
                         if (!WatchUtils.isEmpty(devicesType) && (devicesType.equals("b15p")||devicesType.equals("B15P")||devicesType.equals("B25"))) {
                             testB15PHeart();
@@ -344,4 +392,33 @@ public class ManualMeaureHeartActivity extends WatchBaseActivity {
         }
 
     }
+
+
+
+    private OnResponseListener<JSONObject> onResponseListener = new OnResponseListener<JSONObject>() {
+        @Override
+        public void onStart(int what) {
+
+        }
+
+        @Override
+        public void onSucceed(int what, Response<JSONObject> response) {
+            Log.e(TAG,"------response="+what+"--="+response.get());
+            if(what == 0x01){
+                isFirstMan = false;
+                SharedPreferencesUtils.setParam(ManualMeaureHeartActivity.this,"heart_time",System.currentTimeMillis());
+            }
+        }
+
+        @Override
+        public void onFailed(int what, Response<JSONObject> response) {
+            Log.e(TAG,"------failed="+response.getException());
+        }
+
+        @Override
+        public void onFinish(int what) {
+
+        }
+    };
+
 }

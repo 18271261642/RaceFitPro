@@ -1,5 +1,6 @@
 <resources>
     <!-- 越南语-->
+    <string name="calibrating">calibrating</string>
     <string name="string_bmi_title">BMI</string>
     <string name="string_note">Chú ý:</string>
     <string name="string_light_alert">Cài đặt độ sáng cao nhất dẫn đến tiêu thụ năng lượng nhanh hơn và thời lượng pin ngắn hơn.</string>
@@ -94,7 +95,7 @@
     <string name="vpspo2h_ratevaraive">脉率变异性</string>
     <string name="vpspo2h_spo2h">Blood oxygen</string>
     <string name="vpspo2h_low_remain">Hypoxia and arousal</string>
-    <string name="ave_value">average value</string>
+    <string name="ave_value">Avg value</string>
     <string name="heart_health_sorce">Heart health index</string>
     <string name="analysis_result">Analytic result(For reference only)</string>
     <string name="spo2_breath_break">Blood oxygen/Apnea</string>

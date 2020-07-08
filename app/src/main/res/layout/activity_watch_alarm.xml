@@ -17,7 +17,7 @@
         android:visibility="gone"
         android:layout_height="wrap_content" />
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/alarmSwipeRefresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -256,7 +256,7 @@
         </LinearLayout>
 
     </ScrollView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     <TextView
         android:id="@+id/watch_test_showView"
         android:layout_width="match_parent"

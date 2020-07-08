@@ -3,12 +3,13 @@ package com.example.bozhilun.android.b31;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatRatingBar;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatRatingBar;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -51,7 +52,7 @@ public class B31sPrecisionSleepActivity extends WatchBaseActivity {
     @BindView(R.id.b31sSleepSeekBar)
     SeekBar b31sSleepSeekBar;
 
-    @BindView(R.id.sleepCurrDateTv)
+    @BindView(R.id.commArrowDate)
     TextView sleepCurrDateTv;
 
     //睡眠开始时间
@@ -130,6 +131,9 @@ public class B31sPrecisionSleepActivity extends WatchBaseActivity {
     //浅睡状态
     @BindView(R.id.b31sSleepLowResultTv)
     TextView b31sSleepLowResultTv;
+
+    @BindView(R.id.commDateLin)
+    LinearLayout commDateLin;
 
     private List<Integer> listValue;
 
@@ -379,6 +383,7 @@ public class B31sPrecisionSleepActivity extends WatchBaseActivity {
         commentB30BackImg.setVisibility(View.VISIBLE);
         commentB30TitleTv.setText(getResources().getString(R.string.sleep));
         commB31TitleLayout.setBackgroundColor(Color.parseColor("#20806F"));
+        commDateLin.setBackgroundColor(Color.parseColor("#20806F"));
         listValue = new ArrayList<>();
     }
 
@@ -387,8 +392,8 @@ public class B31sPrecisionSleepActivity extends WatchBaseActivity {
      */
     private void changeDayData(boolean left) {
         String date = WatchUtils.obtainAroundDate(currDay, left);
-        if (date.equals(currDay) || date.isEmpty()) {
-            return;
+        if (date.equals(WatchUtils.getCurrentDate()) || date.isEmpty()) {
+            return;// 空数据,或者大于今天的数据就别切了
         }
         currDay = date;
         initData(currDay);
@@ -398,16 +403,16 @@ public class B31sPrecisionSleepActivity extends WatchBaseActivity {
             R.id.sleepInsomniaConLin, R.id.sleepEayConLin,
             R.id.sleepDeepConLin, R.id.sleepLowConLin,
             R.id.commentB30BackImg,
-            R.id.sleepCurrDateLeft, R.id.sleepCurrDateRight})
+            R.id.commArrowLeft, R.id.commArrowRight})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.commentB30BackImg:
                 finish();
                 break;
-            case R.id.sleepCurrDateRight:   //后一天
+            case R.id.commArrowRight:   //后一天
                 changeDayData(false);
                 break;
-            case R.id.sleepCurrDateLeft:    //前一天
+            case R.id.commArrowLeft:    //前一天
                 changeDayData(true);
                 break;
             case R.id.sleepLengthConLin:    //睡眠时长

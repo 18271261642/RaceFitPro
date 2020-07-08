@@ -3,7 +3,7 @@ package com.example.bozhilun.android.siswatch.mine;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +35,7 @@ import com.example.bozhilun.android.siswatch.WatchDeviceActivity;
 import com.example.bozhilun.android.siswatch.utils.UpdateGooglePlayManager;
 import com.example.bozhilun.android.siswatch.utils.UpdateManager;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
+import com.example.bozhilun.android.w30s.activity.W30SSettingActivity;
 import com.example.bozhilun.android.xwatch.XWatchDeviceActivity;
 import com.hplus.bluetooth.BleProfileManager;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
@@ -163,20 +164,23 @@ public class WatchMineFragment extends LazyFragment {
      * 获取距离等信息，包括用户资料
      */
     private void getMyInfoData() {
-        String saveBleMac = WatchUtils.getSherpBleMac(getActivity());
-        if (saveBleMac == null)
-            return;
-        String myInfoUrl = Commont.FRIEND_BASE_URL + URLs.myInfo;
-        JSONObject js = new JSONObject();
         try {
-            js.put("userId", SharedPreferencesUtils.readObject(getActivity(), "userId"));
-            js.put("deviceCode", saveBleMac);
-        } catch (JSONException e) {
+            String saveBleMac = WatchUtils.getSherpBleMac(getActivity());
+            if (saveBleMac == null)
+                return;
+            String myInfoUrl = Commont.FRIEND_BASE_URL + URLs.myInfo;
+            JSONObject js = new JSONObject();
+            try {
+                js.put("userId", SharedPreferencesUtils.readObject(getActivity(), "userId"));
+                js.put("deviceCode", saveBleMac);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            commonSubscriber = new CommonSubscriber(subscriberOnNextListener, getActivity());
+            OkHttpObservable.getInstance().getData(commonSubscriber, myInfoUrl, js.toString());
+        }catch (Exception e){
             e.printStackTrace();
         }
-        commonSubscriber = new CommonSubscriber(subscriberOnNextListener, getActivity());
-        OkHttpObservable.getInstance().getData(commonSubscriber, myInfoUrl, js.toString());
-
     }
 
     @Override
@@ -224,15 +228,13 @@ public class WatchMineFragment extends LazyFragment {
                                     watchMineUname.setText("" + userJson.getString("nickname") + "");
                                     //头像
                                     String imgHead = userJson.getString("image");
-                                    if (!WatchUtils.isEmpty(imgHead)) {
-                                        //头像
-                                        RequestOptions mRequestOptions = RequestOptions.circleCropTransform().diskCacheStrategy(DiskCacheStrategy.NONE)
-                                                .skipMemoryCache(true);
-                                        Glide.with(getActivity()).load(imgHead)
-                                                .apply(mRequestOptions).into(watchMineUserheadImg);    //头像
-                                    }
-
-
+                                    //头像
+                                    RequestOptions mRequestOptions = RequestOptions.circleCropTransform().diskCacheStrategy(DiskCacheStrategy.NONE)
+                                            .skipMemoryCache(true);
+                                    Glide.with(getActivity()).load(imgHead)
+                                            .apply(mRequestOptions)
+                                            .error(R.mipmap.bg_img)
+                                            .into(watchMineUserheadImg);    //头像
                                 }
 
 
@@ -292,7 +294,8 @@ public class WatchMineFragment extends LazyFragment {
                     if (MyCommandManager.DEVICENAME.equals(WatchUtils.B31_NAME)
                             || MyCommandManager.DEVICENAME.equals(WatchUtils.B31S_NAME)
                             || MyCommandManager.DEVICENAME.equals(WatchUtils.S500_NAME)
-                            || MyCommandManager.DEVICENAME.equals("E Watch") || MyCommandManager.DEVICENAME.equals("B50")) {    //B31,B31S,500s
+                            || MyCommandManager.DEVICENAME.equals("E Watch") || MyCommandManager.DEVICENAME.equals("B50")
+                            || MyCommandManager.DEVICENAME.contains("YWK") || MyCommandManager.DEVICENAME.equals("SpO2")) {    //B31,B31S,500s
                         startActivity(new Intent(getActivity(), B31DeviceActivity.class));
                         return;
                     }
@@ -306,6 +309,11 @@ public class WatchMineFragment extends LazyFragment {
                     }
                     if(MyCommandManager.DEVICENAME.equals("XWatch") || MyCommandManager.DEVICENAME.equals("SWatch")){
                         startActivity(new Intent(getActivity(), XWatchDeviceActivity.class));
+                        return;
+                    }
+
+                    if(MyCommandManager.DEVICENAME.equals("W30") || MyCommandManager.DEVICENAME.equals("W31") || MyCommandManager.DEVICENAME.equals("W37")){
+                        startActivity(new Intent(getActivity(), W30SSettingActivity.class));
                         return;
                     }
 

@@ -1,5 +1,6 @@
 <resources>
     <!--//饿语-->
+    <string name="calibrating">calibrating</string>
     <string name="string_bmi_title">BMI</string>
     <string name="string_note">обратить внимание:</string>
     <string name="string_light_alert">Максимальная яркость приводит к более быстрому потреблению энергии и сокращению срока службы батареи.</string>

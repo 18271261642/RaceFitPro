@@ -6,7 +6,7 @@
     android:background="#efefef"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_normal"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -23,10 +23,10 @@
             android:textColor="#ffffffff"
             android:textSize="@dimen/sp_17" />
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/w30s_listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

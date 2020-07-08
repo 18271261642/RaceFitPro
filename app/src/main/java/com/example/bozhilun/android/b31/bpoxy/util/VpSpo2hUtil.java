@@ -1,10 +1,9 @@
 package com.example.bozhilun.android.b31.bpoxy.util;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Log;
 
-import com.example.bozhilun.android.B18I.b18iutils.Constant;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.b31.bpoxy.markview.SPMarkerView;
 import com.github.mikephil.charting.charts.LineChart;
@@ -107,7 +106,7 @@ public class VpSpo2hUtil {
     }
 
     private void initSpo2hChatUitl() {
-        String strNoData = "No data";
+        String strNoData = "No data"; //CHART_MAX_SPO2H
         mChartUtilSpo2h = new ChartViewUtil(mChartViewSpo2h, mMarkviewSpo2h, mModelIs24, CHART_MAX_SPO2H, CHART_MIN_SPO2H, strNoData, TYPE_SPO2H);
         mChartUtilHeart = new ChartViewUtil(mChartViewHeart, mMarkviewHeart, mModelIs24, CHART_MAX_HEART, CHART_MIN_HEART, strNoData, TYPE_HEART);
         mChartUtilSleep = new ChartViewUtil(mChartViewSleep, mMarkviewSleep, mModelIs24, CHART_MAX_SLEEP, CHART_MIN_SLEEP, strNoData, TYPE_SLEEP);
@@ -306,7 +305,7 @@ public class VpSpo2hUtil {
         }
         //获取处理完的血氧数据
         List<Map<String, Float>> tenMinuteDataBreathBreak = spo2hOriginUtil.getTenMinuteData(TYPE_BEATH_BREAK);
-        List<Map<String, Float>> tenMinuteDataSpo2h = spo2hOriginUtil.getTenMinuteData(TYPE_SPO2H);
+        List<Map<String, Float>> tenMinuteDataSpo2h = spo2hOriginUtil.getTenMinuteData(TYPE_SPO2H_MIN);
         //更新血氧数据的图表
         mChartUtilSpo2h.setBeathBreakData(tenMinuteDataBreathBreak);
         mChartUtilSpo2h.updateChartView(tenMinuteDataSpo2h);

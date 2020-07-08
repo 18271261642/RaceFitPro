@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -20,7 +20,6 @@ import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.bzlmaps.HellpEditActivity;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
-import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.veepoo.protocol.listener.base.IBleWriteResponse;
 import com.veepoo.protocol.listener.data.IAllSetDataListener;
@@ -70,6 +69,10 @@ public class B31SwitchActivity extends WatchBaseActivity implements CompoundButt
     //断连提醒
     @BindView(R.id.b31SwitchDisAlertTogg)
     ToggleButton b31SwitchDisAlertTogg;
+    @BindView(R.id.deviceDisconnAlertRel)
+    RelativeLayout deviceDisconnAlertRel;
+
+
     //24小时制
     @BindView(R.id.b30SwitchTimeTypeTogg)
     ToggleButton b30SwitchTimeTypeTogg;
@@ -85,7 +88,7 @@ public class B31SwitchActivity extends WatchBaseActivity implements CompoundButt
 
     @BindView(R.id.rel_xueya)
     RelativeLayout rel_xueya;
-
+    //秒表
     @BindView(R.id.rel_miaobiao)
     RelativeLayout rel_miaobiao;
     @BindView(R.id.view_miaobiao)
@@ -104,7 +107,7 @@ public class B31SwitchActivity extends WatchBaseActivity implements CompoundButt
 
 
     @SuppressLint("HandlerLeak")
-    Handler handler = new Handler() {
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -127,30 +130,6 @@ public class B31SwitchActivity extends WatchBaseActivity implements CompoundButt
     }
 
 
-    private void verticalDevice() {
-        if (!WatchUtils.isEmpty(MyCommandManager.DEVICENAME)) {
-            if (MyCommandManager.DEVICENAME.equals(WatchUtils.B31_NAME)) {
-                //没有秒表功能，取消
-                rel_miaobiao.setVisibility(View.VISIBLE);
-                view_miaobiao.setVisibility(View.VISIBLE);
-            } else {
-                //没有秒表功能，取消
-                rel_miaobiao.setVisibility(View.GONE);
-                view_miaobiao.setVisibility(View.GONE);
-            }
-        }
-
-
-        if (MyCommandManager.DEVICENAME != null) {
-            boolean isB31HasBp = (boolean) SharedPreferencesUtils.getParam(B31SwitchActivity.this, Commont.IS_B31_HAS_BP_KEY, false);
-            if (isB31HasBp) {
-//                b31sBPAutoDetchRel.setVisibility(View.VISIBLE); //自动血压监测
-//                b31sFindPhoneRel.setVisibility(View.VISIBLE);   //查找手机
-//                b31sHelpSos.setVisibility(View.VISIBLE);    //sos
-            }
-        }
-    }
-
 
     private void initViews() {
         commentB30BackImg.setVisibility(View.VISIBLE);
@@ -170,14 +149,6 @@ public class B31SwitchActivity extends WatchBaseActivity implements CompoundButt
         //精准睡觉
         b31ScienceToggleBtn.setOnCheckedChangeListener(this);
 
-//        commentB30BackImg.setVisibility(View.VISIBLE);
-//        commentB30TitleTv.setText(getResources().getString(R.string.string_switch_setting));
-
-//        b31CheckWearToggleBtn.setOnCheckedChangeListener(this);
-//        b31AutoHeartToggleBtn.setOnCheckedChangeListener(this);
-//        b31AutoBPOxyToggbleBtn.setOnCheckedChangeListener(this);
-//        b31SecondToggleBtn.setOnCheckedChangeListener(this);
-//        b31SwitchDisAlertTogg.setOnCheckedChangeListener(this);
 
     }
 
@@ -213,7 +184,6 @@ public class B31SwitchActivity extends WatchBaseActivity implements CompoundButt
         switch (buttonView.getId()) {
             case R.id.b31CheckWearToggleBtn:    //佩戴检测
                 b31CheckWearToggleBtn.setChecked(isChecked);
-//                SharedPreferencesUtils.setParam(MyApp.getContext(), Commont.ISWearcheck, isChecked);
                 SharedPreferencesUtils.setParam(B31SwitchActivity.this, Commont.ISCheckWear, isChecked);//佩戴
                 CheckWearSetting checkWearSetting = new CheckWearSetting();
                 checkWearSetting.setOpen(isChecked);
@@ -277,7 +247,6 @@ public class B31SwitchActivity extends WatchBaseActivity implements CompoundButt
                 break;
             case R.id.b31ScienceToggleBtn:  //精准睡眠
                 b31ScienceToggleBtn.setChecked(isChecked);
-
                 SharedPreferencesUtils.setParam(MyApp.getContext(), Commont.isPPG, isChecked);//查找手机
                 handler.sendEmptyMessageDelayed(1001, 200);
                 break;
@@ -290,6 +259,7 @@ public class B31SwitchActivity extends WatchBaseActivity implements CompoundButt
     private void readDeviceCusSetting() {
         if (MyCommandManager.DEVICENAME == null)
             return;
+        //佩戴检测
         boolean isWearCheck = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISCheckWear, false);//佩戴
         b31CheckWearToggleBtn.setChecked(isWearCheck);
         MyApp.getInstance().getVpOperateManager().readCustomSetting(iBleWriteResponse, new ICustomSettingDataListener() {
@@ -298,73 +268,33 @@ public class B31SwitchActivity extends WatchBaseActivity implements CompoundButt
                 Log.e(TAG, "----------customSettingData=" + customSettingData.toString() + "\n" + customSettingData.getAutoHeartDetect());
 
                 //自动心率测量
-                if (customSettingData.getAutoHeartDetect() == EFunctionStatus.SUPPORT_OPEN) {
-                    b31AutoHeartToggleBtn.setChecked(true);
-                } else {
-                    b31AutoHeartToggleBtn.setChecked(false);
-                }
+                b31AutoHeartToggleBtn.setChecked(customSettingData.getAutoHeartDetect() == EFunctionStatus.SUPPORT_OPEN);
+
                 //自动血压测量
-                if (customSettingData.getAutoBpDetect() == EFunctionStatus.SUPPORT_OPEN) {
-                    b30AutoBloadToggleBtn.setChecked(true);
-                } else if (customSettingData.getAutoBpDetect() == EFunctionStatus.UNSUPPORT) {
-                    rel_xueya.setVisibility(View.GONE);
-                } else {
-                    b30AutoBloadToggleBtn.setChecked(false);
-                }
+                rel_xueya.setVisibility(customSettingData.getAutoBpDetect() == EFunctionStatus.UNSUPPORT ? View.GONE : View.VISIBLE);
+                b30AutoBloadToggleBtn.setChecked(customSettingData.getAutoBpDetect() == EFunctionStatus.SUPPORT_OPEN);
 
                 //秒表
-                if (customSettingData.getSecondsWatch() == EFunctionStatus.SUPPORT_OPEN) {
-                    b31SecondToggleBtn.setChecked(true);
-                } else if (customSettingData.getAutoBpDetect() == EFunctionStatus.UNSUPPORT) {
-                    rel_miaobiao.setVisibility(View.GONE);
-                    view_miaobiao.setVisibility(View.GONE);
-                } else {
-                    b31SecondToggleBtn.setChecked(false);
-                }
+
+                rel_miaobiao.setVisibility(customSettingData.getSecondsWatch() == EFunctionStatus.UNSUPPORT ? View.GONE : View.VISIBLE);
+                b31SecondToggleBtn.setChecked(customSettingData.getSecondsWatch() == EFunctionStatus.SUPPORT_OPEN);
 
                 //查找手机
-                if (customSettingData.getFindPhoneUi() == EFunctionStatus.SUPPORT_OPEN) {
-                    b30SwitchFindPhoneToggleBtn.setChecked(true);
-                } else if (customSettingData.getFindPhoneUi() == EFunctionStatus.UNSUPPORT) {
-                    rel_findePhone.setVisibility(View.GONE);
-                    view_findePhone.setVisibility(View.GONE);
-                } else {
-                    b30SwitchFindPhoneToggleBtn.setChecked(false);
-                }
-
+                rel_findePhone.setVisibility(customSettingData.getFindPhoneUi() == EFunctionStatus.UNSUPPORT ? View.GONE : View.VISIBLE);
+                b30SwitchFindPhoneToggleBtn.setChecked(customSettingData.getFindPhoneUi() == EFunctionStatus.SUPPORT_OPEN);
 
                 //断链提醒
-                if (customSettingData.getDisconnectRemind() == EFunctionStatus.SUPPORT_OPEN) {
-                    b31SwitchDisAlertTogg.setChecked(true);
-                } else {
-                    b31SwitchDisAlertTogg.setChecked(false);
-                }
+                deviceDisconnAlertRel.setVisibility(customSettingData.getDisconnectRemind() == EFunctionStatus.UNSUPPORT ? View.GONE : View.VISIBLE);
+                b31SwitchDisAlertTogg.setChecked(customSettingData.getDisconnectRemind() == EFunctionStatus.SUPPORT_OPEN);
 
                 //is  24
-                if (customSettingData.isIs24Hour()) {
-                    b30SwitchTimeTypeTogg.setChecked(true);
-                } else {
-                    b30SwitchTimeTypeTogg.setChecked(false);
-                }
-
-                //佩戴检测
-                if (customSettingData.getSkin() == EFunctionStatus.SUPPORT_OPEN) {
-                    b31CheckWearToggleBtn.setChecked(true);
-                } else {
-                    b31CheckWearToggleBtn.setChecked(false);
-                }
+                b30SwitchTimeTypeTogg.setChecked(customSettingData.isIs24Hour());
 
                 //is SOS
                 isOpenSOS = customSettingData.getSOS();
-                if (customSettingData.getSOS() == EFunctionStatus.SUPPORT_OPEN) {
-                    b30SwitchHlepSos.setChecked(true);
-                    SharedPreferencesUtils.setParam(MyApp.getContext(), Commont.ISHelpe, true);//SOS
-                } else if (customSettingData.getSOS() == EFunctionStatus.UNSUPPORT) {
-                    help_sos.setVisibility(View.GONE);
-                } else {
-                    b30SwitchHlepSos.setChecked(false);
-                    SharedPreferencesUtils.setParam(MyApp.getContext(), Commont.ISHelpe, false);//SOS
-                }
+                help_sos.setVisibility(customSettingData.getSOS() == EFunctionStatus.UNSUPPORT ?View.GONE : View.VISIBLE);
+                b30SwitchHlepSos.setChecked(isOpenSOS == EFunctionStatus.SUPPORT_OPEN);
+                SharedPreferencesUtils.setParam(MyApp.getContext(), Commont.ISHelpe, isOpenSOS == EFunctionStatus.SUPPORT_OPEN);//SOS
 
 
                 //精准睡眠
@@ -468,7 +398,24 @@ public class B31SwitchActivity extends WatchBaseActivity implements CompoundButt
         }
 
 
-
+        /**
+         * public CustomSetting(boolean isHaveMetricSystem,   //公英制的功能状态，返回true表示有此功能，可以设置公英制；返回false表示无此功能，不可以设置公英制
+         *                      boolean isMetric,   //公英制的值，返回true表示公制，返回false表示英制,设备语言设置成[英语或繁体]才能体现英制
+         *                      boolean is24Hour,   //24小时制
+         *                      boolean isOpenAutoHeartDetect,  //自动心率检测
+         *                      boolean isOpenAutoBpDetect,     //自动血压检测
+         *                      EFunctionStatus isOpenSportRemain,  //运动过量的状态，SUPPORT_OPEN 表示打开了运动过量提醒功能，SUPPORT_CLOSE 表示关闭运动过量提醒功能; UNSUPPORT表示不支持
+         *                      EFunctionStatus isOpenVoiceBpHeart,  //心率/血氧/血压的状态,SUPPORT_OPEN 表示打开了心率/血氧/血压播报功能，SUPPORT_CLOSE 表示关闭心率/血氧/血压播报功能; UNSUPPORT表示不支持
+         *                      EFunctionStatus isOpenFindPhoneUI,   //查找手机
+         *                      EFunctionStatus isOpenStopWatch,   //秒表功能的状态,SUPPORT_OPEN 表示打开了秒表功能功能，SUPPORT_CLOSE 表示关闭秒表功能功能; UNSUPPORT表示不支持
+         *                      EFunctionStatus isOpenSpo2hLowRemind,   //低氧提醒功能的状态,SUPPORT_OPEN 表示打开了低氧提醒功能，SUPPORT_CLOSE 表示关闭低氧提醒功能; UNSUPPORT表示不支持
+         *                      EFunctionStatus isOpenWearDetectSkin,   //肤色的状态, SUPPORT_OPEN 表示偏白色肤色 ，SUPPORT_CLOSE 表示偏黑色肤色; UNSUPPORT表示不支持
+         *                      EFunctionStatus isOpenAutoInCall,       //自动监听功能的状态,SUPPORT_OPEN 表示打开了自动监听功能，SUPPORT_CLOSE 表示关闭自动监听功能; UNSUPPORT表示不支持
+         *                      EFunctionStatus isOpenAutoHRV,          //自动检测hrv功能的状态,SUPPORT_OPEN 表示打开了自动检测HRV功能，SUPPORT_CLOSE 表示关闭自动检测HR功能; UNSUPPORT表示不支持
+         *                      EFunctionStatus isOpenDisconnectRemind, //自动断接提醒的状态,SUPPORT_OPEN 表示打开了断接提醒功能，SUPPORT_CLOSE 表示关闭断接提醒功能; UNSUPPORT表示不支持
+         *                      EFunctionStatus isOpenSOS,              //SOS
+         *                      EFunctionStatus isOpenPPG)              //ppg，精准睡眠
+         */
         CustomSetting customSetting = new CustomSetting(true, isSystem, is24Hour, isAutomaticHeart,
                 isAutomaticBoold, isOpenSportRemain, isOpenVoiceBpHeart, isOpenFindPhoneUI, isOpenStopWatch, isOpenSpo2hLowRemind,
                 isOpenWearDetectSkin, isOpenAutoInCall, isOpenAutoHRV, isOpenDisconnectRemind, isOpenSOS,isPPG ? EFunctionStatus.SUPPORT_OPEN:EFunctionStatus.SUPPORT_CLOSE);

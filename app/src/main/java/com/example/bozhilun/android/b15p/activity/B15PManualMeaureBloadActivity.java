@@ -1,28 +1,21 @@
 package com.example.bozhilun.android.b15p.activity;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.b15p.b15pdb.B15PBloodDB;
 import com.example.bozhilun.android.b15p.b15pdb.B15PDBCommont;
-import com.example.bozhilun.android.b15p.b15pdb.B15PHeartDB;
 import com.example.bozhilun.android.b15p.b15pdb.B15PTestBloopDB;
-import com.example.bozhilun.android.b30.B30BloadDetailActivity;
 import com.example.bozhilun.android.b30.adapter.B30BloadDetailAdapter;
 import com.example.bozhilun.android.b30.b30view.CustomCircleProgressBar;
 import com.example.bozhilun.android.b30.model.CusVPHalfHourBpData;
@@ -32,12 +25,9 @@ import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.utils.DateTimeUtils;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.util.ToastUtil;
-import com.tjdL4.tjdmain.Dev;
 import com.tjdL4.tjdmain.L4M;
 import com.tjdL4.tjdmain.contr.Health_HeartBldPrs;
 import com.tjdL4.tjdmain.contr.L4Command;
-import com.veepoo.protocol.model.datas.BpData;
-import com.veepoo.protocol.model.datas.HalfHourBpData;
 import com.veepoo.protocol.model.datas.TimeData;
 
 import java.util.ArrayList;

@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +23,7 @@ import com.example.bozhilun.android.b30.model.CusVPHalfHourBpData;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.util.Constant;
+import com.example.bozhilun.android.view.DateSelectDialogView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.veepoo.protocol.model.datas.HalfHourBpData;
@@ -95,6 +96,7 @@ public class B30BloadDetailActivity extends WatchBaseActivity {
     private List<Map<String,Map<Integer,Integer>>> cusResultMap;
     //y轴的数据
 
+    private DateSelectDialogView dateSelectDialogView;
 
 
     @Override
@@ -126,82 +128,83 @@ public class B30BloadDetailActivity extends WatchBaseActivity {
     }
 
     private void initData() {
-        bloadCurrDateTv.setText(currDay);
-        String mac = MyApp.getInstance().getMacAddress();
-        String bp = B30HalfHourDao.getInstance().findOriginData(mac, currDay, B30HalfHourDao
-                .TYPE_BP);
-//        List<HalfHourBpData> bpData = gson.fromJson(bp, new TypeToken<List<HalfHourBpData>>() {
-//        }.getType());
+        try {
+            bloadCurrDateTv.setText(currDay);
+            String mac = MyApp.getInstance().getMacAddress();
+            if(mac == null)
+                return;
+            String bp = B30HalfHourDao.getInstance().findOriginData(mac, currDay, B30HalfHourDao
+                    .TYPE_BP);
+
+            List<CusVPHalfHourBpData> bpData = gson.fromJson(bp, new TypeToken<List<CusVPHalfHourBpData>>() {
+            }.getType());
+
+            // b30DetailBloadView.setDataMap(obtainBloodMap(bpData));
+
+            cusResultMap.clear();
+            if (bpData != null && bpData.size() > 0) {
+                for (CusVPHalfHourBpData halfHourBpData : bpData) {
+                    Map<Integer, Integer> mp = new ArrayMap<>();
+                    mp.put(halfHourBpData.getLowValue(), halfHourBpData.getHighValue());
 
 
-        List<CusVPHalfHourBpData> bpData = gson.fromJson(bp, new TypeToken<List<CusVPHalfHourBpData>>() {
-        }.getType());
-
-
-
-
-        // b30DetailBloadView.setDataMap(obtainBloodMap(bpData));
-
-        cusResultMap.clear();
-        if (bpData != null && bpData.size() > 0) {
-            for (CusVPHalfHourBpData halfHourBpData : bpData) {
-                Map<Integer, Integer> mp = new ArrayMap<>();
-                mp.put(halfHourBpData.getLowValue(), halfHourBpData.getHighValue());
-
-
-                Map<String,Map<Integer,Integer>> mMap = new HashMap<>();
-                mMap.put(halfHourBpData.getTime().getColck(),mp);
-                cusResultMap.add(mMap);
-            }
-            cusB30BpView.setxVSize(dataList.size());
-            cusB30BpView.setResultMapData(cusResultMap);
-
-        } else {
-            //b30DetailBloadView.setBPDataMap(resultMap);
-            cusB30BpView.setxVSize(dataList.size());
-            cusB30BpView.setResultMapData(cusResultMap);
-        }
-
-
-        //b30DetailBloadView.setScale(true);
-        //展示数据
-        dataList.clear();
-        if (bpData != null && !bpData.isEmpty()) {
-            Collections.sort(bpData, new Comparator<CusVPHalfHourBpData>() {
-                @Override
-                public int compare(CusVPHalfHourBpData o1, CusVPHalfHourBpData o2) {
-                    return o2.getTime().getColck().compareTo(o1.getTime().getColck());
+                    Map<String,Map<Integer,Integer>> mMap = new HashMap<>();
+                    mMap.put(halfHourBpData.getTime().getColck(),mp);
+                    cusResultMap.add(mMap);
                 }
-            });
-            dataList.addAll(bpData);
-            ArrayList<Integer> hightList = new ArrayList<>();
-            ArrayList<Integer> lowList = new ArrayList<>();
-            for (int i = 0; i < dataList.size(); i++) {
-                hightList.add(i, dataList.get(i).getHighValue());
-                lowList.add(i, dataList.get(i).getLowValue());
+                cusB30BpView.setxVSize(dataList.size());
+                cusB30BpView.setResultMapData(cusResultMap);
+
+            } else {
+                //b30DetailBloadView.setBPDataMap(resultMap);
+                cusB30BpView.setxVSize(dataList.size());
+                cusB30BpView.setResultMapData(cusResultMap);
             }
-            //最高血压
-            int hightValue = Collections.max(hightList);
-            int hightValue_low = lowList.get(hightList.indexOf(hightValue));
-            String hightTime = dataList.get(hightList.indexOf(hightValue)).getTime().getColck();
-            b30DetailHeightBloadTv.setText(hightValue + "/" + hightValue_low);
-            b30DetailHeightBloadDateTv.setText(hightTime);
 
-            //最低血压
-            int lowValue = Collections.min(lowList);
-            int lowValue_hight = hightList.get(lowList.indexOf(lowValue));
-            String lowTime = dataList.get(lowList.indexOf(lowValue)).getTime().getColck();
 
-            b30DetailLowestBloadTv.setText(lowValue_hight + "/" + lowValue);
-            b30DetailLowestBloadDateTv.setText(lowTime);
-        } else {
-            b30DetailHeightBloadTv.setText("--");
-            b30DetailHeightBloadDateTv.setText("--");
-            b30DetailLowestBloadTv.setText("--");
-            b30DetailLowestBloadDateTv.setText("--");
+            //b30DetailBloadView.setScale(true);
+            //展示数据
+            dataList.clear();
+            if (bpData != null && !bpData.isEmpty()) {
+                Collections.sort(bpData, new Comparator<CusVPHalfHourBpData>() {
+                    @Override
+                    public int compare(CusVPHalfHourBpData o1, CusVPHalfHourBpData o2) {
+                        return o2.getTime().getColck().compareTo(o1.getTime().getColck());
+                    }
+                });
+                dataList.addAll(bpData);
+                ArrayList<Integer> hightList = new ArrayList<>();
+                ArrayList<Integer> lowList = new ArrayList<>();
+                for (int i = 0; i < dataList.size(); i++) {
+                    hightList.add(i, dataList.get(i).getHighValue());
+                    lowList.add(i, dataList.get(i).getLowValue());
+                }
+                //最高血压
+                int hightValue = Collections.max(hightList);
+                int hightValue_low = lowList.get(hightList.indexOf(hightValue));
+                String hightTime = dataList.get(hightList.indexOf(hightValue)).getTime().getColck();
+                b30DetailHeightBloadTv.setText(hightValue + "/" + hightValue_low);
+                b30DetailHeightBloadDateTv.setText(hightTime);
+
+                //最低血压
+                int lowValue = Collections.min(lowList);
+                int lowValue_hight = hightList.get(lowList.indexOf(lowValue));
+                String lowTime = dataList.get(lowList.indexOf(lowValue)).getTime().getColck();
+
+                b30DetailLowestBloadTv.setText(lowValue_hight + "/" + lowValue);
+                b30DetailLowestBloadDateTv.setText(lowTime);
+            } else {
+                b30DetailHeightBloadTv.setText("--");
+                b30DetailHeightBloadDateTv.setText("--");
+                b30DetailLowestBloadTv.setText("--");
+                b30DetailLowestBloadDateTv.setText("--");
+            }
+            Log.e("BP","---------列表数据大小="+dataList.size());
+            b30BloadDetailAdapter.notifyDataSetChanged();
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        Log.e("BP","---------列表数据大小="+dataList.size());
-        b30BloadDetailAdapter.notifyDataSetChanged();
+
     }
 
     /**
@@ -222,7 +225,8 @@ public class B30BloadDetailActivity extends WatchBaseActivity {
     }
 
 
-    @OnClick({R.id.commentB30BackImg, R.id.commentB30ShareImg, R.id.bloadCurrDateLeft,
+    @OnClick({R.id.commentB30BackImg, R.id.commentB30ShareImg,
+            R.id.bloadCurrDateLeft,R.id.bloadCurrDateTv,
             R.id.bloadCurrDateRight})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -238,7 +242,23 @@ public class B30BloadDetailActivity extends WatchBaseActivity {
             case R.id.bloadCurrDateRight:   //切换下一天数据
                 changeDayData(false);
                 break;
+            case R.id.bloadCurrDateTv:
+                chooseDate();
+                break;
         }
+    }
+
+    private void chooseDate() {
+        dateSelectDialogView = new DateSelectDialogView(this);
+        dateSelectDialogView.show();
+        dateSelectDialogView.setOnDateSelectListener(new DateSelectDialogView.OnDateSelectListener() {
+            @Override
+            public void selectDateStr(String str) {
+                dateSelectDialogView.dismiss();
+                currDay = str;
+                initData();
+            }
+        });
     }
 
     /**

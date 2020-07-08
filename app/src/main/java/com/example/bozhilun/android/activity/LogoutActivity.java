@@ -3,7 +3,7 @@ package com.example.bozhilun.android.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -18,7 +18,6 @@ import com.example.bozhilun.android.util.ToastUtil;
 import com.example.bozhilun.android.w30s.utils.httputils.RequestPressent;
 import com.example.bozhilun.android.w30s.utils.httputils.RequestView;
 import com.google.gson.Gson;
-import com.inuker.bluetooth.library.utils.MD5Utils;
 
 import org.json.JSONObject;
 
@@ -132,7 +131,7 @@ public class LogoutActivity extends WatchBaseActivity implements RequestView {
             JSONObject jsonObject = new JSONObject(object.toString());
             if(jsonObject.getInt("code") == 200){
                 ToastUtil.showToast(LogoutActivity.this,"注销成功!");
-                startActivity(NewLoginActivity.class);
+                startActivity(FastLoginActivity.class);
                 finish();
             }else {
                 ToastUtil.showToast(LogoutActivity.this,jsonObject.getString("msg"));

@@ -9,7 +9,7 @@
     
 
 
-    <android.support.design.widget.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"

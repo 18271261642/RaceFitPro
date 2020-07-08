@@ -2,8 +2,10 @@ package com.example.bozhilun.android.b31.bpoxy;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +13,6 @@ import android.widget.TextView;
 import com.example.bozhilun.android.R;
 import org.apache.commons.lang.StringUtils;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -73,9 +74,9 @@ public class ShowSpo2DetailAdapter extends RecyclerView.Adapter<ShowSpo2DetailAd
 
         float aveValue = mapList.get(position).get("value");
         if(spo2Tag == 555){ //HRV
-            holder.rightTv.setText(decimalFormat.format(aveValue)+" ms");
+            holder.rightTv.setText(aveValue == 0.0 ? "--":decimalFormat.format(aveValue)+" ms");
         }else{  //血氧的数据
-            holder.rightTv.setText(decimalFormat.format(aveValue)+"");
+            holder.rightTv.setText(aveValue == 0.0 ? "--":decimalFormat.format(aveValue)+"");
         }
 
 
@@ -94,6 +95,23 @@ public class ShowSpo2DetailAdapter extends RecyclerView.Adapter<ShowSpo2DetailAd
     public int getItemCount() {
         return mapList.size();
     }
+
+
+
+    public float getItemTime(int position){
+        if(mapList == null)
+            return 0;
+
+        if(mapList.get(position) == null)
+            return 0;
+        //时间
+        float hrvTime = mapList.get(position).get("time");
+        //去掉小数点后转int型
+        String deciBefore = StringUtils.substringBefore(hrvTime+"",".");
+        return Float.parseFloat(deciBefore.trim());
+    }
+
+
 
     class Spo2ViewHolder extends RecyclerView.ViewHolder{
 

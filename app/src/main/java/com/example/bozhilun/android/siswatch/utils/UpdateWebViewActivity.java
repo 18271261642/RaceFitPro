@@ -1,7 +1,7 @@
 package com.example.bozhilun.android.siswatch.utils;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.webkit.WebView;
 
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;

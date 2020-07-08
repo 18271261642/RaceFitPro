@@ -3,14 +3,12 @@ package com.example.bozhilun.android.commdbserver;
 import android.app.IntentService;
 import android.content.ContentValues;
 import android.content.Intent;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
-
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.b31.km.NohttpUtils;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
-import com.example.bozhilun.android.siswatch.GetUserInfoActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.util.NetUtils;
 import com.example.bozhilun.android.util.OkHttpTool;
@@ -18,11 +16,9 @@ import com.google.gson.Gson;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.yanzhenjie.nohttp.rest.OnResponseListener;
 import com.yanzhenjie.nohttp.rest.Response;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.litepal.LitePal;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -54,6 +50,7 @@ public class UploadCommDbServices extends IntentService {
     String downEndDay = WatchUtils.obtainFormatDate(1);
     String downStartDay = WatchUtils.obtainFormatDate(365);
 
+
     /**
      * Creates an IntentService.  Invoked by your subclass's constructor.
      */
@@ -63,6 +60,9 @@ public class UploadCommDbServices extends IntentService {
 
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
+
+        if(userId != null && userId.equals("9278cc399ab147d0ad3ef164ca156bf0"))
+            return;
 
         //上传当前设备类型
         uploadCurrDeviceType();
@@ -95,7 +95,7 @@ public class UploadCommDbServices extends IntentService {
         final List<CommStepCountDb> uploadStepList = CommDBManager.getCommDBManager().findCountStepForUpload(bleMac, startDay, endDay);
 //        Log.e(TAG, "=== 开始查询步数 是否有 " + ((uploadStepList == null || uploadStepList.isEmpty()) ? "无" : "有"));
         if (uploadStepList != null && !uploadStepList.isEmpty()) {
-            Log.e(TAG,"---------间隔大小="+uploadStepList.size());
+            //Log.e(TAG,"---------间隔大小="+uploadStepList.size());
             //用户的身高
             String userHeight = (String) SharedPreferencesUtils.getParam(this, Commont.USER_HEIGHT, "170");
             if(WatchUtils.isEmpty(userHeight))
@@ -126,7 +126,7 @@ public class UploadCommDbServices extends IntentService {
                 }
 
             }
-            Log.e(TAG,"--parmListMap--size="+parmListMap.size());
+            //Log.e(TAG,"--parmListMap--size="+parmListMap.size());
             if (parmListMap.isEmpty()){
                 //downloadDb();
                 return;
@@ -139,7 +139,7 @@ public class UploadCommDbServices extends IntentService {
                 public void onResult(String result) {
                     if (WatchUtils.isEmpty(result))
                         return;
-                    Log.e(TAG,"----------步数上传result="+result);
+                    //Log.e(TAG,"----------步数上传result="+result);
                     if (WatchUtils.isNetRequestSuccess(result))
                         updateUploadCountSteps(uploadStepList);
 
@@ -256,7 +256,7 @@ public class UploadCommDbServices extends IntentService {
 
         List<Map<String, String>> sleepList = new ArrayList<>();
         for (CommSleepDb commSleepDb : commSleepDbList) {
-            Log.e(TAG, "---------commSleepDb=" + commSleepDb.toString());
+            //Log.e(TAG, "---------commSleepDb=" + commSleepDb.toString());
             Map<String, String> mp = new HashMap<>();
             if(commSleepDb.getDateStr().equals(WatchUtils.obtainFormatDate(1))){    //睡眠汇总的数据保存的日期是到前一天
                 mp.put("userid", commSleepDb.getUserid());
@@ -290,7 +290,7 @@ public class UploadCommDbServices extends IntentService {
         if (sleepList.isEmpty())
             return;
         String sleepParams = gson.toJson(sleepList);
-        Log.e(TAG,"---------汇总睡眠参数="+sleepParams);
+        //Log.e(TAG,"---------汇总睡眠参数="+sleepParams);
         String sleepUrl = SyncDbUrls.uploadSleepUrl();
         OkHttpTool.getInstance().doRequest(sleepUrl, sleepParams, this, new OkHttpTool.HttpResult() {
             @Override
@@ -358,7 +358,7 @@ public class UploadCommDbServices extends IntentService {
             return;
         String bloodUrl = SyncDbUrls.uploadBloodUrl();
         String params = gson.toJson(bloodList);
-        Log.e(TAG, "----汇总血压-bloodUrl=" + bloodUrl + "--参数=" + params);
+        //Log.e(TAG, "----汇总血压-bloodUrl=" + bloodUrl + "--参数=" + params);
         OkHttpTool.getInstance().doRequest(bloodUrl, params, this, new OkHttpTool.HttpResult() {
             @Override
             public void onResult(String result) {
@@ -647,12 +647,12 @@ public class UploadCommDbServices extends IntentService {
 
         @Override
         public void onSucceed(int what, Response<JSONObject> response) {
-            Log.e(TAG,"-------what="+what+response.get().toString());
+           // Log.e(TAG,"-------what="+what+response.get().toString());
         }
 
         @Override
         public void onFailed(int what, Response<JSONObject> response) {
-            Log.e(TAG,"------falile="+what+"---="+response.getException().getMessage());
+           // Log.e(TAG,"------falile="+what+"---="+response.getException().getMessage());
         }
 
         @Override
@@ -660,4 +660,6 @@ public class UploadCommDbServices extends IntentService {
 
         }
     };
+
+
 }

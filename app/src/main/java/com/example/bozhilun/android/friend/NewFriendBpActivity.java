@@ -1,10 +1,10 @@
 package com.example.bozhilun.android.friend;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +19,6 @@ import com.example.bozhilun.android.b30.b30view.CusB30CusBloadView;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.util.ToastUtil;
-import com.example.bozhilun.android.util.URLs;
 import com.example.bozhilun.android.w30s.utils.httputils.RequestPressent;
 import com.example.bozhilun.android.w30s.utils.httputils.RequestView;
 import com.google.gson.Gson;

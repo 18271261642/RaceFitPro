@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.support.v4.widget.TextViewCompat;
+import androidx.core.widget.TextViewCompat;
 import android.util.AttributeSet;
 import android.view.Gravity;
 
@@ -15,7 +15,7 @@ import java.util.Random;
 /**
  * 仿华为通讯录
  */
-public class CharPortraitView extends android.support.v7.widget.AppCompatTextView {
+public class CharPortraitView extends androidx.appcompat.widget.AppCompatTextView {
     //是否随机颜色
     private boolean isRandom = false;
     //随机类

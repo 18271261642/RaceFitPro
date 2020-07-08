@@ -6,27 +6,24 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
-
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
+import com.example.bozhilun.android.activity.FastLoginActivity;
 import com.example.bozhilun.android.activity.FeedbackActivity;
 import com.example.bozhilun.android.activity.LogoutActivity;
 import com.example.bozhilun.android.activity.ModifyPasswordActivity;
-import com.example.bozhilun.android.activity.NewLoginActivity;
 import com.example.bozhilun.android.b15p.common.B15PContentState;
 import com.example.bozhilun.android.b18.B18BleConnManager;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.bleus.H8ConnstateListener;
-import com.example.bozhilun.android.siswatch.utils.UpdateGooglePlayManager;
 import com.example.bozhilun.android.siswatch.utils.UpdateManager;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.util.Common;
@@ -41,7 +38,6 @@ import com.tjdL4.tjdmain.Dev;
 import com.tjdL4.tjdmain.L4M;
 import com.umeng.analytics.MobclickAgent;
 import com.veepoo.protocol.listener.base.IBleWriteResponse;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -278,7 +274,7 @@ public class B30SysSettingActivity extends WatchBaseActivity {
         new LocalizeTool(MyApp.getContext()).putUpdateDate(WatchUtils
                 .obtainFormatDate(1));// 同时把数据更新时间清楚更新最后更新数据的时间
 
-        startActivity(NewLoginActivity.class);
+        startActivity(FastLoginActivity.class);
         finish();
     }
 

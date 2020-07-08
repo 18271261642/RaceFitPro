@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <include layout="@layout/comment_b30_title_layout" />
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/comment_b30_title_layout" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -326,7 +340,7 @@
             <RelativeLayout
                 android:background="@drawable/square_white_btn_change"
                 android:id="@+id/b31sDevicePrivateBloadRel"
-                android:visibility="gone"
+                android:visibility="visible"
                 style="@style/B30DeviceRelStyle">
 
                 <ImageView
@@ -336,7 +350,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:background="@mipmap/ic_bloop" />
-                <!--android:background="@drawable/connect_success_bp"-->
+
 
 
                 <TextView
@@ -366,6 +380,43 @@
 
             </RelativeLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_1"
+                android:background="@color/chang_white" />
+
+
+            <RelativeLayout
+                android:background="@drawable/square_white_btn_change"
+                android:id="@+id/b31sDeviceHeartAlarmRel"
+                android:visibility="gone"
+                style="@style/B30DeviceRelStyle">
+
+                <ImageView
+                    android:id="@+id/img61"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:background="@mipmap/ic_bloop" />
+
+
+
+                <TextView
+                    style="@style/B30DeviceStyle"
+                    android:layout_toRightOf="@+id/img61"
+                    android:text="心率报警" />
+
+
+                <ImageView
+                    android:id="@+id/bs4img1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/fgm_fitness_arrow_left" />
+
+            </RelativeLayout>
 
 
             <TextView
@@ -722,5 +773,5 @@
                 android:layout_height="@dimen/size_20" />
 
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
-</LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +29,7 @@ import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.util.Constant;
+import com.example.bozhilun.android.view.DateSelectDialogView;
 import com.github.mikephil.charting.charts.LineChart;
 import com.google.gson.Gson;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
@@ -173,8 +174,14 @@ public class B31BpOxyAnysisActivity extends WatchBaseActivity {
     private BreathStopAdapter breathStopAdapter;
 
 
+
+    private DateSelectDialogView dateSelectDialogView;
+
+
+
+
     @SuppressLint("HandlerLeak")
-    Handler handler = new Handler() {
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -254,38 +261,44 @@ public class B31BpOxyAnysisActivity extends WatchBaseActivity {
 
     //读取本地保存的数据
     private void readSpo2Data(final String currDay) {
-        commArrowDate.setText(currDay);
-        final String bleMac = WatchUtils.getSherpBleMac(B31BpOxyAnysisActivity.this);
-        if(WatchUtils.isEmpty(bleMac))
-            return;
-        list.clear();
-        showLoadingDialog("Loading...");
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String where = "bleMac = ? and dateStr = ?";
-                List<B31Spo2hBean> spo2hBeanList = LitePal.where(where, bleMac, currDay).find(B31Spo2hBean.class);
-                if (spo2hBeanList == null || spo2hBeanList.isEmpty()) {
+        try {
+            commArrowDate.setText(currDay);
+            final String bleMac = WatchUtils.getSherpBleMac(B31BpOxyAnysisActivity.this);
+            if(WatchUtils.isEmpty(bleMac))
+                return;
+            list.clear();
+            showLoadingDialog("Loading...");
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    String where = "bleMac = ? and dateStr = ?";
+                    List<B31Spo2hBean> spo2hBeanList = LitePal.where(where, bleMac, currDay).find(B31Spo2hBean.class);
+                    if (spo2hBeanList == null || spo2hBeanList.isEmpty()) {
+                        Message message = handler.obtainMessage();
+                        message.what = 1001;
+                        message.obj = list;
+                        handler.sendMessage(message);
+                        return;
+                    }
+                    if(spo2hBeanList.size()>430){
+                        spo2hBeanList = spo2hBeanList.subList(0,420);
+                    }
+                    //Log.e(TAG,"---22------查询数据="+currDay+spo2hBeanList.size());
+                    for (B31Spo2hBean hBean : spo2hBeanList) {
+                        //Log.e(TAG,"------xueyang---走到这里来了="+hBean.toString());
+                        list.add(gson.fromJson(hBean.getSpo2hOriginData(), Spo2hOriginData.class));
+                    }
+
                     Message message = handler.obtainMessage();
                     message.what = 1001;
                     message.obj = list;
                     handler.sendMessage(message);
-                    return;
+
                 }
-                //Log.e(TAG,"---22------查询数据="+currDay+spo2hBeanList.size());
-                for (B31Spo2hBean hBean : spo2hBeanList) {
-                    //Log.e(TAG,"------xueyang---走到这里来了="+hBean.toString());
-                    list.add(gson.fromJson(hBean.getSpo2hOriginData(), Spo2hOriginData.class));
-                }
-
-                Message message = handler.obtainMessage();
-                message.what = 1001;
-                message.obj = list;
-                handler.sendMessage(message);
-
-            }
-        }).start();
-
+            }).start();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private void initTipTv() {
@@ -346,7 +359,8 @@ public class B31BpOxyAnysisActivity extends WatchBaseActivity {
             R.id.spo2LowO2Tv, R.id.spo2HeartLoadTv,
             R.id.spo2SleepActiTv, R.id.spo2LowO2ActivityTv,
             R.id.spo2CommTv, R.id.block_spo2h, R.id.block_heart,
-            R.id.block_sleep, R.id.block_breath, R.id.block_lowspo2h})
+            R.id.block_sleep, R.id.block_breath,
+            R.id.block_lowspo2h, R.id.commArrowDate})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.commentB30BackImg:  //返回
@@ -367,22 +381,25 @@ public class B31BpOxyAnysisActivity extends WatchBaseActivity {
 
                 break;
             case R.id.spo2AnalyMoreTv:  //更多的
-                if (isResultMore) {
-                    isResultMore = false;
-                    spo2AnalyMoreTv.setText(getResources().getString(R.string.more));
-                    spo2AnalyMoreLin.setVisibility(View.GONE);
-                } else {
-                    isResultMore = true;
-                    spo2AnalyMoreTv.setText(getResources().getString(R.string.pack_up));
-                    spo2AnalyMoreLin.setVisibility(View.VISIBLE);
-
-                }
+//                if (isResultMore) {
+//                    isResultMore = false;
+//                    spo2AnalyMoreTv.setText(getResources().getString(R.string.more));
+//                    spo2AnalyMoreLin.setVisibility(View.GONE);
+//                } else {
+//                    isResultMore = true;
+//                    spo2AnalyMoreTv.setText(getResources().getString(R.string.pack_up));
+//                    spo2AnalyMoreLin.setVisibility(View.VISIBLE);
+//
+//                }
                 break;
             case R.id.commArrowLeft:    //前一天
                 changeCurrDay(true);
                 break;
             case R.id.commArrowRight:   //后一天
                 changeCurrDay(false);
+                break;
+            case R.id.commArrowDate:    //日期选择
+                chooseDate();
                 break;
             case R.id.spo2OsahsTv:  //OSAHS
                 startSpo2Desc(OSHAHS.getValue());
@@ -433,6 +450,19 @@ public class B31BpOxyAnysisActivity extends WatchBaseActivity {
                         new String[]{"4", getResources().getString(R.string.vpspo2h_toptitle_lowspo2h), currDay});
                 break;
         }
+    }
+
+    private void chooseDate() {
+        dateSelectDialogView = new DateSelectDialogView(this);
+        dateSelectDialogView.show();
+        dateSelectDialogView.setOnDateSelectListener(new DateSelectDialogView.OnDateSelectListener() {
+            @Override
+            public void selectDateStr(String str) {
+                dateSelectDialogView.dismiss();
+                currDay = str;
+                readSpo2Data(str);
+            }
+        });
     }
 
 

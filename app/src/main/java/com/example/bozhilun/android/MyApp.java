@@ -13,8 +13,8 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.Looper;
-import android.support.multidex.MultiDex;
-import android.support.v7.app.AppCompatActivity;
+import androidx.multidex.MultiDex;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Process;
 import android.util.Log;
 import com.afa.tourism.greendao.gen.DaoMaster;
@@ -40,7 +40,6 @@ import com.hplus.bluetooth.BleProfileManager;
 import com.mob.MobSDK;
 import com.sdk.bluetooth.app.BluetoothApplicationContext;
 import com.suchengkeji.android.w30sblelibrary.W30SBLEManage;
-import com.suchengkeji.android.w30sblelibrary.W30SBLEServices;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.tjdL4.tjdmain.L4M;
@@ -117,7 +116,7 @@ public class MyApp extends LitePalApplication {
         //App初始启动是断开状态
         MyCommandManager.DEVICENAME = null;
         LitePal.initialize(instance);
-        SharedPreferencesUtils.setParam(getContext(), Commont.BATTERNUMBER, 0);//电池电量默认清空
+        SharedPreferencesUtils.setParam(this, Commont.BATTERNUMBER, 0);//电池电量默认清空
         /**
          * 第三方登陆分享+注册短信
          */
@@ -171,8 +170,6 @@ public class MyApp extends LitePalApplication {
 
                     startH9Server();
 
-                    initNoHttpData();
-
                     setDatabase();
                     dbManager = DBManager.getInstance(getContext());
 
@@ -192,6 +189,8 @@ public class MyApp extends LitePalApplication {
 
                     initCloudChannel();
 
+                    NoHttp.initialize(instance);
+                    initNoHttpData();
                     Looper.loop();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -217,8 +216,12 @@ public class MyApp extends LitePalApplication {
      * 前台服务
      */
     private void bindAlertServices() {
-        Intent ints = new Intent(instance, AlertService.class);
-        bindService(ints, alertConn, BIND_AUTO_CREATE);
+        try {
+            Intent ints = new Intent(instance, AlertService.class);
+            bindService(ints, alertConn, BIND_AUTO_CREATE);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     //前台服务绑定
@@ -325,18 +328,20 @@ public class MyApp extends LitePalApplication {
 
 
     public VPOperateManager getVpOperateManager() {
-
         if (vpOperateManager == null) {
             vpOperateManager = VPOperateManager.getMangerInstance(instance);
-
         }
         return vpOperateManager;
     }
 
     //启动B30的服务
     public void startB30Server() {
-        Intent ints = new Intent(instance, B30ConnStateService.class);
-        instance.bindService(ints, b30ServerConn, BIND_AUTO_CREATE);
+        try {
+            Intent ints = new Intent(instance, B30ConnStateService.class);
+            instance.bindService(ints, b30ServerConn, BIND_AUTO_CREATE);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
@@ -358,8 +363,12 @@ public class MyApp extends LitePalApplication {
 
     //启动W37的服务
     public void startW37Server(){
-        Intent intent = new Intent(instance,W37ConnStatusService.class);
-        this.bindService(intent,w37ServiceConn,BIND_AUTO_CREATE);
+        try {
+            Intent intent = new Intent(instance,W37ConnStatusService.class);
+            this.bindService(intent,w37ServiceConn,BIND_AUTO_CREATE);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
@@ -437,6 +446,7 @@ public class MyApp extends LitePalApplication {
     //请求队列，基于okhttp
     public com.yanzhenjie.nohttp.rest.RequestQueue getNoRequestQueue(){
         if(noRequestQueue == null){
+            NoHttp.initialize(this);
             noRequestQueue = NoHttp.newRequestQueue(10);
         }
         return noRequestQueue;

@@ -10,13 +10,11 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.example.bozhilun.android.R;
-import com.littlejie.circleprogress.circleprogress.utils.MiscUtil;
 
 import static android.graphics.Paint.Style.STROKE;
 

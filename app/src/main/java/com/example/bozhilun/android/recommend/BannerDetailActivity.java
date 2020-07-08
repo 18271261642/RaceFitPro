@@ -1,7 +1,7 @@
 package com.example.bozhilun.android.recommend;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
+import com.example.bozhilun.android.view.CustomerWebView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,7 +31,7 @@ public class BannerDetailActivity extends WatchBaseActivity {
     @BindView(R.id.commentB30TitleTv)
     TextView commentB30TitleTv;
     @BindView(R.id.bannWebView)
-    WebView bannWebView;
+    CustomerWebView bannWebView;
     @BindView(R.id.wbProgressBar)
     ProgressBar wbProgressBar;
 

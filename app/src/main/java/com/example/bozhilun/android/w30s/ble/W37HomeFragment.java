@@ -9,8 +9,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +34,7 @@ import com.example.bozhilun.android.commdbserver.W30StepDetailBean;
 import com.example.bozhilun.android.siswatch.NewSearchActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchConstants;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
+import com.example.bozhilun.android.siswatch.view.LoginWaveView;
 import com.example.bozhilun.android.w30s.BaseFragment;
 import com.example.bozhilun.android.w30s.SharePeClear;
 import com.example.bozhilun.android.w30s.activity.W30DetailHeartActivity;
@@ -64,7 +65,6 @@ import com.suchengkeji.android.w30sblelibrary.bean.servicebean.W30SSleepData;
 import com.suchengkeji.android.w30sblelibrary.bean.servicebean.W30SSportData;
 import com.suchengkeji.android.w30sblelibrary.bean.servicebean.W30S_SleepDataItem;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
-import com.tencent.bugly.crashreport.CrashReport;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -163,7 +163,8 @@ public class W37HomeFragment extends BaseFragment {
      */
     List<BarEntry> b30ChartList = new ArrayList<>();
 
-
+    @BindView(R.id.w31WaterWaveView)
+    LoginWaveView w31WaterWaveView;
 
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
@@ -189,7 +190,7 @@ public class W37HomeFragment extends BaseFragment {
                         }, 10 * 1000);
                     }
 
-                    MyCommandManager.DEVICENAME = "W30";
+                    //MyCommandManager.DEVICENAME = "W30";
                     //同步步数
                     w37DataAnalysis.syncUserInfoData(getmContext());
                     //设置语言
@@ -351,6 +352,8 @@ public class W37HomeFragment extends BaseFragment {
     }
 
     private void initViews() {
+        if(w31WaterWaveView != null)
+            w31WaterWaveView.startMove();
         b30TopDateTv.setText(WatchUtils.getCurrentDate());
         if (w30GoalStepTv != null)
             w30GoalStepTv.setText(getResources().getString(R.string.goal_step) + goalStep + getResources().getString(R.string.steps));
@@ -1004,6 +1007,12 @@ public class W37HomeFragment extends BaseFragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+        try {
+            if(w31WaterWaveView != null)
+                w31WaterWaveView.stopMove();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @OnClick({R.id.b30SportChartLin1, R.id.w30HeartLin,

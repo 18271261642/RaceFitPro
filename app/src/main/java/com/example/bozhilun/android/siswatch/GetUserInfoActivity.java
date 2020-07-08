@@ -1,31 +1,19 @@
 package com.example.bozhilun.android.siswatch;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.JsonRequest;
 import com.example.bozhilun.android.Commont;
-import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.bean.UserInfoBean;
 import com.example.bozhilun.android.commdbserver.ActiveManage;
-import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.w30s.utils.httputils.RequestPressent;
 import com.example.bozhilun.android.w30s.utils.httputils.RequestView;
 import com.google.gson.Gson;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.example.bozhilun.android.util.URLs;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
+import org.json.JSONObject;
 
 /**
  * Created by Administrator on 2017/11/1.

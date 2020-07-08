@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -387,7 +387,8 @@ public class FrendSleepActivity extends WatchBaseActivity implements RequestView
     }
 
 
-    @OnClick({R.id.commentB30BackImg, R.id.commentB30ShareImg, R.id.sleepCurrDateLeft, R.id.sleepCurrDateRight})
+    @OnClick({R.id.commentB30BackImg, R.id.commentB30ShareImg,
+            R.id.sleepCurrDateLeft, R.id.sleepCurrDateRight})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.commentB30BackImg:    //返回
@@ -449,7 +450,7 @@ public class FrendSleepActivity extends WatchBaseActivity implements RequestView
         mHandler = new Handler(mCallback);
     }
 
-    Handler.Callback mCallback = new Handler.Callback() {
+   private Handler.Callback mCallback = new Handler.Callback() {
         @Override
         public boolean handleMessage(Message message) {
             try {

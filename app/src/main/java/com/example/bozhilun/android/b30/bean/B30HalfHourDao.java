@@ -135,8 +135,6 @@ public class B30HalfHourDao {
         }catch (Exception e){
           e.printStackTrace();
         }
-
-
     }
 
 
@@ -171,10 +169,6 @@ public class B30HalfHourDao {
         }
 
     }
-
-
-
-
 
 
     /**
@@ -236,27 +230,29 @@ public class B30HalfHourDao {
      * @param sleepStr 睡眠详细数据
      */
     public void saveW30SleepDetail(String dateStr,String bleMac,String type,String sleepStr){
-        if(WatchUtils.isEmpty(dateStr) || WatchUtils.isEmpty(bleMac) || WatchUtils.isEmpty(sleepStr))
-            return;
-        Log.e(TAG,"---------w30睡眠="+dateStr+"---bleMac="+bleMac+"--type="+type);
-        B30HalfHourDB b30HalfHourDB = new B30HalfHourDB();
-        b30HalfHourDB.setDate(dateStr);
-        b30HalfHourDB.setAddress(bleMac);
-        b30HalfHourDB.setType(type);
-        b30HalfHourDB.setOriginData(sleepStr);
-        //
-         List<B30HalfHourDB> saveSleep = findW30SleepDetail(dateStr,bleMac,type);
-         if(saveSleep == null){ //未保存过
-             b30HalfHourDB.setUpload(0);
-             boolean isSleepSave = b30HalfHourDB.save();
-             Log.e(TAG,"-------11--睡眠--"+isSleepSave);
-         }else{  //已经保存过
-            b30HalfHourDB.setUpload(saveSleep.get(0).getUpload());
-            boolean isSleepSave = b30HalfHourDB.saveOrUpdate("address = ? and date = ? and type = ?",bleMac,dateStr,type);
-             Log.e(TAG,"-------11--睡眠--"+isSleepSave);
-        }
-
-
+       try {
+           if(WatchUtils.isEmpty(dateStr) || WatchUtils.isEmpty(bleMac) || WatchUtils.isEmpty(sleepStr))
+               return;
+           Log.e(TAG,"---------w30睡眠="+dateStr+"---bleMac="+bleMac+"--type="+type);
+           B30HalfHourDB b30HalfHourDB = new B30HalfHourDB();
+           b30HalfHourDB.setDate(dateStr);
+           b30HalfHourDB.setAddress(bleMac);
+           b30HalfHourDB.setType(type);
+           b30HalfHourDB.setOriginData(sleepStr);
+           //
+           List<B30HalfHourDB> saveSleep = findW30SleepDetail(dateStr,bleMac,type);
+           if(saveSleep == null){ //未保存过
+               b30HalfHourDB.setUpload(0);
+               boolean isSleepSave = b30HalfHourDB.save();
+               Log.e(TAG,"-------11--睡眠--"+isSleepSave);
+           }else{  //已经保存过
+               b30HalfHourDB.setUpload(saveSleep.get(0).getUpload());
+               boolean isSleepSave = b30HalfHourDB.saveOrUpdate("address = ? and date = ? and type = ?",bleMac,dateStr,type);
+               Log.e(TAG,"-------11--睡眠--"+isSleepSave);
+           }
+       }catch (Exception e){
+           e.printStackTrace();
+       }
     }
 
     /**
@@ -280,25 +276,28 @@ public class B30HalfHourDao {
 
     //保存心率详细数据
     public void saveW30HeartDetail(String dateStr,String bleMac,String type,String heartStr){
-        if(WatchUtils.isEmpty(dateStr) || WatchUtils.isEmpty(bleMac) || WatchUtils.isEmpty(heartStr))
-            return;
-        B30HalfHourDB b30HalfHourDB = new B30HalfHourDB();
-        b30HalfHourDB.setDate(dateStr);
-        b30HalfHourDB.setAddress(bleMac);
-        b30HalfHourDB.setType(type);
-        b30HalfHourDB.setOriginData(heartStr);
+       try {
+           if(WatchUtils.isEmpty(dateStr) || WatchUtils.isEmpty(bleMac) || WatchUtils.isEmpty(heartStr))
+               return;
+           B30HalfHourDB b30HalfHourDB = new B30HalfHourDB();
+           b30HalfHourDB.setDate(dateStr);
+           b30HalfHourDB.setAddress(bleMac);
+           b30HalfHourDB.setType(type);
+           b30HalfHourDB.setOriginData(heartStr);
 
-        List<B30HalfHourDB> saveHeart = findW30HeartDetail(dateStr,bleMac,type);
-        if(saveHeart == null){
-            b30HalfHourDB.setUpload(0);
-            boolean isHeartSave = b30HalfHourDB.save();
-            Log.e(TAG,"------------111心率保存="+isHeartSave);
-        }else{
-            b30HalfHourDB.setUpload(saveHeart.get(0).getUpload());
-            boolean isHeartSave = b30HalfHourDB.saveOrUpdate("address = ? and date = ? and type = ?",bleMac,dateStr,type);
-            Log.e(TAG,"---------222---心率保存="+isHeartSave);
-        }
-
+           List<B30HalfHourDB> saveHeart = findW30HeartDetail(dateStr,bleMac,type);
+           if(saveHeart == null){
+               b30HalfHourDB.setUpload(0);
+               boolean isHeartSave = b30HalfHourDB.save();
+               Log.e(TAG,"------------111心率保存="+isHeartSave);
+           }else{
+               b30HalfHourDB.setUpload(saveHeart.get(0).getUpload());
+               boolean isHeartSave = b30HalfHourDB.saveOrUpdate("address = ? and date = ? and type = ?",bleMac,dateStr,type);
+               Log.e(TAG,"---------222---心率保存="+isHeartSave);
+           }
+       }catch (Exception e){
+           e.printStackTrace();
+       }
     }
 
 
@@ -324,25 +323,28 @@ public class B30HalfHourDao {
 
     //保存W37血压详细数据
     public void saveW37BloodDetail(String dateStr,String bleMac,String type,String heartStr){
-        if(WatchUtils.isEmpty(dateStr) || WatchUtils.isEmpty(bleMac) || WatchUtils.isEmpty(heartStr))
-            return;
-        B30HalfHourDB b30HalfHourDB = new B30HalfHourDB();
-        b30HalfHourDB.setDate(dateStr);
-        b30HalfHourDB.setAddress(bleMac);
-        b30HalfHourDB.setType(type);
-        b30HalfHourDB.setOriginData(heartStr);
+       try {
+           if(WatchUtils.isEmpty(dateStr) || WatchUtils.isEmpty(bleMac) || WatchUtils.isEmpty(heartStr))
+               return;
+           B30HalfHourDB b30HalfHourDB = new B30HalfHourDB();
+           b30HalfHourDB.setDate(dateStr);
+           b30HalfHourDB.setAddress(bleMac);
+           b30HalfHourDB.setType(type);
+           b30HalfHourDB.setOriginData(heartStr);
 
-        List<B30HalfHourDB> saveHeart = findW37BloodDetail(dateStr,bleMac,type);
-        if(saveHeart == null){
-            b30HalfHourDB.setUpload(0);
-            boolean isHeartSave = b30HalfHourDB.save();
-            Log.e(TAG,"------------111心率保存="+isHeartSave);
-        }else{
-            b30HalfHourDB.setUpload(saveHeart.get(0).getUpload());
-            boolean isHeartSave = b30HalfHourDB.saveOrUpdate("address = ? and date = ? and type = ?",bleMac,dateStr,type);
-            Log.e(TAG,"---------222---心率保存="+isHeartSave);
-        }
-
+           List<B30HalfHourDB> saveHeart = findW37BloodDetail(dateStr,bleMac,type);
+           if(saveHeart == null){
+               b30HalfHourDB.setUpload(0);
+               boolean isHeartSave = b30HalfHourDB.save();
+               Log.e(TAG,"------------111心率保存="+isHeartSave);
+           }else{
+               b30HalfHourDB.setUpload(saveHeart.get(0).getUpload());
+               boolean isHeartSave = b30HalfHourDB.saveOrUpdate("address = ? and date = ? and type = ?",bleMac,dateStr,type);
+               Log.e(TAG,"---------222---心率保存="+isHeartSave);
+           }
+       }catch (Exception e){
+           e.printStackTrace();
+       }
     }
 
     /**

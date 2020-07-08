@@ -6,9 +6,9 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import com.example.bozhilun.android.Commont;
@@ -202,7 +202,12 @@ public class B30HomeActivity extends WatchBaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (sendSMSBroadCast!=null)unregisterReceiver(sendSMSBroadCast);
+        try {
+            if (sendSMSBroadCast!=null)unregisterReceiver(sendSMSBroadCast);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 

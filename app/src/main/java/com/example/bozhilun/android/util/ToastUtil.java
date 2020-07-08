@@ -2,10 +2,10 @@ package com.example.bozhilun.android.util;
 
 import android.app.Activity;
 import android.content.Context;
+import com.google.android.material.snackbar.Snackbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -66,6 +66,10 @@ public class ToastUtil {
         cusToast.setDuration(2 * 1000);
         cusToast.setView(toastView);
         cusToast.show();
+    }
+
+    public static void showSnackBarToast(View view,String msg){
+        Snackbar.make(view,msg,Snackbar.LENGTH_SHORT).show();
     }
 
 }

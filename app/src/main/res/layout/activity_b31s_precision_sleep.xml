@@ -9,7 +9,7 @@
     <include layout="@layout/comment_b30_title_layout" />
 
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -19,35 +19,9 @@
             android:orientation="vertical">
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:background="#20806F"
-                android:gravity="center">
+            <include
+                layout="@layout/comment_date_arrow_layout"/>
 
-                <ImageView
-                    android:id="@+id/sleepCurrDateLeft"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:src="@drawable/arrow_white_left" />
-
-                <TextView
-                    android:id="@+id/sleepCurrDateTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2018-8-16"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/sp_16" />
-
-                <ImageView
-                    android:id="@+id/sleepCurrDateRight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:src="@drawable/arrow_white_right" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -117,7 +91,7 @@
             </LinearLayout>
 
 
-            <android.support.constraint.ConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_height="wrap_content"
@@ -133,7 +107,7 @@
                     app:layout_constraintTop_toBottomOf="parent" />
 
 
-                <android.support.v7.widget.AppCompatRatingBar
+                <androidx.appcompat.widget.AppCompatRatingBar
                     android:id="@+id/b31sPercisionSleepQualityRatingBar"
                     style="@style/CusHRVRatingBar"
                     android:layout_width="wrap_content"
@@ -158,7 +132,7 @@
                     app:layout_constraintTop_toBottomOf="parent" />
 
 
-            </android.support.constraint.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <LinearLayout
@@ -168,7 +142,7 @@
                 android:padding="10dp">
 
 
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/sleepLengthConLin"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -251,7 +225,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
 
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
                 <View
@@ -260,7 +234,7 @@
                     android:background="@color/chang_white" />
 
 
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/sleepAwakeConLin"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -337,7 +311,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
 
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </LinearLayout>
@@ -356,7 +330,7 @@
                 android:padding="10dp">
 
 
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/sleepInsomniaConLin"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -433,7 +407,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
 
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
                 <View
@@ -442,7 +416,7 @@
                     android:background="@color/chang_white" />
 
 
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/sleepEayConLin"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -515,7 +489,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
 
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </LinearLayout>
@@ -534,7 +508,7 @@
                 android:padding="10dp">
 
 
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/sleepDeepConLin"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -611,7 +585,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
 
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
                 <View
@@ -620,7 +594,7 @@
                     android:background="@color/chang_white" />
 
 
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/sleepLowConLin"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -697,7 +671,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
 
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </LinearLayout>
@@ -716,7 +690,7 @@
                 android:orientation="horizontal">
 
 
-                <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -754,14 +728,14 @@
                         app:layout_constraintTop_toBottomOf="@+id/b31sAwakeNumbersTv" />
 
 
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="@color/chang_white" />
 
-                <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -799,7 +773,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/b31sSleepInEfficiencyScoreTv" />
 
 
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <View
                     android:layout_width="1dp"
@@ -807,7 +781,7 @@
                     android:background="@color/chang_white" />
 
 
-                <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -845,7 +819,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/b31sSleepEffectivenessTv" />
 
 
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </LinearLayout>
@@ -860,7 +834,7 @@
 
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
 </LinearLayout>

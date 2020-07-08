@@ -13,12 +13,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -30,6 +30,7 @@ import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.activity.UnPairDeviceActivity;
+import com.example.bozhilun.android.b11.B11HomeActivity;
 import com.example.bozhilun.android.b15p.B15pHomeActivity;
 import com.example.bozhilun.android.b18.B18BleConnManager;
 import com.example.bozhilun.android.b18.B18HomeActivity;
@@ -47,12 +48,9 @@ import com.example.bozhilun.android.siswatch.utils.BlueAdapterUtils;
 import com.example.bozhilun.android.siswatch.utils.HidUtil;
 import com.example.bozhilun.android.siswatch.utils.WatchConstants;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
-import com.example.bozhilun.android.util.VerifyUtil;
 import com.example.bozhilun.android.w30s.ble.W37Constance;
 import com.example.bozhilun.android.w30s.ble.W37HomeActivity;
 import com.example.bozhilun.android.xwatch.XWatchHomeActivity;
-import com.example.bozhilun.android.xwatch.ble.XWatchBleAnalysis;
-import com.example.bozhilun.android.xwatch.ble.XWatchSyncSuccListener;
 import com.sdk.bluetooth.bean.BluetoothScanDevice;
 import com.sdk.bluetooth.interfaces.BluetoothManagerScanListener;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
@@ -70,6 +68,8 @@ import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Rationale;
 import com.yanzhenjie.permission.RequestExecutor;
+import com.yanzhenjie.permission.runtime.Permission;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -237,8 +237,6 @@ public class NewSearchActivity extends GetUserInfoActivity implements CustomBlue
             //添加链接监听
             AppsBluetoothManager.getInstance(this).addBluetoothManagerDeviceConnectListener(this);
             //AppsBluetoothManager.getInstance(this).startDiscovery();
-            boolean serviceRunning = W30SBLEServices.isServiceRunning(this, "com.suchengkeji.android.w30sblelibrary.W30SBLEServices");
-            Log.e("--------调试-", "-NewSearch-onStart--" + serviceRunning);
             if (customDeviceList != null)
                 customDeviceList.clear();
             if (customBlueAdapter != null)
@@ -246,8 +244,6 @@ public class NewSearchActivity extends GetUserInfoActivity implements CustomBlue
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
     @Override
@@ -276,7 +272,7 @@ public class NewSearchActivity extends GetUserInfoActivity implements CustomBlue
         bluetoothAdapter = bm.getAdapter();
 
         //判断是否有位置权限
-        if (AndPermission.hasPermissions(NewSearchActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+        if (AndPermission.hasPermissions(NewSearchActivity.this, Permission.ACCESS_FINE_LOCATION)) {
             operScan();
         } else {
             verticalPermission();
@@ -288,7 +284,7 @@ public class NewSearchActivity extends GetUserInfoActivity implements CustomBlue
     private void verticalPermission() {
         AndPermission.with(NewSearchActivity.this)
                 .runtime()
-                .permission(Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.BLUETOOTH)
+                .permission(new String[]{Permission.ACCESS_FINE_LOCATION})
                 .rationale(rational)
                 .onGranted(new Action<List<String>>() {
                     @Override
@@ -313,7 +309,7 @@ public class NewSearchActivity extends GetUserInfoActivity implements CustomBlue
             executor.execute();
             AndPermission.with(NewSearchActivity.this)
                     .runtime()
-                    .permission(Manifest.permission.ACCESS_FINE_LOCATION)
+                    .permission(Permission.ACCESS_FINE_LOCATION)
                     .onGranted(new Action<List<String>>() {
                         @Override
                         public void onAction(List<String> data) {
@@ -347,7 +343,7 @@ public class NewSearchActivity extends GetUserInfoActivity implements CustomBlue
 
     //扫描和停止扫描设备
     private void scanBlueDevice(boolean b) {
-        if (!AndPermission.hasPermissions(NewSearchActivity.this, Manifest.permission.ACCESS_FINE_LOCATION))
+        if (!AndPermission.hasPermissions(NewSearchActivity.this, Permission.ACCESS_FINE_LOCATION))
             verticalPermission();
         if (b) {
 
@@ -415,8 +411,10 @@ public class NewSearchActivity extends GetUserInfoActivity implements CustomBlue
             if(bleName == null)
                 return;
             if((scanRecord[7] == 80 && scanRecord[8] == 80) || WatchUtils.verBleNameForSearch(bleName)
-                    || bleName.contains("B18")  || bleName.contains("B16") || bleName.equals("XWatch") || bleName.equals("E Watch")
-                    || bleName.equals("SWatch") || bleName.equals("B50")){
+                    || bleName.contains("B18")  || bleName.contains("B16") || bleName.equals("XWatch")
+                    || bleName.equals("E Watch")
+                    || bleName.equals("SWatch") || bleName.equals("B50") || bleName.contains("YWK")
+                    || bleName.equals("SpO2") || bleName.equals("L890")){
                 if(repeatList.contains(bleMac))
                     return;
                 if(customDeviceList.size()>50){
@@ -558,21 +556,10 @@ public class NewSearchActivity extends GetUserInfoActivity implements CustomBlue
                 return;
             }
 
-            if (WatchUtils.isVPBleDevice(bleName)) {
+            if (WatchUtils.isVPBleDevice(bleName) || bleName.contains("YWK")) {
                 connectB30(customBlueDevice.getBluetoothDevice().getAddress().trim(), bleName);
                 return;
             }
-
-//            //B30，B36，Ringmiihx  B31S,500S手表
-//            if ((bleName.length() >= 3 && bleName.equals(WatchUtils.B30_NAME))
-//                    || (bleName.length() >= 3 && bleName.equals(WatchUtils.B36_NAME))
-//                    || (bleName.length() >= 7 && bleName.equals("Ringmii"))
-//                    || (bleName.length() >= 3 && bleName.equals(WatchUtils.B31_NAME))
-//                    || (bleName.length() >= 4 && bleName.equals(WatchUtils.B31S_NAME))
-//                    || (bleName.length() >= 4 && (bleName.equals(WatchUtils.S500_NAME) || bleName.equals("B36M"))) || bleName.equals("E Watch") || bleName.equals("")){
-//                connectB30(customBlueDevice.getBluetoothDevice().getAddress().trim(), bleName);
-//                return;
-//            }
 
             //H9
             if (bleName.substring(0, 2).equals(WatchUtils.H9_BLENAME)
@@ -640,6 +627,13 @@ public class NewSearchActivity extends GetUserInfoActivity implements CustomBlue
                 showLoadingDialog("conn...");
                 if(MyApp.getInstance().getW37ConnStatusService() != null)
                     MyApp.getInstance().getW37ConnStatusService().connBleForSearch(customBlueDevice.getBluetoothDevice().getAddress(),bleName.trim());
+                return;
+            }
+
+            if(bleName.equals("L890")){
+                showLoadingDialog("conn...");
+                if(MyApp.getInstance().getW37ConnStatusService() != null)
+                    MyApp.getInstance().getW37ConnStatusService().connBleForSearch(customBlueDevice.getBluetoothDevice().getAddress(),"L890");
             }
 
 
@@ -653,18 +647,6 @@ public class NewSearchActivity extends GetUserInfoActivity implements CustomBlue
     private void connB18Device(BluetoothDevice bd){
         showLoadingDialog("conn...");
         B18BleConnManager.getB18BleConnManager().connB18Device(bd);
-//        Log.e(TAG,"---------B18="+bd.getBondState()+"--="+HidUtil.getInstance(MyApp.getContext()).isConnected(customBlueDevice.getBluetoothDevice()));
-//        if(bd.getBondState() == H8_BLE_BANDSTATE_CODE){ //已经绑定，未确定是否连接
-//            if(HidUtil.getInstance(MyApp.getContext()).isConnected(customBlueDevice.getBluetoothDevice())){ //已配对，已连接
-//                showLoadingDialog("conn...");
-//                B18BleConnManager.getB18BleConnManager().connB18Device(bd);
-//                return;
-//            }
-//            HidUtil.getInstance(MyApp.getContext()).connect(bd);
-//            return;
-//        }
-//        //配对
-//        HidUtil.getInstance(MyApp.getContext()).pair(bd);
     }
 
 
@@ -871,10 +853,6 @@ public class NewSearchActivity extends GetUserInfoActivity implements CustomBlue
                             return;
                         }
 
-
-
-                    } else if (connState == 0) {   //断开连接成功
-
                     }
                 }
 
@@ -886,14 +864,6 @@ public class NewSearchActivity extends GetUserInfoActivity implements CustomBlue
                     MyCommandManager.DEVICENAME = "W30";
                     String bName = intent.getStringExtra("bName");
                     if (!WatchUtils.isEmpty(bName)) MyCommandManager.DEVICENAME = bName;
-                    boolean zh = VerifyUtil.isZh(context);
-                    if (!zh) {
-                        //Log.e(TAG,"========搜索  -- 设置了英文");
-                        MyApp.getInstance().getmW30SBLEManage().SendAnddroidLanguage(0);
-                    } else {
-                        //Log.e(TAG,"========搜索  -- 设置了中文");
-                        MyApp.getInstance().getmW30SBLEManage().SendAnddroidLanguage(1);
-                    }
                     SharedPreferencesUtils.saveObject(NewSearchActivity.this, Commont.BLENAME, MyCommandManager.DEVICENAME);
                     startActivity(new Intent(NewSearchActivity.this, W30SHomeActivity.class));
                     finish();
@@ -962,6 +932,20 @@ public class NewSearchActivity extends GetUserInfoActivity implements CustomBlue
                     startActivity(B18HomeActivity.class);
                     finish();
                 }
+
+                if(action.equals(W37Constance.B11_WATCH_CONNECTED_ACTION)){
+                    closeLoadingDialog();
+                    MyCommandManager.DEVICENAME = "L890";
+                    String macStr = intent.getStringExtra("bleMac");
+                    SharedPreferencesUtils.saveObject(NewSearchActivity.this,Commont.BLEMAC,macStr);
+                    SharedPreferencesUtils.saveObject(NewSearchActivity.this,Commont.BLENAME,"L890");
+                    startActivity(B11HomeActivity.class);
+
+
+
+
+                }
+
 
                 //H9链接成功失败监听
                 if (action.equals("com.example.bozhilun.android.h9.connstate")) {
@@ -1051,25 +1035,14 @@ public class NewSearchActivity extends GetUserInfoActivity implements CustomBlue
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.newSearchTitleLeft:   //返回
-                startActivity(B30HomeActivity.class);
+                startActivity(B31HomeActivity.class);
                 finish();
                 break;
             case R.id.newSearchRightImg1: //帮助
-//                if (bluetoothAdapter != null && !bluetoothAdapter.isDiscovering()) {
-//                    scanBlueDevice(false);
-//                }
-//                startActivity(SearchExplainActivity.class);
-
-                XWatchBleAnalysis.getW37DataAnalysis().syncWatchTime(new XWatchSyncSuccListener() {
-                    @Override
-                    public void bleSyncComplete(byte[] data) {
-//                        Intent intent = new Intent();
-//                        intent.putExtra("bleName",mac);
-//                        intent.setAction(W37Constance.X_WATCH_CONNECTED_ACTION);
-//                        sendBroadcast(intent);
-                    }
-                });
-
+                if (bluetoothAdapter != null && !bluetoothAdapter.isDiscovering()) {
+                    scanBlueDevice(false);
+                }
+                startActivity(SearchExplainActivity.class);
                 break;
         }
     }

@@ -40,7 +40,7 @@
         <!-- srlEnablePreviewInEditMode 可以开启和关闭下拉预览 -->
 
 
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:scrollbars="none"
             android:layout_height="wrap_content">
@@ -89,24 +89,34 @@
                     </FrameLayout>
 
 
-                    <TextView
-                        android:id="@+id/b31GoalStepTv"
+                    <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center"
-                        android:text=""
-                        android:textColor="@color/white"
-                        android:textSize="18sp" />
+                        android:layout_marginTop="10dp">
+
+                        <com.example.bozhilun.android.siswatch.view.LoginWaveView
+                            android:id="@+id/B31WaterWaveView"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="bottom" />
+
+                        <TextView
+                            android:id="@+id/b31GoalStepTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+
+                    </FrameLayout>
+
 
                 </LinearLayout>
 
 
                 <include layout="@layout/home_fast_menu_layout"/>
-
-
 
                 <!--日期-->
                 <LinearLayout
@@ -235,7 +245,7 @@
 
             </LinearLayout>
 
-        </android.support.v4.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 

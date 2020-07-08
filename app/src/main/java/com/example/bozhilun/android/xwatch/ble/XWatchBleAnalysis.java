@@ -94,7 +94,8 @@ public class XWatchBleAnalysis {
         byte[] s_watch_time = new byte[]{0x01, (byte) year, (byte) month, (byte) day, (byte) currHour, (byte) currTime, (byte) currSecond,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00, (byte) ((0x01+ year+ month+ day+ currHour+ currTime+ currSecond)&0xff)};
 
         String bName = MyCommandManager.DEVICENAME;
-
+        if(bName == null)
+            return;
         MyApp.getInstance().getW37BleOperateManager().writeBleDataToDeviceForXWatch(bName.equals("XWatch")?sync_watch_time:s_watch_time, new WriteBackDataListener() {
             @Override
             public void backWriteData(byte[] data) {

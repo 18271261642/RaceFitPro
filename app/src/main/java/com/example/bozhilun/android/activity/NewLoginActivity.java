@@ -9,9 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+import com.google.android.material.snackbar.Snackbar;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.alibaba.sdk.android.push.CloudPushService;
 import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory;
 import com.example.bozhilun.android.Commont;
@@ -46,12 +47,16 @@ import com.google.gson.Gson;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.umeng.analytics.MobclickAgent;
 import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.runtime.Permission;
+
 import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -104,11 +109,14 @@ public class NewLoginActivity extends WatchBaseActivity implements LoginListente
     RelativeLayout twitterLongin;
     @BindView(R.id.ll_bottom_tabguowai)
     LinearLayout llBottomTabguowai;
+    @BindView(R.id.commentB30BackImg)
+    ImageView commentB30BackImg;
+    @BindView(R.id.commentB30TitleTv)
+    TextView commentB30TitleTv;
 
 
     private ShareSDKUtils instance;
     private BluetoothAdapter bluetoothAdapter;  //蓝牙适配器
-
 
 
     private UpdateManager updateManager = null;
@@ -136,7 +144,7 @@ public class NewLoginActivity extends WatchBaseActivity implements LoginListente
         //请求读写SD卡的权限
         AndPermission.with(NewLoginActivity.this)
                 .runtime()
-                .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION)
+                .permission(Permission.ACCESS_FINE_LOCATION,Permission.WRITE_EXTERNAL_STORAGE)
                 .start();
 
         //判断蓝牙是否开启
@@ -165,6 +173,8 @@ public class NewLoginActivity extends WatchBaseActivity implements LoginListente
 
     @SuppressLint({"SetTextI18n", "NewApi"})
     private void initViews() {
+        commentB30BackImg.setVisibility(View.VISIBLE);
+        commentB30TitleTv.setText(getResources().getText(R.string.user_login));
         boolean lauage = getResources().getConfiguration().locale.getCountry().equals("CN");
         if (lauage) {
             llBottomTabaa.setVisibility(View.VISIBLE);
@@ -181,30 +191,30 @@ public class NewLoginActivity extends WatchBaseActivity implements LoginListente
         //appVersionTv.setText(getResources().getString(R.string.app_version)+BuildConfig.VERSION_NAME);
 
 
-        boolean isFirstPrivacy = (boolean) SharedPreferencesUtils.getParam(NewLoginActivity.this,"is_first",false);
-        if(isFirstPrivacy)
-            return;
-        privacyDialog = new PrivacyDialogView(this);
-        privacyDialog.show();
-        privacyDialog.setCancelable(false);
-        privacyDialog.setOnPirvacyClickListener(new PrivacyDialogView.OnPirvacyClickListener() {
-            @Override
-            public void disCancleView() {
-                showPermissView();
-
-            }
-
-            @Override
-            public void disAgreeView() {
-                MyApp.getInstance().removeALLActivity();
-            }
-        });
+//        boolean isFirstPrivacy = (boolean) SharedPreferencesUtils.getParam(NewLoginActivity.this, "is_first", false);
+//        if (isFirstPrivacy)
+//            return;
+//        privacyDialog = new PrivacyDialogView(this);
+//        privacyDialog.show();
+//        privacyDialog.setCancelable(false);
+//        privacyDialog.setOnPirvacyClickListener(new PrivacyDialogView.OnPirvacyClickListener() {
+//            @Override
+//            public void disCancleView() {
+//                showPermissView();
+//
+//            }
+//
+//            @Override
+//            public void disAgreeView() {
+//                MyApp.getInstance().removeALLActivity();
+//            }
+//        });
 
     }
 
 
-    private void showPermissView(){
-       startActivityForResult(new Intent(NewLoginActivity.this,ShowPermissDialogView.class),0x00);
+    private void showPermissView() {
+        startActivityForResult(new Intent(NewLoginActivity.this, ShowPermissDialogView.class), 0x00);
 
     }
 
@@ -212,7 +222,7 @@ public class NewLoginActivity extends WatchBaseActivity implements LoginListente
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == 0x00){
+        if (resultCode == 0x00) {
             requestPermiss();
         }
     }
@@ -231,10 +241,13 @@ public class NewLoginActivity extends WatchBaseActivity implements LoginListente
     @OnClick({R.id.login_visitorTv, R.id.forget_tv, R.id.login_btn,
             R.id.register_btn, R.id.xinlang_iv, R.id.qq_iv,
             R.id.weixin_iv, R.id.fecebook_longin, R.id.google_longin,
-            R.id.twitter_longin,R.id.userProtocalTv,
-            R.id.appVersionTv})
+            R.id.twitter_longin, R.id.userProtocalTv,
+            R.id.appVersionTv,R.id.commentB30BackImg})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.commentB30BackImg:
+                finish();
+                break;
             case R.id.userProtocalTv:   //用户协议
                 startActivity(UserProtocalActivity.class);
                 break;
@@ -277,11 +290,15 @@ public class NewLoginActivity extends WatchBaseActivity implements LoginListente
                 //登录时判断
                 String pass = passwordLogon.getText().toString();
                 String usernametxt = username.getText().toString();
-                if (!WatchUtils.isEmpty(usernametxt) && !WatchUtils.isEmpty(pass)) {
-                    loginRemote(usernametxt, pass);
-                } else {
-                    ToastUtil.showToast(this, getResources().getString(R.string.input_name) + "/" + getResources().getString(R.string.input_password));
+                if(WatchUtils.isEmpty(usernametxt)){
+                    Snackbar.make(view,getResources().getString(R.string.input_name),Snackbar.LENGTH_SHORT).show();
+                    return;
                 }
+                if(WatchUtils.isEmpty(pass)){
+                    Snackbar.make(view, getResources().getString(R.string.input_password),Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
+                loginRemote(usernametxt, pass);
                 break;
             case R.id.register_btn://注册
                 startActivity(new Intent(NewLoginActivity.this, RegisterActivity2.class));
@@ -381,10 +398,10 @@ public class NewLoginActivity extends WatchBaseActivity implements LoginListente
         HashMap<String, Object> map = new HashMap<>();
         map.put("phone", uName);
         map.put("pwd", Md5Util.Md532(uPwd));
-        map.put("deviceToken","");
-        map.put("deviceId",deviceId);
-        map.put("deviceType","android");
-        map.put("language","zh-CN");
+        map.put("deviceToken", "");
+        map.put("deviceId", deviceId);
+        map.put("deviceType", "android");
+        map.put("language", "zh-CN");
 
         String mapjson = gson.toJson(map);
         Log.e("msg", "-mapjson-" + mapjson);
@@ -411,7 +428,7 @@ public class NewLoginActivity extends WatchBaseActivity implements LoginListente
 
     @Override
     public void OnLoginListenter(Platform platform, HashMap<String, Object> hashMap) {
-        Log.e(TAG,"---------OnLoginListenter="+platform.toString()+"------="+hashMap.toString());
+        Log.e(TAG, "---------OnLoginListenter=" + platform.toString() + "------=" + hashMap.toString());
 
         if (handler != null) handler.sendEmptyMessage(0x01);
         String userId = platform.getDb().getUserId();//获取用户账号
@@ -475,45 +492,22 @@ public class NewLoginActivity extends WatchBaseActivity implements LoginListente
             String deviceId = pushService.getDeviceId();
 
 
-            Map<String,Object> map = new HashMap<>();
-            map.put("thirdId",userId);
-            map.put("thirdType",1);
-            map.put("deviceToken","");
-            map.put("deviceType","android");
-            map.put("language","ch");
-            map.put("deviceId",deviceId == null ? "" : deviceId);
+            Map<String, Object> map = new HashMap<>();
+            map.put("thirdId", userId);
+            map.put("thirdType", 1);
+            map.put("deviceToken", "");
+            map.put("deviceType", "android");
+            map.put("language", "ch");
+            map.put("deviceId", deviceId == null ? "" : deviceId);
 
             String url = Commont.FRIEND_BASE_URL + URLs.disanfang;
             if (requestPressent != null) {
-                requestPressent.getRequestJSONObject(0x01, url, NewLoginActivity.this,new Gson().toJson(map), 2);
+                requestPressent.getRequestJSONObject(0x01, url, NewLoginActivity.this, new Gson().toJson(map), 2);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-    }
-
-
-    public long exitTime; // 储存点击退出时间
-
-    @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-            if (event.getAction() == KeyEvent.ACTION_DOWN && event.getRepeatCount() == 0) {
-                if ((System.currentTimeMillis() - exitTime) > 2000) {
-                    ToastUtil.showToast(NewLoginActivity.this, getResources().getString(R.string.string_double_out));
-                    exitTime = System.currentTimeMillis();
-                    return false;
-                } else {
-                    // 全局推出
-                    //removeAllActivity();
-                    MyApp.getInstance().removeALLActivity();
-                    return true;
-                }
-            }
-            return true;
-        }
-        return super.dispatchKeyEvent(event);
     }
 
 
@@ -572,8 +566,8 @@ public class NewLoginActivity extends WatchBaseActivity implements LoginListente
                     finish();
                 }
 
-            }else{
-                ToastUtil.showToast(NewLoginActivity.this,jsonObject.getString("msg"));
+            } else {
+                ToastUtil.showToast(NewLoginActivity.this, jsonObject.getString("msg"));
             }
         } catch (Exception e) {
             e.printStackTrace();

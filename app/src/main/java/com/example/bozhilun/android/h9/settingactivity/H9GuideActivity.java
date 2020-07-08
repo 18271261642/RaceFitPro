@@ -1,7 +1,7 @@
 package com.example.bozhilun.android.h9.settingactivity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.widget.TextView;
 
 import com.example.bozhilun.android.R;

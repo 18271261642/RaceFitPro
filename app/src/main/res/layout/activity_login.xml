@@ -6,10 +6,12 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
+    <include layout="@layout/comment_b30_title_layout"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.5"
+        android:layout_weight="1.3"
         android:background="@color/new_colorAccent"
         android:orientation="vertical">
 
@@ -51,7 +53,7 @@
             android:orientation="vertical"
             tools:ignore="ObsoleteLayoutParam,UselessParent">
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -65,10 +67,10 @@
                     android:singleLine="true"
                     tools:ignore="Autofill,RtlHardcoded" />
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -82,7 +84,7 @@
                     android:maxLines="1"
                     android:singleLine="true" />
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -94,6 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:visibility="invisible"
                     android:padding="@dimen/size_5"
                     android:text="@string/visitor_enter" />
 
@@ -140,6 +143,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:visibility="invisible"
             android:layout_alignParentBottom="true"
             android:orientation="vertical">
 
@@ -311,6 +315,8 @@
             </FrameLayout>
 
 
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -346,9 +352,6 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
 
         </LinearLayout>
     </LinearLayout>

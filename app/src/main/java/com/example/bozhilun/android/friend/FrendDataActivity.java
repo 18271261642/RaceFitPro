@@ -5,8 +5,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomSheetDialog;
+import androidx.annotation.Nullable;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -451,9 +451,12 @@ public class FrendDataActivity extends WatchBaseActivity implements RequestView 
             if (bloodOxygenDay != null) {
                 if (bloodOxygenDay.getDevicecode() != null)
                     friendBleMac = bloodOxygenDay.getDevicecode();
-                spo2MaxTv.setText(getResources().getString(R.string.vpspo2h_spo2h) + getResources().getString(R.string.max_value) + ": " + (friendLevel == 1 ? "**" : bloodOxygenDay.getMaxbloodoxygen()));
-                spo2MinTv.setText(getResources().getString(R.string.vpspo2h_spo2h) + getResources().getString(R.string.min_value) + ": " + (friendLevel == 1 ? "**" : bloodOxygenDay.getMinbloodoxygen()));
-                spo2AvgTv.setText(getResources().getString(R.string.vpspo2h_spo2h) + getResources().getString(R.string.ave_value) + ": " + (friendLevel == 1 ? "**" : bloodOxygenDay.getAvgbloodoxygen()));
+                int maxSpo2 = bloodOxygenDay.getMaxbloodoxygen();
+                int mineSpo2 = bloodOxygenDay.getMinbloodoxygen();
+                int avgSpo2 = bloodOxygenDay.getAvgbloodoxygen();
+                spo2MaxTv.setText(getResources().getString(R.string.vpspo2h_spo2h) + getResources().getString(R.string.max_value) + ": " + (friendLevel == 1 ? "**" : maxSpo2));
+                spo2MinTv.setText(getResources().getString(R.string.vpspo2h_spo2h) + getResources().getString(R.string.min_value) + ": " + (friendLevel == 1 ? "**" : (mineSpo2 == 9999 ? "--" : mineSpo2)));
+                spo2AvgTv.setText(getResources().getString(R.string.vpspo2h_spo2h) + getResources().getString(R.string.ave_value) + ": " + (friendLevel == 1 ? "**" :avgSpo2 ));
 
 
             }

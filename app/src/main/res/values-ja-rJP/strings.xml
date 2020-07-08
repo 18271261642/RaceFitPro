@@ -1,6 +1,7 @@
 <resources>
 
     <!--日语-->
+    <string name="calibrating">校正中</string>
     <string name="string_bmi_title">BMI</string>
     <string name="string_note">ご注意:</string>
     <string name="string_light_alert">最高の輝度設定により、電力消費が速くなり、バッテリー寿命が短くなります。</string>

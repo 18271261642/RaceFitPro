@@ -2,16 +2,15 @@ package com.example.bozhilun.android.b31.hrv;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.bozhilun.android.R;
-import com.veepoo.protocol.model.datas.HRVOriginData;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -59,7 +58,7 @@ public class HrvListDataAdapter extends RecyclerView.Adapter<HrvListDataAdapter.
         int mine = countMine % 60;
         float hrvValue = list.get(position).get("value");
         holder.dateTv.setText("0"+hour+":"+(mine==0?"00":(mine<10?"0"+mine:mine)+""));   //展示时间
-        holder.valueTv.setText((int)hrvValue+"ms");
+        holder.valueTv.setText(hrvValue == 0 ? "--":(int)hrvValue+"ms");
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +76,18 @@ public class HrvListDataAdapter extends RecyclerView.Adapter<HrvListDataAdapter.
     public int getItemCount() {
         return list.size();
     }
+
+
+    public float getItemTime(int position){
+        if(list == null || list.isEmpty())
+            return 0;
+        float hrvTime = list.get(position).get("time");
+        //去掉小数点后转int型
+        String deciBefore = StringUtils.substringBefore(hrvTime+"",".");
+        return Float.parseFloat(deciBefore);
+    }
+
+
 
     class HrvViewHolder extends RecyclerView.ViewHolder{
 

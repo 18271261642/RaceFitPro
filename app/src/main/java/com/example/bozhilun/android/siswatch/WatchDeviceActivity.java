@@ -7,10 +7,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -34,7 +35,6 @@ import com.example.bozhilun.android.siswatch.h8.H8AlarmActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchConstants;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
-import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Rationale;
 import com.yanzhenjie.permission.RequestExecutor;
@@ -275,38 +275,16 @@ public class WatchDeviceActivity extends WatchBaseActivity implements CompoundBu
                 doUnpairDisconn();  //解除绑定
                 break;
             case R.id.watch_mynaozhongRel:  //闹钟提醒
-                //startActivity(WatchAlarmActivity.class);
                 startActivity(H8AlarmActivity.class);
                 break;
             case R.id.watch_mymsgRel:       //消息提醒
-//                Log.e(TAG, "-----辅助功能----" + WatchUtils.isNotificationEnabled(WatchDeviceActivity.this) + "---" + !WatchUtils.isAccessibilitySettingsOn(this));
                 startActivity(WatchMessageActivity.class);
                 break;
             case R.id.watch_mycaozuoRel:    //操作说明
                 startActivity(WatchOperationActivity.class);
                 break;
             case R.id.watch_targetRel:  //目标设置
-                ProfessionPick dailyumberofstepsPopWin = new ProfessionPick.Builder(WatchDeviceActivity.this, new ProfessionPick.OnProCityPickedListener() {
-                    @Override
-                    public void onProCityPickCompleted(String profession) {
-                        //设置步数
-//                        watchRecordTagstepTv.setText("目标步数 " + profession);
-//                        recordwaveProgressBar.setMaxValue(Float.valueOf(profession));
-                        watchDeviceTagShowTv.setText(profession);
-                        SharedPreferencesUtils.setParam(WatchDeviceActivity.this, "settagsteps", profession);
-                        // recordwaveProgressBar.setValue(Float.valueOf((String) SharedPreferencesUtils.getParam(getActivity(), "stepsnum", "")));
-
-                    }
-                }).textConfirm(getResources().getString(R.string.confirm)) //text of confirm button
-                        .textCancel(getResources().getString(R.string.cancle)) //text of cancel button
-                        .btnTextSize(16) // button text size
-                        .viewTextSize(25) // pick view text size
-                        .colorCancel(Color.parseColor("#999999")) //color of cancel button
-                        .colorConfirm(Color.parseColor("#009900"))//color of confirm button
-                        .setProvinceList(daily_numberofstepsList) //min year in loop
-                        .dateChose("10000") // date chose when init popwindow
-                        .build();
-                dailyumberofstepsPopWin.showPopWin(WatchDeviceActivity.this);
+                setStepGoal();
                 break;
             case R.id.watch_message_jiedianLin: //节电模式
                 if (SharedPreferencesUtils.getParam(WatchDeviceActivity.this, "jiedianstate", "") != null &&
@@ -315,6 +293,28 @@ public class WatchDeviceActivity extends WatchBaseActivity implements CompoundBu
                 }
                 break;
         }
+    }
+
+    //设置目标步数
+    private void setStepGoal() {
+        ProfessionPick dailyumberofstepsPopWin = new ProfessionPick.Builder(WatchDeviceActivity.this, new ProfessionPick.OnProCityPickedListener() {
+            @Override
+            public void onProCityPickCompleted(String profession) {
+                //设置步数
+                watchDeviceTagShowTv.setText(profession);
+                SharedPreferencesUtils.setParam(WatchDeviceActivity.this, "settagsteps", profession);
+
+            }
+        }).textConfirm(getResources().getString(R.string.confirm)) //text of confirm button
+                .textCancel(getResources().getString(R.string.cancle)) //text of cancel button
+                .btnTextSize(16) // button text size
+                .viewTextSize(25) // pick view text size
+                .colorCancel(Color.parseColor("#999999")) //color of cancel button
+                .colorConfirm(Color.parseColor("#009900"))//color of confirm button
+                .setProvinceList(daily_numberofstepsList) //min year in loop
+                .dateChose("10000") // date chose when init popwindow
+                .build();
+        dailyumberofstepsPopWin.showPopWin(WatchDeviceActivity.this);
     }
 
     //解除绑定
@@ -331,19 +331,6 @@ public class WatchDeviceActivity extends WatchBaseActivity implements CompoundBu
                         if (MyCommandManager.DEVICENAME != null) {
                             SharedPreferencesUtils.saveObject(MyApp.getContext(), Commont.BLEMAC, "");
                             SharedPreferencesUtils.saveObject(MyApp.getContext(),  Commont.BLENAME, "");
-//                            MyApp.h8BleManagerInstance().disConnH8(new H8ConnstateListener() {
-//                                @Override
-//                                public void h8ConnSucc() {
-//                                    Log.e(TAG,"-----------断开连接成功-----");
-//                                    startActivity(NewSearchActivity.class);
-//                                    finish();
-//                                }
-//
-//                                @Override
-//                                public void h8ConnFailed() {
-//
-//                                }
-//                            });
                             MyApp.getInstance().h8BleManagerInstance().sendDataGetH8Alarm(new byte[]{0x00}, new ParentH8TimeListener() {
                                 @Override
                                 public void backData(byte[] data) {
@@ -418,27 +405,16 @@ public class WatchDeviceActivity extends WatchBaseActivity implements CompoundBu
         super.onActivityResult(requestCode, resultCode, data);
         startActivity(new Intent(WatchDeviceActivity.this, WatchMessageActivity.class));
     }
-//
-//    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
-//    @Subscribe(threadMode = ThreadMode.MAIN)
-//    public void onEventMainThread(MessageEvent event) {
-//        String result = event.getMessage();
-//        if (result != null) {
-//            if(result.equals("msgJiedian")){
-//                String timeData = (String) event.getObject();
-//                watchJiedianStarttimeTv.setText(StringUtils.substringBefore(timeData,"-"));
-//                watchJiedianEndtimeTv.setText(StringUtils.substringAfter(timeData,"-"));
-//            }
-//        }
-//
-//    }
+
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //EventBus.getDefault().unregister(this);
-        unregisterReceiver(broadcastReceiver);
-
+        try {
+            unregisterReceiver(broadcastReceiver);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -459,7 +435,7 @@ public class WatchDeviceActivity extends WatchBaseActivity implements CompoundBu
                         MyCommandManager.DEVICENAME = null;
                         SharedPreferencesUtils.saveObject(MyApp.getContext(), "mylanmac", "");
                         MyApp.getInstance().setMacAddress(null);// 清空全局
-                        SharedPreferencesUtils.saveObject(MyApp.getContext(), "mylanya", null);
+                        SharedPreferencesUtils.saveObject(MyApp.getContext(), "mylanya", "");
                         SharedPreferencesUtils.setParam(MyApp.getContext(), "stepsnum", "0");
                         startActivity(NewSearchActivity.class);
                         finish();
@@ -492,54 +468,32 @@ public class WatchDeviceActivity extends WatchBaseActivity implements CompoundBu
             case R.id.watch_message_callphoneSwitch:    //来电提醒
                 if (!watchMessageCallphoneSwitch.isPressed())
                     return;
-                boolean isPer = AndPermission.hasPermissions(WatchDeviceActivity.this, Manifest.permission.CALL_PHONE, Manifest.permission.READ_CONTACTS);
-                if (!isPer) {
-                    AndPermission.with(WatchDeviceActivity.this)
-                            .runtime()
-                            .permission(Manifest.permission.CALL_PHONE, Manifest.permission.READ_CONTACTS,
-                                    Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_SETTINGS)
-                            .rationale(new Rationale<List<String>>() {
-                                @Override
-                                public void showRationale(Context context, List<String> data, RequestExecutor executor) {
-                                    executor.execute();
-                                }
-                            })
-                            .onGranted(new Action<List<String>>() {
-                                @Override
-                                public void onAction(List<String> data) {//
-                                    boolean isPerSucc = AndPermission.hasAlwaysDeniedPermission(WatchDeviceActivity.this, Manifest.permission.CALL_PHONE, Manifest.permission.READ_CONTACTS);
-                                    //Log.e(TAG, "-------isPerSucc=" + isPerSucc);
-                                    if (isPerSucc) {
-                                        watchMessageCallphoneSwitch.setChecked(true);
-                                        SharedPreferencesUtils.setParam(WatchDeviceActivity.this, "laidianphone", "on");
-                                    }
-                                }
-                            })
-                            .onDenied(new Action<List<String>>() {
-                                @Override
-                                public void onAction(List<String> data) {
-                                   // Log.e(TAG, "-------onDenied=" + data.size());
-                                    boolean isPers = AndPermission.hasAlwaysDeniedPermission(WatchDeviceActivity.this, Manifest.permission.CALL_PHONE, Manifest.permission.READ_CONTACTS);
-                                    //Log.e(TAG,"---isPers="+isPers);
-                                    if (!isPers) {
-                                        watchMessageCallphoneSwitch.setChecked(false);
-                                        SharedPreferencesUtils.setParam(WatchDeviceActivity.this, "laidianphone", "off");
-                                    }else{
-                                        watchMessageCallphoneSwitch.setChecked(true);
-                                        SharedPreferencesUtils.setParam(WatchDeviceActivity.this, "laidianphone", "on");
-                                    }
-                                }
-                            })
-                            .start();
-                } else {
-                    if (isChecked) {
-                        SharedPreferencesUtils.setParam(WatchDeviceActivity.this, "laidianphone", "on");
-                    } else {
-                        SharedPreferencesUtils.setParam(WatchDeviceActivity.this, "laidianphone", "off");
-                    }
-                }
-
+                requestPermiss(Manifest.permission.READ_PHONE_STATE);
+                SharedPreferencesUtils.setParam(WatchDeviceActivity.this, "laidianphone", isChecked ? "on" : "off");
                 break;
         }
+    }
+
+
+    //请求权限
+    private void requestPermiss(String...permiss){
+        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            AndPermission.with(WatchDeviceActivity.this)
+                    .runtime()
+                    .permission(Manifest.permission.ANSWER_PHONE_CALLS)
+                    .rationale(new Rationale<List<String>>() {
+                        @Override
+                        public void showRationale(Context context, List<String> data, RequestExecutor executor) {
+                            executor.execute();
+                        }
+                    })
+                    .start();
+        }
+
+        AndPermission.with(WatchDeviceActivity.this)
+                .runtime()
+                .permission(permiss)
+                .start();
+
     }
 }

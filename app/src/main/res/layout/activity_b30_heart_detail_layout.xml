@@ -1,220 +1,367 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical">
 
-    <include layout="@layout/comment_b30_title_layout" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/white" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FF307E"
-            android:orientation="vertical">
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_gravity="center"
-                android:gravity="center">
-
-                <ImageView
-                    android:id="@+id/rateCurrDateLeft"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/size_10"
-                    android:src="@drawable/arrow_white_left" />
-
-                <TextView
-                    android:id="@+id/rateCurrdateTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/sp_16" />
-
-                <ImageView
-                    android:id="@+id/rateCurrDateRight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/size_10"
-                    android:src="@drawable/arrow_white_right" />
-            </LinearLayout>
-
-            <com.example.bozhilun.android.b30.b30view.B30CusHeartView
-                android:id="@+id/b30HeartDetailView"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/size_180"
-                android:layout_marginLeft="@dimen/size_10"
-                android:layout_marginRight="@dimen/size_10"
-                app:pointColor="@color/white"
-                app:radioStroke="@dimen/size_3"
-                app:recfColor="#DAEDF3"
-                app:timeStroke="@dimen/sp_8" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/line_st"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:padding="@dimen/size_3"
-                android:text="@string/string_heart_rate_time"
-                android:textColor="@color/black"
-                android:textSize="@dimen/sp_16" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/size_1"
-                android:background="@color/chang_white" />
-
-            <com.example.bozhilun.android.b30.b30view.CusHeartSchedulView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/size_30"
-                android:layout_margin="@dimen/size_5"
-                app:countColor="@color/colorPrimary"
-                app:currentColor="@color/new_deep_colorAccent"
-                app:heartViewHeight="@dimen/size_10" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="@dimen/size_30"
-                    android:layout_height="@dimen/size_18"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:src="@drawable/history_heart_rest" />
-
-                <ImageView
-                    android:layout_width="@dimen/size_30"
-                    android:layout_height="@dimen/size_18"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:src="@drawable/history_heart_move" />
-
-                <ImageView
-                    android:layout_width="@dimen/size_30"
-                    android:layout_height="@dimen/size_18"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:src="@drawable/history_heart_moderrate" />
-
-                <ImageView
-                    android:layout_width="@dimen/size_30"
-                    android:layout_height="@dimen/size_18"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:src="@drawable/history_heart_mass" />
-
-                <ImageView
-                    android:layout_width="@dimen/size_30"
-                    android:layout_height="@dimen/size_18"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:src="@drawable/history_heart_strenuous" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/string_steps_still"
-                    android:textSize="@dimen/sp_14" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/string_steps_small"
-                    android:textSize="@dimen/sp_14" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/string_steps_medium"
-                    android:textSize="@dimen/sp_14" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/string_steps_mass"
-                    android:textSize="@dimen/sp_14" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/string_steps_severe"
-                    android:textSize="@dimen/sp_14" />
-
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:gravity="center|left"
-            android:padding="@dimen/size_3"
-            android:text="@string/heart_rate"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_16" />
-
-
-    </LinearLayout>
-
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/b30HeartDetailRecyclerView"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </android.support.v7.widget.RecyclerView>
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/comment_b30_title_layout" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FF307E"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/comment_date_arrow_layout"/>
 
 
-</LinearLayout>
+                    <com.example.bozhilun.android.b30.b30view.B30CusHeartView
+                        android:id="@+id/b30HeartDetailView"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_180"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:layout_marginRight="@dimen/size_10"
+                        app:pointColor="@color/white"
+                        app:radioStroke="@dimen/size_3"
+                        app:recfColor="#DAEDF3"
+                        app:timeStroke="@dimen/sp_8" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/size_35"
+                    android:layout_gravity="center"
+                    android:layout_height="@dimen/size_35"
+                    android:background="@mipmap/icon_heart_img"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="@dimen/size_20"
+                    android:textColor="@color/contents_text"
+                    android:text="心率概况 次/分"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/chang_white"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="3dp"
+                        android:gravity="center"
+                        android:text="@string/max_value"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/detailHeartMaxTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="3dp"
+                        android:gravity="center"
+                        android:textColor="@color/contents_text"
+                        android:text="--"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/chang_white" />
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="3dp"
+                        android:gravity="center"
+                        android:text="@string/min_value"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/detailHeartMinTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="3dp"
+                        android:gravity="center"
+                        android:textColor="@color/contents_text"
+                        android:text="--"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/chang_white" />
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="3dp"
+                        android:gravity="center"
+                        android:text="@string/ave_value"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/detailHeartAvgTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="3dp"
+                        android:gravity="center"
+                        android:textColor="@color/contents_text"
+                        android:text="--"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/chang_white" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:padding="@dimen/size_3"
+                        android:text="@string/string_heart_rate_time"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_1"
+                        android:background="@color/chang_white" />
+
+                    <com.example.bozhilun.android.b30.b30view.CusHeartSchedulView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_30"
+                        android:layout_margin="@dimen/size_5"
+                        app:countColor="@color/colorPrimary"
+                        app:currentColor="@color/new_deep_colorAccent"
+                        app:heartViewHeight="@dimen/size_10" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/size_30"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:src="@drawable/history_heart_rest" />
+
+                        <ImageView
+                            android:layout_width="@dimen/size_30"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:src="@drawable/history_heart_move" />
+
+                        <ImageView
+                            android:layout_width="@dimen/size_30"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:src="@drawable/history_heart_moderrate" />
+
+                        <ImageView
+                            android:layout_width="@dimen/size_30"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:src="@drawable/history_heart_mass" />
+
+                        <ImageView
+                            android:layout_width="@dimen/size_30"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:src="@drawable/history_heart_strenuous" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/string_steps_still"
+                            android:textSize="@dimen/sp_14" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/string_steps_small"
+                            android:textSize="@dimen/sp_14" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/string_steps_medium"
+                            android:textSize="@dimen/sp_14" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/string_steps_mass"
+                            android:textSize="@dimen/sp_14" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/string_steps_severe"
+                            android:textSize="@dimen/sp_14" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center|left"
+                    android:padding="@dimen/size_3"
+                    android:text="@string/heart_rate"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_16" />
+
+
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/b30HeartDetailRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

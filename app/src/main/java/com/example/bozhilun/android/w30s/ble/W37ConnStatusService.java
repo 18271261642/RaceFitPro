@@ -37,8 +37,6 @@ public class W37ConnStatusService extends Service {
 
     private W37LoadBuilder w37LoadBuilder = new W37LoadBuilder();
 
-    private InterfaceManager interfaceManager = new InterfaceManager();
-
     private String saveLocalBleMac = null;
 
 
@@ -56,14 +54,16 @@ public class W37ConnStatusService extends Service {
                     SearchResult searchResult = (SearchResult) msg.obj;
                     if(searchResult == null)
                         return;
-                    if(searchResult.getAddress() == null || searchResult.getName() == null)
+                    String tmpBName = searchResult.getName();
+                    String tmpBMac = searchResult.getAddress();
+                    if(tmpBMac == null || tmpBName == null)
                         return;
-                    if(!WatchUtils.isEmpty(searchResult.getAddress().trim()) && searchResult.getAddress().trim().equals(saveLocalBleMac)){
+                    if(!WatchUtils.isEmpty(tmpBMac.trim()) && tmpBMac.trim().equals(saveLocalBleMac)){
                         Log.e(TAG,"------w37相等了-----");
                         MyApp.getInstance().getW37BleOperateManager().stopScan();
-                        connW37ByMac(searchResult.getAddress().trim(),searchResult.getName().equals("XWatch")
-                                ? "XWatch" : (searchResult.getName().equals("SWatch")
-                                ? "SWatch":searchResult.getName().substring(0,3).trim()));  //开始连接
+                        connW37ByMac(tmpBMac.trim(),tmpBName.equals("XWatch")
+                                ? "XWatch" : (tmpBName.equals("SWatch")
+                                ? "SWatch":tmpBName.substring(0,3).trim()));  //开始连接
                     }
                     break;
                 case 0x02:  //断开了连接，判断是否需要自动重连
@@ -95,7 +95,7 @@ public class W37ConnStatusService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        saveLocalBleMac = (String) SharedPreferencesUtils.readObject(W37ConnStatusService.this,Commont.BLEMAC);
+      //  saveLocalBleMac = (String) SharedPreferencesUtils.readObject(W37ConnStatusService.this,Commont.BLEMAC);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(W37Constance.W37_CONNECTED_ACTION);
         intentFilter.addAction(W37Constance.W37_DISCONNECTED_ACTION);
@@ -130,18 +130,7 @@ public class W37ConnStatusService extends Service {
 
             @Override
             public void setNotiStatus(int code) {
-                MyCommandManager.DEVICENAME = bleName;
-                MyCommandManager.ADDRESS = mac;
-                if(bleName.equals("XWatch") || bleName.equals("SWatch")){
-                    xWatchSyncTime(mac,bleName);
-                }else {
-                    Intent intent = new Intent();
-                    intent.putExtra("bleName",bleName);
-                    intent.setAction(W37Constance.W37_CONNECTED_ACTION);
-                    sendBroadcast(intent);
-                }
-
-                ActiveManage.getActiveManage().updateUserMac(W37ConnStatusService.this,bleName.equals("XWatch")?"XWatch":bleName,mac);
+                sendConnectedAction(mac,bleName);
             }
         });
     }
@@ -163,21 +152,30 @@ public class W37ConnStatusService extends Service {
 
             @Override
             public void setNotiStatus(int code) {   //设置通知成功
-                MyCommandManager.DEVICENAME = bleName;
-                MyCommandManager.ADDRESS = mac;
-
-                if(bleName.equals("XWatch") || bleName.equals("SWatch")){
-                    xWatchSyncTime(mac,bleName);
-                }else {
-                    Intent intent = new Intent();
-                    intent.putExtra("bleName",mac);
-                    intent.setAction(W37Constance.W37_CONNECTED_ACTION);
-                    sendBroadcast(intent);
-                }
+                sendConnectedAction(mac,bleName);
             }
         });
     }
 
+    private void sendConnectedAction(String mac, String bleName) {
+        MyCommandManager.DEVICENAME = bleName;
+        MyCommandManager.ADDRESS = mac;
+        if(bleName.equals("XWatch") || bleName.equals("SWatch")){
+            xWatchSyncTime(mac,bleName);
+            return;
+        }
+        Intent intent = new Intent();
+        intent.putExtra("bleName",bleName);
+        intent.putExtra("bleMac",mac);
+        if(bleName.equals("L890")){
+            intent.setAction(W37Constance.B11_WATCH_CONNECTED_ACTION);
+        }else{
+            intent.setAction(W37Constance.W37_CONNECTED_ACTION);
+        }
+
+        sendBroadcast(intent);
+      //  ActiveManage.getActiveManage().updateUserMac(W37ConnStatusService.this,bleName.equals("XWatch")?"XWatch":bleName,mac);
+    }
 
 
     private void xWatchSyncTime(final String mac, final String bleName){

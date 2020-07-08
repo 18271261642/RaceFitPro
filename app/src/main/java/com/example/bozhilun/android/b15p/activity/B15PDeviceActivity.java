@@ -6,9 +6,9 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,7 +17,6 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.aigestudio.wheelpicker.widgets.ProfessionPick;
@@ -42,15 +41,13 @@ import com.tjdL4.tjdmain.contr.L4Command;
 import com.tjdL4.tjdmain.contr.TimeUnitSet;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.Permission;
 import com.yanzhenjie.permission.Rationale;
 import com.yanzhenjie.permission.RequestExecutor;
-import com.yanzhenjie.permission.Setting;
+import com.yanzhenjie.permission.runtime.Permission;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -207,7 +204,7 @@ public class B15PDeviceActivity extends WatchBaseActivity
             case R.id.b31DevicePtoRel:      //拍照
                 AndPermission.with(this)
                         .runtime()
-                        .permission(Permission.Group.CAMERA, Permission.Group.STORAGE)
+                        .permission(Permission.CAMERA, Permission.WRITE_EXTERNAL_STORAGE)
                         .rationale(this)//添加拒绝权限回调
                         .onGranted(new Action<List<String>>() {
                             @Override
@@ -483,13 +480,7 @@ public class B15PDeviceActivity extends WatchBaseActivity
         AndPermission.with(this)
                 .runtime()
                 .setting()
-                .onComeback(new Setting.Action() {
-                    @Override
-                    public void onAction() {
-                        //Toast.makeText(MyApp.getContext(),"用户从设置页面返回。", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .start();
+              .start(1001);
     }
 
 

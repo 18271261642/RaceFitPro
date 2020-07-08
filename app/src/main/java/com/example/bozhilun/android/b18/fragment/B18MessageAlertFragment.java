@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +22,7 @@ import com.example.bozhilun.android.b31.MessageHelpActivity;
 import com.example.bozhilun.android.siswatch.LazyFragment;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.runtime.Permission;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -242,12 +243,12 @@ public class B18MessageAlertFragment extends LazyFragment {
                     SharedPreferencesUtils.setParam(getmContext(), Commont.ISQQ, isChecked);
                     break;
                 case R.id.b30MessageTogg:   //msg
-                    requestPermiss(Manifest.permission.READ_SMS);
+                    requestPermiss(Permission.READ_SMS);
                     b30MessageTogg.setChecked(isChecked);
                     SharedPreferencesUtils.setParam(getmContext(), Commont.ISMsm, isChecked);
                     break;
                 case R.id.b30PhoneTogg: //phone
-                    requestPermiss(Manifest.permission.READ_PHONE_STATE,Manifest.permission.READ_CALL_LOG,Manifest.permission.READ_CONTACTS);
+                    requestPermiss(Permission.READ_PHONE_STATE,Permission.READ_CALL_LOG,Permission.READ_CONTACTS);
                     b30PhoneTogg.setChecked(isChecked);
                     SharedPreferencesUtils.setParam(getmContext(), Commont.ISPhone, isChecked);
                     SharedPreferencesUtils.setParam(getmContext(), Commont.ISCallPhone, isChecked);
@@ -281,8 +282,8 @@ public class B18MessageAlertFragment extends LazyFragment {
 
 
 
-    private void requestPermiss(String...permiss){
-        AndPermission.with(B18MessageAlertFragment.this).runtime().permission(permiss).start();
+    private void requestPermiss(String...permission){
+        AndPermission.with(B18MessageAlertFragment.this).runtime().permission(permission).start();
     }
 
 }

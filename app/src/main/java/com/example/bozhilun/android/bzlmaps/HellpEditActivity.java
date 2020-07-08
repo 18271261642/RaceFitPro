@@ -12,12 +12,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.cardview.widget.CardView;
+import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,11 +40,10 @@ import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Rationale;
 import com.yanzhenjie.permission.RequestExecutor;
-import com.yanzhenjie.permission.Setting;
+import com.yanzhenjie.permission.runtime.Permission;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -391,35 +390,35 @@ public class HellpEditActivity
 
             case R.id.sosContPermissionTv:  //联系人通讯录
                 if(!contactsFlag){
-                    getContactsPermission(Manifest.permission.READ_CONTACTS);
+                    getContactsPermission(Permission.READ_CONTACTS);
                 }else{
                     openPermission();
                 }
                 break;
             case R.id.sosPhonePermissionTv:     //电话
                 if(!callPhoneFlag){
-                    getContactsPermission(Manifest.permission.CALL_PHONE);
+                    getContactsPermission(Permission.CALL_PHONE);
                 }else{
                     openPermission();
                 }
                 break;
             case R.id.sosCallLogPermissionTv:   //通话记录
                 if(!callLogFlag){
-                    getContactsPermission(Manifest.permission.READ_CALL_LOG);
+                    getContactsPermission(Permission.READ_CALL_LOG);
                 }else{
                     openPermission();
                 }
                 break;
             case R.id.sosContPermission2Tv: //联系人，通讯录
                 if(!contactsFlag){
-                    getContactsPermission(Manifest.permission.READ_CONTACTS);
+                    getContactsPermission(Permission.READ_CONTACTS);
                 }else{
                     openPermission();
                 }
                 break;
             case R.id.sosSMSPermissionTv:   //发送短信
                 if(!smsFlag){
-                    getContactsPermission(Manifest.permission.READ_SMS,Manifest.permission.READ_SMS);
+                    getContactsPermission(Permission.SEND_SMS,Permission.READ_SMS);
                 }else{
                     openPermission();
                 }
@@ -858,12 +857,7 @@ public class HellpEditActivity
     //打开权限设置页面
     private void openPermission(){
         AndPermission.with(HellpEditActivity.this)
-                .runtime().setting().onComeback(new Setting.Action() {
-            @Override
-            public void onAction() {
-
-            }
-        }).start();
+                .runtime().setting().start(1001);
     }
 
 

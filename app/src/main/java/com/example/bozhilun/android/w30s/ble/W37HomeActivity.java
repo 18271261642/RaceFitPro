@@ -5,15 +5,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.IdRes;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import androidx.annotation.IdRes;
+import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -27,6 +26,7 @@ import com.example.bozhilun.android.commdbserver.ActiveManage;
 import com.example.bozhilun.android.commdbserver.CommDBManager;
 import com.example.bozhilun.android.commdbserver.detail.UploadW30DetailService;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
+import com.example.bozhilun.android.siswatch.mine.WatchMineFragment;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.w30s.fragment.W30SMineFragment;
 import com.example.bozhilun.android.widget.NoScrollViewPager;
@@ -117,7 +117,7 @@ public class W37HomeActivity extends WatchBaseActivity {
     private void initViews() {
         h18iFragmentList.add(new W37HomeFragment()); //记录
         h18iFragmentList.add(new ChildGPSFragment());   //跑步
-        h18iFragmentList.add(new W30SMineFragment());   //我的
+        h18iFragmentList.add(new WatchMineFragment());   //我的
         if (h18iFragmentList == null) return;
         FragmentStatePagerAdapter fragmentPagerAdapter = new FragmentAdapter(getSupportFragmentManager(),
                 h18iFragmentList);
@@ -180,12 +180,12 @@ public class W37HomeActivity extends WatchBaseActivity {
 
 
     public void updateDevice(){
-        try {
-            String saveDeviceName = (String) SharedPreferencesUtils.readObject(this,Commont.BLENAME);
-            ActiveManage.getActiveManage().updateUserDevice(this,saveDeviceName);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+//        try {
+//            String saveDeviceName = (String) SharedPreferencesUtils.readObject(this,Commont.BLENAME);
+//            ActiveManage.getActiveManage().updateUserDevice(this,saveDeviceName);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
 
     }
 

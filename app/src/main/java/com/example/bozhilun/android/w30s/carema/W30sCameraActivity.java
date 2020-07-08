@@ -16,7 +16,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Display;
@@ -208,62 +208,54 @@ public class W30sCameraActivity extends WatchBaseActivity implements View.OnClic
     private void verticalDevice() {
 
         Set<String> set = new HashSet<>(Arrays.asList(WatchUtils.TJ_FilterNamas));
-        if (MyCommandManager.DEVICENAME != null) {
-            if (MyCommandManager.DEVICENAME.equals("B30")
-                    || MyCommandManager.DEVICENAME.equals("B36")
-                    || MyCommandManager.DEVICENAME.equals("B31")
-                    || MyCommandManager.DEVICENAME.equals("500S")
-                    || MyCommandManager.DEVICENAME.equals("B31S") || MyCommandManager.DEVICENAME.equals("B36M")) {
-                MyApp.getInstance().getVpOperateManager().startCamera(iBleWriteResponse, new ICameraDataListener() {
-                    @Override
-                    public void OnCameraDataChange(ECameraStatus coStatus) {
-                        if (coStatus == ECameraStatus.TAKEPHOTO_CAN) {  //拍照
-                            if (isShow) {
-                                if (isShowCamera) {
-                                    takePhonePic();
-                                }
+        if(MyCommandManager.DEVICENAME == null)return;
+        if(WatchUtils.isVPBleDevice(MyCommandManager.DEVICENAME)){
+            MyApp.getInstance().getVpOperateManager().startCamera(iBleWriteResponse, new ICameraDataListener() {
+                @Override
+                public void OnCameraDataChange(ECameraStatus coStatus) {
+                    if (coStatus == ECameraStatus.TAKEPHOTO_CAN) {  //拍照
+                        if (isShow) {
+                            if (isShowCamera) {
+                                takePhonePic();
                             }
                         }
                     }
-                });
+                }
+            });
+            return;
+        }
+        if(set.contains(MyCommandManager.DEVICENAME)){
+            //监听
+            L4Command.CameraOn(new L4M.BTResultListenr() {
+                @Override
+                public void On_Result(String TypeInfo, String StrData, Object DataObj) {
+                    final String tTypeInfo = TypeInfo;
+                    final String TempStr = StrData;
+                    final Object TempObj = DataObj;
+                    Log.e(TAG, "inTempStr:" + TempStr);
 
-            }
-            //腾进达方案，用户信息要同步
-            else if (!WatchUtils.isEmpty(MyCommandManager.DEVICENAME) || set.contains(MyCommandManager.DEVICENAME)) {
-                //监听
-                L4Command.CameraOn(new L4M.BTResultListenr() {
-                    @Override
-                    public void On_Result(String TypeInfo, String StrData, Object DataObj) {
-                        final String tTypeInfo = TypeInfo;
-                        final String TempStr = StrData;
-                        final Object TempObj = DataObj;
-                        Log.e(TAG, "inTempStr:" + TempStr);
-
-                        if (TypeInfo.equals(L4M.ERROR) && StrData.equals(L4M.TIMEOUT)) {
-                            return;
-                        }
-
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (tTypeInfo.equals(L4M.RemoteCapOn) && TempStr.equals(L4M.OK)) {
-                                    Log.e(TAG, "   RemoteCapOn");
-                                }
-                                if (tTypeInfo.equals(L4M.RemoteCapOFF) && TempStr.equals(L4M.OK)) {
-                                    Log.e(TAG, "   RemoteCapOFF");
-                                }
-                                if (tTypeInfo.equals(L4M.RemoteCapTakeCap) && TempStr.equals(L4M.OK)) {
-                                    Log.e(TAG, "   RemoteCapTakeCap");
-                                    L4Command.CameraCap_Respone();//响应
-                                    takePhonePic();
-                                }
-                            }
-                        });
+                    if (TypeInfo.equals(L4M.ERROR) && StrData.equals(L4M.TIMEOUT)) {
+                        return;
                     }
-                });
-            }
 
-
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (tTypeInfo.equals(L4M.RemoteCapOn) && TempStr.equals(L4M.OK)) {
+                                Log.e(TAG, "   RemoteCapOn");
+                            }
+                            if (tTypeInfo.equals(L4M.RemoteCapOFF) && TempStr.equals(L4M.OK)) {
+                                Log.e(TAG, "   RemoteCapOFF");
+                            }
+                            if (tTypeInfo.equals(L4M.RemoteCapTakeCap) && TempStr.equals(L4M.OK)) {
+                                Log.e(TAG, "   RemoteCapTakeCap");
+                                L4Command.CameraCap_Respone();//响应
+                                takePhonePic();
+                            }
+                        }
+                    });
+                }
+            });
         }
     }
 
@@ -399,11 +391,7 @@ public class W30sCameraActivity extends WatchBaseActivity implements View.OnClic
             //退出拍照模式
             if (MyCommandManager.DEVICENAME != null) {
                 Set<String> set = new HashSet<>(Arrays.asList(WatchUtils.TJ_FilterNamas));
-                if (MyCommandManager.DEVICENAME.equals("B30")
-                        || MyCommandManager.DEVICENAME.equals("B36")
-                        || MyCommandManager.DEVICENAME.equals("B31")
-                        || MyCommandManager.DEVICENAME.equals("500S")
-                        || MyCommandManager.DEVICENAME.equals("B31S") || MyCommandManager.DEVICENAME.equals("B36M")) {
+                if (WatchUtils.isVPBleDevice(MyCommandManager.DEVICENAME)) {
                     MyApp.getInstance().getVpOperateManager().stopCamera(iBleWriteResponse, new ICameraDataListener() {
                         @Override
                         public void OnCameraDataChange(ECameraStatus coStatus) {

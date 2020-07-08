@@ -5,12 +5,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +25,7 @@ import com.example.bozhilun.android.b30.bean.B30HalfHourDao;
 import com.example.bozhilun.android.commdbserver.W30StepDetailBean;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
+import com.example.bozhilun.android.view.DateSelectDialogView;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
@@ -87,6 +88,8 @@ public class W30DetailSportActivity extends WatchBaseActivity {
     List<BarEntry> b30ChartList = new ArrayList<>();
     private Gson gson = new Gson();
 
+
+    private DateSelectDialogView dateSelectDialogView;
 
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
@@ -161,7 +164,7 @@ public class W30DetailSportActivity extends WatchBaseActivity {
     }
 
     @OnClick({R.id.commentB30BackImg, R.id.stepCurrDateLeft,
-            R.id.stepCurrDateRight})
+            R.id.stepCurrDateRight,R.id.stepCurrDateTv})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.commentB30BackImg: //返回
@@ -173,7 +176,23 @@ public class W30DetailSportActivity extends WatchBaseActivity {
             case R.id.stepCurrDateRight:   //下一天
                 changeDayData(false);
                 break;
+                case R.id.stepCurrDateTv:
+                chooseDate();
+                break;
         }
+    }
+
+    private void chooseDate() {
+        dateSelectDialogView = new DateSelectDialogView(this);
+        dateSelectDialogView.show();
+        dateSelectDialogView.setOnDateSelectListener(new DateSelectDialogView.OnDateSelectListener() {
+            @Override
+            public void selectDateStr(String str) {
+                dateSelectDialogView.dismiss();
+                currDay = str;
+                findSportFromDb(currDay);
+            }
+        });
     }
 
     /**

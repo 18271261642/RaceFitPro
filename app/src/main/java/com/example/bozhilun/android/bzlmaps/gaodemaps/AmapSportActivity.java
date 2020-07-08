@@ -1,14 +1,16 @@
 package com.example.bozhilun.android.bzlmaps.gaodemaps;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
-import android.util.Log;
+
+import androidx.annotation.Nullable;
+
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,7 +32,6 @@ import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.maps.model.MyLocationStyle;
 import com.amap.api.maps.model.PolylineOptions;
-import com.amap.api.trace.TraceLocation;
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
@@ -118,6 +119,8 @@ public class AmapSportActivity extends WatchBaseActivity implements LocationSour
     private TimeThread timeThread;
 
     double tempDisance = 0.0;
+
+    private AlertDialog.Builder alertDialog;
 
 
     boolean isUnit = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISSystem, true);//是否为公制
@@ -244,7 +247,8 @@ public class AmapSportActivity extends WatchBaseActivity implements LocationSour
     }
 
     private void initViews() {
-
+        commentB30BackImg.setVisibility(View.VISIBLE);
+        commentB30TitleTv.setText(getResources().getString(R.string.move_ment));
     }
 
     @OnClick({R.id.commentB30BackImg, R.id.mapSportCountTimeTv,
@@ -252,7 +256,7 @@ public class AmapSportActivity extends WatchBaseActivity implements LocationSour
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.commentB30BackImg:
-
+                alertStopSport();
                 break;
             case R.id.mapSportCountTimeTv:
                 String userId = (String) SharedPreferencesUtils.readObject(AmapSportActivity.this,Commont.USER_ID_DATA);
@@ -263,6 +267,36 @@ public class AmapSportActivity extends WatchBaseActivity implements LocationSour
                 break;
         }
     }
+
+    private void alertStopSport(){
+        if(!startOrEnd){
+            finish();
+            return;
+        }
+
+
+        alertDialog = new AlertDialog.Builder(AmapSportActivity.this)
+                .setTitle(getResources().getString(R.string.prompt))
+                .setMessage(getResources().getString(R.string.save_record)+"?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        startOrEndSport();
+
+                    }
+                })
+                .setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.create().show();
+
+    }
+
+
 
     //开始或停止运动
     private void startOrEndSport() {
@@ -373,7 +407,7 @@ public class AmapSportActivity extends WatchBaseActivity implements LocationSour
             //定位参数
             mLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
             mLocationOption.setNeedAddress(true);
-            mLocationOption.setInterval(1000);
+            mLocationOption.setInterval(1000 * 10);
             mLocationOption.setLocationPurpose(AMapLocationClientOption.AMapLocationPurpose.Sport);
             mlocationClient.setLocationOption(mLocationOption);
             // 此方法为每隔固定时间会发起一次定位请求，为了减少电量消耗或网络流量消耗，
@@ -433,6 +467,19 @@ public class AmapSportActivity extends WatchBaseActivity implements LocationSour
                 }
             }
         }
+    }
+
+
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            if (event.getAction() == KeyEvent.ACTION_DOWN && event.getRepeatCount() == 0) {
+                alertStopSport();
+            }
+            return true;
+        }
+        return super.dispatchKeyEvent(event);
     }
 
 }

@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@color/chang_white"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/chang_white">
 
-    <include layout="@layout/new_search_title" />
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <android.support.v4.widget.NestedScrollView
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <include layout="@layout/new_search_title" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,33 +34,33 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:textSize="18sp"
-                android:background="#ee3a8c"
-                android:text="@string/notif_messge"
-                android:gravity="center"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:background="#ee3a8c"
+                android:gravity="center"
                 android:padding="5dp"
+                android:text="@string/notif_messge"
                 android:textColor="@color/white"
-                android:layout_height="wrap_content" />
+                android:textSize="18sp" />
 
 
             <LinearLayout
                 android:id="@+id/msgOpenNitBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@drawable/b18i_selected_bg"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/size_10">
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
                     android:layout_marginLeft="@dimen/size_5"
                     android:gravity="center_vertical"
                     android:padding="@dimen/size_5"
-                    android:layout_gravity="center"
-                    android:src="@mipmap/ic_msg_open_noti"/>
+                    android:src="@mipmap/ic_msg_open_noti" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -72,60 +86,59 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:background="@color/white"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                android:padding="@dimen/size_10">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/size_5"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/size_5"
-                    android:src="@mipmap/image_skype_notif"/>
-
-                <TextView
-                    android:text="Skype"
-                    style="@style/B30ToggTxtStyle" />
-
-                <ToggleButton
-                    android:id="@+id/b30SkypeTogg"
-                    style="@style/B30MsgToggleStyle"/>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:layout_marginLeft="@dimen/size_20"
-                android:background="#dddddd" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@color/white"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/size_10">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/size_35"
+                    android:layout_height="@dimen/size_35"
                     android:layout_marginLeft="@dimen/size_5"
                     android:gravity="center_vertical"
                     android:padding="@dimen/size_5"
-                    android:src="@mipmap/image_whatsapp_notif"/>
+                    android:src="@mipmap/image_skype_notif" />
 
                 <TextView
                     style="@style/B30ToggTxtStyle"
-                    android:text="WhatsApp"
-                    />
+                    android:text="Skype" />
+
+                <ToggleButton
+                    android:id="@+id/b30SkypeTogg"
+                    style="@style/B30MsgToggleStyle" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/size_20"
+                android:background="#dddddd" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/size_10">
+
+                <ImageView
+                    android:layout_width="@dimen/size_35"
+                    android:layout_height="@dimen/size_35"
+                    android:layout_marginLeft="@dimen/size_5"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/size_5"
+                    android:src="@mipmap/image_whatsapp_notif" />
+
+                <TextView
+                    style="@style/B30ToggTxtStyle"
+                    android:text="WhatsApp" />
 
                 <ToggleButton
                     android:id="@+id/b30WhatsAppTogg"
-                    style="@style/B30MsgToggleStyle"/>
+                    style="@style/B30MsgToggleStyle" />
 
             </LinearLayout>
 
@@ -139,27 +152,27 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@color/white"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/size_10">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/size_35"
+                    android:layout_height="@dimen/size_35"
                     android:layout_marginLeft="@dimen/size_5"
                     android:gravity="center_vertical"
                     android:padding="@dimen/size_5"
-                    android:src="@mipmap/image_facebook_notif"/>
+                    android:src="@mipmap/image_facebook_notif" />
 
                 <TextView
 
-                    android:text="Facebook"
-                    style="@style/B30ToggTxtStyle"  />
+                    style="@style/B30ToggTxtStyle"
+                    android:text="Facebook" />
 
                 <ToggleButton
                     android:id="@+id/b30FacebookTogg"
-                    style="@style/B30MsgToggleStyle"/>
+                    style="@style/B30MsgToggleStyle" />
 
             </LinearLayout>
 
@@ -173,27 +186,27 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@color/white"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/size_10">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/size_35"
+                    android:layout_height="@dimen/size_35"
                     android:layout_marginLeft="@dimen/size_5"
                     android:gravity="center_vertical"
                     android:padding="@dimen/size_5"
-                    android:src="@mipmap/image_linkedln_notif"/>
+                    android:src="@mipmap/image_linkedln_notif" />
 
                 <TextView
 
-                    android:text="LinkendIn"
-                    style="@style/B30ToggTxtStyle"  />
+                    style="@style/B30ToggTxtStyle"
+                    android:text="LinkendIn" />
 
                 <ToggleButton
                     android:id="@+id/b30LinkedTogg"
-                    style="@style/B30MsgToggleStyle"/>
+                    style="@style/B30MsgToggleStyle" />
 
             </LinearLayout>
 
@@ -207,27 +220,27 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@color/white"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/size_10">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/size_35"
+                    android:layout_height="@dimen/size_35"
                     android:layout_marginLeft="@dimen/size_5"
                     android:gravity="center_vertical"
                     android:padding="@dimen/size_5"
-                    android:src="@mipmap/image_twitter_notif"/>
+                    android:src="@mipmap/image_twitter_notif" />
 
                 <TextView
 
-                    android:text="Twitter"
-                    style="@style/B30ToggTxtStyle" />
+                    style="@style/B30ToggTxtStyle"
+                    android:text="Twitter" />
 
                 <ToggleButton
                     android:id="@+id/b30TwitterTogg"
-                    style="@style/B30MsgToggleStyle"/>
+                    style="@style/B30MsgToggleStyle" />
 
             </LinearLayout>
 
@@ -241,11 +254,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:background="@color/white"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:padding="@dimen/size_10">
+                android:padding="@dimen/size_10"
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -257,12 +270,12 @@
 
                 <TextView
 
-                    android:text="Viber"
-                    style="@style/B30ToggTxtStyle"  />
+                    style="@style/B30ToggTxtStyle"
+                    android:text="Viber" />
 
                 <ToggleButton
                     android:id="@+id/b30ViberTogg"
-                    style="@style/B30MsgToggleStyle"/>
+                    style="@style/B30MsgToggleStyle" />
 
             </LinearLayout>
 
@@ -276,27 +289,27 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@color/white"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/size_10">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/size_35"
+                    android:layout_height="@dimen/size_35"
                     android:layout_marginLeft="@dimen/size_5"
                     android:gravity="center_vertical"
                     android:padding="@dimen/size_5"
-                    android:src="@mipmap/image_line_notif"/>
+                    android:src="@mipmap/image_line_notif" />
 
                 <TextView
 
-                    android:text="LINE"
-                    style="@style/B30ToggTxtStyle"  />
+                    style="@style/B30ToggTxtStyle"
+                    android:text="LINE" />
 
                 <ToggleButton
                     android:id="@+id/b30LineTogg"
-                    style="@style/B30MsgToggleStyle"/>
+                    style="@style/B30MsgToggleStyle" />
 
             </LinearLayout>
 
@@ -308,28 +321,28 @@
 
 
             <LinearLayout
-                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/size_10">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/size_35"
+                    android:layout_height="@dimen/size_35"
                     android:layout_marginLeft="@dimen/size_5"
                     android:gravity="center_vertical"
                     android:padding="@dimen/size_5"
-                    android:src="@mipmap/img_snapchat"/>
+                    android:src="@mipmap/img_snapchat" />
 
                 <TextView
-                    android:text="Snapchart"
-                    style="@style/B30ToggTxtStyle"  />
+                    style="@style/B30ToggTxtStyle"
+                    android:text="Snapchart" />
 
                 <ToggleButton
                     android:id="@+id/b30SnapchartTogg"
-                    style="@style/B30MsgToggleStyle"/>
+                    style="@style/B30MsgToggleStyle" />
 
             </LinearLayout>
 
@@ -340,28 +353,28 @@
                 android:background="#dddddd" />
 
             <LinearLayout
-                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/size_10">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/size_35"
+                    android:layout_height="@dimen/size_35"
                     android:layout_marginLeft="@dimen/size_5"
                     android:gravity="center_vertical"
                     android:padding="@dimen/size_5"
-                    android:src="@mipmap/img_instagram"/>
+                    android:src="@mipmap/img_instagram" />
 
                 <TextView
-                    android:text="Instagram"
-                    style="@style/B30ToggTxtStyle"  />
+                    style="@style/B30ToggTxtStyle"
+                    android:text="Instagram" />
 
                 <ToggleButton
                     android:id="@+id/b30InstagramTogg"
-                    style="@style/B30MsgToggleStyle"/>
+                    style="@style/B30MsgToggleStyle" />
 
             </LinearLayout>
 
@@ -372,29 +385,29 @@
                 android:background="#dddddd" />
 
             <LinearLayout
-                android:background="@color/white"
                 android:id="@+id/google_gmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/size_10">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/size_35"
+                    android:layout_height="@dimen/size_35"
                     android:layout_marginLeft="@dimen/size_5"
                     android:gravity="center_vertical"
                     android:padding="@dimen/size_5"
-                    android:src="@mipmap/img_gmail"/>
+                    android:src="@mipmap/img_gmail" />
 
                 <TextView
-                    android:text="Gmail"
-                    style="@style/B30ToggTxtStyle"  />
+                    style="@style/B30ToggTxtStyle"
+                    android:text="Gmail" />
 
                 <ToggleButton
                     android:id="@+id/b30GmailTogg"
-                    style="@style/B30MsgToggleStyle"/>
+                    style="@style/B30MsgToggleStyle" />
 
             </LinearLayout>
 
@@ -408,27 +421,27 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@color/white"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/size_10">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/size_35"
+                    android:layout_height="@dimen/size_35"
                     android:layout_marginLeft="@dimen/size_5"
                     android:gravity="center_vertical"
                     android:padding="@dimen/size_5"
-                    android:src="@mipmap/image_wecach_notif"/>
+                    android:src="@mipmap/image_wecach_notif" />
 
                 <TextView
 
-                    android:text="@string/mywechat"
-                    style="@style/B30ToggTxtStyle" />
+                    style="@style/B30ToggTxtStyle"
+                    android:text="@string/mywechat" />
 
                 <ToggleButton
                     android:id="@+id/b30WechatTogg"
-                    style="@style/B30MsgToggleStyle"/>
+                    style="@style/B30MsgToggleStyle" />
 
             </LinearLayout>
 
@@ -442,27 +455,27 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@color/white"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/size_10">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/size_35"
+                    android:layout_height="@dimen/size_35"
                     android:layout_marginLeft="@dimen/size_5"
                     android:gravity="center_vertical"
                     android:padding="@dimen/size_5"
-                    android:src="@mipmap/image_qq_notif"/>
+                    android:src="@mipmap/image_qq_notif" />
 
                 <TextView
 
-                    android:text="QQ"
-                    style="@style/B30ToggTxtStyle"  />
+                    style="@style/B30ToggTxtStyle"
+                    android:text="QQ" />
 
                 <ToggleButton
                     android:id="@+id/b30QQTogg"
-                    style="@style/B30MsgToggleStyle"/>
+                    style="@style/B30MsgToggleStyle" />
 
             </LinearLayout>
 
@@ -477,27 +490,27 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@color/white"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/size_10">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/size_35"
+                    android:layout_height="@dimen/size_35"
                     android:layout_marginLeft="@dimen/size_5"
                     android:gravity="center_vertical"
                     android:padding="@dimen/size_5"
-                    android:src="@mipmap/image_msg_notif"/>
+                    android:src="@mipmap/image_msg_notif" />
 
                 <TextView
 
-                    android:text="@string/string_new_messege"
-                    style="@style/B30ToggTxtStyle" />
+                    style="@style/B30ToggTxtStyle"
+                    android:text="@string/string_new_messege" />
 
                 <ToggleButton
                     android:id="@+id/b30MessageTogg"
-                    style="@style/B30MsgToggleStyle"/>
+                    style="@style/B30MsgToggleStyle" />
 
             </LinearLayout>
 
@@ -511,26 +524,26 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@color/white"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/size_10">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/size_35"
+                    android:layout_height="@dimen/size_35"
                     android:layout_marginLeft="@dimen/size_5"
                     android:gravity="center_vertical"
                     android:padding="@dimen/size_5"
                     android:src="@mipmap/image_phone_notif" />
 
                 <TextView
-                    android:text="@string/string_new_phone"
-                    style="@style/B30ToggTxtStyle"  />
+                    style="@style/B30ToggTxtStyle"
+                    android:text="@string/string_new_phone" />
 
                 <ToggleButton
                     android:id="@+id/b30PhoneTogg"
-                    style="@style/B30MsgToggleStyle"/>
+                    style="@style/B30MsgToggleStyle" />
 
             </LinearLayout>
 
@@ -540,31 +553,30 @@
                 android:background="#dddddd" />
 
 
-
             <LinearLayout
-                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginBottom="15dp"
+                android:background="@color/white"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/size_10">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/size_35"
+                    android:layout_height="@dimen/size_35"
                     android:layout_marginLeft="@dimen/size_5"
                     android:gravity="center_vertical"
                     android:padding="@dimen/size_5"
-                    android:src="@mipmap/img_qita"/>
+                    android:src="@mipmap/img_qita" />
 
                 <TextView
-                    android:text="@string/other"
-                    style="@style/B30ToggTxtStyle"  />
+                    style="@style/B30ToggTxtStyle"
+                    android:text="@string/other" />
 
                 <ToggleButton
                     android:id="@+id/b30OhterTogg"
-                    style="@style/B30MsgToggleStyle"/>
+                    style="@style/B30MsgToggleStyle" />
 
             </LinearLayout>
 
@@ -575,14 +587,14 @@
                 android:background="#dddddd" />
 
             <LinearLayout
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/size_20"
                 android:layout_marginTop="@dimen/size_20"
+                android:layout_marginBottom="@dimen/size_20"
                 android:background="@color/white"
                 android:orientation="vertical"
-                android:padding="3dp">
+                android:padding="3dp"
+                android:visibility="gone">
 
 
                 <TextView
@@ -626,12 +638,12 @@
                         android:id="@+id/watch_watchmsg_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
                         android:layout_marginLeft="@dimen/size_10"
                         android:padding="8dp"
                         android:text="@string/open_notif"
-                        android:textSize="15sp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentStart="true" />
+                        android:textSize="15sp" />
 
                     <ImageView
                         android:layout_width="18dp"
@@ -646,17 +658,17 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:visibility="gone"
                     android:layout_marginLeft="15dp"
-                    android:background="@color/linear_border" />
+                    android:background="@color/linear_border"
+                    android:visibility="gone" />
 
                 <RelativeLayout
                     android:id="@+id/watch_msgOpenAccessBtn"
                     android:layout_width="match_parent"
-                    android:visibility="gone"
                     android:layout_height="wrap_content"
                     android:background="@drawable/square_white_btn_change"
-                    android:padding="5dp">
+                    android:padding="5dp"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/device_img"
@@ -689,10 +701,10 @@
                 </RelativeLayout>
 
                 <View
-                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/linear_border" />
+                    android:background="@color/linear_border"
+                    android:visibility="gone" />
 
 
             </LinearLayout>
@@ -700,5 +712,5 @@
 
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
-</LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

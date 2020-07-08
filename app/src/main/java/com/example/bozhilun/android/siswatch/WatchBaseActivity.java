@@ -8,24 +8,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
-import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
-import com.example.bozhilun.android.util.ToastUtil;
 import com.umeng.analytics.MobclickAgent;
-import com.veepoo.protocol.listener.base.IBleWriteResponse;
 
 
 /**

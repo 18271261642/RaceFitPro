@@ -7,11 +7,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +30,7 @@ import com.example.bozhilun.android.xwatch.ble.XWatchNotiBean;
 import com.example.bozhilun.android.xwatch.ble.XWatchNotiListener;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.runtime.Permission;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -237,13 +237,13 @@ public class XWatchMsgAlertFragment extends LazyFragment {
             showLoadingDialog("Loading...");
             switch (buttonView.getId()){
                 case R.id.xWatchPhoneTogg:  //phone
-                    requestPermiss(Manifest.permission.READ_PHONE_STATE,Manifest.permission.READ_CALL_LOG);
+                    requestPermiss(Permission.READ_PHONE_STATE,Permission.READ_CALL_LOG);
                     xWatchNoti.setPhoneNoti(isChecked);
                     SharedPreferencesUtils.setParam(getActivity(), Commont.ISPhone, isChecked);
                     handler.sendEmptyMessage(0x01);
                     break;
                 case R.id.xWatchMessageTogg:    //msg
-                    requestPermiss(Manifest.permission.READ_SMS);
+                    requestPermiss(Permission.READ_SMS);
                     xWatchNoti.setMsgNoti(isChecked);
                     SharedPreferencesUtils.setParam(getActivity(), Commont.ISMsm, isChecked);
                     handler.sendEmptyMessage(0x01);

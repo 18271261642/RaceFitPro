@@ -2,7 +2,7 @@ package com.example.bozhilun.android.w30s.activity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -30,14 +30,11 @@ import com.example.bozhilun.android.w30s.utils.W30BasicUtils;
 import com.example.bozhilun.android.w30s.utils.httputils.RequestPressent;
 import com.example.bozhilun.android.w30s.utils.httputils.RequestView;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;

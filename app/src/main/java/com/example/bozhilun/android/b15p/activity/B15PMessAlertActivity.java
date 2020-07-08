@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -28,6 +28,7 @@ import com.tjdL4.tjdmain.AppIC;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Rationale;
 import com.yanzhenjie.permission.RequestExecutor;
+import com.yanzhenjie.permission.runtime.Permission;
 
 import java.util.List;
 
@@ -152,7 +153,8 @@ public class B15PMessAlertActivity extends WatchBaseActivity {
         if (!AndPermission.hasPermissions(B15PMessAlertActivity.this, new String[]{Manifest.permission.CALL_PHONE, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_CALL_LOG})) {
             AndPermission.with(B15PMessAlertActivity.this)
                     .runtime()
-                    .permission(Manifest.permission.CALL_PHONE, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_CONTACTS, Manifest.permission.READ_CALL_LOG)
+                    .permission( Permission.CALL_PHONE, Permission.READ_PHONE_STATE,
+                            Permission.READ_CONTACTS, Permission.READ_CALL_LOG)
 //                            ,Manifest.permission.WRITE_CALL_LOG)
                     .rationale(new Rationale<List<String>>() {
                         @Override
@@ -170,9 +172,8 @@ public class B15PMessAlertActivity extends WatchBaseActivity {
                     .runtime()
                     .permission(
 //                            Manifest.permission.READ_SMS,
-                            Manifest.permission.READ_PHONE_STATE,
-                            Manifest.permission.READ_CONTACTS,
-                            Manifest.permission.READ_CALL_LOG)//,Manifest.permission.WRITE_CALL_LOG)
+                            Permission.CALL_PHONE, Permission.READ_PHONE_STATE,
+                            Permission.READ_CONTACTS, Permission.READ_CALL_LOG)//,Manifest.permission.WRITE_CALL_LOG)
                     .start();
         }
     }
@@ -513,61 +514,6 @@ public class B15PMessAlertActivity extends WatchBaseActivity {
                     break;
                 case R.id.b30PhoneTogg: //phone
                     requestPermiss();
-//                    SharedPreferencesUtils.setParam(B15PMessAlertActivity.this, Commont.ISPhone, isChecked);
-//                    isOpenPhone = isChecked;
-//                    SharedPreferencesUtils.setParam(B15PMessAlertActivity.this, Commont.ISCallPhone, isChecked);
-
-
-//                    MyApp.getInstance().getVpOperateManager().settingDeviceControlPhone(new IDeviceControlPhone() {
-//                        @Override
-//                        public void rejectPhone() {//TODO 挂电话还没弄好
-//
-//                            try {
-//                                Method method = Class.forName("android.os.ServiceManager")
-//                                        .getMethod("getService", String.class);//getSystemService内部就是调用了ServiceManager的getService方法。
-//                                IBinder binder = (IBinder) method.invoke(null,
-//                                        new Object[]{TELEPHONY_SERVICE});
-//                                ITelephony iTelephony = ITelephony.Stub.asInterface(binder);
-//                                iTelephony.endCall();
-//                                Log.d("call---", "rejectPhone: " + "电话被挂断了");
-//                            } catch (Exception e) {
-//                                e.printStackTrace();
-//                            }
-//
-//
-//                        }
-//
-//                        @Override
-//                        public void cliencePhone() {
-//                            AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-//                            if (audioManager != null) {
-//                                audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
-//                                audioManager.getStreamVolume(AudioManager.STREAM_RING);
-//                                Log.d("call---", "RINGING 已被静音");
-//                            }
-//                        }
-//
-//                        @Override
-//                        public void knocknotify(int i) {
-//
-//                        }
-//
-//                        @Override
-//                        public void sos() {
-//
-//                        }
-//
-////                        @Override
-////                        public void knocknotify(int i) {
-////
-////                        }
-////
-////                        @Override
-////                        public void sos() {
-////
-////                        }
-//                    });
-
                     AppIC.SData().setIntData("pushMsg_call", isChecked ? 1 : 0);
                     showLoadingDialog("setting...");
                     handler.sendEmptyMessageDelayed(0x88, 200);

@@ -10,8 +10,8 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.CallLog;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.PermissionChecker;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.PermissionChecker;
 import android.util.Log;
 
 import com.example.bozhilun.android.Commont;
@@ -50,18 +50,22 @@ public class CallReceiver extends PhonecallReceiver {
     protected void onOutgoingCallEnded(Context ctx, String number, Date start, Date end) {
 //        这里处理，挂断的相关操作，（发送方）
         Log.d("----------AA", "未通或挂断 onOutgoingCallEnded");//去点未接通（发送方）
-        if (!WatchUtils.isEmpty(number)) {
-            if (ActivityCompat.checkSelfPermission(ctx, Manifest.permission.READ_CALL_LOG)
-                    == PackageManager.PERMISSION_GRANTED
+        try {
+            if (!WatchUtils.isEmpty(number)) {
+                if (ActivityCompat.checkSelfPermission(ctx, Manifest.permission.READ_CALL_LOG)
+                        == PackageManager.PERMISSION_GRANTED
 //                    && ActivityCompat.checkSelfPermission(ctx, Manifest.permission.WRITE_CALL_LOG )
 //                            == PackageManager.PERMISSION_GRANTED
-                    ) {
-                number = number.trim().replace(" ", "");
-                Commont.SENDPHONE_COUNT++;
-                getCallLogState(ctx, number);
+                ) {
+                    number = number.trim().replace(" ", "");
+                    Commont.SENDPHONE_COUNT++;
+                    getCallLogState(ctx, number);
+                }
             }
-
+        }catch (Exception e){
+            e.printStackTrace();
         }
+
     }
 
     @Override
@@ -78,34 +82,38 @@ public class CallReceiver extends PhonecallReceiver {
      * @return
      */
     private void getCallLogState(Context context, String number) {
-        if (WatchUtils.isEmpty(number)) return;
-        ContentResolver cr = context.getContentResolver();
-        PermissionChecker.checkSelfPermission(context, Manifest.permission.READ_CALL_LOG);
-        final Cursor cursor = cr.query(CallLog.Calls.CONTENT_URI,
-                new String[]{CallLog.Calls.NUMBER, CallLog.Calls.TYPE, CallLog.Calls.DURATION},
-                CallLog.Calls.NUMBER + "=?",
-                new String[]{number},
-                CallLog.Calls.DATE + " desc");
-        int i = 0;
-        if (cursor != null)
-            while (cursor.moveToNext()) {
-                if (i == 0) {//第一个记录 也就是当前这个电话的记录
-                    int durationIndex = cursor.getColumnIndex(CallLog.Calls.DURATION);
-                    long durationTime = cursor.getLong(durationIndex);
-                    if (durationTime > 0) {
-                        Log.d("----------AA", "第一次查询 接通了   时长= " + durationTime);
-                    } else {
-                        Log.d("----------AA", "第一次查询 没接通");
+        try {
+            if (WatchUtils.isEmpty(number)) return;
+            ContentResolver cr = context.getContentResolver();
+            PermissionChecker.checkSelfPermission(context, Manifest.permission.READ_CALL_LOG);
+            final Cursor cursor = cr.query(CallLog.Calls.CONTENT_URI,
+                    new String[]{CallLog.Calls.NUMBER, CallLog.Calls.TYPE, CallLog.Calls.DURATION},
+                    CallLog.Calls.NUMBER + "=?",
+                    new String[]{number},
+                    CallLog.Calls.DATE + " desc");
+            int i = 0;
+            if (cursor != null)
+                while (cursor.moveToNext()) {
+                    if (i == 0) {//第一个记录 也就是当前这个电话的记录
+                        int durationIndex = cursor.getColumnIndex(CallLog.Calls.DURATION);
+                        long durationTime = cursor.getLong(durationIndex);
+                        if (durationTime > 0) {
+                            Log.d("----------AA", "第一次查询 接通了   时长= " + durationTime);
+                        } else {
+                            Log.d("----------AA", "第一次查询 没接通");
+                        }
                     }
+                    i++;
                 }
-                i++;
-            }
-        if (cursor != null) cursor.close();
+            if (cursor != null) cursor.close();
 
-        Message message = new Message();
-        message.what = 0x01;
-        message.obj = number;
-        if (handler != null) handler.sendMessageDelayed(message, 5000);
+            Message message = new Message();
+            message.what = 0x01;
+            message.obj = number;
+            if (handler != null) handler.sendMessageDelayed(message, 5000);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -117,49 +125,59 @@ public class CallReceiver extends PhonecallReceiver {
      */
     private boolean getCallLogStateBoolean(Context context, String number) {
         Log.d("----------AA", "小米手机第一次查询不对，所以查询两次，根据第二次为标准");
-        if (WatchUtils.isEmpty(number)) return false;
-        boolean isLink = false;
-        ContentResolver cr = context.getContentResolver();
-        PermissionChecker.checkSelfPermission(context, Manifest.permission.READ_CALL_LOG);
-        final Cursor cursor = cr.query(CallLog.Calls.CONTENT_URI,
-                new String[]{CallLog.Calls.NUMBER, CallLog.Calls.TYPE, CallLog.Calls.DURATION},
-                CallLog.Calls.NUMBER + "=?",
-                new String[]{number},
-                CallLog.Calls.DATE + " desc");
-        int i = 0;
-        if(cursor == null)
-            return false;
-        while (cursor.moveToNext()) {
-            if (i == 0) {//第一个记录 也就是当前这个电话的记录
-                int durationIndex = cursor.getColumnIndex(CallLog.Calls.DURATION);
-                long durationTime = cursor.getLong(durationIndex);
-                if (durationTime > 0) {
-                    Log.d("----------AA", "第二次查询 接通了   时长= " + durationTime);
-                    isLink = true;
-                } else {
-                    Log.d("----------AA", "第二次查询 这是else里");
-                    isLink = false;
+        try {
+            if (WatchUtils.isEmpty(number)) return false;
+            boolean isLink = false;
+            ContentResolver cr = context.getContentResolver();
+            PermissionChecker.checkSelfPermission(context, Manifest.permission.READ_CALL_LOG);
+            final Cursor cursor = cr.query(CallLog.Calls.CONTENT_URI,
+                    new String[]{CallLog.Calls.NUMBER, CallLog.Calls.TYPE, CallLog.Calls.DURATION},
+                    CallLog.Calls.NUMBER + "=?",
+                    new String[]{number},
+                    CallLog.Calls.DATE + " desc");
+            int i = 0;
+            if(cursor == null)
+                return false;
+            while (cursor.moveToNext()) {
+                if (i == 0) {//第一个记录 也就是当前这个电话的记录
+                    int durationIndex = cursor.getColumnIndex(CallLog.Calls.DURATION);
+                    long durationTime = cursor.getLong(durationIndex);
+                    if (durationTime > 0) {
+                        Log.d("----------AA", "第二次查询 接通了   时长= " + durationTime);
+                        isLink = true;
+                    } else {
+                        Log.d("----------AA", "第二次查询 这是else里");
+                        isLink = false;
+                    }
                 }
+                i++;
             }
-            i++;
+            cursor.close();
+            return isLink;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
         }
-        cursor.close();
-        return isLink;
+
     }
 
 
     //点击事件调用的类
     protected void call(final String tel) {
-
-        //直接拨打
-        Log.d("GPS", "call:" + tel);
-        Uri uri = Uri.parse("tel:" + tel);
-        Intent intent = new Intent(Intent.ACTION_CALL, uri);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (ActivityCompat.checkSelfPermission(MyApp.getInstance(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            return;
+        try {
+            //直接拨打
+            Log.d("GPS", "call:" + tel);
+            Uri uri = Uri.parse("tel:" + tel);
+            Intent intent = new Intent(Intent.ACTION_CALL, uri);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            if (ActivityCompat.checkSelfPermission(MyApp.getInstance(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            MyApp.getInstance().startActivity(intent);
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        MyApp.getInstance().startActivity(intent);
+
     }
 
 
@@ -223,7 +241,7 @@ public class CallReceiver extends PhonecallReceiver {
 //    }
 
 
-    Handler handler = new Handler(new Handler.Callback() {
+    private Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message message) {
             boolean isSos = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISHelpe, false);//sos

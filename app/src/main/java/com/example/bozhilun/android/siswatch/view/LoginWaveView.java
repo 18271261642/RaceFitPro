@@ -45,10 +45,10 @@ public class LoginWaveView extends View {
     float leftTotalLen;
     float rightTotalLen;
     //移动一次的距离
-    float leftMoveLen = 1.2f;
-    float rightMoveLen = 0.8f;
+    float leftMoveLen = 1.0f;
+    float rightMoveLen = 0.5f;
     //移动间隔时间-越小越快
-    private long speed = 7;
+    private long speed = 10;
 
     private boolean isMeasured = false;
 
@@ -58,7 +58,7 @@ public class LoginWaveView extends View {
 
 
     @SuppressLint("HandlerLeak")
-    Handler handler = new Handler() {
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
 
@@ -97,11 +97,11 @@ public class LoginWaveView extends View {
     private void init() {
         mLeftPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mLeftPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        mLeftPaint.setColor(Color.parseColor("#A2EDFF"));
+        mLeftPaint.setColor(Color.parseColor("#1ebae3"));
 
         mRightPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mRightPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        mRightPaint.setColor(Color.parseColor("#B3F1FE"));
+        mRightPaint.setColor(Color.parseColor("#1ebae3"));
 
         leftPath = new Path();
         rightPath = new Path();
@@ -193,18 +193,23 @@ public class LoginWaveView extends View {
      * 务必stopFollow()
      */
     public void startMove() {
-        if (mTimer != null) {
-            mTimer.cancel();
-            mTimer = null;
-        }
-        if (mTask != null) {
-            mTask.cancel();
-            mTask = null;
+        try {
+            if (mTimer != null) {
+                mTimer.cancel();
+                mTimer = null;
+            }
+            if (mTask != null) {
+                mTask.cancel();
+                mTask = null;
+            }
+
+            mTimer = new Timer();
+            mTask = new Task(handler);
+            mTimer.schedule(mTask, 0, speed);
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
-        mTimer = new Timer();
-        mTask = new Task(handler);
-        mTimer.schedule(mTask, 0, speed);
     }
 
     public void stopMove() {

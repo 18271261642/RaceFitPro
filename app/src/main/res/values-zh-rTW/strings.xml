@@ -1,5 +1,5 @@
 <resources>
-
+    <string name="calibrating">校準中</string>
     <string name="string_bmi_title">減脂指數</string>
     <string name="string_note">注意:</string>
     <string name="string_light_alert">亮度設置最高會導致耗電量加快，續航時間變短。</string>

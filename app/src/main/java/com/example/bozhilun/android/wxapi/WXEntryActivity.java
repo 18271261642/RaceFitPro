@@ -3,24 +3,13 @@ package com.example.bozhilun.android.wxapi;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.alibaba.sdk.android.push.CloudPushService;
 import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.JsonRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.bozhilun.android.Commont;
-import com.example.bozhilun.android.MyApp;
-import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.activity.wylactivity.wyl_util.service.ConnectManages;
-import com.example.bozhilun.android.bean.BlueUser;
 import com.example.bozhilun.android.bean.UserInfoBean;
 import com.example.bozhilun.android.siswatch.NewSearchActivity;
 import com.example.bozhilun.android.util.Common;
@@ -35,7 +24,7 @@ import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.SendAuth;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-import com.umeng.analytics.MobclickAgent;
+
 import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
@@ -255,8 +244,11 @@ public class WXEntryActivity extends AppCompatActivity implements IWXAPIEventHan
         if(what == 0x01){   //获取token
             try {
                 JSONObject RES = new JSONObject(object.toString());
-                if (!RES.has("access_token"))
+                if (!RES.has("access_token")){
+                    finish();
                     return;
+                }
+
                 String access_token = RES.getString("access_token");
                 String openid = RES.getString("openid");
 

@@ -25,29 +25,28 @@ android {
 //        additionalParameters = ['--multi-dex', '--main-dex-list='+ project.rootDir.absolutePath + '/app/maindexlist.txt', '--minimal-main-dex',
 //                                '--set-max-idx-number=1000']
     }
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         ndk {
 //            abiFilters "armeabi", "mips", "x86"
-            abiFilters 'arm64-v8a','armeabi-v7a'
+            abiFilters 'arm64-v8a', 'armeabi-v7a'
         }
         applicationId "com.example.bozhilun.android"
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 87
         versionName "4.5.2"
         flavorDimensions "versionName"
         manifestPlaceholders = [
                 qq_id: "101357650"
         ]
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 //        resConfigs "zh"
-        ndk.abiFilters 'armeabi-v7a','arm64-v8a'
-
+        ndk.abiFilters 'armeabi-v7a', 'arm64-v8a'
 
 
         multiDexEnabled true
-       // multiDexKeepProguard file('multiDexKeep.pro') // keep specific classes using proguard syntax
+        // multiDexKeepProguard file('multiDexKeep.pro') // keep specific classes using proguard syntax
 //        multiDexKeepFile file('maindexlist.txt') // keep specific classes
 
     }
@@ -111,8 +110,8 @@ android {
             manifestPlaceholders = [app_name      : "RaceFitPro",
                                     app_icon      : "@mipmap/beraceiocn",
                                     mapGaodeApiKey: "90c2a258d5ba55e981d480e70becb4c9"]
-            versionCode 102
-            versionName "4.6.8"
+            versionCode 112
+            versionName "4.7.7"
         }
 
         racefitproen {
@@ -121,8 +120,8 @@ android {
             manifestPlaceholders = [app_name      : "RaceFitPro",
                                     app_icon      : "@mipmap/beraceiocn",
                                     mapGaodeApiKey: "dd2889a702847bf6727c4ee04a827cce"]
-            versionCode 103
-            versionName "4.6.7"
+            versionCode 104
+            versionName "4.6.8"
         }
     }
     lintOptions {
@@ -133,38 +132,47 @@ android {
     }
     useLibrary 'org.apache.http.legacy'
 
-//    packagingOptions {
-//        exclude 'META-INF/proguard/androidx-annotations.pro'
-//        exclude 'META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version'
-//        exclude 'META-INF/DEPENDENCIES'
-//        exclude 'META-INF/androidx.swiperefreshlayout_swiperefreshlayout.version'
-//        exclude 'META-INF/androidx.print_print.version'
-//        exclude 'META-INF/androidx.customview_customview.version'
-//        exclude 'META-INF/androidx.documentfile_documentfile.version'
-//        exclude 'META-INF/androidx.loader_loader.version'
-//        exclude 'META-INF/androidx.viewpager_viewpager.version'
-//        exclude 'META-INF/androidx.coordinatorlayout_coordinatorlayout.version'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+//    afterEvaluate {
+//        tasks.matching {
+//            it.name.startsWith('dex')
+//        }.each { dx ->
+//            def listFile = project.rootDir.absolutePath + '/app/maindexlist.txt'
+//            if (dx.additionalParameters == null) {
+//                dx.additionalParameters = []
+//            }
+//            //表示当方法数越界时则生成多个dex文件（我的没有越界，貌似也生成了两个）
+//            dx.additionalParameters += '--multi-dex'
+//            //这个指定了listFile中的类（即maindexlist.txt中的类）会打包到主dex中，不过注意下一条。
+//            dx.additionalParameters += '--main-dex-list=' + listFile
+//            //表明只有-main-dex-list所指定的类（在我的配置中，就是app目录下的maindexlist.txt中包含的类）才能打包到主dex中，如果没有这个选项，上个选项就会失效
+//            dx.additionalParameters += '--minimal-main-dex'
+//        }
+//
 //    }
-
-
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     // 以上依赖Android系统
-    implementation 'com.android.support:design:28.0.0'
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
-    implementation 'com.android.support:cardview-v7:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.android.support:customtabs:28.0.0'
-    implementation 'com.android.support:animated-vector-drawable:28.0.0'
-    implementation 'com.android.support:mediarouter-v7:28.0.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.browser:browser:1.2.0'
+    implementation 'androidx.vectordrawable:vectordrawable-animated:1.1.0'
+    implementation 'androidx.mediarouter:mediarouter:1.1.0'
     implementation name: 'SMSSDK-2.1.3', ext: 'aar'
     implementation name: 'SMSSDKGUI-2.1.3', ext: 'aar'
 
@@ -194,18 +202,21 @@ dependencies {
     implementation(name: 'BluetoothLibrary', ext: 'aar')
 
     //butterknife注解
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
 
     //rxjava
-    implementation 'io.reactivex:rxjava:1.1.0'
-    implementation 'io.reactivex:rxandroid:1.1.0'
+    implementation 'io.reactivex:rxjava:1.3.0'
+    implementation 'io.reactivex:rxandroid:1.2.1'
+
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
 
     //fastjson
-    implementation 'com.alibaba:fastjson:1.2.30'
+    implementation 'com.alibaba:fastjson:1.2.68'
 
     //gson
-    implementation 'com.google.code.gson:gson:2.8.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
 
     //greendao数据库
     implementation 'org.greenrobot:greendao:3.2.0'
@@ -245,7 +256,7 @@ dependencies {
     annotationProcessor 'com.arialyy.aria:compiler:3.8'
 
     //权限管理库
-    implementation 'com.yanzhenjie:permission:2.0.0-rc12'
+    implementation 'com.yanzhenjie:permission:2.0.3'
 
     //网络请求
     implementation 'com.yanzhenjie.nohttp:nohttp:1.1.5'
@@ -256,7 +267,7 @@ dependencies {
 
     //维亿魄系列sdk
     implementation files('libs/vpbluetooth_1.0.3.jar')
-    implementation files('libs/vpprotocol_2.1.21.15.jar')
+    implementation files('libs/vpprotocol_2.1.40.15.jar')
 
     //androidMpChart图表库
     implementation project(':MPChartLib')
@@ -265,9 +276,15 @@ dependencies {
     implementation 'com.contrarywind:Android-PickerView:4.1.6'
 
     // 网络请求
-    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
-    implementation 'com.squareup.okio:okio:1.6.0'
+    //implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+    //    implementation 'com.squareup.okio:okio:1.6.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.0.1'
+    implementation 'com.squareup.okio:okio:2.2.2'
     implementation 'com.squareup:otto:1.3.8'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.0.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
 
     //volley
     implementation 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
@@ -292,8 +309,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:16.0.0'
 
     //高德地图
-    implementation 'com.amap.api:location:4.8.0'
-    implementation 'com.amap.api:3dmap:7.2.0'
+    implementation 'com.amap.api:location:5.0.0'
+    implementation 'com.amap.api:3dmap:7.5.0'
 
     /**
      *     ShareSDK登陆分享
@@ -312,8 +329,8 @@ dependencies {
     implementation files('libs/ShareSDK-Core-3.3.0.jar')
 
     //glide库
-    implementation 'com.github.bumptech.glide:glide:4.8.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     implementation 'me.drakeet.multitype:multitype:3.4.4'
 
     //zxing二维码
@@ -329,8 +346,8 @@ dependencies {
     implementation 'org.litepal.android:java:3.0.0'
 
     //bugly
-    implementation 'com.tencent.bugly:crashreport:3.0.0'
-    implementation 'com.tencent.bugly:nativecrashreport:3.7.1'
+    implementation 'com.tencent.bugly:crashreport:3.1.8'
+    implementation 'com.tencent.bugly:nativecrashreport:3.7.3'
     implementation files('libs/hplus.jar')
     implementation 'no.nordicsemi.android:dfu:1.8.1'
 

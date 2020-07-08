@@ -2,10 +2,10 @@ package com.example.bozhilun.android.b18;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import android.util.Log;
 import android.view.KeyEvent;
 
@@ -16,8 +16,6 @@ import com.example.bozhilun.android.adpter.FragmentAdapter;
 import com.example.bozhilun.android.b18.fragment.B18HomeFragment;
 import com.example.bozhilun.android.b30.b30run.ChildGPSFragment;
 import com.example.bozhilun.android.commdbserver.ActiveManage;
-import com.example.bozhilun.android.recommend.RecommendFragment;
-import com.example.bozhilun.android.recommend.RecommendMineFragment;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.mine.WatchMineFragment;
 import com.example.bozhilun.android.widget.NoScrollViewPager;
@@ -75,8 +73,8 @@ public class B18HomeActivity extends WatchBaseActivity {
 
     private void initViews() {
         fragmentList.add(new B18HomeFragment());
-        //fragmentList.add(new ChildGPSFragment());
-        fragmentList.add(new RecommendFragment());
+        fragmentList.add(new ChildGPSFragment());
+//        fragmentList.add(new RecommendFragment());
         fragmentList.add(new WatchMineFragment());
         fragmentPagerAdapter = new FragmentAdapter(getSupportFragmentManager(), fragmentList);
         if (b18ViewPager != null) {

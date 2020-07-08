@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:padding="5dp"
-    android:layout_margin="5dp"
+    android:padding="3dp"
+    android:background="@drawable/layout_click"
+    android:layout_margin="3dp"
     android:layout_height="wrap_content">
 
 
     <TextView
+        app:layout_constraintLeft_toLeftOf="parent"
         android:id="@+id/itemHrvDataDateTv"
         android:layout_width="wrap_content"
         android:text="06:50"
@@ -54,4 +56,4 @@
 
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

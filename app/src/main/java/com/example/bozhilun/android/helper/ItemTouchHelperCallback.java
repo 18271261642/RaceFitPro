@@ -1,7 +1,7 @@
 package com.example.bozhilun.android.helper;
 
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.ItemTouchHelper;
 
 /**
  * Created by wyl on 2017/9/8.

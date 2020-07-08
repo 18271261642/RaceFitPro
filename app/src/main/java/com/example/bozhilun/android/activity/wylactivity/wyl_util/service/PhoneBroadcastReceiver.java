@@ -1,26 +1,22 @@
 package com.example.bozhilun.android.activity.wylactivity.wyl_util.service;
 
-import android.Manifest;
+
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.media.AudioManager;
 import android.net.Uri;
 import android.provider.ContactsContract;
-import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
-
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.w30s.ble.W37DataAnalysis;
 import com.example.bozhilun.android.xwatch.ble.XWatchBleAnalysis;
-import com.example.bozhilun.android.xwatch.ble.XWatchNotiBean;
 import com.hplus.bluetooth.BleProfileManager;
 import com.sdk.bluetooth.protocol.command.push.MsgCountPush;
 import com.sdk.bluetooth.protocol.command.push.PhoneNamePush;
@@ -35,7 +31,7 @@ import com.veepoo.protocol.model.enums.ESocailMsg;
 import com.veepoo.protocol.model.settings.ContentPhoneSetting;
 import com.veepoo.protocol.model.settings.ContentSetting;
 import com.yanzhenjie.permission.AndPermission;
-
+import com.yanzhenjie.permission.runtime.Permission;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -193,14 +189,12 @@ public class PhoneBroadcastReceiver extends BroadcastReceiver {
     private void sendPhoneAlertData(String phoneNumber, String tag) {
 
         //判断是否有读取联系人和通讯录的权限
-        if (!AndPermission.hasPermissions(MyApp.getContext(), Manifest.permission.READ_CONTACTS, Manifest.permission.READ_CALL_LOG)) {
-            AndPermission.with(MyApp.getContext()).runtime().permission(Manifest.permission.READ_CONTACTS,
-                    Manifest.permission.READ_CALL_LOG).start();
+        if (!AndPermission.hasPermissions(MyApp.getContext(), Permission.READ_CONTACTS, Permission.READ_CALL_LOG)) {
+            AndPermission.with(MyApp.getContext()).runtime().permission(new String[]{Permission.READ_CONTACTS, Permission.READ_CALL_LOG}).start();
         } else {
             //getPhoneContacts(phoneNumber, tag);
             findPhoneContactsByNumber(phoneNumber,tag);
         }
-
 
     }
 

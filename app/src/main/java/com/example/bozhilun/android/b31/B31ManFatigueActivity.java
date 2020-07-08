@@ -5,12 +5,13 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -48,7 +49,7 @@ import butterknife.OnClick;
  * Created by Admin
  * Date 2018/12/18
  */
-public class B31ManFatigueActivity extends WatchBaseActivity {
+public class B31ManFatigueActivity extends WatchBaseActivity implements AdapterView.OnItemLongClickListener {
 
     private static final String TAG = "B31ManFatigueActivity";
 
@@ -87,6 +88,8 @@ public class B31ManFatigueActivity extends WatchBaseActivity {
 
     private List<ManfatiBean> manfatiBeanList;
     private TempFatiAdapter tempFatiAdapter;
+
+    private AlertDialog.Builder alertDialog;
 
 
     //开始或者停止测量的标识
@@ -155,6 +158,7 @@ public class B31ManFatigueActivity extends WatchBaseActivity {
                         return o2.getTimeStr().compareTo(o1.getTimeStr());
                     }
                 });
+
                 manfatiBeanList.addAll(beanList);
                 tempFatiAdapter.notifyDataSetChanged();
             }
@@ -167,7 +171,6 @@ public class B31ManFatigueActivity extends WatchBaseActivity {
         manfatiBeanList = new ArrayList<>();
         tempFatiAdapter = new TempFatiAdapter(manfatiBeanList);
         manFatigueListView.setAdapter(tempFatiAdapter);
-
     }
 
     private void initViews() {
@@ -177,7 +180,7 @@ public class B31ManFatigueActivity extends WatchBaseActivity {
         //不绘制中间的进度值显示数值
         b31MeaureFaitProgressView.setCanvasV(false);
         showFaitResultImg.setBackground(getResources().getDrawable(R.drawable.ftg_bg));
-
+        manFatigueListView.setOnItemLongClickListener(this);
     }
 
     @OnClick({R.id.commentB30BackImg, R.id.commentB30ShareImg,
@@ -362,6 +365,38 @@ public class B31ManFatigueActivity extends WatchBaseActivity {
 
         }
     };
+
+    @Override
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        if(manfatiBeanList == null)
+            return false;
+        deleteItemData(position);
+        return true;
+    }
+
+    private void deleteItemData(final int position) {
+        final String whereStr = "timeStr = ?";
+        alertDialog = new AlertDialog.Builder(B31ManFatigueActivity.this)
+                .setTitle(getResources().getString(R.string.prompt))
+                .setMessage(getResources().getString(R.string.deleda))
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                       // LitePal.delete(ManfatiBean.class,position);
+
+                        LitePal.deleteAll(ManfatiBean.class,whereStr,manfatiBeanList.get(position).getTimeStr());
+
+                        handler.sendEmptyMessage(0x01);
+                    }
+                }).setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.create().show();
+    }
 
 
     class TempFatiAdapter extends BaseAdapter {

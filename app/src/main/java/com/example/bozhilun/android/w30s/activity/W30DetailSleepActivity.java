@@ -5,7 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
@@ -16,6 +16,7 @@ import com.example.bozhilun.android.b30.bean.B30HalfHourDao;
 import com.example.bozhilun.android.commdbserver.CommConstant;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
+import com.example.bozhilun.android.view.DateSelectDialogView;
 import com.example.bozhilun.android.w30s.views.W30CusSleepChartView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -63,9 +64,10 @@ public class W30DetailSleepActivity extends WatchBaseActivity {
     String currDay = WatchUtils.getCurrentDate();
     private Gson gson = new Gson();
 
+    private DateSelectDialogView dateSelectDialogView;
 
     @SuppressLint("HandlerLeak")
-    Handler handler = new Handler(){
+    private Handler handler = new Handler(){
         @SuppressLint("SetTextI18n")
         @Override
         public void handleMessage(Message msg) {
@@ -182,7 +184,8 @@ public class W30DetailSleepActivity extends WatchBaseActivity {
 
 
     @OnClick({R.id.commentB30BackImg,R.id.commentB30ShareImg,
-            R.id.sleepCurrDateLeft, R.id.sleepCurrDateRight})
+            R.id.sleepCurrDateLeft, R.id.sleepCurrDateRight,
+            R.id.sleepCurrDateTv})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.commentB30BackImg:    //返回
@@ -197,8 +200,24 @@ public class W30DetailSleepActivity extends WatchBaseActivity {
             case R.id.sleepCurrDateRight:   //下一天
                 changeDayData(false);
                 break;
+            case R.id.sleepCurrDateTv:
+                chooseDate();
+                break;
         }
     }
+    private void chooseDate() {
+        dateSelectDialogView = new DateSelectDialogView(this);
+        dateSelectDialogView.show();
+        dateSelectDialogView.setOnDateSelectListener(new DateSelectDialogView.OnDateSelectListener() {
+            @Override
+            public void selectDateStr(String str) {
+                dateSelectDialogView.dismiss();
+                currDay = str;
+                findSleepFromDb(currDay);
+            }
+        });
+    }
+
 
     /**
      * 根据日期切换数据

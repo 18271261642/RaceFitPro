@@ -3,8 +3,7 @@ package com.example.bozhilun.android.bzlmaps.gaodemaps;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.util.Log;
+import androidx.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -41,8 +40,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 
-import org.litepal.LitePal;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,8 +55,8 @@ import butterknife.OnClick;
  * Created by Admin
  * Date 2019/10/18
  */
-public class AmapHistorySportActivity extends WatchBaseActivity  implements LocationSource,
-        AMapLocationListener,TraceListener {
+public class AmapHistorySportActivity extends WatchBaseActivity implements LocationSource,
+        AMapLocationListener, TraceListener {
 
     private static final String TAG = "AmapHistorySportActivit";
 
@@ -87,12 +84,12 @@ public class AmapHistorySportActivity extends WatchBaseActivity  implements Loca
     @BindView(R.id.mapSportKcalTv)
     TextView mapSportKcalTv;
 
-    private Marker startMark,endMark;
+    private Marker startMark, endMark;
     Polyline polyline;
 
     private AMap aMap;
 
-    private LocationSource.OnLocationChangedListener mListener;
+    private OnLocationChangedListener mListener;
     private AMapLocationClient mlocationClient;
     private AMapLocationClientOption mLocationOption = null;
 
@@ -119,7 +116,7 @@ public class AmapHistorySportActivity extends WatchBaseActivity  implements Loca
 
         initViews();
 
-        if(aMap == null){
+        if (aMap == null) {
             aMap = amapMapView.getMap();
             setUpMap();
         }
@@ -127,7 +124,9 @@ public class AmapHistorySportActivity extends WatchBaseActivity  implements Loca
     }
 
     private void initViews() {
+        commentB30BackImg.setVisibility(View.VISIBLE);
         amapSportStartBtn.setVisibility(View.GONE);
+        commentB30TitleTv.setText(getResources().getString(R.string.move_ment));
     }
 
 
@@ -140,28 +139,29 @@ public class AmapHistorySportActivity extends WatchBaseActivity  implements Loca
     }
 
     @SuppressLint("SetTextI18n")
-    private void findSavedSportData(){
+    private void findSavedSportData() {
 
         String str = getIntent().getStringExtra("sport_str");
-        if(str == null)
+        if (str == null)
             return;
-        AmapSportBean amapSportBean = new Gson().fromJson(str,AmapSportBean.class);
+        AmapSportBean amapSportBean = new Gson().fromJson(str, AmapSportBean.class);
         commentB30TitleTv.setText(amapSportBean.getSportType() == 0 ? getResources().getString(R.string.outdoor_running) : getResources().getString(R.string.outdoor_cycling));
         //Log.e(TAG,"----查询数据库="+amapSportBean.toString());
         String traListStr = amapSportBean.getAmapTraceStr();
-        if(WatchUtils.isEmpty(traListStr))
+        if (WatchUtils.isEmpty(traListStr))
             return;
-        traceLocationList = new Gson().fromJson(traListStr,new TypeToken<List<AmapTraceLocation>>(){}.getType());
-        if(traceLocationList == null)
+        traceLocationList = new Gson().fromJson(traListStr, new TypeToken<List<AmapTraceLocation>>() {
+        }.getType());
+        if (traceLocationList == null)
             return;
 
         try {
             boolean isUnit = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISSystem, true);//是否为公制
             mapSportCountDisTv.setText(amapSportBean.getCountDisance() + (isUnit ? " km" : " mile"));
-            mapSportAvgSpeedTv.setText(amapSportBean.getAvgSpeed() +(isUnit ? " km/h" : " mile/h"));
+            mapSportAvgSpeedTv.setText(amapSportBean.getAvgSpeed() + (isUnit ? " km/h" : " mile/h"));
             mapSportCountTimeTv.setText(amapSportBean.getCountTime());
-            mapSportKcalTv.setText(amapSportBean.getKcal()+" kcal");
-        }catch (Exception e){
+            mapSportKcalTv.setText(amapSportBean.getKcal() + " kcal");
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -177,7 +177,7 @@ public class AmapHistorySportActivity extends WatchBaseActivity  implements Loca
         startMark.setDraggable(false);
 
 
-        LatLng endLng = latLngList.get(latLngList.size()-1);
+        LatLng endLng = latLngList.get(latLngList.size() - 1);
         MarkerOptions markerOption = new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.fit_end_point))
                 .position(endLng)
                 .draggable(true);
@@ -191,7 +191,7 @@ public class AmapHistorySportActivity extends WatchBaseActivity  implements Loca
         //设置平滑等级
         mpathSmoothTool.setIntensity(4);
         List<LatLng> pathoptimizeList = mpathSmoothTool.pathOptimize(latLngList);
-        if(pathoptimizeList == null)
+        if (pathoptimizeList == null)
             return;
         polyline = aMap.addPolyline(new PolylineOptions().addAll(pathoptimizeList).color(Color.GREEN).width(8f));
 
@@ -234,11 +234,11 @@ public class AmapHistorySportActivity extends WatchBaseActivity  implements Loca
     }
 
 
-    private List<TraceLocation> getTraceLocationList(){
+    private List<TraceLocation> getTraceLocationList() {
         List<TraceLocation> lt = new ArrayList<>();
-        for(AmapTraceLocation at : traceLocationList){
-            TraceLocation tt = new TraceLocation(at.getLatitude(),at.getLongitude(),
-                    at.getBearing(),at.getSpeed(),at.getTime());
+        for (AmapTraceLocation at : traceLocationList) {
+            TraceLocation tt = new TraceLocation(at.getLatitude(), at.getLongitude(),
+                    at.getBearing(), at.getSpeed(), at.getTime());
             lt.add(tt);
         }
         return lt;
@@ -246,14 +246,13 @@ public class AmapHistorySportActivity extends WatchBaseActivity  implements Loca
 
     }
 
-    private List<LatLng> getLanList(List<AmapTraceLocation> tl){
+    private List<LatLng> getLanList(List<AmapTraceLocation> tl) {
         List<LatLng> latLngList = new ArrayList<>();
-        for(AmapTraceLocation traceLocation : tl){
-            latLngList.add(new LatLng(traceLocation.getLatitude(),traceLocation.getLongitude()));
+        for (AmapTraceLocation traceLocation : tl) {
+            latLngList.add(new LatLng(traceLocation.getLatitude(), traceLocation.getLongitude()));
         }
         return latLngList;
     }
-
 
 
     //设置属性
@@ -280,36 +279,37 @@ public class AmapHistorySportActivity extends WatchBaseActivity  implements Loca
     @Override
     protected void onResume() {
         super.onResume();
-        if(amapMapView != null)
+        if (amapMapView != null)
             amapMapView.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if(amapMapView != null)
+        if (amapMapView != null)
             amapMapView.onPause();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(amapMapView != null)
+        if (amapMapView != null)
             amapMapView.onDestroy();
     }
 
 
     @OnClick(R.id.commentB30BackImg)
     public void onClick() {
+        finish();
 
     }
 
     //定位成功回调
     @Override
     public void onLocationChanged(AMapLocation aMapLocation) {
-        if (mListener != null && aMapLocation != null){
+        if (mListener != null && aMapLocation != null) {
             mListener.onLocationChanged(aMapLocation);
-            LatLng latLng = new LatLng(aMapLocation.getLatitude(),aMapLocation.getLongitude());
+            LatLng latLng = new LatLng(aMapLocation.getLatitude(), aMapLocation.getLongitude());
             aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18));
         }
     }
@@ -363,7 +363,7 @@ public class AmapHistorySportActivity extends WatchBaseActivity  implements Loca
     //轨迹纠偏进行中
     @Override
     public void onTraceProcessing(int lineID, int i1, List<LatLng> list) {
-        if(list == null)
+        if (list == null)
             return;
         if (mOverlayList.containsKey(lineID)) {
             TraceOverlay overlay = mOverlayList.get(lineID);
@@ -386,4 +386,5 @@ public class AmapHistorySportActivity extends WatchBaseActivity  implements Loca
             //setDistanceWaitInfo(overlay);
         }
     }
+
 }

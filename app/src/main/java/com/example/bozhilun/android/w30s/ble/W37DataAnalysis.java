@@ -1,14 +1,20 @@
 package com.example.bozhilun.android.w30s.ble;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.Vibrator;
+import android.telecom.TelecomManager;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
+import com.example.bozhilun.android.siswatch.utils.PhoneUtils;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
+import com.example.bozhilun.android.util.PhoneUtile;
 import com.example.bozhilun.android.util.VerifyUtil;
 import com.suchengkeji.android.w30sblelibrary.W30SBLEGattAttributes;
 import com.suchengkeji.android.w30sblelibrary.bean.W30S_AlarmInfo;
@@ -20,6 +26,8 @@ import com.suchengkeji.android.w30sblelibrary.bean.servicebean.W30SSportData;
 import com.suchengkeji.android.w30sblelibrary.bean.servicebean.W30S_SleepDataItem;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.suchengkeji.android.w30sblelibrary.utils.W30SBleUtils;
+import com.yanzhenjie.permission.AndPermission;
+
 import org.apache.commons.lang.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -416,6 +424,34 @@ public class W37DataAnalysis {
     public void disPhone(){
         MyApp.getInstance().getW37BleOperateManager().writeBleDataToDeviceNoBack(W30SBLEGattAttributes.notifyMsgClose());
     }
+
+
+    //调用代码挂断电话
+    public  void disCallPhone(){
+        try {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
+                if(!AndPermission.hasPermissions(MyApp.getContext(), Manifest.permission.ANSWER_PHONE_CALLS))
+                    return;
+                TelecomManager tm = (TelecomManager) MyApp.getInstance().getApplicationContext().getSystemService(Context.TELECOM_SERVICE);
+                if (tm != null) {
+                    @SuppressLint("MissingPermission") boolean success = tm.endCall();
+                }
+
+            } else {
+                TelephonyManager tm = (TelephonyManager) MyApp.getContext()
+                        .getSystemService(Service.TELEPHONY_SERVICE);
+                PhoneUtils.endPhone(MyApp.getContext(), tm);
+                PhoneUtils.dPhone();
+                PhoneUtils.endCall(MyApp.getContext());
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }catch (NoSuchMethodError e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
     //发送开始固件升级的指令

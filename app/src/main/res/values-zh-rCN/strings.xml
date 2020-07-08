@@ -1,5 +1,5 @@
 <resources>
-
+    <string name="calibrating">校准中</string>
     <string name="string_bmi_title">减脂指数</string>
 
     <string name="string_privacy_str1">我们收集数据是根据您与我们的互动和您所做出的选择,包括您的隐私设置以及您使用的产品和功能。我们收集的数据可能包括 SOK/API/JS 代码版本、浏览器、互联网服务提供商、IP地址、平台、时间戳、应用标识符、 应用程序版本、应用分发渠道、独立设备标识符、IOS广告标识符（IDFA）、安卓广告主标识符、 网卡（MAC）地址、国际移动设备识别码（IMEI）、设备型号、终端制造厂商、终端设备操作系统版本、 会话启动/停止时间、语言所在地、时区和网络状态（WIFi等）、硬盘、CPU和电池使用情况等。</string>
@@ -652,7 +652,7 @@
     <string name="submit_fail">数据提交失败</string>
     <string name="write_nickname">请填写用户昵称</string>
     <string name="forget_password">忘记密码</string>
-    <string name="send_code">发送验证码</string>
+    <string name="send_code">获取验证码</string>
 
     <string name="yonghuzdffhej">验证码错误</string>
     <string name="yonghuzhej">号码已被注册,请更换!</string>

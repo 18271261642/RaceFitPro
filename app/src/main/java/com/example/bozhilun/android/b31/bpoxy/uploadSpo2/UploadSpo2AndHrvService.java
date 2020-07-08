@@ -204,6 +204,8 @@ public class UploadSpo2AndHrvService extends IntentService  {
             return;
         if(bleMac == null)
             return;
+        if(userId.equals("9278cc399ab147d0ad3ef164ca156bf0"))
+            return;
         uploadSpo2Data();
 
         uploadHrvData();

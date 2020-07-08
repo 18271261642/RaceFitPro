@@ -16,7 +16,7 @@
         android:layout_weight="1"
         android:background="@drawable/my_btn_selector">
 
-        <android.support.v4.view.ViewPager
+        <androidx.viewpager.widget.ViewPager
             android:id="@+id/shape_poster"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

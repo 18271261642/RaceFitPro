@@ -39,6 +39,8 @@ public class W30SBLEManage {
     private static BluetoothManager mBluetoothManager;
     private static BluetoothAdapter mBluetoothAdapter;
 
+
+
     //================== 消息推送类型===========================
     public static final int NotifaceMsgPhone = 0x01;//来电提醒
     public static final int NotifaceMsgQq = 0x02;//QQ
@@ -277,7 +279,7 @@ public class W30SBLEManage {
         try {
             mW30SBLEServices.writeRXCharacteristic(W30SBLEGattAttributes.SendAnddroidLanguage(value));
         } catch (Exception e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 
@@ -288,7 +290,7 @@ public class W30SBLEManage {
         try {
             mW30SBLEServices.writeRXCharacteristic(W30SBLEGattAttributes.setReboot());
         } catch (Exception e) {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 

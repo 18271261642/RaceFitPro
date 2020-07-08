@@ -1,6 +1,7 @@
 <resources>
     <!--头尾内部m部分翻译为英文,后期根据提供文档更改-->
     <!--意大利语-->
+    <string name="calibrating">calibrating</string>
     <string name="string_bmi_title">BMI</string>
     <string name="string_note">badare:</string>
     <string name="string_light_alert">L\'impostazione di luminosità più elevata comporta un consumo energetico più rapido e una durata della batteria più breve.</string>

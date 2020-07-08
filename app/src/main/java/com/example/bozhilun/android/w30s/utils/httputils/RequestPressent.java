@@ -83,11 +83,6 @@ public class RequestPressent {
 
 
 
-
-
-
-
-
     //绑定
     public void attach(RequestView requestView) {
         this.requestView = requestView;

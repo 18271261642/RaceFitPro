@@ -3,11 +3,9 @@ package com.example.bozhilun.android.w30s.activity;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -15,9 +13,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
-
-import com.afollestad.materialdialogs.DialogAction;
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.b31.MessageHelpActivity;
@@ -27,9 +22,8 @@ import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Rationale;
 import com.yanzhenjie.permission.RequestExecutor;
-
+import com.yanzhenjie.permission.runtime.Permission;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -44,10 +38,6 @@ import butterknife.OnClick;
 
 public class W30SReminderActivity extends WatchBaseActivity implements CompoundButton.OnCheckedChangeListener {
 
-    private static final int REQD_MSG_CONTENT_CODE = 1001;  //读取短信内容权限code
-    private static final int REQUEST_REQDPHONE_STATE_CODE = 1002;
-
-    private static final String BOZLUN_PACKNAME_EN = "com.bozlun.bozhilun.android";
 
     @BindView(R.id.switch_Skype)
     ToggleButton switchSkype;
@@ -187,7 +177,7 @@ public class W30SReminderActivity extends WatchBaseActivity implements CompoundB
                 if (!AndPermission.hasPermissions(W30SReminderActivity.this, new String[]{Manifest.permission.READ_CONTACTS,})) {
                     AndPermission.with(W30SReminderActivity.this)
                             .runtime()
-                            .permission(Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_CONTACTS)
+                            .permission(Permission.READ_SMS, Permission.READ_CONTACTS)
                             .start();
                 }
                 SharedPreferencesUtils.setParam(W30SReminderActivity.this, "w30sswitch_Msg", isChecked);
@@ -197,8 +187,8 @@ public class W30SReminderActivity extends WatchBaseActivity implements CompoundB
                         Manifest.permission.READ_PHONE_STATE})) {
                     AndPermission.with(W30SReminderActivity.this)
                             .runtime()
-                            .permission(Manifest.permission.CALL_PHONE, Manifest.permission.READ_PHONE_STATE,
-                                    Manifest.permission.READ_CONTACTS, Manifest.permission.READ_CALL_LOG)
+                            .permission( Permission.CALL_PHONE, Permission.READ_PHONE_STATE,
+                                    Permission.READ_CONTACTS, Permission.READ_CALL_LOG)
                             .rationale(new Rationale<List<String>>() {
                                 @Override
                                 public void showRationale(Context context, List<String> data, RequestExecutor executor) {

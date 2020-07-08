@@ -35,7 +35,8 @@
             android:hint="@string/string_writ_old_password"
             android:background="@null"
             android:inputType="number"
-            android:padding="3dp"
+            android:padding="5dp"
+            android:layout_marginTop="5dp"
             android:layout_height="wrap_content" />
 
         <View
@@ -50,10 +51,11 @@
             android:id="@+id/b30NewPwdEdit"
             android:layout_width="match_parent"
             android:hint="@string/input_new_password"
+            android:layout_marginTop="5dp"
             android:background="@null"
             android:inputType="number"
             android:maxLines="1"
-            android:padding="3dp"
+            android:padding="5dp"
             android:layout_height="wrap_content" />
 
         <View
@@ -68,9 +70,10 @@
             android:id="@+id/b30AgainNewPwdEdit"
             android:layout_width="match_parent"
             android:inputType="number"
+            android:layout_marginTop="5dp"
             android:hint="@string/input_confirm_password"
             android:background="@null"
-            android:padding="3dp"
+            android:padding="5dp"
             android:maxLines="1"
             android:layout_height="wrap_content" />
 

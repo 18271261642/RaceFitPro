@@ -8,14 +8,12 @@ import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-import com.bumptech.glide.load.engine.Initializable;
 import com.example.bozhilun.android.R;
-import com.veepoo.protocol.model.datas.SleepData;
 
 import java.util.List;
 

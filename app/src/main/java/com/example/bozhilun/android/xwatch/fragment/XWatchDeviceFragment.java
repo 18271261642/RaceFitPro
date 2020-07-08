@@ -6,12 +6,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +38,7 @@ import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Rationale;
 import com.yanzhenjie.permission.RequestExecutor;
+import com.yanzhenjie.permission.runtime.Permission;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -119,28 +120,31 @@ public class XWatchDeviceFragment extends Fragment {
     private void initViews() {
         commentB30BackImg.setVisibility(View.VISIBLE);
         commentB30TitleTv.setText(getResources().getString(R.string.menu_settings));
-
+        if(MyCommandManager.DEVICENAME == null)
+            return;
         if (MyCommandManager.DEVICENAME.equals("XWatch")) {
             xWatchDeviceSleepRel.setVisibility(View.VISIBLE);
             b18DeviceUnitRel.setVisibility(View.VISIBLE);
             sWatchFindWatchRel.setVisibility(View.GONE);
         }
 
+        try {
+            int sportGoal = (int) SharedPreferencesUtils.getParam(getActivity(), Commont.SPORT_GOAL_STEP, 10000);
+            xWatchDeviceSportGoalTv.setText(sportGoal + "");
 
-        int sportGoal = (int) SharedPreferencesUtils.getParam(getActivity(), Commont.SPORT_GOAL_STEP, 10000);
-        xWatchDeviceSportGoalTv.setText(sportGoal + "");
-
-        xWatchBleAnalysis.getDeviceSportGoal(new XWatchGoalListener() {
-            @Override
-            public void backDeviceGoal(int goal) {
-                if (getActivity().isFinishing()) //647249
-                    return;
-                xWatchDeviceSportGoalTv.setText(goal + "");
-                SharedPreferencesUtils.setParam(getActivity(), Commont.SPORT_GOAL_STEP, goal);
-                readDeviceTimeModel();
-            }
-        });
-
+            xWatchBleAnalysis.getDeviceSportGoal(new XWatchGoalListener() {
+                @Override
+                public void backDeviceGoal(int goal) {
+                    if (getActivity().isFinishing()) //647249
+                        return;
+                    xWatchDeviceSportGoalTv.setText(goal + "");
+                    SharedPreferencesUtils.setParam(getActivity(), Commont.SPORT_GOAL_STEP, goal);
+                    readDeviceTimeModel();
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     //时间模式
@@ -180,6 +184,8 @@ public class XWatchDeviceFragment extends Fragment {
     public void onClick(View view) {
         fragmentManager = getFragmentManager();
         if (fragmentManager == null)
+            return;
+        if(MyCommandManager.DEVICENAME == null)
             return;
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         switch (view.getId()) {
@@ -222,7 +228,7 @@ public class XWatchDeviceFragment extends Fragment {
                 } else {
                     AndPermission.with(this)
                             .runtime()
-                            .permission(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
+                            .permission(Permission.CAMERA, Permission.RECORD_AUDIO)
                             .rationale(rationale)
                             .onGranted(new Action<List<String>>() {
                                 @Override
@@ -238,7 +244,7 @@ public class XWatchDeviceFragment extends Fragment {
 
 
     private void openCamera() {
-        if (MyCommandManager.DEVICENAME.equals("SWatch")) {
+        if (MyCommandManager.DEVICENAME != null && MyCommandManager.DEVICENAME.equals("SWatch")) {
             XWatchBleAnalysis.getW37DataAnalysis().openOrCloseCamera(1);
         }
         startActivity(new Intent(getActivity(), W30sCameraActivity.class));
@@ -349,7 +355,7 @@ public class XWatchDeviceFragment extends Fragment {
     private Rationale rationale = new Rationale() {
         @Override
         public void showRationale(Context context, Object data, RequestExecutor executor) {
-            AndPermission.with(XWatchDeviceFragment.this).runtime().setting().start();
+            AndPermission.with(XWatchDeviceFragment.this).runtime().setting().start(1001);
             executor.execute();
         }
     };

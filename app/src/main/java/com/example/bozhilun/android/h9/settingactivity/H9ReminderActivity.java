@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -23,21 +23,18 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
-import com.example.bozhilun.android.util.ToastUtil;
 import com.sdk.bluetooth.manage.AppsBluetoothManager;
 import com.sdk.bluetooth.manage.GlobalVarManager;
 import com.sdk.bluetooth.protocol.command.base.BaseCommand;
 import com.sdk.bluetooth.protocol.command.base.CommandConstant;
-import com.sdk.bluetooth.protocol.command.setting.AutoSleep;
-import com.sdk.bluetooth.protocol.command.setting.HeartRateAlarm;
 import com.sdk.bluetooth.protocol.command.setting.SwitchSetting;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Rationale;
 import com.yanzhenjie.permission.RequestExecutor;
+import com.yanzhenjie.permission.runtime.Permission;
 
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -331,7 +328,7 @@ public class H9ReminderActivity
                     if (!AndPermission.hasPermissions(H9ReminderActivity.this, new String[]{Manifest.permission.READ_SMS, Manifest.permission.READ_CONTACTS})) {
                         AndPermission.with(H9ReminderActivity.this)
                                 .runtime()
-                                .permission(Manifest.permission.READ_SMS, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_CONTACTS)
+                                .permission(Permission.READ_SMS, Permission.READ_SMS)
                                 .start();
                     }
                     AppsBluetoothManager.getInstance(H9ReminderActivity.this).
@@ -341,7 +338,7 @@ public class H9ReminderActivity
                     if (!AndPermission.hasPermissions(H9ReminderActivity.this, new String[]{Manifest.permission.CALL_PHONE, Manifest.permission.READ_PHONE_STATE})) {
                         AndPermission.with(H9ReminderActivity.this)
                                 .runtime()
-                                .permission(Manifest.permission.CALL_PHONE, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_CONTACTS)
+                                .permission(Permission.CALL_PHONE, Permission.READ_PHONE_STATE, Permission.READ_CONTACTS)
                                 .rationale(new Rationale<List<String>>() {
                                     @Override
                                     public void showRationale(Context context, List<String> data, RequestExecutor executor) {

@@ -5,13 +5,13 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,14 +24,12 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.b31.bpoxy.Spo2SecondDialogView;
 import com.example.bozhilun.android.b31.bpoxy.markview.SPMarkerView;
 import com.example.bozhilun.android.b31.bpoxy.uploadSpo2.UploadHrvBean;
 import com.example.bozhilun.android.b31.bpoxy.util.ChartViewUtil;
 import com.example.bozhilun.android.b31.bpoxy.util.HrvDescripterUtil;
-import com.example.bozhilun.android.b31.hrv.B31HrvDetailActivity;
 import com.example.bozhilun.android.b31.hrv.HrvDescDialogView;
 import com.example.bozhilun.android.b31.hrv.HrvListDataAdapter;
 import com.example.bozhilun.android.commdbserver.SyncDbUrls;
@@ -42,7 +40,6 @@ import com.example.bozhilun.android.util.OkHttpTool;
 import com.github.mikephil.charting.charts.LineChart;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.veepoo.protocol.model.datas.HRVOriginData;
 import com.veepoo.protocol.model.datas.TimeData;
 import com.veepoo.protocol.util.HRVOriginUtil;
@@ -131,7 +128,7 @@ public class FriendHrvDetailActivity extends WatchBaseActivity {
     String friendBleMac = null;
 
     @SuppressLint("HandlerLeak")
-    Handler handler = new Handler(){
+    private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -260,7 +257,6 @@ public class FriendHrvDetailActivity extends WatchBaseActivity {
     private void initViews() {
         commentB30BackImg.setVisibility(View.VISIBLE);
         commentB30TitleTv.setText("HRV");
-        relaLayoutTitle.setBackgroundColor(Color.parseColor("#ECA83D"));
 
         mMarkviewHrv = new SPMarkerView(getApplicationContext(), R.layout.vpspo2h_markerview,
                 true, CHART_MIDDLE_HRV, TYPE_HRV);
@@ -533,7 +529,8 @@ public class FriendHrvDetailActivity extends WatchBaseActivity {
             if (spo2SecondDialogView == null) {
                 spo2SecondDialogView = new Spo2SecondDialogView(FriendHrvDetailActivity.this);
             }
-            List<Map<String, Float>> lt = mHrvOriginUtil.getDetailList(listMap.size() - position - 1);
+            float itemTime = hrvListDataAdapter.getItemTime(position);
+            List<Map<String, Float>> lt = mHrvOriginUtil.getDetailList((int) (itemTime/10));
             if (lt == null || lt.size() == 0)
                 return;
             spo2SecondDialogView.show();

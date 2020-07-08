@@ -1,6 +1,6 @@
 package com.example.bozhilun.android.B18I.b18iutils;
 
-import android.support.design.widget.AppBarLayout;
+import com.google.android.material.appbar.AppBarLayout;
 
 /**
  * @aboutContent: 监听CollapsingToolbarLayout的展开折叠状态

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -23,14 +23,12 @@ import com.example.bozhilun.android.w30s.ble.W37BloodBean;
 import com.example.bozhilun.android.w30s.ble.W37DataAnalysis;
 import com.google.gson.Gson;
 import com.suchengkeji.android.w30sblelibrary.W30SBLEGattAttributes;
-import com.suchengkeji.android.w30sblelibrary.W30SBLEManage;
 import com.suchengkeji.android.w30sblelibrary.bean.servicebean.W30SDeviceData;
 import com.suchengkeji.android.w30sblelibrary.bean.servicebean.W30SHeartData;
 import com.suchengkeji.android.w30sblelibrary.bean.servicebean.W30SSleepData;
 import com.suchengkeji.android.w30sblelibrary.bean.servicebean.W30SSportData;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,7 +62,7 @@ public class W37IntelDetailActivity extends WatchBaseActivity {
 
 
     @SuppressLint("HandlerLeak")
-    Handler handler = new Handler(){
+    private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -151,7 +149,10 @@ public class W37IntelDetailActivity extends WatchBaseActivity {
 //                String inputDa = inputEdit.getText().toString().trim();
 //                if(WatchUtils.isEmpty(inputDa))
 //                    return;
-                W37DataAnalysis.getW37DataAnalysis().sendAppalertData("this is Line 消息", W30SBLEManage.NotifaceMsgLine);
+                //W37DataAnalysis.getW37DataAnalysis().sendAppalertData("this is Line 消息", W30SBLEManage.NotifaceMsgLine);
+
+                W37DataAnalysis.getW37DataAnalysis().sendAppalertData("110", 0x01);
+
                 break;
         }
     }

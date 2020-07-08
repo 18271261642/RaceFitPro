@@ -1,9 +1,8 @@
 package com.example.bozhilun.android.siswatch.utils;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.util.Log;
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.R;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -22,26 +22,26 @@
         app:layout_constraintTop_toBottomOf="@+id/commB31TitleLayout"
         android:layout_height="wrap_content" />
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/unPairSwipe"
         app:layout_constraintTop_toBottomOf="@+id/unPairDescTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/unpariRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        </android.support.v7.widget.RecyclerView>
+        </androidx.recyclerview.widget.RecyclerView>
 
 
-    </android.support.v4.widget.SwipeRefreshLayout>
-
-
-
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 
-</android.support.constraint.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

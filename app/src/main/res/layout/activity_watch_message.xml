@@ -143,8 +143,8 @@
                     android:padding="5dp">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/size_35"
+                        android:layout_height="@dimen/size_35"
                         android:layout_marginLeft="@dimen/size_5"
                         android:gravity="center_vertical"
                         android:padding="@dimen/size_5"
@@ -175,8 +175,8 @@
                     android:padding="5dp">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/size_35"
+                        android:layout_height="@dimen/size_35"
                         android:layout_marginLeft="@dimen/size_5"
                         android:gravity="center_vertical"
                         android:padding="@dimen/size_5"
@@ -209,8 +209,8 @@
                     android:padding="5dp">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/size_35"
+                        android:layout_height="@dimen/size_35"
                         android:layout_marginLeft="@dimen/size_5"
                         android:gravity="center_vertical"
                         android:padding="@dimen/size_5"
@@ -243,8 +243,8 @@
                     android:padding="5dp">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/size_35"
+                        android:layout_height="@dimen/size_35"
                         android:layout_marginLeft="@dimen/size_5"
                         android:gravity="center_vertical"
                         android:padding="@dimen/size_5"
@@ -276,8 +276,8 @@
                     android:padding="5dp">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/size_35"
+                        android:layout_height="@dimen/size_35"
                         android:layout_marginLeft="@dimen/size_5"
                         android:gravity="center_vertical"
                         android:padding="@dimen/size_5"
@@ -310,8 +310,8 @@
                     android:padding="5dp">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/size_35"
+                        android:layout_height="@dimen/size_35"
                         android:layout_marginLeft="@dimen/size_5"
                         android:gravity="center_vertical"
                         android:padding="@dimen/size_5"
@@ -343,8 +343,8 @@
                     android:padding="5dp">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/size_35"
+                        android:layout_height="@dimen/size_35"
                         android:layout_marginLeft="@dimen/size_5"
                         android:gravity="center_vertical"
                         android:padding="@dimen/size_5"
@@ -377,8 +377,8 @@
                     android:padding="5dp">
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="@dimen/size_35"
+                        android:layout_height="@dimen/size_35"
                         android:layout_marginLeft="@dimen/size_5"
                         android:gravity="center_vertical"
                         android:padding="@dimen/size_5"

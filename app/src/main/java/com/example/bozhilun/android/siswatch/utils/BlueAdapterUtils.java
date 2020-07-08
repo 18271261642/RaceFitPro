@@ -98,6 +98,10 @@ public class BlueAdapterUtils {
         intentFilter.addAction(W37Constance.S_WATCH_CONNECTED_ACTION);
         intentFilter.addAction(W37Constance.S_WATCH_DISCONN_ACTION);
 
+        //B11
+        intentFilter.addAction(W37Constance.B11_WATCH_CONNECTED_ACTION);
+        intentFilter.addAction(W37Constance.B11_WATCH_DISCON_ACTION);
+
         //B18
         intentFilter.addAction(WatchUtils.B18_CONNECTED_ACTION);
         intentFilter.addAction(WatchUtils.B18_DISCONN_ACTION);

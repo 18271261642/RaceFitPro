@@ -3,6 +3,7 @@ package com.example.bozhilun.android.b31.km;
 import android.util.Log;
 
 import com.example.bozhilun.android.MyApp;
+import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.yanzhenjie.nohttp.NoHttp;
 import com.yanzhenjie.nohttp.RequestMethod;
 import com.yanzhenjie.nohttp.rest.OnResponseListener;
@@ -60,17 +61,21 @@ public class NohttpUtils {
      * @param onResponseListener    回调
      */
     public void getModelRequestJSONObject(RequestMethod requestMethod,int what, String url, Map<String,Object> params, OnResponseListener<JSONObject> onResponseListener){
-        Request<JSONObject> jsonObjectRequest = NoHttp.createJsonObjectRequest(url, requestMethod);
-        //遍历map，将参数添加至requst中
-        if(params != null && !params.isEmpty()){
-            for(Map.Entry<String,Object> map : params.entrySet()){
-                jsonObjectRequest.add(map.getKey(),map.getValue()+"");
-            }
-        }
-        MyApp.getInstance().getNoRequestQueue().add(what,jsonObjectRequest,onResponseListener);
+       try {
+           NoHttp.initialize(MyApp.getInstance());
+           Request<JSONObject> jsonObjectRequest = NoHttp.createJsonObjectRequest(url, requestMethod);
+           //遍历map，将参数添加至requst中
+           if(params != null && !params.isEmpty()){
+               for(Map.Entry<String,Object> map : params.entrySet()){
+                   jsonObjectRequest.add(map.getKey(),map.getValue()+"");
+               }
+           }
+           MyApp.getInstance().getNoRequestQueue().add(what,jsonObjectRequest,onResponseListener);
+       }catch (ExceptionInInitializerError | Exception exceptionInInitializerError){
+           exceptionInInitializerError.printStackTrace();
+       }
+
     }
-
-
 
 
     /**
@@ -81,9 +86,15 @@ public class NohttpUtils {
      * @param onResponseListener    回调
      */
     public void getModelRequestJSONObject(int what, String url, String jsonStr, OnResponseListener<JSONObject> onResponseListener){
-        Request<JSONObject> jsonObjectRequest = NoHttp.createJsonObjectRequest(url, RequestMethod.POST);
-        jsonObjectRequest.setDefineRequestBodyForJson(jsonStr);
-        MyApp.getInstance().getNoRequestQueue().add(what,jsonObjectRequest,onResponseListener);
+        try {
+            NoHttp.initialize(MyApp.getInstance());
+            Request<JSONObject> jsonObjectRequest = NoHttp.createJsonObjectRequest(url, RequestMethod.POST);
+            //jsonObjectRequest.setDefineRequestBody(jsonStr,"application/json");
+            jsonObjectRequest.setDefineRequestBodyForJson(jsonStr);
+            MyApp.getInstance().getNoRequestQueue().add(what,jsonObjectRequest,onResponseListener);
+        }catch (ExceptionInInitializerError | Exception exceptionInInitializerError){
+            exceptionInInitializerError.printStackTrace();
+        }
     }
 
 
@@ -91,10 +102,8 @@ public class NohttpUtils {
 
     /**
      * 请求StringRequest
-     * @param what
-     * @param url
-     * @param params
-     * @param onResponseListener
+     * @param
+     * @param
      */
     public void getModelRequestString(int what, String url, Map<String,Object> params, OnResponseListener<String> onResponseListener){
         Request<String> stringRequest = NoHttp.createStringRequest(url,RequestMethod.POST);
@@ -118,7 +127,7 @@ public class NohttpUtils {
 
     /**
      * 取消网络请求
-     * @param what
+     * @param
      */
     public void cancleHttpPost(){
         MyApp.getInstance().getNoRequestQueue().cancelAll();

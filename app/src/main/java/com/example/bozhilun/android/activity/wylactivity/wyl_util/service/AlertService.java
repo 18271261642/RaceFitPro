@@ -16,6 +16,7 @@ import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
+import com.example.bozhilun.android.w30s.ble.W37Constance;
 import com.example.bozhilun.android.w30s.ble.W37DataAnalysis;
 import com.example.bozhilun.android.xwatch.ble.XWatchBleAnalysis;
 import com.hplus.bluetooth.BleProfileManager;
@@ -26,7 +27,6 @@ import com.sdk.bluetooth.protocol.command.push.SocialPush;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.sdk.bluetooth.manage.AppsBluetoothManager;
 import com.sdk.bluetooth.protocol.command.base.BaseCommand;
-import com.suchengkeji.android.w30sblelibrary.W30SBLEManage;
 import com.tjdL4.tjdmain.AppIC;
 import com.tjdL4.tjdmain.contr.L4Command;
 import com.veepoo.protocol.listener.base.IBleWriteResponse;
@@ -162,7 +162,7 @@ public class AlertService extends MyNotificationListenerService {
             Set<String> set = new HashSet<>(Arrays.asList(WatchUtils.TJ_FilterNamas));
             boolean other = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISOhter, false);
             boolean isW30Device = ( saveBleName.equals("W30") || saveBleName.equals("W31") || saveBleName.equals("W37"));
-            boolean isB16Device = (saveBleName.equals("B18") || saveBleName.equals("B50") || saveBleName.contains("B16"));
+            boolean isB16Device = (saveBleName.equals("B18") || saveBleName.contains("B16"));
 
             if (packageName.equals(LINE_PACKAGENAME) || packageName.equals(LINE_LITE_PACK_NAME)) {  //line
                 int pushMsg_Line = AppIC.SData().getIntData("pushMsg_Line");
@@ -175,7 +175,7 @@ public class AlertService extends MyNotificationListenerService {
                     if (h9_line) sendMessH9(SocialPush.LINE, msgCont, (byte) 0x0F);
                 }
                 if (isW30Device) {  //W30
-                    sendMsgW30S(msgCont, W30SBLEManage.NotifaceMsgLine);
+                    sendMsgW30S(msgCont, W37Constance.NotifaceMsgLine);
                 }
 
                 boolean isLine = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISLINE, false);
@@ -210,7 +210,7 @@ public class AlertService extends MyNotificationListenerService {
                     if (h9_qq) sendMessH9(SocialPush.QQ, msgCont, (byte) 0x08);
                 }
                 if (isW30Device) {  //W30
-                    sendMsgW30S(msgCont, W30SBLEManage.NotifaceMsgQq);
+                    sendMsgW30S(msgCont, W37Constance.NotifaceMsgQq);
                 }
                 if (WatchUtils.isVPBleDevice(saveBleName)) {  //B30,B31,B36
                     boolean isQQ = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISQQ, false);
@@ -249,7 +249,7 @@ public class AlertService extends MyNotificationListenerService {
                         sendMessH9(SocialPush.WECHAT, msgCont, (byte) 0x09);
                 }
                 if (isW30Device) {  //W30,W31
-                    sendMsgW30S(msgCont, W30SBLEManage.NotifaceMsgWx);
+                    sendMsgW30S(msgCont, W37Constance.NotifaceMsgWx);
                 }
                 if (WatchUtils.isVPBleDevice(saveBleName)) {  //B30,B31,B36
                     boolean isWechart = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISWechart, false);
@@ -285,7 +285,7 @@ public class AlertService extends MyNotificationListenerService {
                         sendMessH9(SocialPush.FACEBOOK, msgCont, (byte) 0x0A);
                 }
                 if (isW30Device) {  //W30,W31
-                    sendMsgW30S(msgCont, W30SBLEManage.NotifaceMsgFacebook);
+                    sendMsgW30S(msgCont, W37Constance.NotifaceMsgFacebook);
                 }
                 if (WatchUtils.isVPBleDevice(saveBleName)) {  //B30,B31,B36
                     boolean isFacebook = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISFacebook, false);
@@ -324,7 +324,7 @@ public class AlertService extends MyNotificationListenerService {
                         sendMessH9(SocialPush.TWITTER, msgCont, (byte) 0x0B);
                 }
                 if (isW30Device) {  //W30
-                    sendMsgW30S(msgCont, W30SBLEManage.NotifaceMsgTwitter);
+                    sendMsgW30S(msgCont, W37Constance.NotifaceMsgTwitter);
 
                 }
                 if (WatchUtils.isVPBleDevice(saveBleName)) {  //B30,B31,B36
@@ -365,7 +365,7 @@ public class AlertService extends MyNotificationListenerService {
                         sendMessH9(SocialPush.WHATSAPP, msgCont, (byte) 0x0C);
                 }
                 if (isW30Device) {  //W30
-                    sendMsgW30S(msgCont, W30SBLEManage.NotifaceMsgWhatsapp);
+                    sendMsgW30S(msgCont, W37Constance.NotifaceMsgWhatsapp);
 
                 }
                 if (WatchUtils.isVPBleDevice(saveBleName)) {  //B30,B31,B36
@@ -412,7 +412,7 @@ public class AlertService extends MyNotificationListenerService {
                     if(isInstagram)sendB18MsgType("instagram",msgCont);
 
                 }
-                if(saveBleName.equals("SWatch") || saveBleName.equals("SWatch")){
+                if(saveBleName.equals("XWatch") || saveBleName.equals("SWatch")){
                     if(isInstagram)sendXWatcsgType(102);
                 }
                 return;
@@ -435,7 +435,7 @@ public class AlertService extends MyNotificationListenerService {
                 boolean isViber = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISViber, true);
 
                 if (isW30Device) {  //W30
-                    sendMsgW30S(msgCont, W30SBLEManage.NotifaceMsgViber);
+                    sendMsgW30S(msgCont, W37Constance.NotifaceMsgViber);
                 }
                 if (WatchUtils.isVPBleDevice(saveBleName)) {  //B30,B31,B36
                     sendB30Mesage(ESocailMsg.SMS, "Viber", msgCont);
@@ -445,7 +445,7 @@ public class AlertService extends MyNotificationListenerService {
                 if(isB16Device){  //B18
                     if(isViber)sendB18MsgType("viber",msgCont);
                 }
-                if(saveBleName.equals("SWatch") || saveBleName.equals("SWatch")){
+                if(saveBleName.equals("XWatch") || saveBleName.equals("SWatch")){
                     if(isViber)sendXWatcsgType(101);
                 }
                 return;
@@ -483,7 +483,7 @@ public class AlertService extends MyNotificationListenerService {
                         }
                     }
                     if (isW30Device) {  //W30
-                        sendMsgW30S(msgCont, W30SBLEManage.NotifaceMsgMsg);
+                        sendMsgW30S(msgCont, W37Constance.NotifaceMsgMsg);
                     }
                     if (WatchUtils.isVPBleDevice(saveBleName)) {  //B30,B31,B36
                         boolean isMSG = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISMsm, true);
@@ -515,7 +515,7 @@ public class AlertService extends MyNotificationListenerService {
                         sendMessH9(SocialPush.SKYPE, msgCont, (byte) 0x0F);
                 }
                 if (isW30Device) {  //W30
-                    sendMsgW30S(msgCont, W30SBLEManage.NotifaceMsgSkype);
+                    sendMsgW30S(msgCont, W37Constance.NotifaceMsgSkype);
                 }
                 if (WatchUtils.isVPBleDevice(saveBleName)) {  //B30,B31,B36
                     boolean isSkype = (boolean) SharedPreferencesUtils.getParam(MyApp.getContext(), Commont.ISSkype, false);
@@ -973,34 +973,34 @@ public class AlertService extends MyNotificationListenerService {
             boolean w30sswitch_Phone = (boolean) SharedPreferencesUtils.getParam(AlertService.this, "w30sswitch_Phone", false);
 
             switch (type) {
-                case W30SBLEManage.NotifaceMsgQq:
+                case W37Constance.NotifaceMsgQq:
                     if (w30sswitch_qq) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgWx:
+                case W37Constance.NotifaceMsgWx:
                     if (w30sswitch_weChat) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgFacebook:
+                case W37Constance.NotifaceMsgFacebook:
                     if (w30sswitch_facebook) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgTwitter:
+                case W37Constance.NotifaceMsgTwitter:
                     if (w30sswitch_twitter) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgWhatsapp:
+                case W37Constance.NotifaceMsgWhatsapp:
                     if (w30sswitch_whatsApp) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgViber:
+                case W37Constance.NotifaceMsgViber:
                     if (w30sswitch_viber) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgSkype:
+                case W37Constance.NotifaceMsgSkype:
                     if (w30sswitch_skype) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgMsg:  //短信
+                case W37Constance.NotifaceMsgMsg:  //短信
                     if (w30sswitch_msg) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgLine: //line
+                case W37Constance.NotifaceMsgLine: //line
                     if (w30sswitch_line) sendW30SApplicationMsg(h9Msg, type);
                     break;
-                case W30SBLEManage.NotifaceMsgLink: //linked
+                case W37Constance.NotifaceMsgLink: //linked
                     if (w30sswitch_linkendIn) sendW30SApplicationMsg(h9Msg, type);
                     break;
 

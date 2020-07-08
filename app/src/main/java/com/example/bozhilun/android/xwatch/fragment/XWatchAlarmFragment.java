@@ -1,21 +1,18 @@
 package com.example.bozhilun.android.xwatch.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.b18.modle.B18AlarmBean;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
@@ -229,6 +226,8 @@ public class XWatchAlarmFragment extends LazyFragment {
         fragmentManager = getFragmentManager();
         if(fragmentManager == null)
             return;
+        if(MyCommandManager.DEVICENAME== null)
+            return;
         switch (view.getId()) {
             case R.id.commentB30BackImg:
                 fragmentManager.popBackStack();
@@ -257,6 +256,8 @@ public class XWatchAlarmFragment extends LazyFragment {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             if(!buttonView.isPressed())
+                return;
+            if(firstBean == null || secondBean == null || thirdBean == null)
                 return;
             switch (buttonView.getId()){
                 case R.id.xWatchAlarmSwitchToggle1:

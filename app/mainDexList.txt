@@ -1,5 +1,4 @@
-com/alibaba/sdk/android/push/securitybox/alipush/AliPushSecurityBoxService
-com/alibaba/sdk/android/push/CloudPushService
+com/android/internal/telephony/ITelephony
 android/arch/lifecycle/Lifecycle$Event.class
 android/arch/lifecycle/LifecycleOwner.class
 android/arch/lifecycle/OnLifecycleEvent.class

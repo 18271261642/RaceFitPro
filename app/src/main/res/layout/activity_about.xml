@@ -8,7 +8,7 @@
         android:id="@+id/tool_bar"
         layout="@layout/appbar_toolbar" />
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tool_bar"
@@ -55,6 +55,6 @@
                 android:textSize="@dimen/sp_15" />
 
         </RelativeLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

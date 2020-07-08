@@ -90,7 +90,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/square_white_btn_change"
                 android:gravity="center"
-                android:padding="10dp">
+                android:layout_marginLeft="8dp">
 
                 <ImageView
                     android:id="@+id/device_img11"

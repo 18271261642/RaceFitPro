@@ -2,6 +2,7 @@ package com.example.bozhilun.android.b30.model;
 
 import com.veepoo.protocol.model.datas.InsomniaTimeData;
 import com.veepoo.protocol.model.datas.TimeData;
+import com.veepoo.protocol.util.c;
 
 import java.util.List;
 
@@ -87,7 +88,7 @@ public class CusVPSleepPrecisionData extends CusVPSleepData {
         String wakeDate = wakeTime.getDateForDb();
         if (sleepDate.equals(wakeDate)) {
             if (sleepTime.getHour() >= 20) {
-                this.Date = com.veepoo.protocol.util.b.a(sleepDate, 1);
+                this.Date = c.a(sleepDate, 1);
             } else {
                 this.Date = sleepDate;
             }

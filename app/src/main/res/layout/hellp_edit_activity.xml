@@ -61,7 +61,7 @@
 
 
             <!--111111111-->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_marginTop="13dp"
                 android:id="@+id/car_person_one"
                 android:layout_marginLeft="@dimen/size_10"
@@ -126,11 +126,11 @@
                 </RelativeLayout>
 
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
             <!--22222222222222222-->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_marginLeft="@dimen/size_10"
                 android:layout_marginRight="@dimen/size_10"
                 android:layout_marginTop="13dp"
@@ -193,11 +193,11 @@
                 </RelativeLayout>
 
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
             <!--33333333-->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_marginLeft="@dimen/size_10"
                 android:layout_marginRight="@dimen/size_10"
                 android:layout_marginTop="13dp"
@@ -261,11 +261,11 @@
                 </RelativeLayout>
 
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
             <!--说明-->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_marginLeft="@dimen/size_10"
                 android:layout_marginRight="@dimen/size_10"
                 android:layout_marginTop="13dp"
@@ -441,7 +441,7 @@
 
              </LinearLayout>
 
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 

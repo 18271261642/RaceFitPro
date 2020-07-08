@@ -4,9 +4,10 @@ package com.example.bozhilun.android.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
+import androidx.appcompat.widget.Toolbar;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
@@ -19,7 +20,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.bean.AreCodeBean;
@@ -44,8 +44,6 @@ import java.util.HashMap;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-
 
 /**
  * Created by thinkpad on 2017/3/4.
@@ -79,7 +77,7 @@ public class RegisterActivity2 extends WatchBaseActivity implements RequestView 
 
     //倒计时
     MyCountDownTimerUtils countTimeUtils;
-    Gson gson = new Gson();
+
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
@@ -164,11 +162,13 @@ public class RegisterActivity2 extends WatchBaseActivity implements RequestView 
                 //国标码
                 final String pCode = tv_phone_head.getText().toString().trim();
                 if (WatchUtils.isEmpty(phoneNum)) {
-                    ToastUtil.showShort(RegisterActivity2.this, getResources().getString(R.string.format_is_wrong));
+                    Snackbar.make(view,getResources().getString(R.string.format_is_wrong),Snackbar.LENGTH_SHORT).show();
+                    //ToastUtil.showShort(RegisterActivity2.this, getResources().getString(R.string.format_is_wrong));
                     return;
                 }
                 if (!NetUtils.isNetworkAvailable(this)) {
-                    ToastUtil.showShort(RegisterActivity2.this, getResources().getString(R.string.wangluo));
+                    Snackbar.make(view,getResources().getString(R.string.wangluo),Snackbar.LENGTH_SHORT).show();
+                    //ToastUtil.showShort(RegisterActivity2.this, getResources().getString(R.string.wangluo));
                     return;
                 }
                 //snedPhoneNumToServer(phoneNum.trim(),pCode);
@@ -184,11 +184,13 @@ public class RegisterActivity2 extends WatchBaseActivity implements RequestView 
                 String verCode = codeEt.getText().toString().trim();
                 String pwdTxt = password.getText().toString().trim();
                 if (WatchUtils.isEmpty(verCode)) {
-                    ToastUtil.showShort(RegisterActivity2.this, getResources().getString(R.string.string_code_null));
+                    Snackbar.make(view,getResources().getString(R.string.string_code_null),Snackbar.LENGTH_SHORT).show();
+                    //ToastUtil.showShort(RegisterActivity2.this, getResources().getString(R.string.string_code_null));
                     return;
                 }
                 if (WatchUtils.isEmpty(pwdTxt)) {
-                    ToastUtil.showShort(RegisterActivity2.this, getResources().getString(R.string.input_password));
+                    Snackbar.make(view,getResources().getString(R.string.input_password),Snackbar.LENGTH_SHORT).show();
+                    //ToastUtil.showShort(RegisterActivity2.this, getResources().getString(R.string.input_password));
                     return;
                 }
 
@@ -253,7 +255,7 @@ public class RegisterActivity2 extends WatchBaseActivity implements RequestView 
 
     @Override
     public void successData(int what, Object object, int daystag) {
-        //Log.e("", "------obj=" + object.toString());
+       // Log.e("", "------obj=" + object.toString());
         if (object == null)
             return;
         if (object.toString().contains("<html>"))
@@ -262,7 +264,9 @@ public class RegisterActivity2 extends WatchBaseActivity implements RequestView 
             JSONObject jsonObject = new JSONObject(object.toString());
             switch (what) {
                 case 0x01:  //获取验证码返回
-                    ToastUtil.showToast(RegisterActivity2.this, jsonObject.getString("data")+jsonObject.getString("msg"));
+                    String msg = jsonObject.getString("msg");
+                    String dataStr = jsonObject.getString("data");
+                    ToastUtil.showToast(RegisterActivity2.this,WatchUtils.isEmpty(dataStr)? msg : dataStr);
                     break;
                 case 0x02:  //注册返回
                     analysisRegiData(jsonObject);

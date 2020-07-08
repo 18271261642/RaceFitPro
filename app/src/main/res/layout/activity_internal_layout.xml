@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/comment_b30_title_layout" />
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <android.support.v4.widget.NestedScrollView
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <include layout="@layout/comment_b30_title_layout" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+        <include layout="@layout/comment_date_arrow_layout"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none">
@@ -16,7 +31,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/comment_date_arrow_layout"/>
+
 
 
             <Button
@@ -63,10 +78,6 @@
 
 
 
-
-
-
-
                 <Button
                     android:id="@+id/readDBHeartBtn"
                     android:layout_width="0dp"
@@ -108,10 +119,31 @@
                 android:layout_height="wrap_content" />
 
 
+                <Button
+                    android:id="@+id/readSpo2Btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="读取血氧数据(旧版)"/>
 
+                <Button
+                    android:text="保存数据"
+                    android:id="@+id/saveDataBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="设置1"
+                    android:id="@+id/setting1Btn"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="设置2"
+                    android:id="@+id/setting2Btn"/>
 
             </LinearLayout>
-
 
 
             <TextView
@@ -122,7 +154,7 @@
 
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,14 +1,13 @@
 package com.example.bozhilun.android.util;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.IBinder;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 import android.telephony.TelephonyManager;
-
 import com.android.internal.telephony.ITelephony;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -23,10 +22,16 @@ public class PhoneUtile {
      */
     static public ITelephony getITelephony(TelephonyManager telMgr)
             throws Exception {
-        Method getITelephonyMethod = telMgr.getClass().getDeclaredMethod(
-                "getITelephony");
-        getITelephonyMethod.setAccessible(true);// 私有化函数也能使用
-        return (ITelephony) getITelephonyMethod.invoke(telMgr);
+        try {
+            @SuppressLint("SoonBlockedPrivateApi") Method getITelephonyMethod = telMgr.getClass().getDeclaredMethod(
+                    "getITelephony");
+            getITelephonyMethod.setAccessible(true);// 私有化函数也能使用
+            return (ITelephony) getITelephonyMethod.invoke(telMgr);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
     }
 
     //自动挂断

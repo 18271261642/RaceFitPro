@@ -2,7 +2,7 @@ package com.example.bozhilun.android.siswatch.adapter;
 
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dd.CircularProgressButton;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.siswatch.bean.CustomBlueDevice;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
@@ -44,7 +43,7 @@ public class CustomBlueAdapter extends RecyclerView.Adapter<CustomBlueAdapter.Cu
 
     @Override
     public CustomBlueViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.recyclerview_bluedevice, null);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.recyclerview_bluedevice,null);
         return new CustomBlueViewHolder(view);
     }
 
@@ -147,6 +146,19 @@ public class CustomBlueAdapter extends RecyclerView.Adapter<CustomBlueAdapter.Cu
                 return;
             }
 
+            if(bleName.length()>3 && bleName.contains("YWK")){
+                holder.img.setImageResource(R.mipmap.icon_ywk_search);
+                return;
+            }
+            if(bleName.length()>3 && bleName.contains("SpO2")){
+                holder.img.setImageResource(R.mipmap.icon_spo2_search);
+                return;
+            }
+
+            if(bleName.length()>3 && bleName.equals("L890")){
+                holder.img.setImageResource(R.mipmap.icon_comm_search);
+                return;
+            }
             if (set.contains(bleName)) {    //B25
                 if (bleName.length() > 1 && !bleName.equals("F6")) {
                     if (bleName.length() >= 3 && bleName.substring(0, 3).equals("B25")) {
@@ -170,9 +182,9 @@ public class CustomBlueAdapter extends RecyclerView.Adapter<CustomBlueAdapter.Cu
                     holder.img.setImageResource(R.mipmap.img_f6);
                 }
 
+            }else{
+                holder.img.setImageResource(R.mipmap.icon_comm_search);
             }
-
-
 
         }
 
@@ -183,7 +195,7 @@ public class CustomBlueAdapter extends RecyclerView.Adapter<CustomBlueAdapter.Cu
         return customBlueDeviceList.size();
     }
 
-    class CustomBlueViewHolder extends RecyclerView.ViewHolder {
+    static class CustomBlueViewHolder extends RecyclerView.ViewHolder {
 
         TextView bleNameTv, bleMacTv, bleRiisTv;
         ImageView img;  //显示手表或者手环图片

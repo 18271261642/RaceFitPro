@@ -42,7 +42,7 @@
                 android:layout_gravity="center" />
 
 
-            <com.example.bozhilun.android.b30.b30view.CustomCircleProgressBar
+            <com.example.bozhilun.android.b30.b30view.TmpCustomCircleProgressBar
                 android:id="@+id/b31MeaureSpo2ProgressView"
                 android:layout_width="300dp"
                 android:layout_height="300dp"
@@ -64,23 +64,26 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical">
+
+
 
 
         <ImageView
             android:id="@+id/b31MeaureStartImg"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_gravity="center|bottom"
+            android:layout_gravity="center"
             android:background="@drawable/detect_sp_start" />
 
 
-    </LinearLayout>
+    </FrameLayout>
 
 
 </LinearLayout>

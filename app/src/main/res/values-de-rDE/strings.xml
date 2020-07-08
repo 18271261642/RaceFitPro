@@ -2,6 +2,7 @@
     <!--头尾内部m部分翻译为英文,后期根据提供文档更改-->
     <!--头-->
     <!--德语-->
+    <string name="calibrating">calibrating</string>
     <string name="string_bmi_title">BMI</string>
     <string name="string_note">Achtung:</string>
     <string name="string_light_alert">Die höchste Helligkeitseinstellung führt zu einem schnelleren Stromverbrauch und einer kürzeren Akkulaufzeit.</string>

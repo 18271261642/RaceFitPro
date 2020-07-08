@@ -5,8 +5,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.LayoutInflater;
@@ -17,13 +17,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.bozhilun.android.Commont;
-import com.example.bozhilun.android.LogTestUtil;
-import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.b30.b30view.B30BloadDataView;
-import com.example.bozhilun.android.b30.service.B30DataServer;
 import com.example.bozhilun.android.b30.view.DataMarkView;
-import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.siswatch.LazyFragment;
 import com.example.bozhilun.android.siswatch.data.BarXFormartValue;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
@@ -134,7 +130,7 @@ public class CommDataFragment extends LazyFragment {
     private int SectectCode = 7;
 
     @SuppressLint("HandlerLeak")
-    Handler handler = new Handler() {
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);

@@ -10,10 +10,13 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import android.util.Log;
 import android.view.KeyEvent;
+
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
@@ -35,9 +38,12 @@ import com.roughike.bottombar.OnTabSelectListener;
 import com.suchengkeji.android.w30sblelibrary.utils.SharedPreferencesUtils;
 import com.veepoo.protocol.listener.base.IBleWriteResponse;
 import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.Permission;
 import com.yanzhenjie.permission.Rationale;
 import com.yanzhenjie.permission.RequestExecutor;
+import com.yanzhenjie.permission.runtime.Permission;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
@@ -91,6 +97,13 @@ public class B31HomeActivity extends WatchBaseActivity implements  Rationale<Lis
 
 
         initViews();
+
+        initData();
+
+
+    }
+
+    private void initData() {
         //过滤器 注册短信发送广播
         IntentFilter mIntentFilter = new IntentFilter();
         mIntentFilter.addAction(Commont.SOS_SENDSMS_MESSAGE);
@@ -115,8 +128,8 @@ public class B31HomeActivity extends WatchBaseActivity implements  Rationale<Lis
     }
 
     private void updateActiveStatus() {
-        ActiveManage activeManage = ActiveManage.getActiveManage();
-        activeManage.updateTodayActive(this);
+//        ActiveManage activeManage = ActiveManage.getActiveManage();
+//        activeManage.updateTodayActive(this);
     }
 
 
@@ -125,7 +138,7 @@ public class B31HomeActivity extends WatchBaseActivity implements  Rationale<Lis
         if(!AndPermission.hasPermissions(B31HomeActivity.this,Manifest.permission.ACCESS_FINE_LOCATION)){
             AndPermission.with(B31HomeActivity.this)
                     .runtime()
-                    .permission(Manifest.permission.ACCESS_FINE_LOCATION)
+                    .permission(Permission.ACCESS_FINE_LOCATION)
                     .start();
         }
     }
@@ -315,5 +328,32 @@ public class B31HomeActivity extends WatchBaseActivity implements  Rationale<Lis
                 })
                 .show();
     }
+
+
+    public void printAllInform(Class clsShow) {
+        try {
+            // 取得所有方法
+            Method[] hideMethod = clsShow.getDeclaredMethods();
+            int i = 0;
+            for (; i < hideMethod.length; i++) {
+                Log.e("method name", hideMethod[i].getName());
+            }
+            // 取得所有常量
+            Field[] allFields = clsShow.getFields();
+            for (i = 0; i < allFields.length; i++) {
+                Log.e("Field name", allFields[i].getName());
+            }
+        } catch (SecurityException e) {
+            // throw new RuntimeException(e.getMessage());
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            // throw new RuntimeException(e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
 
 }

@@ -2,8 +2,8 @@ package com.example.bozhilun.android.friend.mutilbind;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +18,6 @@ import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.bzlmaps.CommomDialog;
 import com.example.bozhilun.android.friend.bean.FriendMyFriendListBean;
-import com.example.bozhilun.android.friend.bean.MyFrendListBean;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -55,20 +54,12 @@ public class FrendAdapter extends RecyclerView.Adapter<FrendAdapter.ViewHodler> 
                     holder.userNames.setText(phone);
                 }
                 //头像
-                if (!TextUtils.isEmpty( myfriendsBean.getImage()) && holder.circleImageView != null) {
-                    //头像
-                    RequestOptions mRequestOptions = RequestOptions.circleCropTransform().diskCacheStrategy(DiskCacheStrategy.NONE)
-                            .skipMemoryCache(true);
-                    Glide.with(context).load(myfriendsBean.getImage())
-                            .apply(mRequestOptions).into(holder.circleImageView);    //头像
-
-                } else {
-                    //头像
-                    RequestOptions mRequestOptions = RequestOptions.circleCropTransform().diskCacheStrategy(DiskCacheStrategy.NONE)
-                            .skipMemoryCache(true);
-                    Glide.with(context).load(R.mipmap.bg_img)
-                            .apply(mRequestOptions).into(holder.circleImageView);    //头像
-                }
+                //头像
+                RequestOptions mRequestOptions = RequestOptions.circleCropTransform().diskCacheStrategy(DiskCacheStrategy.NONE)
+                        .skipMemoryCache(true);
+                Glide.with(context).load(myfriendsBean.getImage())
+                        .error(R.mipmap.bg_img)
+                        .apply(mRequestOptions).into(holder.circleImageView);    //头像
                 holder.frendSteps.setText(context.getResources().getString(R.string.step) + ":" + myfriendsBean.getStepNumber());//步数
                 holder.rankNuber.setText(String.valueOf(position+1));//排名
                 holder.zan_count.setText(String.valueOf(myfriendsBean.getTodayThumbs()));//被赞次数

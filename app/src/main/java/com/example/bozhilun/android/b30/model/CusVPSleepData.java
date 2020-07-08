@@ -2,6 +2,7 @@ package com.example.bozhilun.android.b30.model;
 
 
 import com.veepoo.protocol.util.b;
+import com.veepoo.protocol.util.c;
 
 /**
  * 对接维亿魄的睡眠实体类
@@ -57,7 +58,7 @@ public class CusVPSleepData implements Comparable<Object>{
     public static String getCusVPSleepDate(CusVPTimeData time) {
         String date = time.getDateForDb();
         if (time.getHour() < 8) {
-            date = b.a(date, -1);
+            date = c.a(date, -1);
         }
 
         return date;

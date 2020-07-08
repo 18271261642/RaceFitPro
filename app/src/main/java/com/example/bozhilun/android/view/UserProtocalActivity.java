@@ -2,7 +2,7 @@ package com.example.bozhilun.android.view;
 
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebResourceRequest;
@@ -32,7 +32,7 @@ public class UserProtocalActivity extends WatchBaseActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.privacyWb)
-    WebView privacyWb;
+    CustomerWebView privacyWb;
     private WebView webView;
 
     private WebSettings webSettings;

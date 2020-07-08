@@ -4,27 +4,21 @@ package com.example.bozhilun.android.activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.design.widget.TextInputLayout;
-import android.support.v4.content.ContextCompat;
+
+import com.google.android.material.textfield.TextInputLayout;
+import androidx.core.content.ContextCompat;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.R;
-import com.example.bozhilun.android.adpter.PhoneAdapter;
 import com.example.bozhilun.android.base.BaseActivity;
 import com.example.bozhilun.android.bean.AreCodeBean;
-import com.example.bozhilun.android.net.OkHttpObservable;
-import com.example.bozhilun.android.rxandroid.DialogSubscriber;
-import com.example.bozhilun.android.rxandroid.SubscriberOnNextListener;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
 import com.example.bozhilun.android.util.Md5Util;
 import com.example.bozhilun.android.util.NetUtils;
@@ -35,17 +29,14 @@ import com.example.bozhilun.android.w30s.utils.httputils.RequestPressent;
 import com.example.bozhilun.android.w30s.utils.httputils.RequestView;
 import com.google.gson.Gson;
 import org.apache.commons.lang.StringUtils;
-import org.json.JSONException;
 import org.json.JSONObject;
-import java.util.ArrayList;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import butterknife.BindView;
 import butterknife.OnClick;
-import rx.Subscriber;
 
 
 /**
@@ -143,11 +134,13 @@ public class ForgetPasswardActivity extends BaseActivity implements RequestView 
             case R.id.send_btn_forget:      //发送验证码
                 String inputData = username.getText().toString().trim();
                 if(WatchUtils.isEmpty(inputData)){
-                    ToastUtil.showShort(ForgetPasswardActivity.this, getResources().getString(R.string.input_email));
+                    ToastUtil.showSnackBarToast(view,getResources().getString(R.string.input_email));
+                    //ToastUtil.showShort(ForgetPasswardActivity.this, getResources().getString(R.string.input_email));
                     return;
                 }
                 if(!NetUtils.isNetworkAvailable(this)){
-                    ToastUtil.showShort(ForgetPasswardActivity.this,getResources().getString(R.string.wangluo));
+                    ToastUtil.showSnackBarToast(view,getResources().getString(R.string.wangluo));
+                    //ToastUtil.showShort(ForgetPasswardActivity.this,getResources().getString(R.string.wangluo));
                     return;
                 }
                 if(countDownTimerUtils == null)
@@ -158,7 +151,8 @@ public class ForgetPasswardActivity extends BaseActivity implements RequestView 
                 }else{      //是邮箱用户
                     String emailUrl = Commont.FRIEND_BASE_URL + URLs.sendEmail;
                     if(!isEmail(inputData)){
-                        ToastUtil.showShort(ForgetPasswardActivity.this, getResources().getString(R.string.tianxie));
+                        ToastUtil.showSnackBarToast(view,getResources().getString(R.string.tianxie));
+                        //ToastUtil.showShort(ForgetPasswardActivity.this, getResources().getString(R.string.tianxie));
                         return;
                     }
 
@@ -175,22 +169,20 @@ public class ForgetPasswardActivity extends BaseActivity implements RequestView 
                 String uVCode = yuanzhengma.getText().toString().trim();    //验证码
                 if(isPhone){    //手机号
                     if (WatchUtils.isEmpty(uName)) {    //账号为空
-                        ToastUtil.showToast(ForgetPasswardActivity.this, getResources().getString(R.string.input_email));
+                        ToastUtil.showSnackBarToast(view,getResources().getString(R.string.input_email));
+                        //ToastUtil.showToast(ForgetPasswardActivity.this, getResources().getString(R.string.input_email));
                         return;
                     }
                     if(WatchUtils.isEmpty(uPwd)){   //密码为空
-                        ToastUtil.showToast(ForgetPasswardActivity.this,
-                                getResources().getString(R.string.input_password));
+                        ToastUtil.showSnackBarToast(view,getResources().getString(R.string.input_password));
                         return;
                     }
                     if(uPwd.length() < 6){  //密码长度小于6位
-                        ToastUtil.showShort(ForgetPasswardActivity.this,
-                                getResources().getString(R.string.not_b_less));
+                        ToastUtil.showSnackBarToast(view,getResources().getString(R.string.not_b_less));
                         return;
                     }
                     if(WatchUtils.isEmpty(uVCode)){ //验证码为空
-                        ToastUtil.showShort(ForgetPasswardActivity.this,
-                                getResources().getString(R.string.yonghuzdffhej));
+                        ToastUtil.showSnackBarToast(view,getResources().getString(R.string.yonghuzdffhej));
                         return;
                     }
                     //提交
@@ -206,23 +198,26 @@ public class ForgetPasswardActivity extends BaseActivity implements RequestView 
 
                 }else{  //邮箱
                     if(WatchUtils.isEmpty(uName)){ //邮箱为空
-                        ToastUtil.showToast(ForgetPasswardActivity.this,getResources().getString(R.string.input_email));
+                        ToastUtil.showSnackBarToast(view,getResources().getString(R.string.input_email));
                         return;
                     }
-//                    if (!VerifyUtil.checkEmail(uName)) {   //邮箱格式错误
-//                        ToastUtil.showShort(this, getResources().getString(R.string.mailbox_format_error));
-//                        return;
-//                    }
+                    if (!uName.contains("@")) {   //邮箱格式错误
+                        ToastUtil.showSnackBarToast(view,getResources().getString(R.string.mailbox_format_error));
+                        return;
+                    }
                     if (WatchUtils.isEmpty(uPwd)){      //密码为空
-                        ToastUtil.showShort(this, getResources().getString(R.string.input_password));
+                        ToastUtil.showSnackBarToast(view,getResources().getString(R.string.input_password));
+                       // ToastUtil.showShort(this, getResources().getString(R.string.input_password));
                         return;
                     }
                     if (uPwd.length() < 6){     //密码长度小于6位
-                        ToastUtil.showShort(this, getResources().getString(R.string.not_b_less));
+                        ToastUtil.showSnackBarToast(view,getResources().getString(R.string.not_b_less));
+                        //ToastUtil.showShort(this, getResources().getString(R.string.not_b_less));
                         return;
                     }
                     if (WatchUtils.isEmpty(uVCode)) {   //验证码位空
-                        ToastUtil.showShort(this, getResources().getString(R.string.input_code));
+                        ToastUtil.showSnackBarToast(view,getResources().getString(R.string.input_code));
+                        //ToastUtil.showShort(this, getResources().getString(R.string.input_code));
                         return;
                     }
                     //提交信息
@@ -364,10 +359,12 @@ public class ForgetPasswardActivity extends BaseActivity implements RequestView 
     @Override
     public void successData(int what, Object object, int daystag) {
         closeLoadingDialog();
-        if(what == 1){  //发送手机验证码
+        if(what == 0x01){  //发送手机验证码
             try {
                 JSONObject jsonObject = new JSONObject((String)object);
-                ToastUtil.showToast(ForgetPasswardActivity.this,jsonObject.getString("data"));
+                String msg = jsonObject.getString("msg");
+                String dataStr = jsonObject.getString("data");
+                ToastUtil.showToast(ForgetPasswardActivity.this,WatchUtils.isEmpty(dataStr)? msg : dataStr);
             }catch (Exception e){
                 e.printStackTrace();
             }

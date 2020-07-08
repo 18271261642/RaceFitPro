@@ -9,18 +9,19 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
 import com.example.bozhilun.android.b30.bean.B30HalfHourDao;
 import com.example.bozhilun.android.b30.model.CusVPSleepData;
-import com.example.bozhilun.android.b31.km.KmAsyncTask;
 import com.example.bozhilun.android.b31.model.B31HRVBean;
+import com.example.bozhilun.android.b31.ota.B31OtaActivity;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
 import com.example.bozhilun.android.siswatch.utils.WatchUtils;
@@ -31,12 +32,14 @@ import com.veepoo.protocol.VPOperateManager;
 import com.veepoo.protocol.listener.base.IBleWriteResponse;
 import com.veepoo.protocol.listener.data.ICustomSettingDataListener;
 import com.veepoo.protocol.listener.data.IDeviceFuctionDataListener;
+import com.veepoo.protocol.listener.data.IHRVOriginDataListener;
 import com.veepoo.protocol.listener.data.IOriginData3Listener;
 import com.veepoo.protocol.listener.data.IOriginDataListener;
 import com.veepoo.protocol.listener.data.IOriginProgressListener;
 import com.veepoo.protocol.listener.data.IPwdDataListener;
 import com.veepoo.protocol.listener.data.ISleepDataListener;
 import com.veepoo.protocol.listener.data.ISocialMsgDataListener;
+import com.veepoo.protocol.listener.data.ISpo2hOriginDataListener;
 import com.veepoo.protocol.model.datas.FunctionDeviceSupportData;
 import com.veepoo.protocol.model.datas.FunctionSocailMsgData;
 import com.veepoo.protocol.model.datas.HRVOriginData;
@@ -49,6 +52,10 @@ import com.veepoo.protocol.model.datas.SleepPrecisionData;
 import com.veepoo.protocol.model.datas.Spo2hOriginData;
 import com.veepoo.protocol.model.enums.EPwdStatus;
 import com.veepoo.protocol.model.settings.CustomSettingData;
+
+import org.litepal.LitePal;
+
+import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -77,11 +84,22 @@ public class InternalTestActivity extends WatchBaseActivity {
     private int code = 0;
 
 
+    private List<String> spo2List;
+
+    @BindView(R.id.commDateLin)
+    LinearLayout commDateLin;
+
+
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
+
+            String str = (String) SharedPreferencesUtils.readObject(InternalTestActivity.this,"str");
+
+            Log.e(TAG,"-------str="+str);
+
             //showDeviceSleepTv.setText(stringBuilder.toString());
 
 //            List<HRVOriginData> hrvOriginDataList = (List<HRVOriginData>) msg.obj;
@@ -132,15 +150,22 @@ public class InternalTestActivity extends WatchBaseActivity {
         commArrowDate.setText(currDay);
         commentB30TitleTv.setText("内部测试用");
         commentB30BackImg.setVisibility(View.VISIBLE);
+        commDateLin.setBackgroundColor(getResources().getColor(R.color.new_colorAccent));
+        spo2List = new ArrayList<>();
     }
 
     @OnClick({R.id.commentB30BackImg, R.id.commArrowLeft,
             R.id.commArrowRight, R.id.deviceSleepBtn,
             R.id.sqlSleepBtn,R.id.clearSleepBtn,
             R.id.readDBHeartBtn,R.id.readDBBpBtn,
-            R.id.readDeviceAllSportBtn,R.id.verticalDevicePwdBtn})
+            R.id.readDeviceAllSportBtn,R.id.verticalDevicePwdBtn,
+            R.id.readSpo2Btn,R.id.commentB30TitleTv,
+            R.id.saveDataBtn,R.id.setting1Btn,R.id.setting2Btn})
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.commentB30TitleTv:
+                startActivity(B31OtaActivity.class);
+                break;
             case R.id.commentB30BackImg:
                 finish();
                 break;
@@ -181,6 +206,26 @@ public class InternalTestActivity extends WatchBaseActivity {
             case R.id.verticalDevicePwdBtn:     //验证设备密码
                 verticalDevicePwd();
                 break;
+            case R.id.readSpo2Btn:
+                readOldSpo2();
+//                String where = "bleMac = ? and dateStr = ?";
+//                List<B31HRVBean> yesDayHrvLt = LitePal.where(where,
+//                        WatchUtils.getSherpBleMac(MyApp.getContext()), WatchUtils.obtainFormatDate(1)).find(B31HRVBean.class);
+//                Log.e(TAG,"-----yesDayHrvLt="+yesDayHrvLt.size());
+                break;
+
+            case R.id.saveDataBtn:
+                SharedPreferencesUtils.saveObject(this,"str","str");
+                handler.sendEmptyMessageAtTime(111,2000);
+                break;
+            case R.id.setting1Btn:
+                SharedPreferencesUtils.saveObject(this,"str","");
+                handler.sendEmptyMessageAtTime(111,2000);
+                break;
+            case R.id.setting2Btn:
+                SharedPreferencesUtils.saveObject(this,"str",null);
+                handler.sendEmptyMessageAtTime(111,2000);
+                break;
         }
     }
 
@@ -204,7 +249,7 @@ public class InternalTestActivity extends WatchBaseActivity {
 
         @Override
         public void onOringinFiveMinuteDataChange(OriginData originData) {
-
+            Log.e(TAG,"--------originData="+originData.toString());
         }
 
         @Override
@@ -436,6 +481,67 @@ public class InternalTestActivity extends WatchBaseActivity {
 
     }
 
+
+
+    //读取血氧和hrv
+    private void readOldSpo2(){
+        MyApp.getInstance().getVpOperateManager().readSpo2hOrigin(iBleWriteResponse, new ISpo2hOriginDataListener() {
+            @Override
+            public void onReadOriginProgress(float v) {
+
+            }
+
+            @Override
+            public void onReadOriginProgressDetail(int i, String s, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onSpo2hOriginListener(Spo2hOriginData spo2hOriginData) {
+                Log.e(TAG,"--------spo2="+gson.toJson(spo2hOriginData)+"\n");
+                spo2List.add(gson.toJson(spo2hOriginData)+"\n");
+            }
+
+            @Override
+            public void onReadOriginComplete() {
+                showDeviceSleepTv.setText(gson.toJson(spo2List));
+            }
+        }, 1);
+
+
+
+//        MyApp.getInstance().getVpOperateManager().readHRVOrigin(iBleWriteResponse, new IHRVOriginDataListener() {
+//            @Override
+//            public void onReadOriginProgress(float v) {
+//
+//            }
+//
+//            @Override
+//            public void onReadOriginProgressDetail(int i, String s, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onHRVOriginListener(HRVOriginData hrvOriginData) {
+//                Log.e(TAG,"--------spo2="+gson.toJson(hrvOriginData)+"\n");
+//            }
+//
+//            @Override
+//            public void onDayHrvScore(int i, String s, int i1) {
+//
+//            }
+//
+//            @Override
+//            public void onReadOriginComplete() {
+//
+//            }
+//        }, 1);
+
+
+
+
+
+    }
 
 
 

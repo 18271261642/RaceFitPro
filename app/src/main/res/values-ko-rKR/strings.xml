@@ -1,5 +1,6 @@
 <resources>
     <!--韩语-->
+    <string name="calibrating">교정</string>
     <string name="string_bmi_title">BMI</string>
     <string name="string_note">주의:</string>
     <string name="string_light_alert">가장 높은 밝기 설정은 더 빠른 전력 소비와 더 짧은 배터리 수명을 제공합니다.</string>

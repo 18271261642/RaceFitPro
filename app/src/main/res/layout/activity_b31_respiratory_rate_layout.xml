@@ -25,7 +25,7 @@
 
 
 
-            <com.example.bozhilun.android.b30.b30view.CustomCircleProgressBar
+            <com.example.bozhilun.android.b30.b30view.TmpCustomCircleProgressBar
                 android:id="@+id/b31MeaureRateProgressView"
                 android:layout_width="220dp"
                 android:layout_height="220dp"

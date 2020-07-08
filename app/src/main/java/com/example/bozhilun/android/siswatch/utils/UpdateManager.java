@@ -16,18 +16,26 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.ResultReceiver;
-import android.support.v4.content.FileProvider;
-import android.support.v7.app.AlertDialog;
+import androidx.core.content.FileProvider;
+import androidx.appcompat.app.AlertDialog;
 import android.util.Log;
 import android.widget.Toast;
 import com.example.bozhilun.android.R;
+import com.example.bozhilun.android.b31.km.NohttpUtils;
 import com.example.bozhilun.android.net.OkHttpObservable;
 import com.example.bozhilun.android.rxandroid.CommonSubscriber;
 import com.example.bozhilun.android.rxandroid.SubscriberOnNextListener;
 import com.example.bozhilun.android.view.PromptDialog;
+import com.google.gson.Gson;
+import com.yanzhenjie.nohttp.NoHttp;
+import com.yanzhenjie.nohttp.rest.OnResponseListener;
+import com.yanzhenjie.nohttp.rest.Response;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/9/28.
@@ -47,6 +55,11 @@ public class UpdateManager {
     private ProgressDialog mProgressDialog;
 
     private AlertDialog.Builder alertDialog;
+
+
+    //文件下载的路径
+    private String APK_FILE_URL = null;
+
 
 
     @SuppressLint("HandlerLeak")
@@ -89,6 +102,24 @@ public class UpdateManager {
                 });
 
     }
+
+
+
+    private String getAPK_FILE_URL(){
+        try {
+            File tmpFile = mContext.getExternalFilesDir(null);
+            if(tmpFile == null)
+                APK_FILE_URL = Environment.getExternalStorageDirectory().getPath()+"/";
+            else
+                APK_FILE_URL = tmpFile.getPath()+"/";
+            return APK_FILE_URL;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
 
     public void setUpdate(final String upUrl) {
         final PromptDialog pd = new PromptDialog(mContext);
@@ -208,41 +239,48 @@ public class UpdateManager {
     //检查更新
     public void checkForUpdate(final boolean isTrue) {
         if (url != null) {
-            final JSONObject jsonObject = new JSONObject();
-            try {
-                jsonObject.put("version", WatchUtils.getVersionCode(mContext));
-                jsonObject.put("appName","com.example.bozhilun.android");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            commonSubscriber = new CommonSubscriber(new SubscriberOnNextListener<String>() {
+            Map<String,Object> jsonObject = new HashMap<>();
+            jsonObject.put("version", WatchUtils.getVersionCode(mContext));
+            jsonObject.put("appName","com.example.bozhilun.android");
+            NohttpUtils.getNoHttpUtils().getModelRequestJSONObject(0x01, url, new Gson().toJson(jsonObject), new OnResponseListener<JSONObject>() {
                 @Override
-                public void onNext(String result) {
-                    Log.e("update", "---result---" + result);
-                    if (!WatchUtils.isEmpty(result)) {
-                        try {
-                            JSONObject jsono = new JSONObject(result);
-                            if(!jsono.has("code"))
-                                return;
-                            if(jsono.getInt("code") == 200){
-                                JSONObject jsonObject1 = jsono.getJSONObject("data");
-                                String verStr = jsonObject1.getString("version");
-                                if(!WatchUtils.isEmpty(verStr) && Integer.valueOf(verStr.trim())>WatchUtils.getVersionCode(mContext)){
-                                    Log.e("update", "-----返回地址=" + jsonObject1.getString("url"));
-                                    setUpdate2(jsonObject1.getString("url"));
-                                }
+                public void onStart(int what) {
 
+                }
+
+                @Override
+                public void onSucceed(int what, Response<JSONObject> response) {
+                    try {
+                        if(response == null)
+                            return;
+                        if(response.get() == null)
+                            return;
+                        JSONObject js = response.get();
+                        if(!js.has("code"))
+                            return;
+                        if(js.getInt("code") == 200){
+                            JSONObject dataJson = js.getJSONObject("data");
+                            String verStr = dataJson.getString("version");
+                            if(!WatchUtils.isEmpty(verStr) && Integer.valueOf(verStr.trim())>WatchUtils.getVersionCode(mContext)){
+                                Log.e("update", "-----返回地址=" + dataJson.getString("url"));
+                                setUpdate2(dataJson.getString("url"));
                             }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
+                    }catch (Exception e){
+                        e.printStackTrace();
                     }
                 }
 
-            }, mContext);
-            OkHttpObservable.getInstance().getData(commonSubscriber, url, jsonObject.toString());
+                @Override
+                public void onFailed(int what, Response<JSONObject> response) {
 
+                }
+
+                @Override
+                public void onFinish(int what) {
+
+                }
+            });
         }
     }
 

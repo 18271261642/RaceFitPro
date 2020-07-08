@@ -5,8 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,8 +16,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.bozhilun.android.Commont;
 import com.example.bozhilun.android.MyApp;
 import com.example.bozhilun.android.R;
-import com.example.bozhilun.android.b30.b30view.CustomCircleProgressBar;
-import com.example.bozhilun.android.b31.km.KmConstance;
+import com.example.bozhilun.android.b30.b30view.TmpCustomCircleProgressBar;
 import com.example.bozhilun.android.b31.km.NohttpUtils;
 import com.example.bozhilun.android.bleutil.MyCommandManager;
 import com.example.bozhilun.android.siswatch.WatchBaseActivity;
@@ -29,16 +27,13 @@ import com.veepoo.protocol.listener.base.IBleWriteResponse;
 import com.veepoo.protocol.listener.data.ISpo2hDataListener;
 import com.veepoo.protocol.model.datas.Spo2hData;
 import com.veepoo.protocol.model.enums.EDeviceStatus;
+import com.veepoo.protocol.model.enums.ESPO2HStatus;
 import com.yanzhenjie.nohttp.rest.OnResponseListener;
 import com.yanzhenjie.nohttp.rest.Response;
-
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -60,7 +55,7 @@ public class B31ManSpO2Activity extends WatchBaseActivity {
     @BindView(R.id.commentB30ShareImg)
     ImageView commentB30ShareImg;
     @BindView(R.id.b31MeaureSpo2ProgressView)
-    CustomCircleProgressBar b31MeaureSpo2ProgressView;
+    TmpCustomCircleProgressBar b31MeaureSpo2ProgressView;
     @BindView(R.id.b31MeaureStartImg)
     ImageView b31MeaureStartImg;
     @BindView(R.id.showSpo2ResultTv)
@@ -72,10 +67,14 @@ public class B31ManSpO2Activity extends WatchBaseActivity {
     //开始或者停止测量的标识
     private boolean isStart = false;
 
+    private boolean isFirstMan = true;
+
     private NohttpUtils nohttpUtils;
     private String userId = null;
     private String deviceCode = null;
 
+    //开始测量的当前时间
+    long currTime;
 
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
@@ -87,23 +86,28 @@ public class B31ManSpO2Activity extends WatchBaseActivity {
                 Spo2hData spo2hData = (Spo2hData) msg.obj;
                 if (spo2hData == null)
                     return;
-                if(spo2hData.getDeviceState() != EDeviceStatus.FREE){
+                if(spo2hData.getDeviceState() != EDeviceStatus.FREE || (spo2hData.getSpState() == ESPO2HStatus.CLOSE && !spo2hData.isChecking())){   //设置端正在使用测量功能，
                     showSpo2ResultTv.setText(WatchUtils.setBusyDesicStr());
                     isStart = true;
                     startOrStopManSpo2();
                     return;
                 }
 
+                if(spo2hData.getSpState() == ESPO2HStatus.OPEN && spo2hData.isChecking()){
+                    b31MeaureSpo2ProgressView.setProgress(spo2hData.getCheckingProgress());
+                }
+
+
                 if (spo2hData.getCheckingProgress() == 0x00 && !spo2hData.isChecking()) {
+                    int spo2Value = spo2hData.getValue();
                     b31MeaureSpo2ProgressView.setTmpTxt(spo2hData.getValue() + "%");
-                    showSpo2ResultTv.setText(verSpo2Status(spo2hData.getValue()));
-                    b31MeaureSpo2ProgressView.setOxyDexcStr(getResources().getString(R.string.string_spo2_concent));
-                    //Log.e(TAG,"----------进度="+spo2hData.getCheckingProgress()+"%");
+                    showSpo2ResultTv.setText(spo2Value == 0 ? "":verSpo2Status(spo2hData.getValue()));
+                    b31MeaureSpo2ProgressView.setOxyDexcStr(spo2Value == 0 ? getResources().getString(R.string.calibrating):getResources().getString(R.string.string_spo2_concent));
+
                     RequestOptions options = new RequestOptions()
                             .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
                     Glide.with(B31ManSpO2Activity.this).asGif().load(R.drawable.spgif).apply(options).into(spo2ShowGifImg);
-
-                   uploadSpo2Data(spo2hData);
+                  // uploadSpo2Data(spo2hData);
                 }
 
             }
@@ -119,7 +123,11 @@ public class B31ManSpO2Activity extends WatchBaseActivity {
         setContentView(R.layout.activity_b31_man_spo2);
         ButterKnife.bind(this);
 
+        isFirstMan = true;
+
         initViews();
+
+
         userId = (String) SharedPreferencesUtils.readObject(B31ManSpO2Activity.this, Commont.USER_ID_DATA);
         deviceCode = MyApp.getInstance().getMacAddress();
         nohttpUtils = NohttpUtils.getNoHttpUtils();
@@ -133,8 +141,18 @@ public class B31ManSpO2Activity extends WatchBaseActivity {
         //进度色
         b31MeaureSpo2ProgressView.setOutsideColor(Color.WHITE);
         spo2ShowGifImg.setImageResource(R.drawable.spgif);
+        b31MeaureSpo2ProgressView.setMaxProgress(100);
         b31MeaureSpo2ProgressView.setOxyDexcStr(getResources().getString(R.string.spo2_calibration_pro));
         b31MeaureSpo2ProgressView.setOxyCh(true);
+        b31MeaureSpo2ProgressView.setTmpTxt(null);
+
+        commentB30TitleTv.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                return true;
+            }
+        });
 
     }
 
@@ -160,12 +178,14 @@ public class B31ManSpO2Activity extends WatchBaseActivity {
 
     private void startOrStopManSpo2() {
         if (!isStart) {   //开始测量
+            showSpo2ResultTv.setText("环境校验准备中,请保持正确姿势");
             isStart = true;
+            //当前时间
             b31MeaureSpo2ProgressView.setTmpTxt(null);
             b31MeaureStartImg.setImageResource(R.drawable.detect_sp_stop);
             b31MeaureSpo2ProgressView.stopAnim();
-            b31MeaureSpo2ProgressView.setScheduleDuring(4 * 1000);
-            b31MeaureSpo2ProgressView.setProgress(100);
+//            b31MeaureSpo2ProgressView.setScheduleDuring(4 * 1000);
+//            b31MeaureSpo2ProgressView.setProgress(100);
             MyApp.getInstance().getVpOperateManager().startDetectSPO2H(iBleWriteResponse, new ISpo2hDataListener() {
                 @Override
                 public void onSpO2HADataChange(Spo2hData spo2hData) {
@@ -198,7 +218,6 @@ public class B31ManSpO2Activity extends WatchBaseActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         nohttpUtils.cancleHttpPost(0x01);
         if(isStart){
             MyApp.getInstance().getVpOperateManager().stopDetectSPO2H(iBleWriteResponse, new ISpo2hDataListener() {
@@ -208,7 +227,7 @@ public class B31ManSpO2Activity extends WatchBaseActivity {
                 }
             });
         }
-
+        super.onDestroy();
     }
 
     private IBleWriteResponse iBleWriteResponse = new IBleWriteResponse() {
@@ -246,25 +265,54 @@ public class B31ManSpO2Activity extends WatchBaseActivity {
 
     //上传测量的血氧数据
     private void uploadSpo2Data(Spo2hData spo2hData) {
-//        //当前时间
-//        long currTime = System.currentTimeMillis();
-//        //保存的时间
-//        long savedTime = (long) SharedPreferencesUtils.getParam(B31ManSpO2Activity.this,"spo2_time",System.currentTimeMillis());
-//        //差值
-//        long differenceTime = currTime-savedTime;
-//        Log.e(TAG,"------差值="+differenceTime);
-        List<Map<String,Object>>  spo2List = new ArrayList<>();
-        Map<String,Object> map = new HashMap<>();
-        map.put("AccountId",userId);
-        map.put("DeviceCode",deviceCode);
-        map.put("Bo",spo2hData.getValue());
-        map.put("TestTime",WatchUtils.getCurrentDate1());
-        spo2List.add(map);
-        String spo2Url = KmConstance.uploadBloodOxygen();
-        String params = new Gson().toJson(spo2List);
-        Log.e(TAG,"---params="+params);
-        nohttpUtils.getModelRequestJSONObject(0x01,spo2Url,params,onResponseListener);
+//
+//        List<Map<String,Object>>  spo2List = new ArrayList<>();
+//        Map<String,Object> map = new HashMap<>();
+//        map.put("AccountId",userId);
+//        map.put("DeviceCode",deviceCode);
+//        map.put("Bo",spo2hData.getValue());
+//        map.put("TestTime",WatchUtils.getCurrentDate1());
+//        spo2List.add(map);
+//        String spo2Url = KmConstance.uploadBloodOxygen();
+//        String params = new Gson().toJson(spo2List);
+//        Log.e(TAG,"---params="+params);
+//        nohttpUtils.getModelRequestJSONObject(0x01,spo2Url,params,onResponseListener);
+
+
+        //第一次上传
+        if(isFirstMan){
+            uploadSpo2(spo2hData);
+        }else{
+            currTime = System.currentTimeMillis();
+            //保存的时间
+            long savedTime = (long) SharedPreferencesUtils.getParam(B31ManSpO2Activity.this,"spo2_time",System.currentTimeMillis());
+            //差值
+            long differenceTime = currTime-savedTime;
+            if(differenceTime/1000 <5)
+                return;
+            uploadSpo2(spo2hData);
+        }
+
+
     }
+
+
+    private void uploadSpo2(Spo2hData spo2hData){
+        try {
+            String url = Commont.FRIEND_BASE_URL + Commont.UPLOAD_HAND_HEART_AD_SPO2;
+            Map<String,Object> spo2Map = new HashMap<>();
+            spo2Map.put("userId",userId);
+            spo2Map.put("pulse","0");
+            spo2Map.put("bloodOxygen",spo2hData.getValue()+"%");
+            String parms = new Gson().toJson(spo2Map);
+            Log.e(TAG,"----parms="+parms);
+            nohttpUtils.getModelRequestJSONObject(0x02,url,new Gson().toJson(spo2Map),onResponseListener);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
 
     private OnResponseListener<JSONObject> onResponseListener = new OnResponseListener<JSONObject>() {
         @Override
@@ -274,12 +322,16 @@ public class B31ManSpO2Activity extends WatchBaseActivity {
 
         @Override
         public void onSucceed(int what, Response<JSONObject> response) {
-            //Log.e(TAG,"------response="+response.get());
+            Log.e(TAG,"------response="+what+"--="+response.get());
+            if(what == 0x02){
+                isFirstMan = false;
+                SharedPreferencesUtils.setParam(B31ManSpO2Activity.this,"spo2_time",System.currentTimeMillis());
+            }
         }
 
         @Override
         public void onFailed(int what, Response<JSONObject> response) {
-            //Log.e(TAG,"------failed="+response.getException());
+            Log.e(TAG,"------failed="+response.getException());
         }
 
         @Override
@@ -287,6 +339,5 @@ public class B31ManSpO2Activity extends WatchBaseActivity {
 
         }
     };
-
 
 }
